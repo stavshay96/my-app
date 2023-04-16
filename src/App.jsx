@@ -22,7 +22,7 @@ function CreateGame(game){
 
 function App() {
     return ( 
-    <div className="background">
+    <div>
        <LoginSignUpBar/>
        <LangBar/>
        {games.map(CreateGame)}
