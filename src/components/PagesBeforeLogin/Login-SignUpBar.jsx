@@ -1,6 +1,9 @@
 import { React, useState } from "react";
 import Button from 'react-bootstrap/Button';
+import Popup from 'reactjs-popup';
 import "./Login-SignUpBar.css";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 
 function SignUpClick()
@@ -16,12 +19,25 @@ function LoginClick()
 function Login_SignUpBar()
 {
     return (<div>
-        <Button style={{position:'fixed', top:'5%', right:'20%'}} onClick={SignUpClick}>
-            הרשמה 
-        </Button>
-        <Button style={{position:'fixed', top:'5%', right:'10%'}}onClick={LoginClick}>
+        <Popup trigger={ 
+          <Button style={{position:'fixed', top:'5%', right:'20%'}} onClick={SignUpClick}>
+             הרשמה 
+          </Button>}  modal nested>
+          
+            <SignUp/>
+            <div>Popup SignUp content here !!</div>
+        </Popup>
+
+
+        <Popup trigger={ 
+         <Button style={{position:'fixed', top:'5%', right:'10%'}}onClick={LoginClick}>
             התחברות 
-        </Button>
+         </Button>}  modal nested>
+            <Login/>
+            <div>Popup Login content here !!</div>
+        </Popup>
+
+
     </div>)
 }
 
