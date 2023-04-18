@@ -1,4 +1,4 @@
-.btn {
+.btnLSBar {
     text-align: center;
     background-color: #eeeeef;
     border-radius: 29px;
@@ -14,6 +14,6 @@
     width: 10%;
 }
 
-.btn:hover {
+.btnLSBar:hover {
     background-color: #b6d7a8;
 }
