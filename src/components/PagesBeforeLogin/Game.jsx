@@ -9,7 +9,9 @@ function Game(props){
     
    return(
       <div>
-            <Button className="btnGame" variant="primary" style={props.style}>{props.name}</Button>
+            <Button className="btnGame" variant="primary" style={props.style}>
+                  {props.name}
+            </Button>
       </div>)
 }
 

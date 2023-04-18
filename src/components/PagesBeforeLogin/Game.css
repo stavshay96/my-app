@@ -1,4 +1,25 @@
 .btnGame {
+    /*white-space: nowrap;*/
+    background-color: #eeeeef;
+    border-radius: 29px;
+    border: 3px solid #b6d7a8;
+    /*color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 2vw;
+    padding: 15% 5%;
+    text-shadow: 0px 1px 0px #2f6627;*/
+    /*display: inline-block;*/
+    /* Set the display property to inline-block */
+    /*padding-top: 2vw;*/
+    /* Move text 10 pixels up */
+}
+
+.btnGame:hover {
+    background-color: #b6d7a8;
+}
+
+
+/*.btnGame {
     white-space: nowrap;
     background-color: #eeeeef;
     border-radius: 29px;
@@ -6,8 +27,13 @@
     color: #000000;
     font-family: 'Alef', sans-serif;
     font-size: 2vw;
-    padding: 15% 9%;
+    padding: 15% 5%;
     text-shadow: 0px 1px 0px #2f6627;
-    display: inline-block; /* Set the display property to inline-block */
-    padding-top: 2vw; /* Move text 10 pixels up */
-}
+    display: inline-block;
+    /* Set the display property to inline-block */
+
+
+/*padding-top: 2vw;*/
+
+
+/* Move text 10 pixels up */

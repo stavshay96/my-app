@@ -15,7 +15,6 @@ function CreateGame(game){
     return ( <Game
         key={game.gameID} 
         name={game.name}
-        Url= {game.backgroundURL}
         style= {game.style}
     />)
 }
