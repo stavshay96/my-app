@@ -18,16 +18,7 @@ function Login_SignUpBar()
     return (<div>
         <Login/>
 
-        <Popup trigger={ 
-          <Button className="btnLSBar" style={{position:'fixed', top:'5%', right:'20%'}} onClick={SignUpClick}>
-             הרשמה 
-          </Button>}  modal nested>
-          
-            <SignUp/>
-            <div>Popup SignUp content here !!</div>
-        </Popup>
-
-
+        <SignUp/>
 
     </div>)
 }
