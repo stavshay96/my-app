@@ -5,6 +5,7 @@ import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./Login.css";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -28,6 +29,7 @@ const Login = (props) =>
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [enteredEmail, setEnteredEmail] = useState("");
     const [enteredPassword, setEnteredPassword] = useState("");
+   // let navigate =useNavigate();
 
    const emailHandler=(event) =>
     {
@@ -45,12 +47,18 @@ const Login = (props) =>
     const LoginHandler = (event) =>
     {
         event.preventDefault();
-        console.log(enteredEmail);
+        console.log("enteredEmail");
         axios.post(`http://localhost:7777/User/Login`, {
             email: enteredEmail,
             password: enteredPassword
         }).then((res) =>{
             console.log(res.data);
+           /* navigate("/userHomePage", {
+                        replace: true,
+                    });*/
+        }).
+        catch(error => {
+    console.error(error);
         });
         
     }
@@ -83,6 +91,11 @@ const Login = (props) =>
             </Form.Group>
 
           
+<Form.Group className="btnLogin" style={{color: '#000000'}} controlId="formBasicCheckbox">
+<Form.Check className="checkBoxStyle" type="checkbox" style={{position:'fixed', top:'60%', right:'47%'}} label="Check me out" > 
+ זכור אותי
+ </Form.Check>
+</Form.Group>
 
 
 
@@ -105,11 +118,6 @@ const Login = (props) =>
   </Button>
 </div>*/
 
-/*<Form.Group className="btnLogin" style={{color: '#000000'}} controlId="formBasicCheckbox">
-<Form.Check className="checkBoxStyle" type="checkbox" style={{position:'fixed', top:'60%', right:'47%'}} label="Check me out" > 
- זכור אותי
- </Form.Check>
-</Form.Group>*/
 
 
 export default Login;
