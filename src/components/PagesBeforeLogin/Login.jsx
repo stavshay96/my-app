@@ -25,6 +25,7 @@ const styleLogin = {
 
 const Login = (props) => 
 {
+    const [open, setOpen] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [enteredEmail, setEnteredEmail] = useState("");
@@ -58,7 +59,8 @@ const Login = (props) =>
                     });*/
         }).
         catch(error => {
-    console.error(error);
+        console.error(error);
+        setOpen(false);
         });
         
     }
@@ -71,14 +73,18 @@ const Login = (props) =>
         </div>  */
         <Popup trigger={ 
 
-            <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'10%'}}>
+        <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'10%'}}>
                התחברות {console.log("login")}
-            </Button>}  modal nested>
+        </Button>}  modal open={open} onClose={() => setOpen(false)}>
+
+        <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%'}}>
+        X
+        </Button>
            
           <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
             <Form.Group className="emailStyle" controlId="formBasicEmail">
                  <Form.Label style={{position:'fixed', top:'42%', right:'33%'}}>:אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'43%', right:'41%' } }value={enteredEmail} onChange={emailHandler}
+                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'42%', right:'41%', fontSize: 18} }value={enteredEmail} onChange={emailHandler}
                   type="email" placeholder="Enter email" />
                   
             </Form.Group>
@@ -86,20 +92,17 @@ const Login = (props) =>
 
             <Form.Group className="passwordStyle" controlId="formBasicPassword">
                 <Form.Label style={{position:'fixed', top:'50%', right:'32.5%'}}>:סיסמה</Form.Label>
-                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'51%', right:'41%', }} value={enteredPassword} onChange={passwordHandler} 
+                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.5%', right:'41%', fontSize: 18}} value={enteredPassword} onChange={passwordHandler} 
                 type="password" placeholder="Password" />
             </Form.Group>
 
-          
-<Form.Group className="btnLogin" style={{color: '#000000'}} controlId="formBasicCheckbox">
-<Form.Check className="checkBoxStyle" type="checkbox" style={{position:'fixed', top:'60%', right:'47%'}} label="Check me out" > 
- זכור אותי
- </Form.Check>
-</Form.Group>
+            <Form.Group controlId="formBasicCheckbox" >
+            <Form.Check className="checkbox" type="checkbox" label="זכור אותי" />
+            </Form.Group>
 
 
 
-             <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
+             <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'67%', right:'45%'}}
             onClick={LoginHandler}>
               התחבר
             </Button>
