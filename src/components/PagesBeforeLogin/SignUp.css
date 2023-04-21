@@ -29,7 +29,7 @@
     display: block;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 2.5vw;
+    font-size: 2vw;
     padding: 11% 20%;
     /* width: 50%;*/
 }
@@ -59,3 +59,20 @@
 }
 
 .passwordStyle {}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* set the overlay color and opacity */
+    z-index: 1; /* set the overlay above the popup */
+  }
+  
+  .popup-content {
+    position: fixed;
+    top: 35%;
+    right: 30%;
+    z-index: 2; /* set the popup above the overlay */
+  }

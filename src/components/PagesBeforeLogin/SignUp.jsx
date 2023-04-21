@@ -25,6 +25,7 @@ const styleSignUp = {
 
 const SignUp = (props) => 
 {
+    const [open, setOpen] = useState(false);
     const [isValidName, setIsValidName] = useState(true);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
@@ -81,21 +82,25 @@ const SignUp = (props) =>
         </div>  */
         <Popup trigger={ 
 
-            <Button className="btnSignUp" style={{position:'fixed', top:'5%', right:'20.5%'}}>
+        <Button className="btnSignUp" style={{position:'fixed', top:'5%', right:'20.5%'}}>
                הרשמה {console.log("SignUp")}
-            </Button>}  modal nested>
+        </Button>}  modal nested>
+
+        <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%'}}>
+        X
+        </Button>
            
           <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
             <Form.Group className="emailStyle" controlId="formBasicEmail">
                  <Form.Label style={{position:'fixed', top:'42%', right:'33%'}}>:אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'43%', right:'41%' } }value={enteredEmail} onChange={emailHandler}
+                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'41.8%', right:'41%', fontSize: 18 } }value={enteredEmail} onChange={emailHandler}
                   type="email" placeholder="Enter email" />
                   
             </Form.Group>
 
             <Form.Group className="nameStyle" controlId="formBasicName">
-                 <Form.Label style={{position:'fixed', top:'50.4%', right:'32.5%', fontSize: '2.3vw'}}>:שם מלא</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'51%', right:'41%' ,  unicodeBidi:'plaintext'} }value={enteredName} onChange={nameHandler}
+                 <Form.Label style={{position:'fixed', top:'50.4%', right:'32.5%'}}>:שם מלא</Form.Label>
+                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.8%', right:'41%' ,  unicodeBidi:'plaintext', fontSize: 18} }value={enteredName} onChange={nameHandler}
                   type="name" placeholder="Enter name" />
                   
             </Form.Group>
@@ -103,14 +108,14 @@ const SignUp = (props) =>
 
             <Form.Group className="passwordStyle" controlId="formBasicPassword">
                 <Form.Label style={{position:'fixed', top:'58%', right:'32.8%'}}>:סיסמה</Form.Label>
-                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'59%', right:'41%', }} value={enteredPassword} onChange={passwordHandler} 
+                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'57.5%', right:'41%', fontSize: 18}} value={enteredPassword} onChange={passwordHandler} 
                 type="password" placeholder="Password" />
             </Form.Group>
 
 
 
 
-             <Button className="btnSignUp" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
+             <Button className="btnSignUp" variant="primary" type="submit" style={{position:'fixed', top:'67%', right:'45%'}}
             onClick={SignUpHandler}>
               הירשם
             </Button>
