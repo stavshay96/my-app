@@ -15,7 +15,7 @@ const Games = [
           fontFamily: 'sans-serif'  ,
           fontSize: '2vw',
           padding: '15% 5.5%', paddingTop:'2vw', whiteSpace:'nowrap',
-          textShadow: '0px 1px 0px #2f6627'}
+          textShadow: '0vw 0.1vw 0.1vw #2f6627'}
     },
     {
         gameID:2,
@@ -27,7 +27,7 @@ const Games = [
         fontFamily: 'sans-serif'  ,
         fontSize: '2vw',
         padding: '15% 6%', paddingTop:'2vw',
-        textShadow: '0px 1px 0px #2f6627'}
+        textShadow: '0vw 0.1vw 0.1vw #2f6627'}
     },
     {
         gameID:3,
@@ -39,7 +39,7 @@ const Games = [
         fontFamily: 'sans-serif'  ,
         fontSize: '2vw',
         padding: '15% 2.5%', paddingTop:'2vw',
-        textShadow: '0px 1px 0px #2f6627',
+        textShadow: '0vw 0.1vw 0.1vw #2f6627',
         }
     }
 

@@ -1,4 +1,3 @@
-
 import {React, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
 import Popup from 'reactjs-popup';
@@ -6,7 +5,8 @@ import Form from 'react-bootstrap/Form';
 import "./SignUp.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faFacebook , faGoogle} from '@fortawesome/free-brands-svg-icons';
 
 
 function SignUpClick()
@@ -15,10 +15,10 @@ function SignUpClick()
 }
 
 const styleSignUp = {
-    backgroundColor: '#eeeeef', borderRadius: '29px', border: '3px solid #b6d7a8',
+    backgroundColor: '#eeeeef', borderRadius: '2vw', border: '0.3vw solid #b6d7a8',
     display: 'inline-block', cursor: 'pointer',color: '#000000',
     position:'fixed', top:'5%', right:'10%',fontFamily: 'sans-serif', 
-    fontSize: '1.5vw', padding: '0.5% 1%', textShadow: '0px 1px 0px #2f6627', width: '10%',
+    fontSize: '1.5vw', padding: '0.5% 1%', textShadow: '0vw 0.1vw 0vw #2f6627', width: '10%',
     '&hover': {  backgroundColor: '#b6d7a8'}
 }
 
@@ -92,33 +92,33 @@ const SignUp = (props) =>
            
           <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
             <Form.Group className="emailStyle" controlId="formBasicEmail">
-                 <Form.Label style={{position:'fixed', top:'42%', right:'33%'}}>:אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'41.8%', right:'41%', fontSize: 18 } }value={enteredEmail} onChange={emailHandler}
+                 <Form.Label style={{position:'fixed', top:'41.75%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
+                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'41.8%', right:'41%', fontSize: '1.25vw' } }value={enteredEmail} onChange={emailHandler}
                   type="email" placeholder="Enter email" />
                   
             </Form.Group>
 
             <Form.Group className="nameStyle" controlId="formBasicName">
-                 <Form.Label style={{position:'fixed', top:'50.4%', right:'32.5%'}}>:שם מלא</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.8%', right:'41%' ,  unicodeBidi:'plaintext', fontSize: 18} }value={enteredName} onChange={nameHandler}
+                 <Form.Label style={{position:'fixed', top:'49.75%', right:'32.85%', fontSize: '1.6vw'}}>:שם מלא</Form.Label>
+                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.8%', right:'41%' ,  unicodeBidi:'plaintext', fontSize: '1.25vw'} }value={enteredName} onChange={nameHandler}
                   type="name" placeholder="Enter name" />
                   
             </Form.Group>
          
 
             <Form.Group className="passwordStyle" controlId="formBasicPassword">
-                <Form.Label style={{position:'fixed', top:'58%', right:'32.8%'}}>:סיסמה</Form.Label>
-                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'57.5%', right:'41%', fontSize: 18}} value={enteredPassword} onChange={passwordHandler} 
+                <Form.Label style={{position:'fixed', top:'57.5%', right:'32.85%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
+                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'57.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
                 type="password" placeholder="Password" />
             </Form.Group>
 
-
-
-
-             <Button className="btnSignUp" variant="primary" type="submit" style={{position:'fixed', top:'67%', right:'45%'}}
+             <Button className="btnSignUp" variant="primary" type="submit" style={{position:'fixed', top:'65.5%', right:'45%', fontSize: '1.6vw'}}
             onClick={SignUpHandler}>
               הירשם
             </Button>
+
+            <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'75%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+            <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'75%', right:'50.5%', fontSize: '3vw'}}/>
     </Form>
 
               
