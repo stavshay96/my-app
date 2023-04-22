@@ -1,4 +1,3 @@
-
 import {React, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
 import Popup from 'reactjs-popup';
@@ -6,19 +5,15 @@ import Form from 'react-bootstrap/Form';
 import "./Login.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faFacebook , faGoogle} from '@fortawesome/free-brands-svg-icons';
 
-
-
-function LoginClick()
-{
-    alert("navigate to log in page")
-}
 
 const styleLogin = {
-    backgroundColor: '#eeeeef', borderRadius: '29px', border: '3px solid #b6d7a8',
+    backgroundColor: '#eeeeef', borderRadius: '2vw', border: '0.3vw solid #b6d7a8',
     display: 'inline-block', cursor: 'pointer',color: '#000000',
     position:'fixed', top:'5%', right:'10%',fontFamily: 'sans-serif', 
-    fontSize: '1.5vw', padding: '0.5% 1%', textShadow: '0px 1px 0px #2f6627', width: '10%',
+    fontSize: '1.5vw', padding: '0.5% 1%', textShadow: '0vw 0.1vw 0vw #2f6627', width: '10%',
     '&hover': {  backgroundColor: '#b6d7a8'}
 }
 
@@ -72,40 +67,40 @@ const Login = (props) =>
             </Button>
         </div>  */
         <Popup trigger={ 
-
+            
         <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'10%'}}>
                התחברות {console.log("login")}
-        </Button>}  modal open={open} onClose={() => setOpen(false)}>
+        </Button>}  modal open={open}>
 
-        <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%'}}>
+        <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
         X
         </Button>
            
           <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
             <Form.Group className="emailStyle" controlId="formBasicEmail">
-                 <Form.Label style={{position:'fixed', top:'42%', right:'33%'}}>:אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'42%', right:'41%', fontSize: 18} }value={enteredEmail} onChange={emailHandler}
+                 <Form.Label style={{position:'fixed', top:'42%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
+                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'42%', right:'41%', fontSize: '1.25vw'} }value={enteredEmail} onChange={emailHandler}
                   type="email" placeholder="Enter email" />
-                  
             </Form.Group>
-         
+            
 
             <Form.Group className="passwordStyle" controlId="formBasicPassword">
-                <Form.Label style={{position:'fixed', top:'50%', right:'32.5%'}}>:סיסמה</Form.Label>
-                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.5%', right:'41%', fontSize: 18}} value={enteredPassword} onChange={passwordHandler} 
-                type="password" placeholder="Password" />
+                <Form.Label style={{position:'fixed', top:'49.5%', right:'32.9%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
+                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
+                type="password" placeholder="Enter Password" />
             </Form.Group>
 
             <Form.Group controlId="formBasicCheckbox" >
-            <Form.Check className="checkbox" type="checkbox" label="זכור אותי" />
+            <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'60%', right:'47%', fontSize: '1.25vw'}}/>
             </Form.Group>
 
-
-
-             <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'67%', right:'45%'}}
+             <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
             onClick={LoginHandler}>
               התחבר
             </Button>
+
+            <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'75%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+            <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'75%', right:'50.5%', fontSize: '3vw'}}/>
     </Form>
 
               

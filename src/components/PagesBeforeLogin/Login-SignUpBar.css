@@ -1,8 +1,8 @@
 .btnLSBar {
     text-align: center;
     background-color: #eeeeef;
-    border-radius: 29px;
-    border: 3px solid #b6d7a8;
+    border-radius: 2vw;
+    border: 0.3vw solid #b6d7a8;
     display: inline-block;
     cursor: pointer;
     color: #000000;
@@ -10,7 +10,6 @@
     font-size: 1.5vw;
     padding: 0.5% 1%;
     /*text-decoration: none;*/
-    text-shadow: 0px 1px 0px #2f6627;
     width: 10%;
 }
 
