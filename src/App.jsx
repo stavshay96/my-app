@@ -1,8 +1,9 @@
-import { React, useState } from "react";
+import { React, useState , useEffect} from "react";
 import LoginSignUpBar from "./components/PagesBeforeLogin/Login-SignUpBar"
 import LangBar from "./components/PagesBeforeLogin/LangBar"
 import Game from "./components/PagesBeforeLogin/Game"
 import games from "./components/PagesBeforeLogin/Games"
+import SignIn from "./components/PagesAfterLogin/SignIn";  
 import Fantasy from "./components/PagesBeforeLogin/Fantasy"
 import Predictions from "./components/PagesBeforeLogin/Predictions"
 import OtherGames from "./components/PagesBeforeLogin/OtherGames"
@@ -20,10 +21,50 @@ function CreateGame(game){
     />)
 }
 
+
+
 function App() {
+
+    //const [isLoggedIn, SetLogin] = useState(false);
+    const [userInfo, SetUserInfo] = useState({});
+    const WrapUserInfo = (userInfo) => {
+        SetUserInfo(() => {
+          return userInfo;
+        });
+    };
+
+    const HasCookies = () => {
+        //const user = document.getCookie();
+        const user = document.cookie;
+        
+        useEffect(() => 
+        {
+            const cookieInfo = splitCookieToString(user);
+            SetUserInfo(cookieInfo);
+        }, []);
+        
+       
+        console.log(user);
+        console.log(userInfo);
+        return user;
+
+    };
+
+    const splitCookieToString = (user) => {
+        let str = user;
+        str = str.split('; ');
+        const result = {};
+        for (let i in str) {
+            const cur = str[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+        return result;
+    }
+
+  
     return ( 
     <div>
-       <LoginSignUpBar/>
+      <div> {HasCookies()? <SignIn userInfo={userInfo} changeUserInfo={WrapUserInfo}/>:  <LoginSignUpBar changeUserInfo={WrapUserInfo}/>}</div>
        <LangBar/>
        {games.map(CreateGame)}
        <img className="left-photo" src={require('./images/Players/Messi.png')} alt="Messi" />
@@ -32,6 +73,7 @@ function App() {
     </div>
     );
 }
+
 
 export default App;
 

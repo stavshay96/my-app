@@ -13,10 +13,10 @@ function SignUpClick()
 
 
 
-function Login_SignUpBar()
+function Login_SignUpBar(props)
 {
     return (<div>
-        <Login/>
+        <Login changeUserInfo={props.changeUserInfo}/>
 
         <SignUp/>
 
