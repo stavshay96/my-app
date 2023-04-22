@@ -49,6 +49,19 @@ const Login = (props) =>
             password: enteredPassword
         }).then((res) =>{
             console.log(res.data);
+            console.log(res.data.userInfo);
+
+            if (res.data.Status === "Login succssed")
+            {
+                
+                setOpen(false);
+               // document.cookie =  "userID " + res.data.userInfo.userID +  " fullName " +  res.data.userInfo.fullName;
+                document.cookie = `userID=${res.data.userInfo.userID}`;
+                document.cookie = `fullName= ${res.data.userInfo.fullName}`;
+                document.cookie = `email= ${res.data.userInfo.email}`;
+                props.changeUserInfo(res.data.userInfo);
+            }
+            
            /* navigate("/userHomePage", {
                         replace: true,
                     });*/
@@ -70,9 +83,9 @@ const Login = (props) =>
             
         <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'10%'}}>
                התחברות {console.log("login")}
-        </Button>}  modal open={open}>
-
-        <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
+        </Button>}  modal open={open} onClick={()=>setOpen(true)}>
+      {close =>(<div>
+        <Button className="close-btn" onClick={close} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
         X
         </Button>
            
@@ -95,15 +108,16 @@ const Login = (props) =>
             </Form.Group>
 
              <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
-            onClick={LoginHandler}>
+            onClick={LoginHandler} >
               התחבר
             </Button>
 
             <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'75%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
             <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'75%', right:'50.5%', fontSize: '3vw'}}/>
-    </Form>
+        </Form>
+        </div>
 
-              
+      )}
         </Popup>
         
        )

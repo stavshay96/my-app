@@ -1,0 +1,37 @@
+.btnSignIn {
+    text-align: center;
+    background-color: #eeeeef;
+    border-radius: 2vw;
+    border: 0.25vw solid #b6d7a8;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.5vw;
+    padding: 0.5% 1%;
+    text-shadow: 0vw 0.1vw 0vw #2f6627;
+    width: 10%;
+    position: 'fixed';
+    top: '5%';
+    right: '10%';
+    /*text-decoration: none;*/
+}
+
+.btnSignIn:hover {
+    background-color: #b6d7a8;
+}
+
+.btnNamePresent {
+    white-space: nowrap;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 2vw;
+    border: 0.25vw solid #ffffff;
+    display: inline-block;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.5vw;
+    padding: 0.5% 1%;
+    text-shadow: 0vw 0.1vw 0vw #2f6627;
+    /*text-decoration: none;*/
+}
