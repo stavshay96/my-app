@@ -6,7 +6,6 @@ const Games = [
     {
         gameID: 1,
         name: "פנטזי ליג",
-        backgroundURL: "../../images/Players/Pele.png",
         style: {backgroundImage: `url(${Pele})`,
           backgroundSize: "cover",
           backgroundPosition: '-4vw 2vw',
@@ -15,7 +14,8 @@ const Games = [
           fontFamily: 'sans-serif'  ,
           fontSize: '2vw',
           padding: '15% 5.5%', paddingTop:'2vw', whiteSpace:'nowrap',
-          textShadow: '0vw 0.1vw 0.1vw #2f6627'}
+          textShadow: '0vw 0.1vw 0.1vw #2f6627'},
+        path: '/Fantasy',
     },
     {
         gameID:2,

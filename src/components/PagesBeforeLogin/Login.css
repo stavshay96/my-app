@@ -22,10 +22,10 @@
 }
 
 .formStyle {
-    background-color: #eeeeef;
+    background-color: #2e2e75;
     border-radius: 2vw;
     border: 0.3vw solid #b6d7a8;
-    cursor: pointer;
+    cursor: default !important;
     display: block;
     color: #000000;
     font-family: 'Alef', sans-serif;
@@ -33,7 +33,6 @@
     padding: 9% 20%;
     /* width: 50%;*/
 }
-
 
 .checkbox {
     position: fixed;
@@ -48,13 +47,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* set the overlay color and opacity */
-    z-index: 1; /* set the overlay above the popup */
-  }
-  
-  .popup-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* set the overlay color and opacity */
+    z-index: 1;
+    /* set the overlay above the popup */
+}
+
+.popup-content {
     position: fixed;
     top: 35%;
     right: 30%;
-    z-index: 2; /* set the popup above the overlay */
-  }
+    z-index: 2;
+    /* set the popup above the overlay */
+}
