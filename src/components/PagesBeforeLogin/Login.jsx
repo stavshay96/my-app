@@ -20,6 +20,7 @@ const styleLogin = {
 
 const Login = (props) => 
 {
+    let navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
@@ -60,11 +61,12 @@ const Login = (props) =>
                 document.cookie = `fullName= ${res.data.userInfo.fullName}`;
                 document.cookie = `email= ${res.data.userInfo.email}`;
                 props.changeUserInfo(res.data.userInfo);
+                navigate("/Fantasy", {
+                    replace: true,
+                });
             }
             
-           /* navigate("/userHomePage", {
-                        replace: true,
-                    });*/
+           
         }).
         catch(error => {
         console.error(error);
@@ -89,7 +91,7 @@ const Login = (props) =>
         X
         </Button>
            
-          <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
+          <Form className="formStyle" style={{ position:'fixed', top:'35%', right:'30%'}}>
             <Form.Group className="emailStyle" controlId="formBasicEmail">
                  <Form.Label style={{position:'fixed', top:'42%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
                  <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'42%', right:'41%', fontSize: '1.25vw'} }value={enteredEmail} onChange={emailHandler}

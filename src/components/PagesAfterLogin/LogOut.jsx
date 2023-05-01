@@ -1,10 +1,10 @@
 import Button from "react-bootstrap/esm/Button";
 import React from "react";
-import "./SignIn.css"
+import "./LogOut.css"
 
-const SignIn =(props) =>
+const LogOut =(props) =>
 {
-    const signInHandler = (event) =>{
+    const LogOutHandler = (event) =>{
         document.cookie = 'userID=; Max-Age=0; path=/;';
         document.cookie = 'fullName=; Max-Age=0; path=/;';
         document.cookie = 'email=; Max-Age=0; path=/;';
@@ -14,11 +14,11 @@ const SignIn =(props) =>
     return (
         <div>
             <h1 className="btnNamePresent" style={{position:'fixed', top:'5%', right:'9%' ,fontSize:'1.6vw'}}> ! {`${props.userInfo["fullName"]}`} שלום</h1>
-            <Button className="btnSignIn" style={{position:'fixed', top:'5%', right:'24%'}} onClick={signInHandler}>
+            <Button className="btnLogOut" style={{position:'fixed', top:'5%', right:'24%'}} onClick={LogOutHandler}>
                 התנתק
             </Button>
         </div>
     )
 }
 
-export default SignIn;
+export default LogOut;

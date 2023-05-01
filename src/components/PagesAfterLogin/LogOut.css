@@ -1,4 +1,4 @@
-.btnSignIn {
+.btnLogOut {
     text-align: center;
     background-color: #eeeeef;
     border-radius: 2vw;
@@ -17,7 +17,7 @@
     /*text-decoration: none;*/
 }
 
-.btnSignIn:hover {
+.btnLogOut:hover {
     background-color: #b6d7a8;
 }
 

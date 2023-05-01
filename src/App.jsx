@@ -1,9 +1,10 @@
 import { React, useState , useEffect} from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginSignUpBar from "./components/PagesBeforeLogin/Login-SignUpBar"
 import LangBar from "./components/PagesBeforeLogin/LangBar"
 import Game from "./components/PagesBeforeLogin/Game"
 import games from "./components/PagesBeforeLogin/Games"
-import SignIn from "./components/PagesAfterLogin/SignIn";  
+import LogOut from "./components/PagesAfterLogin/LogOut";  
 import Fantasy from "./components/PagesBeforeLogin/Fantasy"
 import Predictions from "./components/PagesBeforeLogin/Predictions"
 import OtherGames from "./components/PagesBeforeLogin/OtherGames"
@@ -14,11 +15,9 @@ import "./App.css"
 import logo from './logo.svg';
 
 function CreateGame(game){
-    return ( <Game
-        key={game.gameID} 
-        name={game.name}
-        style= {game.style}
-    />)
+    return (
+               <Game key={game.gameID} gameID={game.gameID} name={game.name} style= {game.style} />  
+             )
 }
 
 
@@ -64,12 +63,29 @@ function App() {
   
     return ( 
     <div>
-      <div> {HasCookies()? <SignIn userInfo={userInfo} changeUserInfo={WrapUserInfo}/>:  <LoginSignUpBar changeUserInfo={WrapUserInfo}/>}</div>
-       <LangBar/>
-       {games.map(CreateGame)}
-       <img className="left-photo" src={require('./images/Players/Messi.png')} alt="Messi" />
-       <img className="right-photo" src={require("./images/Players/Cristiano Ronaldo.png")} alt="Ronaldo"/>
-        
+       <Router>
+         <Routes>
+            <Route path='/' element= 
+             {<div>
+                  {HasCookies()? <LogOut userInfo={userInfo} changeUserInfo={WrapUserInfo}/>: 
+                                <LoginSignUpBar changeUserInfo={WrapUserInfo}/>}
+                  <LangBar/>
+                  {games.map(CreateGame)}
+                  <img className="left-photo" src={require('./images/Players/Messi.png')} alt="Messi" />
+                  <img className="right-photo" src={require("./images/Players/Cristiano Ronaldo.png")} alt="Ronaldo"/>
+             </div>}
+             />
+
+            <Route path="/Fantasy" />
+
+            <Route path="/Predictions" />
+
+            <Route path="/NotReadyYet"/>
+           
+            
+          
+        </Routes>
+       </Router> 
     </div>
     );
 }
