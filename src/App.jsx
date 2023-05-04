@@ -8,7 +8,9 @@ import LogOut from "./components/PagesAfterLogin/LogOut";
 import Fantasy from "./components/PagesBeforeLogin/Fantasy"
 import Predictions from "./components/PagesBeforeLogin/Predictions"
 import OtherGames from "./components/PagesBeforeLogin/OtherGames"
+import NotReadyPage from "./components/PagesBeforeLogin/NotReadyPage";
 import Button from 'react-bootstrap/Button';
+import Background from "./images/Background.png"
 
 
 import "./App.css"
@@ -31,9 +33,12 @@ function App() {
           return userInfo;
         });
     };
+   // document.body.style.backgroundImage=`url(${Background})`;
 
     const HasCookies = () => {
         //const user = document.getCookie();
+        //document.body.style.backgroundImage=`url(${Background})`;
+        
         const user = document.cookie;
         
         useEffect(() => 
@@ -76,11 +81,12 @@ function App() {
              </div>}
              />
 
-            <Route path="/Fantasy" />
+            <Route path="/Fantasy" element={<Fantasy />}/>
+            
 
-            <Route path="/Predictions" />
+            <Route path="/Predictions" element={<NotReadyPage/>} />
 
-            <Route path="/NotReadyYet"/>
+            <Route path="/NotReadyYet" element={<NotReadyPage/>}/>
            
             
           
