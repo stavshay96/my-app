@@ -1,0 +1,18 @@
+.btnDeadLine {
+    text-align: center;
+    background-color: #bae9a6;
+    border-radius: 0.3vw;
+    border: 0.15vw solid #131313;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1vw;
+    padding: 0.5% 1%;
+    /*text-decoration: none;*/
+    width: 7%;
+}
+
+.btnDeadLine:hover {
+    background-color: #b6d7a8;
+}

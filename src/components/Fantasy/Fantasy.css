@@ -17,3 +17,12 @@
     background-size: contain;
     align-content: flex-end;
 }
+
+.fantasy-logo {
+    position: fixed;
+    z-index: -1;
+    left: 80%;
+    top: 6.5%;
+    height: 8%;
+    width: 12%;
+}

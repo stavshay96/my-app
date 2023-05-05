@@ -1,14 +1,13 @@
 import { React, useState , useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginSignUpBar from "./components/PagesBeforeLogin/Login-SignUpBar"
-import LangBar from "./components/PagesBeforeLogin/LangBar"
-import Game from "./components/PagesBeforeLogin/Game"
-import games from "./components/PagesBeforeLogin/Games"
-import LogOut from "./components/PagesAfterLogin/LogOut";  
-import Fantasy from "./components/PagesBeforeLogin/Fantasy"
-import Predictions from "./components/PagesBeforeLogin/Predictions"
-import OtherGames from "./components/PagesBeforeLogin/OtherGames"
-import NotReadyPage from "./components/PagesBeforeLogin/NotReadyPage";
+import LoginSignUpBar from "./components/HomePage/Login-SignUpBar"
+import LangBar from "./components/HomePage/LangBar"
+import Game from "./components/HomePage/Game"
+import games from "./components/HomePage/Games"
+import LogOut from "./components/HomePage/LogOut";  
+import Fantasy from "./components/Fantasy/Fantasy"
+import Predictions from "./components/Predictions/Predictions"
+import NotReadyPage from "./components/NotReadyYet/NotReadyPage";
 import Button from 'react-bootstrap/Button';
 import Background from "./images/Background.png"
 
