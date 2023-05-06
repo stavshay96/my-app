@@ -4,15 +4,20 @@
     border-radius: 0.3vw;
     border: 0.15vw solid #131313;
     display: inline-block;
-    cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1vw;
-    padding: 0.5% 1%;
+    font-size: 2vw;
+    font-weight: bold;
+    padding: 1% 2%;
     /*text-decoration: none;*/
-    width: 7%;
+    /*width: 7%;*/
 }
 
-.btnDeadLine:hover {
-    background-color: #b6d7a8;
+hr.seperator {
+    border-top: 1px dashed rgb(37, 32, 32);
 }
+
+
+/*.btnDeadLine:hover {
+    background-color: #b6d7a8;
+}*/

@@ -20,7 +20,7 @@ const Fantasy = (props) => {
 
   return(
     <div>
-        <LangBar/>
+        <LangBar/> 
         <FantasyDeadLine/>
         <PlayersList/>
         <TopBar/>
