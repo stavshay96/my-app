@@ -61,9 +61,9 @@ const Login = (props) =>
                 document.cookie = `fullName= ${res.data.userInfo.fullName}`;
                 document.cookie = `email= ${res.data.userInfo.email}`;
                 props.changeUserInfo(res.data.userInfo);
-                navigate("/Fantasy", {
+               /*navigate("/Fantasy", {
                     replace: true,
-                });
+                });*/
             }
             
            
