@@ -6,8 +6,8 @@
     display: inline-block;
     cursor: pointer;
     color: #000000;
-    font-family: 'Alef', sans-serif;
-    font-size: 1.7vw;
+    font-family: sans-serif;
+    font-size: 1.5vw;
     padding: 1% 2%;
     /*text-decoration: none;*/
 }
@@ -26,7 +26,7 @@
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     padding: 1% 8%;
     font-weight: bold;
     /*text-decoration: none;*/
