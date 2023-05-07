@@ -1,12 +1,12 @@
 .btnDeadLine {
     text-align: center;
     background-color: #bae9a6;
-    border-radius: 0.3vw;
+    border-radius: 0.5vw;
     border: 0.15vw solid #131313;
     display: inline-block;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: bold;
     padding: 1% 2%;
     /*text-decoration: none;*/
