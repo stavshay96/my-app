@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid, GridCheckboxHeader } from "@material-ui/data-grid";
 import "./PlayersList.css";
 
 const columns = [
-  { field: "points", headerName: "נקודות", headerAlign: 'right', type: "number", width: 120, filterable: false, align: 'right' },
-  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", width: 120, filterable: false, align: 'right' },
-  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', width: 275, filterable: false, align: 'right' }
+  { field: "points", headerName: "נקודות", headerAlign: 'right', type: "number", width: 115, filterable: false, align: 'right' },
+  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", width: 115, filterable: false, align: 'right' },
+  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', width: 150, filterable: false, align: 'center' },
 ];
 
 const rows = [
@@ -27,10 +27,11 @@ function PlayersList() {
     setSelectionModel(newSelection.selectionModel);
   };
 
+
   return (
     <div>
-      <DataGrid style={{position:'fixed', top:'30%', right:'67.5%',
-        width:'30%', height: '67%', backgroundColor: '#FFFFFF'}}
+      <DataGrid style={{position:'fixed', top:'40%', right:'67.5%',
+        width:'30%', height: '57%', backgroundColor: '#e0f9d5',     }}
         checkboxSelection
         disableSelectionOnClick
         rows={rows}
