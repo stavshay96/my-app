@@ -11,7 +11,7 @@ const chips = [
     {
         chipID: 2,
         name: '11 חילופים',
-        style: { position:'absolute', top:'31%', right:'52%',}
+        style: { position:'absolute', top:'31%', right:'51.5%',}
     },
     
 

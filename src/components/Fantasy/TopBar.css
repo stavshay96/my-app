@@ -1,0 +1,31 @@
+.btnTopBar {
+    text-align: center;
+    background-color: #f4fdf0;
+    border-radius: 0.5vw;
+    border: 0.15vw solid #131313;
+    display: inline-block;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1% 3%;
+    /*text-decoration: none;*/
+    /*width: 7%;*/
+}
+
+.btnItems {
+    margin: 1.8%;
+    text-align: center;
+    background-color: #f3faf6;
+    border-radius: 0.5vw;
+    border: 0.15vw solid #131313;
+    display: inline-block;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 0.9vw;
+    padding: 4% 2%;
+    font-weight: bold;
+    width: 20%;
+    box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);
+    /*text-decoration: none;*/
+}
