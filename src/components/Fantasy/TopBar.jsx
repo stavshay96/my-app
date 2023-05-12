@@ -29,19 +29,21 @@ function TopBar()
 
     return(
         <div>
-    <ButtonGroup className="btnTopBar" style={{position:'absolute', top:'4%', right:'32%',  width:'29%'}}>
+    <ButtonGroup className="btnTopBar" style={{position:'absolute', top:'1%', right:'31.7%',  width:'29%'}}>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{budget} {currentBudget}M/{maxBudget}M</Button>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{subs} {currentSubs}/{maxSubs}</Button>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{teamName}</Button>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{fantasy} {fantasyName}</Button>
     </ButtonGroup>
 
-    <ButtonGroup style={{position:'absolute', top:'19%', right:'23%',  width:'40%'}}>
-        <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{FWDInTeamNumber} {FWD}</Button>
-        <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{MIDInTeamNumber} {MID}</Button>
-        <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{DEFInTeamNumber} {DEF}</Button>
-        <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{GKSInTeamNumber} {GK}</Button>
-        <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}> {lineup} {playersInTeamNumber}/{maxPlayersInTeam}</Button>
+    <ButtonGroup style={{position:'absolute', top:'10%', right:'5.5%', width:'30%', }}>
+        <ul>
+        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}> {lineup} {playersInTeamNumber}/{maxPlayersInTeam}</Button></li>
+        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{GKSInTeamNumber} {GK}</Button></li>
+        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{DEFInTeamNumber} {DEF}</Button></li>
+        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{MIDInTeamNumber} {MID}</Button></li>
+        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{FWDInTeamNumber} {FWD}</Button></li>
+        </ul>
 </ButtonGroup>
 </div>
     )

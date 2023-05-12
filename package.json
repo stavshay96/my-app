@@ -7,6 +7,7 @@
         "@fortawesome/free-brands-svg-icons": "^6.4.0",
         "@fortawesome/react-fontawesome": "^0.2.0",
         "@material-ui/data-grid": "^4.0.0-alpha.37",
+        "@mui/styled-engine": "^5.12.3",
         "@mui/x-data-grid": "^6.3.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
