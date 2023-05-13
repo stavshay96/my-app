@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { DataGrid, GridCheckboxHeader } from "@material-ui/data-grid";
+import { DataGrid,  GridToolbar } from "@material-ui/data-grid";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import Button from 'react-bootstrap/Button';
 //import Box from '@mui/material/Box';
 //import clsx from 'clsx';
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,6 +17,10 @@ const columns = [
   {field: "position", headerName: " ", headerAlign: 'center', width: 70, filterable: false, align: 'center', renderCell: wrapCellPositionColor,
  },
 ];
+
+const eranZahavi ="ערן זהבי";
+const maccabiTelAviv = 'מכבי ת"א';
+const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 
 const rows = [
   { id: 1, points: 64, price: 10, playerName: "ערן זהבי", position: 'FW' },
@@ -28,7 +36,7 @@ const rows = [
 
 function wrapCellPositionColor(params) {
   return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw', fontWeight: 'bold',}}>
+      <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw', fontWeight: 'bold', }}>
           {params.value}
       </div>
   );
@@ -50,6 +58,18 @@ function wrapHeaderText(params) {
   );
 }
 
+function CreatePositionDropdown(position){
+  return(
+    <Dropdown.Item style={{color:'black', textDecoration:'none', borderRadius: '0.5vw',border:'0.15vw solid #131313'
+      ,backgroundColor:'#f3faf6', fontSize:'1.3vw'}} key={position}>
+      {position}
+      </Dropdown.Item>
+  )
+}
+
+
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiDataGrid-columnHeaderCheckbox .MuiDataGrid-columnHeaderTitleContainer": {
@@ -60,17 +80,38 @@ const useStyles = makeStyles((theme) => ({
 
 function PlayersList() {
   const [selectionModel, setSelectionModel] = useState([]);
+  const [filterModel, setFilterModel] = useState({items: [],});
+
   const classes = useStyles();
   const handleSelectionModelChange = (newSelection) => {
     setSelectionModel(newSelection.selectionModel);
   };
 
+  const handleFilterChange = (model) => {
+    setFilterModel(model);
+  };
 
+  const handleClearFilters = () => {
+    setFilterModel({ items: [] });
+  };
+
+  
   return (
     <div>
+        <DropdownButton className="btnDropdownPos float-end" title={ <> &#9650; עמדה</>} 
+          style={{position:'fixed', top:'33%', right:'68.5%', }}  drop='up' >
+           
+            <div className= 'dropdown-menu '>
+            {positions.map(CreatePositionDropdown)}
+            </div>
+            
+    
+        </DropdownButton>
       
       <DataGrid className={classes.root} style={{position:'fixed', top:'40%', right:'67.5%',
         width:'30%', height: '57%', backgroundColor: '#e0f9d5',     }}
+        filterModel={filterModel}
+        onFilterModelChange={handleFilterChange}
         rows={rows}
         columns={columns}
         disableColumnMenu

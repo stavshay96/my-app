@@ -12,6 +12,32 @@
     /*text-decoration: none;*/
 }
 
-.btnChips:hover {
-    background-color: #b6d7a8;
+.btnDropdownPos {
+    text-align: center;
+    background-color: #bae9a6;
+    border-radius: 0.5vw;
+    border: 0.15vw solid #131313;
+    display: inline-block;
+    color: #000000;
+    cursor: pointer;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 0.5% 1%;
+    box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);
+    /*text-decoration: none;*/
+    /*width: 7%;*/
+}
+
+.btnDropdownPos .dropdown-toggle {
+    font-size: 1vw;
+    background-color: #bae9a6;
+    border: 0.15vw solid #bae9a6;
+    cursor: pointer;
+    /* Other styles */
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
 }
