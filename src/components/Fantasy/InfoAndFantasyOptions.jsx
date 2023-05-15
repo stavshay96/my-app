@@ -17,19 +17,19 @@ function InfoAndFantasyOptions()
 
     return(
         <div>
-          <ButtonGroup style={{position:'fixed', top:'15%', right:'2%', unicodeBidi:'plaintext', width:'25%'}} >
+          <ButtonGroup style={{position:'fixed', top:'15%', right:'-1%', unicodeBidi:'plaintext', width:'25%'}} >
            <Button className="btnInfoAndOptions1"> {squad15} </Button>
            <Button className="btnInfoAndOptions1" style={{backgroundColor: '#bae9a6'}}> {lineup11} </Button>
            <Button className="btnInfoAndOptions1"> {news} </Button>
            <Button className="btnInfoAndOptions1"> {forum} </Button>
           </ButtonGroup>
 
-          <ButtonGroup style={{position:'fixed', top:'24%', right:'1.3%', unicodeBidi:'plaintext', width:'27%'}} >
+          <ButtonGroup style={{position:'fixed', top:'24%', right:'-1.5%', unicodeBidi:'plaintext', width:'27%'}} >
            <Button className="btnInfoAndOptions2" style={{backgroundColor: '#bae9a6'}}> {myLeagues} </Button>
            <Button className="btnInfoAndOptions2"> {statistics} </Button>
           </ButtonGroup>
 
-          <ButtonGroup style={{position:'fixed', top:'30%', right:'1.2%', unicodeBidi:'plaintext', width:'27%'}} >
+          <ButtonGroup style={{position:'fixed', top:'30%', right:'-1.6%', unicodeBidi:'plaintext', width:'27%'}} >
            <Button className="btnInfoAndOptions2" style={{backgroundColor: '#bae9a6'}}> {drafts} </Button>
            <Button className="btnInfoAndOptions2"> {expectedLineups} </Button>
           </ButtonGroup>
