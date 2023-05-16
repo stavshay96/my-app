@@ -1,0 +1,20 @@
+.btnBackToHomePage {
+    text-align: center;
+    background-image: url('../../images/HomePageImage.png');
+    min-height: 8%;
+    padding: 0.1% 0.1%;
+    /* background-attachment: cover;*/
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border-radius: 2vw;
+    border: 0.25vw solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    text-shadow: 0vw 0.1vw 0vw #2f6627;
+    position: 'fixed';
+    top: '5%';
+    right: '10%';
+    /*text-decoration: none;*/
+}

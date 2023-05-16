@@ -1,4 +1,4 @@
-import React from "react";
+import {React , useState} from "react";
 import { DataGrid,  GridToolbar } from "@material-ui/data-grid";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -15,7 +15,7 @@ const cols = [
 
 const rows =[
     {id:1, HomeTeam: 'מכבי נתניה' , ScoreHomeTeam:'2', ScoreAwayTeam: '2', AwayTeam: 'מכבי חיפה'},
-    {id:2, HomeTeam: 'מכבי ת"א' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'הפועל באר שבע'},
+    {id:2, HomeTeam: 'מכבי ת"א' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'הפועל ב"ש'},
     {id:3, HomeTeam: 'מילאן' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'אינטר'},
     {id:4, HomeTeam: 'פסז' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'מנצסטר סיטי'},
     {id:5, HomeTeam: ' הפועל ת"א' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'בית"ר ירושלים'},
@@ -40,15 +40,19 @@ function wrapCellTeamNameText(params) {
     );
   }
   
+  
 
 function MatchesList()
 {
+    const [gameweekNumber,SetGameweekNumber] = useState(25);
+    const gameweek = "מחזור";
+
     return(
         <div>
-            <ButtonGroup>
-                <Button></Button>
-                <Button></Button>
-                <Button></Button>
+            <ButtonGroup style={{position:'fixed', top:'44.8%', right:'5%', unicodeBidi:'plaintext', width:'15%' }}>
+                <Button className= "btnLeftArrow"> <span>&#9664;</span></Button>
+                <Button className= "btnGameweek"> {gameweek} {gameweekNumber} </Button>
+                <Button className= "btnRightArrow"><span>&#9654;</span></Button>
             </ButtonGroup>
 
 

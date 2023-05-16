@@ -10,11 +10,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import "./PlayersList.css";
 
 const columns = [
-  { field: "points", headerName: "נקודות", headerAlign: 'right', type: "number", width: 93, filterable: false, align: 'center' },
+  { field: "points", headerName: "נקודות", headerAlign: 'right', type: "number", width: 93, filterable: true, align: 'center' },
   { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", width: 90, filterable: true, align: 'center' },
-  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', width: 130, filterable: false, 
+  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', width: 130, filterable: true, 
   align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
-  {field: "position", headerName: " ", headerAlign: 'center', width: 70, filterable: false, align: 'center', renderCell: wrapCellPositionColor,
+  {field: "position", headerName: " ", headerAlign: 'center', width: 70, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
  },
 ];
 
@@ -111,15 +111,29 @@ function PlayersList() {
       
       <DataGrid className={classes.root} style={{position:'fixed', top:'40%', right:'67.5%',
         width:'30%', height: '57%', backgroundColor: '#e0f9d5',     }}
-        filterModel={filterModel}
-        onFilterModelChange={handleFilterChange}
+       // filterModel={filterModel}
+       // onFilterModelChange={handleFilterChange}
         rows={rows}
         columns={columns}
         disableColumnMenu
         checkboxSelection
         hideFooter
+        filterMode="header"
         onSelectionModelChange={handleSelectionModelChange}
         selectionModel={selectionModel}
+       /* initialState={{
+          filter: {
+            filterModel: {
+              items: [
+                { field: 'points', operator: '>', value: '0' },
+                { field: 'price', operator: '>', value: '0' },
+                { field: 'price', operator: '<', value: '16' },
+
+            
+            ],
+            },
+          },
+        }}*/
       />
      
     </div>
