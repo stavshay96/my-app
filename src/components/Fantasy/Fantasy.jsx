@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import Button from 'react-bootstrap/Button';
@@ -16,17 +16,38 @@ import BackToHomePage from "../General/BackToHomePage";
 import HomePageImage from "../../images/HomePageImage.png"
 
 
-const Fantasy = (props) => {
+function getLineUp(){
+  return [];
+}
 
+const Fantasy = (props) => {
+    const [lineup, SetLineup] = useState(getLineUp);
+
+    const handleLineup = (lineup) => {
+      SetLineup(lineup);
+      console.log(`${lineup.length} fantasy`);
+
+    //  alert(`${lineup.length} fantasy`);
+     
+     
+       /* if(isInLineup)
+        {
+            //add player to lineup (SetLineup...)
+        }
+        else
+        {
+          //remove player from lineup (SetLineup...)
+        }*/
+    }
  
 
   return(
     <div>
         <LangBar/> 
         <FantasyDeadLine/>
-        <PlayersList/>
+        <PlayersList  lineup={lineup} onCheckBoxChange={handleLineup} />
         <TopBar/>
-        <Field/>
+        <Field lineup={lineup} onRemoveButton={handleLineup}/>
         <SpecialChips/> 
         <InfoAndFantasyOptions/>
         <MatchesList/>

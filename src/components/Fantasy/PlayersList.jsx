@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 //import clsx from 'clsx';
 import { makeStyles } from "@material-ui/core/styles";
 import "./PlayersList.css";
+import players from "./Players.jsx";
 
 const columns = [
   { field: "points", headerName: "נקודות", headerAlign: 'right', type: "number", width: 93, filterable: true, align: 'center' },
@@ -18,23 +19,16 @@ const columns = [
  },
 ];
 
-const eranZahavi ="ערן זהבי";
-const maccabiTelAviv = 'מכבי ת"א';
+
 const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 
-const rows = [
-  { id: 1, points: 64, price: 10, playerName: `ערן זהבי`, position: 'FW' , team: 'מכבי ת"א'},
-  { id: 2, points: 72, price: 10, playerName: "עומר אצילי", position: 'MF' ,team: 'מכבי חיפה' },
-  { id: 3, points: 34, price: 15, playerName: "כריסטיאנו רונאלדו", position: 'MF', team: 'אל נאסר'},
-  { id: 4, points: 15, price: 15, playerName: "ליונל מסי", position: 'MF' , team:'פסז' },
-  { id: 5, points: 66, price: 15, playerName: "ארלינג האלנד", position: 'FW', team: 'מנצסטר סיטי'},
-  { id: 6, points: 12, price: 6, playerName: "דניאל פרץ", position: 'GK' , team: 'מכבי ת"א'},
-  { id: 7, points: 44, price: 14, playerName: "קארים בנזמה", position: 'FW', team: 'ריאל מדריד'},
-  { id: 8, points: -18, price: 13, playerName: "בן ביטון", position: 'FW', team: 'הפועל ת"א' },
-  { id: 9, points: 25, price: 14, playerName: "ניימאר", position: 'FW' , team: 'פסז'},
-  { id: 10, points: 34, price: 9, playerName: "סרחיו ראמוס", position: 'DF' , team: 'פסז'},
-];
+//init rows - move player arr to another file
+const rows = players.map(createRow);
+function createRow(player){
+  return {id: player.id, points: player.points, price: `${player.price}m`, playerName: `${player.playerName} (${player.team})`, position: player.position}
+}
 
+//not working yet
 function wrapCellPositionColor(params) {
   return (
       <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw', fontWeight: 'bold', }}>
@@ -59,6 +53,7 @@ function wrapHeaderText(params) {
   );
 }
 
+//try to use dropdown - still not working
 function CreatePositionDropdown(position){
   return(
     <Dropdown.Item style={{color:'black', textDecoration:'none', borderRadius: '0.5vw',border:'0.15vw solid #131313'
@@ -70,7 +65,7 @@ function CreatePositionDropdown(position){
 
 
 
-
+//used for removing selection all in chcekBox col
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiDataGrid-columnHeaderCheckbox .MuiDataGrid-columnHeaderTitleContainer": {
@@ -79,14 +74,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function PlayersList() {
-  const [selectionModel, setSelectionModel] = useState([]);
+function PlayersList(props) {
+   const [selectedRows, setSelectedRows] = useState([]);
+   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [filterModel, setFilterModel] = useState({items: [],});
 
   const classes = useStyles();
-  const handleSelectionModelChange = (newSelection) => {
+/*  const handleSelectionModelChange = (newSelection) => {
     setSelectionModel(newSelection.selectionModel);
-  };
+  };*/
 
   const handleFilterChange = (model) => {
     setFilterModel(model);
@@ -95,6 +91,29 @@ function PlayersList() {
   const handleClearFilters = () => {
     setFilterModel({ items: [] });
   };
+
+  const handleCheckBox = (arrSelected) =>{
+   //alert(`${arrSelected}`)
+   setSelectedRows(arrSelected);
+   setSelectedPlayers([]);
+  
+   //if(selectionModel.length <= 3){ alert(`${selectionModel}`)}
+ // else {alert("lineup is full")}
+
+ //  setSelectedRows(selectionModel);
+ arrSelected.forEach((rowId) => {
+    const rowFound = rows.find((row) => row.id === rowId);
+    setSelectedPlayers(prevArray => [...prevArray, rowFound]);
+    
+    
+    
+  //  alert(`${rowFound.playerName}`);
+  });
+  props.onCheckBoxChange(selectedPlayers);
+ 
+    
+    
+  }
 
   
   return (
@@ -115,12 +134,18 @@ function PlayersList() {
        // onFilterModelChange={handleFilterChange}
         rows={rows}
         columns={columns}
-        disableColumnMenu
+       disableColumnMenu
         checkboxSelection
+        disableSelectionOnClick
         hideFooter
-        filterMode="header"
-        onSelectionModelChange={handleSelectionModelChange}
-        selectionModel={selectionModel}
+        selectionModel={selectedRows}
+        onSelectionModelChange={handleCheckBox}
+        
+       // onRowClick={handleCheckBox}
+       // onRowSelectionModelChange={handleCheckBox}
+      //  filterMode="header"
+      //  onSelectionModelChange={handleSelectionModelChange}
+       // selectionModel={selectionModel}
        /* initialState={{
           filter: {
             filterModel: {
