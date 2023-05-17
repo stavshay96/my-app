@@ -102,7 +102,7 @@ function PlayersList(props) {
 
  //  setSelectedRows(selectionModel);
  arrSelected.forEach((rowId) => {
-    const rowFound = rows.find((row) => row.id === rowId);
+    const rowFound = players.find((row) => row.id === rowId);
     setSelectedPlayers(prevArray => [...prevArray, rowFound]);
     
     
