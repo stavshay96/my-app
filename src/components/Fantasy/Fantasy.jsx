@@ -2,6 +2,7 @@ import {React, useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import Button from 'react-bootstrap/Button';
+import { useStateWithCallback } from "../../useStateWithCallBack"
 
 import "./Fantasy.css";
 import LangBar from "../HomePage/LangBar"
@@ -26,19 +27,11 @@ const Fantasy = (props) => {
     const handleLineup = (lineup) => {
       SetLineup(lineup);
       console.log(`${lineup.length} fantasy`);
-
-    //  alert(`${lineup.length} fantasy`);
+      
      
      
-       /* if(isInLineup)
-        {
-            //add player to lineup (SetLineup...)
-        }
-        else
-        {
-          //remove player from lineup (SetLineup...)
-        }*/
-    }
+    };
+    
  
 
   return(
