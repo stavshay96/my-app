@@ -11,6 +11,7 @@ import PlayersList from "./PlayersList";
 import TopBar from "./TopBar";
 import Field from "./Field";
 import SpecialChips from "./SpecialChips";
+import SubmitAndReset from "./SubmitAndReset";
 import InfoAndFantasyOptions from "./InfoAndFantasyOptions";
 import MatchesList from "./MatchesList";
 import BackToHomePage from "../General/BackToHomePage";
@@ -42,6 +43,7 @@ const Fantasy = (props) => {
         <TopBar/>
         <Field lineup={lineup} onRemoveButton={handleLineup}/>
         <SpecialChips/> 
+        <SubmitAndReset/>
         <InfoAndFantasyOptions/>
         <MatchesList/>
         <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  

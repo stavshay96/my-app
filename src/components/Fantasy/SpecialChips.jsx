@@ -6,12 +6,12 @@ const chips = [
     {
         chipID: 1,
         name: 'טריפל קפטן',
-        style: { position:'fixed', bottom:'4%', right:'37%',}
+        style: { position:'fixed', top:'21%', left:'21%',}
     },
     {
         chipID: 2,
         name: '11 חילופים',
-        style: { position:'fixed',bottom:'4%', right:'51.5%',unicodeBidi:'plaintext',}
+        style: { position:'fixed',top:'15%', left:'21%',unicodeBidi:'plaintext',}
     },
     
 
