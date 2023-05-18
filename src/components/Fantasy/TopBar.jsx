@@ -37,7 +37,7 @@ function TopBar()
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{fantasy} {fantasyName}</Button>
     </ButtonGroup>
 
-    <ButtonGroup style={{position:'absolute', top:'14%', right:'8.5%', width:'30%', }}>
+    <ButtonGroup style={{position:'absolute', top:'14%', right:'6.5%', width:'30%', }}>
         <ul>
         <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext'}}> {lineup} {playersInTeamNumber}/{maxPlayersInTeam}</Button></li>
         <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{GKSInTeamNumber} {GK}</Button></li>

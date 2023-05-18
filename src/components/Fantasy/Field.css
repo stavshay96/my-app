@@ -10,7 +10,7 @@
 }
 
 .btnPlayerButton {
-    margin: 1%;
+    margin: 2.5%;
     text-align: center;
     background-color: #bae9a6;
     border-radius: 0.5vw;
@@ -23,7 +23,19 @@
     font-weight: bold;
     box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);
     /*text-decoration: none;*/
-    width: 6vw;
+    width: 4vw;
     height: 3vw;
     white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnPlayerButton h1 {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 0.2em 0.5em;
+    bottom: 0;
+    margin: 0;
 }

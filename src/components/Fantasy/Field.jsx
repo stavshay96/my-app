@@ -4,14 +4,15 @@ import "./Field.css"
 import { Button, ButtonGroup } from "react-bootstrap";
 
 
-const top = 17;
-const  left = 48;
+const top = 20;
+const  left = 30.8;
+
 
 function createPlayerButton(player)
 {
     return (
         <Button className="btnPlayerButton" >
-            <h1>{player.playerName}</h1>
+            <h1>  {player.playerName}  </h1>
         </Button>
     )
 }
@@ -26,77 +27,29 @@ function Field(props)
     return (
         <div>
         <img className="field-img" src={require('../../images/field5.png')}/>
-        <ButtonGroup style={{position:'fixed', top:`${top}%`, left:`${left}%`, width:'30%', }}>
+        <ButtonGroup style={getButtonStyle(top)}>
             {goalkeepers.map(createPlayerButton)}
         </ButtonGroup>
 
-        <ButtonGroup style={getButtonDEFStyle(defenders)}>
+        <ButtonGroup style={getButtonStyle(top+15)}>
             {defenders.map(createPlayerButton)}
         </ButtonGroup>
 
-        <ButtonGroup style={getButtonMIDStyle(midfielders)}>
+        <ButtonGroup style={getButtonStyle(top+31)}>
             {midfielders.map(createPlayerButton)}
         </ButtonGroup>
 
-        <ButtonGroup style={getButtonFWDStyle(forwards)}>
+        <ButtonGroup style={getButtonStyle(top+47)}>
             {forwards.map(createPlayerButton)}
         </ButtonGroup>
         </div>
     )
 }
 
-const getButtonDEFStyle = (defenders) => {
-    const topDEF = top+15;
-    switch (defenders.length) {
-    
-      case 1:
-        return {position:'fixed', top:`${topDEF}%`, left:`${left}%`, width:'40%',};;
-      case 2:
-        return {position:'fixed', top:`${topDEF}%`, left:`${left-2.5}%`, width:'40%',};;
-      case 3:
-        return  {position:'fixed', top:`${topDEF}%`, left:`${left-5}%`, width:'40%', };
-      case 4:
-        return{position:'fixed', top:`${topDEF}%`, left:`${left-8.5}%`, width:'40%', };
-      case 5:
-        return {position:'fixed', top:`${topDEF}%`, left:`${left-11.5}%`, width:'40%', };  
-      default:
-        return {};
-    }
-  };
-
-  const getButtonMIDStyle = (midfielders) => {
-    const topMid = top+34;
-
-    switch (midfielders.length) {
-        case 1:
-            return {position:'fixed', top:`${topMid}%`, left:`${left+0.5}%`, width:'30%',};;
-          case 2:
-            return {position:'fixed', top:`${topMid}%`, left:`${left-1.7}%`, width:'30%',};;
-          case 3:
-            return  {position:'fixed', top:`${topMid}%`, left:`${left-4}%`, width:'30%',};
-      case 4:
-        return{position:'fixed', top:`${topMid}%`, left:`${left-7.8}%`, width:'40%', marginright: '10px', };
-      case 5:
-        return  {position:'fixed', top:`${topMid}%`, left:`${left-11.7}%`, width:'40%',}; 
-      default:
-        return {};
-    }
-  };
-
-  const getButtonFWDStyle = (forwards) => {
-
-    const topFWD = top+55;
-    switch (forwards.length) {
-      case 1:
-        return {position:'fixed', top:`${topFWD}%`, left:`${left}%`, width:'40%'};
-      case 2:
-        return {position:'fixed', top:`${topFWD}%`, left:`${left-3}%`, width:'40%'};
-      case 3:
-        return {position:'fixed', top:`${topFWD}%`, left:`${left-6.5}%`, width:'40%', };
-      default:
-        return {};
-    }
-  };
+  const getButtonStyle = (topAdjustment) =>{
+    return {display: 'flex',flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-start',
+    position:'fixed', top:`${topAdjustment}%`, left:`${left}%`, width:'40%'};
+  }
 
 
 
