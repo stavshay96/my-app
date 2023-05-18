@@ -5,7 +5,7 @@ import { Button, ButtonGroup } from "react-bootstrap";
 
 
 const top = 17;
-const  left = 47;
+const  left = 48;
 
 function createPlayerButton(player)
 {
@@ -34,17 +34,13 @@ function Field(props)
             {defenders.map(createPlayerButton)}
         </ButtonGroup>
 
-        <ButtonGroup style={getButtonMIDtyle(midfielders)}>
+        <ButtonGroup style={getButtonMIDStyle(midfielders)}>
             {midfielders.map(createPlayerButton)}
         </ButtonGroup>
 
-        <ButtonGroup style={getButtonFWDtyle(forwards)}>
+        <ButtonGroup style={getButtonFWDStyle(forwards)}>
             {forwards.map(createPlayerButton)}
         </ButtonGroup>
-
-
-
-
         </div>
     )
 }
@@ -68,7 +64,7 @@ const getButtonDEFStyle = (defenders) => {
     }
   };
 
-  const getButtonMIDtyle = (midfielders) => {
+  const getButtonMIDStyle = (midfielders) => {
     const topMid = top+34;
 
     switch (midfielders.length) {
@@ -87,7 +83,7 @@ const getButtonDEFStyle = (defenders) => {
     }
   };
 
-  const getButtonFWDtyle = (forwards) => {
+  const getButtonFWDStyle = (forwards) => {
 
     const topFWD = top+55;
     switch (forwards.length) {

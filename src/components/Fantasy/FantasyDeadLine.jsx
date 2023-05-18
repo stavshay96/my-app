@@ -37,7 +37,7 @@ function FantasyDeadLine()
 
 
     return(
-    <Button className="btnDeadLine" style={{position:'fixed', top:'12%', left:'3%', unicodeBidi:'plaintext'}}>
+    <Button className="btnDeadLine" style={{position:'fixed', top:'12%', left:'8%', unicodeBidi:'plaintext'}}>
         <Badge> 
          {deadLineMessage} 
         </Badge>

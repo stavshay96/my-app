@@ -92,7 +92,7 @@ function PlayersList(props) {
     setFilterModel({ items: [] });
   };
 
-  const handleCheckBox = (arrSelected) =>{
+  /*const handleCheckBox = (arrSelected) =>{
    //alert(`${arrSelected}`)
    setSelectedRows(arrSelected);
    setSelectedPlayers([]);
@@ -110,16 +110,23 @@ function PlayersList(props) {
   //  alert(`${rowFound.playerName}`);
   });
   props.onCheckBoxChange(selectedPlayers);
- 
-    
-    
-  }
+  } */
+
+  const handleCheckBox = (arrSelected) => {
+    setSelectedRows(arrSelected);
+  
+    const selectedPlayers = arrSelected.map((rowId) => {
+      return players.find((row) => row.id === rowId);
+    });
+  
+    props.onCheckBoxChange(selectedPlayers);
+  };
 
   
   return (
     <div>
         <DropdownButton className="btnDropdownPos float-end" title={ <> &#9650; עמדה</>} 
-          style={{position:'fixed', top:'33%', right:'68.5%', }}  drop='up' >
+          style={{position:'fixed', top:'33%', right:'68.5%'}}  drop='up' >
            
             <div className= 'dropdown-menu '>
             {positions.map(CreatePositionDropdown)}
@@ -128,8 +135,8 @@ function PlayersList(props) {
     
         </DropdownButton>
       
-      <DataGrid className={classes.root} style={{position:'fixed', top:'40%', right:'67.5%',
-        width:'30%', height: '57%', backgroundColor: '#e0f9d5',     }}
+      <DataGrid className={classes.root} style={{position:'fixed', top:'40%', right:'66.85%',
+        width:'30.75%', height: '57%', backgroundColor: '#e0f9d5',     }}
        // filterModel={filterModel}
        // onFilterModelChange={handleFilterChange}
         rows={rows}

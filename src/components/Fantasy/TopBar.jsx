@@ -6,7 +6,8 @@ function TopBar()
 {
     const fantasy = "ליגת פנטזי:";
     const fantasyName = "פרמייר ליג";
-    const teamName= "שם קבוצה:";
+    const teamName = "שם קבוצה:";
+    const teamGivenName = "האקדמית";
 
     const subs = "חילופים:";
     const maxSubs = 80;
@@ -29,16 +30,16 @@ function TopBar()
 
     return(
         <div>
-    <ButtonGroup className="btnTopBar" style={{position:'absolute', top:'1%', right:'31.7%',  width:'29%'}}>
+    <ButtonGroup className="btnTopBar" style={{position:'absolute', top:'3.5%', right:'31.7%',  width:'29%', height: '8%'}}>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{budget} {currentBudget}M/{maxBudget}M</Button>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{subs} {currentSubs}/{maxSubs}</Button>
-        <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{teamName}</Button>
+        <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{teamName} {teamGivenName}</Button>
         <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{fantasy} {fantasyName}</Button>
     </ButtonGroup>
 
-    <ButtonGroup style={{position:'absolute', top:'10%', right:'5.5%', width:'30%', }}>
+    <ButtonGroup style={{position:'absolute', top:'14%', right:'8.5%', width:'30%', }}>
         <ul>
-        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}> {lineup} {playersInTeamNumber}/{maxPlayersInTeam}</Button></li>
+        <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext'}}> {lineup} {playersInTeamNumber}/{maxPlayersInTeam}</Button></li>
         <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{GKSInTeamNumber} {GK}</Button></li>
         <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{DEFInTeamNumber} {DEF}</Button></li>
         <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{MIDInTeamNumber} {MID}</Button></li>
