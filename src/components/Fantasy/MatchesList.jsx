@@ -26,7 +26,7 @@ const rows =[
 
 function wrapCellTeamNameText(params) {
     return (
-        <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw', fontWeight: 'bold',}}>
+        <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1vw', fontWeight: 'bold'}}>
             {params.value}
         </div>
     );
@@ -34,7 +34,7 @@ function wrapCellTeamNameText(params) {
 
   function wrapHeaderText(params) {
     return (
-        <div style={{ whiteSpace: 'normal',lineHeight:'1.5', fontSize:'1.2vw', textDecoration:'underline' }}>
+        <div style={{ whiteSpace: 'normal',lineHeight:'1.5', fontSize:'1.1vw', textDecoration:'underline' }}>
             {params.colDef.headerName}
         </div>
     );
