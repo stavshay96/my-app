@@ -14,11 +14,11 @@ import "./PlayersList.css";
 import players from "./Players.jsx";
 
 const columns = [
-  { field: "points", headerName: "נקודות", headerAlign: 'right', type: "number", width: 93, filterable: true, align: 'center' },
-  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", width: 90, filterable: true, align: 'center' },
-  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', width: 130, filterable: true, 
+  { field: "points", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center' },
+  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", flex: 1.1, filterable: true, align: 'center' },
+  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', flex: 1.3, filterable: true, 
   align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
-  {field: "position", headerName: "עמדה", headerAlign: 'center', width: 70, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
+  {field: "position", headerName: "עמדה", headerAlign: 'center', flex: 0.75, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
   renderHeader: wrapPositionHeader },
 ];
 
