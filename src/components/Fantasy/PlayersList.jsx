@@ -142,7 +142,7 @@ function PlayersList(props) {
   const [sortModel, setSortModel] = useState([
     {
       field: 'price',
-      sort: 'asc',
+      sort: 'desc',
     },
   ]);
 
