@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { DataGrid,  GridToolbar } from "@material-ui/data-grid";
+import { DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton } from "@material-ui/data-grid";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import PropTypes from 'prop-types';
+//import {DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton} from '@mui/x-data-grid';
 
 import Button from 'react-bootstrap/Button';
 //import Box from '@mui/material/Box';
@@ -15,8 +18,8 @@ const columns = [
   { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", width: 90, filterable: true, align: 'center' },
   { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', width: 130, filterable: true, 
   align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
-  {field: "position", headerName: " ", headerAlign: 'center', width: 70, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
- },
+  {field: "position", headerName: "עמדה", headerAlign: 'center', width: 70, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
+  renderHeader: wrapPositionHeader },
 ];
 
 
@@ -25,7 +28,7 @@ const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 //init rows - move player arr to another file
 const rows = players.map(createRow);
 function createRow(player){
-  return {id: player.id, points: player.points, price: `${player.price}m`, playerName: `${player.playerName} (${player.team})`, position: player.position}
+  return {id: player.id, points: player.points, price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position}
 }
 
 //not working yet
@@ -53,16 +56,13 @@ function wrapHeaderText(params) {
   );
 }
 
-//try to use dropdown - still not working
-function CreatePositionDropdown(position){
-  return(
-    <Dropdown.Item style={{color:'black', textDecoration:'none', borderRadius: '0.5vw',border:'0.15vw solid #131313'
-      ,backgroundColor:'#f3faf6', fontSize:'1.3vw'}} key={position}>
-      {position}
-      </Dropdown.Item>
-  )
+function wrapPositionHeader(params) {
+  return (
+      <div style={{ fontSize: '0.001vw' ,whiteSpace: 'normal',lineHeight:'1.5' }}>
+          {params.colDef.headerName}
+      </div>
+  );
 }
-
 
 
 //used for removing selection all in chcekBox col
@@ -122,31 +122,60 @@ function PlayersList(props) {
     props.onCheckBoxChange(selectedPlayers);
   };
 
+
+
+  function CustomToolbar({ setFilterButtonEl }) {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarFilterButton ref={setFilterButtonEl} />
+      </GridToolbarContainer>
+    );
+  }
+  
+  CustomToolbar.propTypes = {
+    setFilterButtonEl: PropTypes.func.isRequired,
+  };
+  
+  const [filterButtonEl, setFilterButtonEl] = useState(null);
+
+
+  const [sortModel, setSortModel] = useState([
+    {
+      field: 'price',
+      sort: 'asc',
+    },
+  ]);
+
   
   return (
     <div>
-        <DropdownButton className="btnDropdownPos float-end" title={ <> &#9650; עמדה</>} 
-          style={{position:'fixed', top:'33%', right:'68.5%'}}  drop='up' >
-           
-            <div className= 'dropdown-menu '>
-            {positions.map(CreatePositionDropdown)}
-            </div>
-            
-    
-        </DropdownButton>
-      
       <DataGrid className={classes.root} style={{position:'fixed', top:'40%', right:'66.85%',
         width:'30.75%', height: '57%', backgroundColor: '#e0f9d5',     }}
        // filterModel={filterModel}
        // onFilterModelChange={handleFilterChange}
         rows={rows}
         columns={columns}
-       disableColumnMenu
+        disableColumnMenu
         checkboxSelection
         disableSelectionOnClick
         hideFooter
         selectionModel={selectedRows}
         onSelectionModelChange={handleCheckBox}
+
+        sortModel={sortModel}
+        onSortModelChange={(model) => setSortModel(model)}
+
+        components={{
+          Toolbar: CustomToolbar,
+        }}
+        slotProps={{
+          panel: {
+            anchorEl: filterButtonEl,
+          },
+          toolbar: {
+            setFilterButtonEl,
+          },
+        }}
         
        // onRowClick={handleCheckBox}
        // onRowSelectionModelChange={handleCheckBox}

@@ -12,6 +12,12 @@
     /*text-decoration: none;*/
 }
 
+div[role="tooltip"] {
+    top: -21% !important;
+    left: -2% !important; 
+    font-size: 2em !important;
+  }
+
 .btnDropdownPos {
     text-align: center;
     background-color: #bae9a6;
