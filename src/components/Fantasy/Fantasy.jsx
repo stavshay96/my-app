@@ -16,6 +16,7 @@ import InfoAndFantasyOptions from "./InfoAndFantasyOptions";
 import MatchesList from "./MatchesList";
 import BackToHomePage from "../General/BackToHomePage";
 import HomePageImage from "../../images/HomePageImage.png"
+import Captain from "./Captain";
 
 
 function getLineUp(){
@@ -24,15 +25,17 @@ function getLineUp(){
 
 const Fantasy = (props) => {
     const [lineup, SetLineup] = useState(getLineUp);
+    const [captain, SetCaptain] = useState('');
 
     const handleLineup = (lineup) => {
       SetLineup(lineup);
-      console.log(`${lineup.length} fantasy`);
-      
-     
-     
+      console.log(`${lineup.length} fantasy`); 
     };
     
+    const handleCaptain = (captain) => {
+      SetCaptain(captain);
+      console.log(`${captain.playerName} captain`); 
+    };
  
 
   return(
@@ -41,11 +44,12 @@ const Fantasy = (props) => {
         <FantasyDeadLine/>
         <PlayersList  lineup={lineup} onCheckBoxChange={handleLineup} />
         <TopBar/>
-        <Field lineup={lineup} onRemoveButton={handleLineup}/>
+        <Field lineup={lineup} onRemoveButton={handleLineup} captain={captain}/>
         <SpecialChips/> 
         <SubmitAndReset/>
         <InfoAndFantasyOptions/>
         <MatchesList/>
+        <Captain lineup={lineup} captain={captain} onChangeCaptain={handleCaptain}/>
         <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
           backgroundSize: "cover",
         backgroundPosition: '0vw 0.1vw', }}/>

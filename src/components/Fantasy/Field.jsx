@@ -7,17 +7,24 @@ import { Button, ButtonGroup } from "react-bootstrap";
 const top = 20;
 const  left = 30.8;
 
-function createPlayerButton(player)
-{
-    return (
-        <Button className="btnPlayerButton" >
-            <h1>  {player.playerName}  </h1>
-        </Button>
-    )
-}
+
 
 function Field(props)
 {
+    function createPlayerButton(player)
+    {
+        return (
+            <Button className="btnPlayerButton" >
+                <h2>  {player.points} </h2>
+                <h3>  {player.price}m </h3>
+                <h1>  {player.playerName}  </h1>
+
+                {player.id===props.captain.id?null:<h4>C</h4>}
+            </Button>
+        )
+    }
+
+
     const goalkeepers = props.lineup.filter((player) => player.position === 'GK');
     const defenders = props.lineup.filter((player) => player.position === 'DF');
     const midfielders = props.lineup.filter((player) => player.position === 'MF');

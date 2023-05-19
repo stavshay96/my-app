@@ -4,7 +4,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import PropTypes from 'prop-types';
-//import {DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton} from '@mui/x-data-grid';
+
+//For dropdown:
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 import Button from 'react-bootstrap/Button';
 //import Box from '@mui/material/Box';
@@ -118,7 +124,8 @@ function PlayersList(props) {
     const selectedPlayers = arrSelected.map((rowId) => {
       return players.find((row) => row.id === rowId);
     });
-  
+    
+    setSelectedPlayers(selectedPlayers);  // Store the selected players in the state
     props.onCheckBoxChange(selectedPlayers);
   };
 
@@ -145,6 +152,7 @@ function PlayersList(props) {
       sort: 'desc',
     },
   ]);
+
 
   
   return (
@@ -200,6 +208,8 @@ function PlayersList(props) {
     </div>
   );
 }
+
+
 
 
 /* cellClassName: (params) => {

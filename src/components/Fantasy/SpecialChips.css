@@ -1,7 +1,7 @@
 .btnChips {
     text-align: center;
     background-color: #f4fdf0;
-    border-radius: 1vw;
+    border-radius: 0.5vw;
     border: 0.15vw solid #131313;
     display: inline-block;
     cursor: pointer;
