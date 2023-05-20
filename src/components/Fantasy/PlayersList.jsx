@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton } from "@material-ui/data-grid";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -80,53 +80,93 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 function PlayersList(props) {
-   const [selectedRows, setSelectedRows] = useState([]);
+  const [selectedRows, setSelectedRows] = useState([]);
    const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [filterModel, setFilterModel] = useState({items: [],});
 
+  useEffect(() => {
+    const initialSelectedRows =[6, 7, 8, 9];
+    setSelectedRows(initialSelectedRows);
+    handleCheckBox(initialSelectedRows);
+  }, []);
+  
   const classes = useStyles();
-/*  const handleSelectionModelChange = (newSelection) => {
-    setSelectionModel(newSelection.selectionModel);
-  };*/
 
+  // probably related to filters - not used yet
   const handleFilterChange = (model) => {
     setFilterModel(model);
   };
-
+ // probably related to filters - not used yet
   const handleClearFilters = () => {
     setFilterModel({ items: [] });
   };
 
-  /*const handleCheckBox = (arrSelected) =>{
-   //alert(`${arrSelected}`)
-   setSelectedRows(arrSelected);
-   setSelectedPlayers([]);
-  
-   //if(selectionModel.length <= 3){ alert(`${selectionModel}`)}
- // else {alert("lineup is full")}
 
- //  setSelectedRows(selectionModel);
- arrSelected.forEach((rowId) => {
-    const rowFound = players.find((row) => row.id === rowId);
-    setSelectedPlayers(prevArray => [...prevArray, rowFound]);
-    
-    
-    
-  //  alert(`${rowFound.playerName}`);
-  });
-  props.onCheckBoxChange(selectedPlayers);
-  } */
 
-  const handleCheckBox = (arrSelected) => {
-    setSelectedRows(arrSelected);
-  
-    const selectedPlayers = arrSelected.map((rowId) => {
-      return players.find((row) => row.id === rowId);
+ const cancelPickingSelectedRow = (arrSelected) => {
+    arrSelected.forEach((item,index) => {
+      if(item !== selectedRows[index]){
+        arrSelected.splice(index, 1);
+      }
+
     });
+    return arrSelected;
+  }
+
+ const convertIDArrToPlayersArr = (arrSelected) =>{
+  const selectedPlayers = arrSelected.map((rowId) => {
+    return players.find((row) => row.id === rowId);
+  });
+  return selectedPlayers;
+ }
+
+ const isOverBudget = (arrSelected) =>{
+  const newSelectedPlayers = convertIDArrToPlayersArr(arrSelected);
+  let totalBudget = newSelectedPlayers.reduce((sum, item) => sum + item.price, 0); 
+  return totalBudget > 100 ? true:false;
+ }
+
+ const isMaxPlayerInPosition =(arrSelected) =>{
+    const newSelectedPlayers = convertIDArrToPlayersArr(arrSelected);
+    const goalkeepers = newSelectedPlayers.filter((player) => player.position === 'GK');
+    if(goalkeepers.length>1)
+    {
+      
+    }
+ }
+///----------------------------------------------------------
+ //arrSelected - the updated IDs array
+ //selectedRows - the ID array before the last click on some checkbox
+ //selectedPlayers - object array of players  before the last click on some checkbox
+ //newSelectedPlayers - the updated players (objects) array
+///----------------------------------------------------------
+  const handleCheckBox = (arrSelected) => {
     
-    setSelectedPlayers(selectedPlayers);  // Store the selected players in the state
-    props.onCheckBoxChange(selectedPlayers);
+    if(arrSelected.length > 11)
+     { 
+      arrSelected = cancelPickingSelectedRow(arrSelected);
+      alert("ההרכב מלא");
+      console.log("ההרכב מלא");
+     }
+
+    
+     if(isOverBudget(arrSelected))
+     {
+      arrSelected = cancelPickingSelectedRow(arrSelected, selectedRows);
+      alert("חריגה מהתקציב");
+      console.log("חריגה מהתקציב");
+     }
+     setSelectedRows(arrSelected);
+     const newSelectedPlayers = convertIDArrToPlayersArr(arrSelected);
+     setSelectedPlayers(newSelectedPlayers);  // Store the selected players in the state
+     props.onCheckBoxChange(newSelectedPlayers);
+
+     console.log(`${newSelectedPlayers.length} selectedPlayers`);
+     console.log(`${selectedRows.length} selectedRows`);
+     console.log(`${arrSelected.length} arrSelected`);
+      
   };
 
 

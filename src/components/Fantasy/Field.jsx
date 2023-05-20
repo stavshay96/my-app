@@ -14,12 +14,12 @@ function Field(props)
     function createPlayerButton(player)
     {
         return (
-            <Button className="btnPlayerButton" >
+            <Button className="btnPlayerButton" key={player.id} >
                 <h2>  {player.points} </h2>
                 <h3>  {player.price}m </h3>
                 <h1>  {player.playerName}  </h1>
 
-                {player.id===props.captain.id?null:<h4>C</h4>}
+                {player===props.captain?<h4>C</h4>:null}
             </Button>
         )
     }
