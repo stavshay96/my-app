@@ -31,8 +31,6 @@ div[role="tooltip"] {
     font-weight: bold;
     padding: 0.5% 1%;
     box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);
-    /*text-decoration: none;*/
-    /*width: 7%;*/
 }
 
 .btnDropdownPos .dropdown-toggle {
@@ -40,7 +38,6 @@ div[role="tooltip"] {
     background-color: #bae9a6;
     border: 0.15vw solid #bae9a6;
     cursor: pointer;
-    /* Other styles */
 }
 
 .dropdown-menu {

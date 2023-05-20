@@ -11,10 +11,8 @@ const buttons = [
     {
         buttonID: 2,
         name: 'נקה הרכב',
-        style: { position:'fixed', bottom:'4%', right:'51.5%',unicodeBidi:'plaintext',}
+        style: { position:'fixed', bottom:'4%', right:'51.5%', unicodeBidi:'plaintext',}
     },
-    
-
 ]
 
 function CreateSubmitAndResetButtons(button){
@@ -22,13 +20,12 @@ function CreateSubmitAndResetButtons(button){
                <Button key={button.buttonID} className="btnSubmitAndReset"  style= {button.style}>
                 {button.name}
                 </Button>  
-             )
+    )
 }
 
 
 function SubmitAndReset()
 {
-
     return(
         <div>
         {buttons.map(CreateSubmitAndResetButtons)}

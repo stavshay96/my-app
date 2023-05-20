@@ -1,23 +1,13 @@
 import { useState , useEffect} from "react";
 import { DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton } from "@material-ui/data-grid";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import PropTypes from 'prop-types';
-
-//For dropdown:
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-
-import Button from 'react-bootstrap/Button';
-//import Box from '@mui/material/Box';
-//import clsx from 'clsx';
 import { makeStyles } from "@material-ui/core/styles";
 import "./PlayersList.css";
 import players from "./Players.jsx";
+
+const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
+const rows = players.map(createRow);
 
 const columns = [
   { field: "points", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center' },
@@ -28,11 +18,6 @@ const columns = [
   renderHeader: wrapPositionHeader },
 ];
 
-
-const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
-
-//init rows - move player arr to another file
-const rows = players.map(createRow);
 function createRow(player){
   return {id: player.id, points: player.points, price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position}
 }
@@ -80,14 +65,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
 function PlayersList(props) {
   const [selectedRows, setSelectedRows] = useState([]);
    const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [filterModel, setFilterModel] = useState({items: [],});
 
   useEffect(() => {
-    const initialSelectedRows =[6, 7, 8, 9];
+    const initialSelectedRows =[];
     setSelectedRows(initialSelectedRows);
     handleCheckBox(initialSelectedRows);
   }, []);
@@ -103,73 +87,115 @@ function PlayersList(props) {
     setFilterModel({ items: [] });
   };
 
-
-
- const cancelPickingSelectedRow = (arrSelected) => {
-    arrSelected.forEach((item,index) => {
+ const cancelPickingSelectedRow = (updatedIDArray) => {
+    updatedIDArray.forEach((item,index) => {
       if(item !== selectedRows[index]){
-        arrSelected.splice(index, 1);
+        updatedIDArray.splice(index, 1);
       }
 
     });
-    return arrSelected;
+    return updatedIDArray;
   }
 
- const convertIDArrToPlayersArr = (arrSelected) =>{
-  const selectedPlayers = arrSelected.map((rowId) => {
-    return players.find((row) => row.id === rowId);
-  });
-  return selectedPlayers;
+ const convertIDArrToPlayersArr = (updatedIDArray) =>{
+    const selectedPlayers = updatedIDArray.map((rowId) => {
+      return players.find((row) => row.id === rowId);
+    });
+    return selectedPlayers;
  }
 
- const isOverBudget = (arrSelected) =>{
-  const newSelectedPlayers = convertIDArrToPlayersArr(arrSelected);
-  let totalBudget = newSelectedPlayers.reduce((sum, item) => sum + item.price, 0); 
-  return totalBudget > 100 ? true:false;
+ const isOverBudget = (updatedIDArray) =>{
+    const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+    let totalBudget = newSelectedPlayers.reduce((sum, item) => sum + item.price, 0); 
+    return totalBudget > 100 ? true:false;
  }
 
- const isMaxPlayerInPosition =(arrSelected) =>{
-    const newSelectedPlayers = convertIDArrToPlayersArr(arrSelected);
+ const isMaxGoalkeepers = (updatedIDArray) =>{
+    const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
     const goalkeepers = newSelectedPlayers.filter((player) => player.position === 'GK');
-    if(goalkeepers.length>1)
-    {
-      
-    }
+    return goalkeepers.length > 1 ? true:false;
  }
+
+ const isMaxDefenders = (updatedIDArray) =>{
+    const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+    const defenders = newSelectedPlayers.filter((player) => player.position === 'DF');
+    return defenders.length > 5 ? true:false;
+ }
+
+ const isMaxMidfielders = (updatedIDArray) =>{
+    const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+    const midfielders = newSelectedPlayers.filter((player) => player.position === 'MF');
+    return midfielders.length > 5 ? true:false;
+ }
+
+ const isMaxForwards = (updatedIDArray) =>{
+    const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+    const forwards = newSelectedPlayers.filter((player) => player.position === 'FW');
+    return forwards.length > 3 ? true:false;
+ }
+
 ///----------------------------------------------------------
- //arrSelected - the updated IDs array
  //selectedRows - the ID array before the last click on some checkbox
  //selectedPlayers - object array of players  before the last click on some checkbox
  //newSelectedPlayers - the updated players (objects) array
 ///----------------------------------------------------------
-  const handleCheckBox = (arrSelected) => {
+
+  const handleCheckBox = (updatedIDArray) => {
     
-    if(arrSelected.length > 11)
-     { 
-      arrSelected = cancelPickingSelectedRow(arrSelected);
+    if (updatedIDArray.length > 11)
+    { 
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray);
+      setSelectedRows(updatedIDArray);
       alert("ההרכב מלא");
       console.log("ההרכב מלא");
-     }
+    }
 
+    if (isMaxGoalkeepers(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray);
+      setSelectedRows(updatedIDArray);
+      alert("ניתן לבחור שוער אחד בלבד!");
+      console.log("ניתן לבחור שוער אחד בלבד!");
+    }
+    if (isMaxDefenders(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray);
+      setSelectedRows(updatedIDArray);
+      alert("ניתן לבחור עד 5 מגנים בלבד!");
+      console.log("ניתן לבחור עד 5 מגנים בלבד!");
+    }
+    if (isMaxMidfielders(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray);
+      setSelectedRows(updatedIDArray);
+      alert("ניתן לבחור עד חמישה קשרים בלבד!");
+      console.log("ניתן לבחור עד חמישה קשרים בלבד!");
+    }
+    if (isMaxForwards(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray);
+      setSelectedRows(updatedIDArray);
+      alert("ניתן לבחור עד 3 חלוצים בלבד!");
+      console.log("ניתן לבחור עד 3 חלוצים בלבד!");
+    }
     
-     if(isOverBudget(arrSelected))
-     {
-      arrSelected = cancelPickingSelectedRow(arrSelected, selectedRows);
+    if(isOverBudget(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray, selectedRows);
       alert("חריגה מהתקציב");
       console.log("חריגה מהתקציב");
-     }
-     setSelectedRows(arrSelected);
-     const newSelectedPlayers = convertIDArrToPlayersArr(arrSelected);
-     setSelectedPlayers(newSelectedPlayers);  // Store the selected players in the state
-     props.onCheckBoxChange(newSelectedPlayers);
+    }
 
-     console.log(`${newSelectedPlayers.length} selectedPlayers`);
-     console.log(`${selectedRows.length} selectedRows`);
-     console.log(`${arrSelected.length} arrSelected`);
+    setSelectedRows(updatedIDArray);
+    const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+    setSelectedPlayers(newSelectedPlayers);  // Store the selected players in the state
+    props.onCheckBoxChange(newSelectedPlayers);
+
+    console.log(`${newSelectedPlayers.length} selectedPlayers`);
+    console.log(`${selectedRows.length} selectedRows`);
+    console.log(`${updatedIDArray.length} updatedIDArray`);
       
   };
-
-
 
   function CustomToolbar({ setFilterButtonEl }) {
     return (
@@ -184,8 +210,6 @@ function PlayersList(props) {
   };
   
   const [filterButtonEl, setFilterButtonEl] = useState(null);
-
-
   const [sortModel, setSortModel] = useState([
     {
       field: 'price',
@@ -193,11 +217,9 @@ function PlayersList(props) {
     },
   ]);
 
-
-  
   return (
     <div>
-      <DataGrid className={classes.root} style={{position:'fixed', top:'40%', right:'66.85%',
+      <DataGrid className={classes.root} style={{position:'fixed', top:'39.75%', right:'66.95%',
         width:'30.75%', height: '57%', backgroundColor: '#e0f9d5',     }}
        // filterModel={filterModel}
        // onFilterModelChange={handleFilterChange}
@@ -237,8 +259,6 @@ function PlayersList(props) {
                 { field: 'points', operator: '>', value: '0' },
                 { field: 'price', operator: '>', value: '0' },
                 { field: 'price', operator: '<', value: '16' },
-
-            
             ],
             },
           },
@@ -248,25 +268,5 @@ function PlayersList(props) {
     </div>
   );
 }
-
-
-
-
-/* cellClassName: (params) => {
-    return clsx('super-app', {
-      GK: params.value == 'GK',
-      DF: params.value == 'DF',
-      MF: params.value == 'MF',
-      FW: params.value == 'FW'
-    })
-
-<Box sx={{
-        '& .GK': {
-          backgroundColor: '#d47483',
-        }
-      }}>
-
-       </Box>
-  } */
 
 export default PlayersList;

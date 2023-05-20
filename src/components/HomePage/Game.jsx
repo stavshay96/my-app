@@ -1,10 +1,8 @@
 import {React, useEffect, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from "react-router-dom";
-import Kane from "../../images/Players/Kane.png"
 
 import "./Game.css";
-
 
 
 function Game(props){
@@ -16,17 +14,11 @@ function Game(props){
 
             if(props.gameID === 1) {
                 navigate("/Fantasy", { replace: false });
+                const originalBackground =document.body.style.backgroundImage;
 
-               
-                  const originalBackground =document.body.style.backgroundImage;
-                 // document.body.style.backgroundImage=`url(${Kane})`;
-
-                  return () =>{
-                        document.body.style.backgroundImage = originalBackground;
-                  }
-              
-         
-                //window.location.reload(true);
+                return () =>{
+                      document.body.style.backgroundImage = originalBackground;
+                }
             }
             else if(props.gameID === 2) {
                   navigate("/NotReadyYet", { replace: false })
