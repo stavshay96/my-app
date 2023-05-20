@@ -6,7 +6,7 @@ import "./Login.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faFacebook , faGoogle} from '@fortawesome/free-brands-svg-icons';
+import { faFacebook , faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 
 const styleLogin = {
@@ -26,7 +26,6 @@ const Login = (props) =>
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [enteredEmail, setEnteredEmail] = useState("");
     const [enteredPassword, setEnteredPassword] = useState("");
-   // let navigate =useNavigate();
 
    const emailHandler=(event) =>
     {
@@ -56,82 +55,57 @@ const Login = (props) =>
             {
                 
                 setOpen(false);
-               // document.cookie =  "userID " + res.data.userInfo.userID +  " fullName " +  res.data.userInfo.fullName;
                 document.cookie = `userID=${res.data.userInfo.userID}`;
                 document.cookie = `fullName= ${res.data.userInfo.fullName}`;
                 document.cookie = `email= ${res.data.userInfo.email}`;
                 props.changeUserInfo(res.data.userInfo);
-               /*navigate("/Fantasy", {
-                    replace: true,
-                });*/
-            }
-            
-           
-        }).
-        catch(error => {
+            }     
+        }).catch(error => {
         console.error(error);
         setOpen(false);
         });
-        
-    }
-
+        }
 
        return(
-        /*<div>
-            <Button style={{position:'absolute', padding:'100% 180%', top:'-7vw', left:'-15vw'}}>
-            </Button>
-        </div>  */
         <Popup trigger={ 
-            
-        <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'10%'}}>
+            <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'3%'}}>
                התחברות {console.log("login")}
-        </Button>}  modal open={open} onClick={()=>setOpen(true)}>
-      {close =>(<div>
-        <Button className="close-btn" onClick={close} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
-        X
-        </Button>
+            </Button>}  modal open={open} onClick={()=>setOpen(true)}>
+            {close =>(<div>
+            <Button className="close-btn" onClick={close} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
+            X
+            </Button>
            
-          <Form className="formStyle" style={{ position:'fixed', top:'35%', right:'30%'}}>
-            <Form.Group className="emailStyle" controlId="formBasicEmail">
+            <Form className="formStyle" style={{ position:'fixed', top:'35%', right:'30%'}}>
+                <Form.Group className="emailStyle" controlId="formBasicEmail">
                  <Form.Label style={{position:'fixed', top:'42%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
                  <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'42%', right:'41%', fontSize: '1.25vw'} }value={enteredEmail} onChange={emailHandler}
                   type="email" placeholder="Enter email" />
-            </Form.Group>
+                </Form.Group>
             
 
-            <Form.Group className="passwordStyle" controlId="formBasicPassword">
-                <Form.Label style={{position:'fixed', top:'49.5%', right:'32.9%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
-                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
-                type="password" placeholder="Enter Password" />
-            </Form.Group>
+                <Form.Group className="passwordStyle" controlId="formBasicPassword">
+                    <Form.Label style={{position:'fixed', top:'49.5%', right:'32.9%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
+                    <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
+                    type="password" placeholder="Enter Password" />
+                </Form.Group>
 
-            <Form.Group controlId="formBasicCheckbox" >
-            <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'60%', right:'47%', fontSize: '1.25vw'}}/>
-            </Form.Group>
+                <Form.Group controlId="formBasicCheckbox" >
+                    <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'60%', right:'47%', fontSize: '1.25vw'}}/>
+                </Form.Group>
 
-             <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
-            onClick={LoginHandler} >
-              התחבר
-            </Button>
+                <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
+                onClick={LoginHandler} >
+                  התחבר
+                </Button>
 
-            <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'75%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
-            <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'75%', right:'50.5%', fontSize: '3vw'}}/>
-        </Form>
-        </div>
-
-      )}
+                <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'73%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+                <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'73%', right:'50.5%', fontSize: '3vw'}}/>
+            </Form>
+            </div>
+            )}
         </Popup>
-        
-       )
-  }
-            
-                
- /* <div>
-  <Button className="btnLogin" style={{position:'absolute', padding:'1000% 1000%', top:'-7vw', left:'-15vw'}}>
-     Popup Login content here !!
-  </Button>
-</div>*/
-
-
+    )
+}
 
 export default Login;

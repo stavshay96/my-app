@@ -7,13 +7,11 @@
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     padding: 0.5% 1%;
     text-shadow: 0vw 0.1vw 0vw #2f6627;
     width: 10%;
     position: 'fixed';
-    top: '5%';
-    right: '10%';
     /*text-decoration: none;*/
 }
 

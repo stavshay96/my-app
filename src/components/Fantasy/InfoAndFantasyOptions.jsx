@@ -5,7 +5,7 @@ import "./InfoAndFantasyOptions.css"
 
 function InfoAndFantasyOptions()
 {
-    const lineup11 ="הרכב 11";
+    const lineup11 = "הרכב 11";
     const squad15 = "סגל 15";
     const news = "חדשות";
     const forum = "פורום";
@@ -33,8 +33,6 @@ function InfoAndFantasyOptions()
            <Button className="btnInfoAndOptions2" style={{backgroundColor: '#bae9a6'}}> {drafts} </Button>
            <Button className="btnInfoAndOptions2"> {expectedLineups} </Button>
           </ButtonGroup>
-
-
         </div>
     )
 }

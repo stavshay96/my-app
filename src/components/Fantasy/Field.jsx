@@ -7,8 +7,6 @@ import { Button, ButtonGroup } from "react-bootstrap";
 const top = 20;
 const  left = 30.8;
 
-
-
 function Field(props)
 {
     function createPlayerButton(player)
@@ -23,7 +21,6 @@ function Field(props)
             </Button>
         )
     }
-
 
     const goalkeepers = props.lineup.filter((player) => player.position === 'GK');
     const defenders = props.lineup.filter((player) => player.position === 'DF');

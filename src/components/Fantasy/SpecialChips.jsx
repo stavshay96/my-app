@@ -13,22 +13,19 @@ const chips = [
         name: '11 חילופים',
         style: { position:'fixed',top:'15%', left:'21%',unicodeBidi:'plaintext',}
     },
-    
-
 ]
 
 function CreateChip(chip){
     return (
                <Button key={chip.chipID} className="btnChips"  style= {chip.style}>
-                {chip.name}
-                </Button>  
-             )
+               {chip.name}
+               </Button>  
+    )
 }
 
 
 function SpecialChips()
 {
-
     return(
         <div>
         {chips.map(CreateChip)}

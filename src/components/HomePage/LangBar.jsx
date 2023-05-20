@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import "./LangBar.css";
 
 
-
 function LangBar(){
     
    return(

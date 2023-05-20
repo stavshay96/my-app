@@ -70,62 +70,51 @@ const SignUp = (props) =>
         }).
         catch(error => {
         console.error(error);
-        });
-        
+        });    
     }
-
-
-       return(
-        /*<div>
-            <Button style={{position:'absolute', padding:'100% 180%', top:'-7vw', left:'-15vw'}}>
-            </Button>
-        </div>  */
-        <Popup trigger={ 
-
-        <Button className="btnSignUp" style={{position:'fixed', top:'5%', right:'20.5%'}}>
-               הרשמה {console.log("SignUp")}
-        </Button>}  modal nested>
-
-        <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%'}}>
-        X
-        </Button>
-           
-          <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
-            <Form.Group className="emailStyle" controlId="formBasicEmail">
-                 <Form.Label style={{position:'fixed', top:'41.75%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'41.8%', right:'41%', fontSize: '1.25vw' } }value={enteredEmail} onChange={emailHandler}
-                  type="email" placeholder="Enter email" />
-                  
-            </Form.Group>
-
-            <Form.Group className="nameStyle" controlId="formBasicName">
-                 <Form.Label style={{position:'fixed', top:'49.75%', right:'32.85%', fontSize: '1.6vw'}}>:שם מלא</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.8%', right:'41%' ,  unicodeBidi:'plaintext', fontSize: '1.25vw'} }value={enteredName} onChange={nameHandler}
-                  type="name" placeholder="Enter name" />
-                  
-            </Form.Group>
-         
-
-            <Form.Group className="passwordStyle" controlId="formBasicPassword">
-                <Form.Label style={{position:'fixed', top:'57.5%', right:'32.85%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
-                <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'57.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
-                type="password" placeholder="Password" />
-            </Form.Group>
-
-             <Button className="btnSignUp" variant="primary" type="submit" style={{position:'fixed', top:'65.5%', right:'45%', fontSize: '1.6vw'}}
-            onClick={SignUpHandler}>
-              הירשם
-            </Button>
-
-            <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'75%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
-            <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'75%', right:'50.5%', fontSize: '3vw'}}/>
-    </Form>
-
-              
-        </Popup>
         
-       )
-  }
+    return(
+            <Popup trigger={ 
+                <Button className="btnSignUp" style={{position:'fixed', top:'5%', right:'13.5%'}}>
+                   הרשמה {console.log("SignUp")}
+                </Button>}  modal nested>
 
+                <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%'}}>
+                X
+                </Button>
+           
+                <Form className="formStyle" style={{position:'fixed', top:'35%', right:'30%'}}>
+                    <Form.Group className="emailStyle" controlId="formBasicEmail">
+                        <Form.Label style={{position:'fixed', top:'41.75%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
+                        <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'41.8%', right:'41%', fontSize: '1.25vw' } }value={enteredEmail} onChange={emailHandler}
+                        type="email" placeholder="Enter email" />
+                        
+                    </Form.Group>
+
+                    <Form.Group className="nameStyle" controlId="formBasicName">
+                        <Form.Label style={{position:'fixed', top:'49.75%', right:'32.85%', fontSize: '1.6vw'}}>:שם מלא</Form.Label>
+                        <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.8%', right:'41%' ,  unicodeBidi:'plaintext', fontSize: '1.25vw'} }value={enteredName} onChange={nameHandler}
+                        type="name" placeholder="Enter name" />
+                        
+                    </Form.Group>
+                
+
+                    <Form.Group className="passwordStyle" controlId="formBasicPassword">
+                        <Form.Label style={{position:'fixed', top:'57.5%', right:'32.85%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
+                        <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'57.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
+                        type="password" placeholder="Password" />
+                    </Form.Group>
+
+                    <Button className="btnSignUp" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%', fontSize: '1.6vw'}}
+                    onClick={SignUpHandler}>
+                    הירשם
+                    </Button>
+
+                    <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'73%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+                    <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'73%', right:'50.5%', fontSize: '3vw'}}/>
+                </Form>
+            </Popup>
+    )
+}
 
 export default SignUp;

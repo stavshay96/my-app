@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import { useStateWithCallback } from "../../useStateWithCallBack"
-
 import "./Fantasy.css";
 import LangBar from "../HomePage/LangBar"
 import FantasyDeadLine from "./FantasyDeadLine";
@@ -75,7 +74,6 @@ const Fantasy = (props) => {
           backgroundSize: "cover",
         backgroundPosition: '0vw 0.1vw', }}/>
         <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
-
     </div>
   )
 }

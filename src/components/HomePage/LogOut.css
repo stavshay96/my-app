@@ -7,14 +7,10 @@
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.5vw;
+    font-size: 1vw;
     padding: 0.5% 1%;
-    text-shadow: 0vw 0.1vw 0vw #2f6627;
-    width: 10%;
-    position: 'fixed';
-    top: '5%';
-    right: '10%';
-    /*text-decoration: none;*/
+    text-shadow: 0vw 0.05vw 0vw #2f6627;
+    width: 6%;
 }
 
 .btnLogOut:hover {
@@ -34,4 +30,12 @@
     padding: 0.5% 1%;
     text-shadow: 0vw 0.1vw 0vw #2f6627;
     /*text-decoration: none;*/
+}
+
+.user {
+    position: fixed;
+    z-index: 1;
+    left: 92%;
+    top: 6.5%;
+    width: 3%;
 }
