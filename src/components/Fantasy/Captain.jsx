@@ -7,14 +7,10 @@ import Select from '@mui/material/Select';
 import "./Captain.css";
 
 const Captain = (props)=>{
-    /*
-    const handleChange = (event) => {
-    setCaptain(event.target.value);
-     };
-    */
 
     const handleCaptainChoice = (event) => {
         props.onChangeCaptain(event.target.value);
+        
     }
 
     return(
@@ -31,7 +27,7 @@ const Captain = (props)=>{
                         onChange={handleCaptainChoice}
                     >
                     {props.lineup.map((player) => (
-                        <MenuItem key={player.id} value={player.playerName}>
+                        <MenuItem key={player.id} value={player}>
                             {player.playerName}
                         </MenuItem>
                     ))}
