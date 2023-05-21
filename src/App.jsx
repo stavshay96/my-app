@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginSignUpBar from "./components/HomePage/Login-SignUpBar"
 import LangBar from "./components/HomePage/LangBar"
 import Game from "./components/HomePage/Game"
-import games from "./components/HomePage/Games"
+import games from "./components/HomePage/data/Games"
 import LogOut from "./components/HomePage/LogOut";  
 import Fantasy from "./components/Fantasy/Fantasy"
 import Predictions from "./components/Predictions/Predictions"
@@ -24,29 +24,21 @@ function CreateGame(game){
 
 
 function App() {
-
-    //const [isLoggedIn, SetLogin] = useState(false);
     const [userInfo, SetUserInfo] = useState({});
     const WrapUserInfo = (userInfo) => {
         SetUserInfo(() => {
           return userInfo;
         });
     };
-   // document.body.style.backgroundImage=`url(${Background})`;
 
     const HasCookies = () => {
-        //const user = document.getCookie();
-        //document.body.style.backgroundImage=`url(${Background})`;
-        
         const user = document.cookie;
-        
         useEffect(() => 
         {
             const cookieInfo = splitCookieToString(user);
             SetUserInfo(cookieInfo);
         }, []);
         
-       
         console.log(user);
         console.log(userInfo);
         return user;

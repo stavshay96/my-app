@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import "./FantasyDeadLine.css"
+import "./css/FantasyDeadLine.css"
 
 function FantasyDeadLine()
 {

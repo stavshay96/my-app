@@ -2,8 +2,8 @@ import {React , useState} from "react";
 import { DataGrid,  GridToolbar } from "@material-ui/data-grid";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import "./MatchesList.css"
-import Matches from "./Matches.jsx";
+import "./css/MatchesList.css"
+import Matches from "./data/Matches.jsx";
 
 const rows = Matches.map(createRowMatch);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import "./InfoAndFantasyOptions.css"
+import "./css/InfoAndFantasyOptions.css"
 
 function InfoAndFantasyOptions()
 {

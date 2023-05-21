@@ -1,5 +1,5 @@
 import {React} from "react";
-import "./LineupCounter.css"
+import "./css/LineupCounter.css"
 import { Button, ButtonGroup } from "react-bootstrap";
 
 function LineupCounter(props){

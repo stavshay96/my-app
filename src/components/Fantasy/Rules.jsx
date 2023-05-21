@@ -1,5 +1,5 @@
 import React from "react";
-import "./Rules.css"
+import "./css/Rules.css"
 import { Button } from "react-bootstrap";
 
 function Rules(){

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
-import "./SpecialChips.css"
+import "./css/SpecialChips.css"
 
 const chips = [
     {

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import { useStateWithCallback } from "../../useStateWithCallBack"
-import "./Fantasy.css";
+import "./css/Fantasy.css";
 import LangBar from "../HomePage/LangBar"
 import FantasyDeadLine from "./FantasyDeadLine";
 import PlayersList from "./PlayersList";

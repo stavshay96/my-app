@@ -1,8 +1,7 @@
 import {React, useEffect, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from "react-router-dom";
-
-import "./Game.css";
+import "./css/Game.css";
 
 
 function Game(props){

@@ -3,8 +3,8 @@ import { DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton }
 
 import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles";
-import "./PlayersList.css";
-import players from "./Players.jsx";
+import "./css/PlayersList.css";
+import players from "./data/Players.jsx";
 
 const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 const rows = players.map(createRow);

@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/esm/Button";
 import React from "react";
-import "./LogOut.css"
+import "./css/LogOut.css"
 
 const LogOut =(props) =>
 {
