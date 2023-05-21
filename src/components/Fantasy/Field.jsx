@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'react-bootstrap/Image'
-import "./Field.css"
+import "./css/Field.css"
 import { Button, ButtonGroup } from "react-bootstrap";
 
 

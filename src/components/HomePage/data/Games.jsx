@@ -1,6 +1,6 @@
-import Pele from "../../images/Players/Pele.png";
-import Maradona from "../../images/Players/Maradona.png";
-import Zidane from "../../images/Players/Zidane.png";
+import Pele from "../../../images/Players/Pele.png";
+import Maradona from "../../../images/Players/Maradona.png";
+import Zidane from "../../../images/Players/Zidane.png";
 
 const Games = [
     {
