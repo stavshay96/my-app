@@ -10,6 +10,7 @@ import Predictions from "./components/Predictions/Predictions"
 import NotReadyPage from "./components/NotReadyYet/NotReadyPage";
 import Button from 'react-bootstrap/Button';
 import Background from "./images/Background.png"
+import axios from "axios";
 
 
 import "./App.css"
@@ -35,12 +36,30 @@ function App() {
         const user = document.cookie;
         useEffect(() => 
         {
-            const cookieInfo = splitCookieToString(user);
-            SetUserInfo(cookieInfo);
+            if (user){
+                    const cookieInfo = splitCookieToString(user);
+                    console.log(cookieInfo);
+                    console.log("work");
+                    axios.post(`http://localhost:7777/User/UserCookie`, {
+                    email: cookieInfo.email,
+                    fullName: cookieInfo.fullName,
+                    userID: parseInt(cookieInfo.userID,10)
+                }).then((res) =>{
+                    console.log(res.data);
+                    console.log(res.data.userInfo);
+
+                    if (res.data.Status === "Login succssed")
+                    {
+                        SetUserInfo(res.data.userInfo);
+                    }     
+                }).catch(error => {
+                console.error(error);
+                });
+            }
+         
         }, []);
         
-        console.log(user);
-        console.log(userInfo);
+       
         return user;
 
     };
