@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./css/TopBar.css"
 import { Button, ButtonGroup } from "react-bootstrap";
+import { useLocation } from 'react-router-dom';
+
 
 function TopBar(props)
 {
@@ -22,12 +24,16 @@ function TopBar(props)
    //counting Subs
    const totalSubs = props.lineup.reduce((count, item) => count + 1, 0); 
    props.onCountingSubs(totalSubs);
+
+   const location = useLocation();
+
+   const showButton = location.pathname === '/Fantasy/subs';
     
    return(
     <div>
         <ButtonGroup className="btnTopBar" style={{position:'absolute', top:'3.5%', right:'31.7%',  width:'29%', height: '8%'}}>
             <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{budget} {props.currentBudget}M/{maxBudget}M</Button>
-            <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{subs} {props.currentSubs}/{maxSubs}</Button>
+            {showButton && <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{subs} {props.currentSubs}/{maxSubs}</Button>}
             <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{teamName} {teamGivenName}</Button>
             <Button className="btnItems" style={{unicodeBidi:'plaintext',}}>{fantasy} {fantasyName}</Button>
         </ButtonGroup>  

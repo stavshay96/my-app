@@ -16,6 +16,7 @@ import axios from "axios";
 import "./App.css"
 import logo from './logo.svg';
 
+
 function CreateGame(game){
     return (
                <Game key={game.gameID} gameID={game.gameID} name={game.name} style= {game.style} />  
@@ -91,7 +92,7 @@ function App() {
              </div>}
              />
 
-            <Route path="/Fantasy" element={<Fantasy />}/>
+            <Route path="/Fantasy/*" element={<Fantasy/>}/>
             
 
             <Route path="/Predictions" element={<NotReadyPage/>} />
