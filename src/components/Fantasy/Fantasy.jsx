@@ -18,6 +18,7 @@ import HomePageImage from "../../images/HomePageImage.png"
 import Captain from "./Captain";
 import LineupCounter from "./LineupCounter";
 import Rules from "./Rules";
+import FantasyHomePage from "./FantasyHomePage";
 
 
 function getLineUp(){
@@ -56,25 +57,39 @@ const Fantasy = (props) => {
  
 
   return(
-    <div>
-        <LangBar/> 
-        <FantasyDeadLine/>
-        <PlayersList  lineup={lineup} onCheckBoxChange={handleLineup} />
-        <TopBar currentBudget={currentBudget} onCalcBudget={handleBudget} lineup={lineup}
-                currentSubs={currentSubs} onCountingSubs={handleSubs}/>
-        <LineupCounter lineup={lineup}/>
-        <Field lineup={lineup} onRemoveButton={handleLineup} captain={captain}/>
-        <SpecialChips/> 
-        <SubmitAndReset/>
-        <InfoAndFantasyOptions/>
-        <MatchesList/>
-        <Captain lineup={lineup} captain={captain} onChangeCaptain={handleCaptain}/>
-        <Rules/>
-        <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
-          backgroundSize: "cover",
-        backgroundPosition: '0vw 0.1vw', }}/>
-        <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
-    </div>
+
+    <Routes>
+      <Route path="/" element={<FantasyHomePage lineup={lineup} SetLineup={SetLineup}
+      currentBudget={currentBudget} handleBudget={handleBudget}
+      currentSubs={currentSubs} handleSubs={handleSubs}
+      captain={captain} handleCaptain={handleCaptain}/>}/>
+
+      <Route path="subs" element={
+                <div>
+                    <LangBar/> 
+                    <FantasyDeadLine/>
+                    <PlayersList  lineup={lineup} onCheckBoxChange={handleLineup} />
+                    <TopBar currentBudget={currentBudget} onCalcBudget={handleBudget} lineup={lineup}
+                            currentSubs={currentSubs} onCountingSubs={handleSubs}/>
+                    <LineupCounter lineup={lineup}/>
+                    <Field lineup={lineup} onRemoveButton={handleLineup} captain={captain}/>
+                    <SpecialChips/> 
+                    <SubmitAndReset/>
+                    <InfoAndFantasyOptions/>
+                    <MatchesList/>
+                    <Captain lineup={lineup} captain={captain} onChangeCaptain={handleCaptain}/>
+                    <Rules/>
+                    <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
+                      backgroundSize: "cover",
+                    backgroundPosition: '0vw 0.1vw', }}/>
+                    <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
+                </div>}/>
+                
+        <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
+
+    </Routes>
+                
+
   )
 }
 
