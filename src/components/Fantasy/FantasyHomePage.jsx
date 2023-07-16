@@ -13,6 +13,7 @@ import Rules from "./Rules";
 import LineupByFixture from "./LineupByFixture";
 import MovingToSubsButton from "./MovingToSubsButton";
 import UserPoints from "./UserPoints";
+import MyLeagues from "./MyLeagues";
 
 const FantasyHomePage = (props) => {
 
@@ -29,6 +30,7 @@ const FantasyHomePage = (props) => {
             <LineupByFixture/>
             <UserPoints/>
             <MovingToSubsButton/>
+            <MyLeagues/>
             <Rules/>
             <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
                   backgroundSize: "cover",
@@ -36,7 +38,6 @@ const FantasyHomePage = (props) => {
             <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
         </div>
     )
-
 }
 
 export default FantasyHomePage;
