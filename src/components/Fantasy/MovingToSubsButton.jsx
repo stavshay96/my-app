@@ -7,7 +7,7 @@ function MovingToSubsButton()
 {
     return (
         <Link to="subs" style={{ textDecoration: "none" }}>
-            <Button  className="btnMovingToSubs"  style= {{position:'fixed', top:'30%', left:'3%'}}>
+            <Button  className="btnMovingToSubs"  style= {{position:'fixed', top:'30%', left:'7%'}}>
             בצע חילופים
             </Button>  
         </Link>

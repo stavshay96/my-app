@@ -68,7 +68,7 @@ const Fantasy = (props) => {
                 <div>
                     <LangBar/> 
                     <FantasyDeadLine/>
-                    <PlayersList  lineup={lineup} onCheckBoxChange={handleLineup} />
+                    <PlayersList lineup={lineup} onCheckBoxChange={handleLineup} />
                     <TopBar currentBudget={currentBudget} onCalcBudget={handleBudget} lineup={lineup}
                             currentSubs={currentSubs} onCountingSubs={handleSubs}/>
                     <LineupCounter lineup={lineup}/>
@@ -84,12 +84,8 @@ const Fantasy = (props) => {
                     backgroundPosition: '0vw 0.1vw', }}/>
                     <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
                 </div>}/>
-                
         <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
-
     </Routes>
-                
-
   )
 }
 
