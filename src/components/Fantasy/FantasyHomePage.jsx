@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./css/Fantasy.css";
-import LangBar from "../HomePage/LangBar"
+import LangBar from "../General/LangBar"
 import FantasyDeadLine from "./FantasyDeadLine";
 import TopBar from "./TopBar";
 import Field from "./Field";
@@ -14,13 +14,16 @@ import LineupByFixture from "./LineupByFixture";
 import MovingToSubsButton from "./MovingToSubsButton";
 import UserPoints from "./UserPoints";
 import MyLeagues from "./MyLeagues";
+import LogOut from "../HomePage/LogOut";
 
 const FantasyHomePage = (props) => {
+    const user = document.cookie;
+    console.log(`${user} user info`);
 
     return(
         <div>
             <LangBar/> 
-            <FantasyDeadLine/>
+            <FantasyDeadLine deadLineDate={props.deadLineDate} handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}  />
             <TopBar currentBudget={props.currentBudget} onCalcBudget={props.handleBudget} lineup={props.lineup}
                         currentSubs={props.currentSubs} onCountingSubs={props.handleSubs}/>
             <LineupCounter lineup={props.lineup}/>
@@ -29,13 +32,17 @@ const FantasyHomePage = (props) => {
             <MatchesList/>
             <LineupByFixture/>
             <UserPoints/>
-            <MovingToSubsButton/>
+            <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass}/>
             <MyLeagues/>
             <Rules/>
             <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
                   backgroundSize: "cover",
                 backgroundPosition: '0vw 0.1vw', }}/>
             <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
+            {user && <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}
+                                  h1style={{position:'fixed', top:'4.35%', right:'7.75%' ,fontSize:'1.3vw', textShadow: "0vw 0.05vw 0vw"}}
+                                  btnstyle={{position:'fixed', top:'11%',left:'69%'}}
+                                  imgstyle={{position:'fixed', top:'4%', left:'70.5%' }}/>}
         </div>
     )
 }

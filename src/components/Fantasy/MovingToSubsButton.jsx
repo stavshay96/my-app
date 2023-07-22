@@ -1,16 +1,29 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/MovingToSubsButton.css"
 
-function MovingToSubsButton()
+function MovingToSubsButton(props)
 {
+    let navigate = useNavigate();
+
+    const movingToSubsHandler = () => {
+        if (props.isDeadLineDatePass === false)
+        {
+            navigate("/Fantasy/subs", { replace: false });
+        }
+        else
+        {
+            alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
+        }
+
+    }
+
+
     return (
-        <Link to="subs" style={{ textDecoration: "none" }}>
-            <Button  className="btnMovingToSubs"  style= {{position:'fixed', top:'30%', left:'7%'}}>
+            <Button  className="btnMovingToSubs"  style= {{position:'fixed', top:'30%', left:'7%'}} onClick={movingToSubsHandler}>
             בצע חילופים
             </Button>  
-        </Link>
 )
 }
 

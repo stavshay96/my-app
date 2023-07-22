@@ -1,6 +1,7 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
 import "./css/SubmitAndReset.css"
+import { Link, useNavigate } from "react-router-dom";
 
 const buttons = [
     {
@@ -15,17 +16,48 @@ const buttons = [
     },
 ]
 
-function CreateSubmitAndResetButtons(button){
-    return (
-               <Button key={button.buttonID} className="btnSubmitAndReset"  style= {button.style}>
-                {button.name}
-                </Button>  
-    )
-}
 
 
-function SubmitAndReset()
+
+function SubmitAndReset(props)
 {
+    let navigate = useNavigate();
+   
+
+    function CreateSubmitAndResetButtons(button){
+       
+    
+       const buttonsHandler = () =>{
+            if(button.buttonID === 1){
+             submitHandler();
+            }
+            else if(button.buttonID === 2) {
+             resetHandler();
+            }
+        }
+
+        const submitHandler = () =>{
+            if(props.lineup.length < 11){
+                alert("ההרכב לא מלא!");
+            }
+            else if(props.isDeadLineDatePass === true) {
+                alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
+            }
+            else {
+                navigate("/Fantasy", { replace: false } );
+            }
+        }
+
+        const resetHandler = () =>{
+            
+        }
+    
+        return (
+                   <Button key={button.buttonID} className="btnSubmitAndReset"  style= {button.style} onClick={buttonsHandler}>
+                    {button.name}
+                    </Button>  
+        )
+    }
     return(
         <div>
         {buttons.map(CreateSubmitAndResetButtons)}

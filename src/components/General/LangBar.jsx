@@ -1,6 +1,6 @@
 import {React, useState} from "react";
 import Button from 'react-bootstrap/Button';
-import "./css/LangBar.css";
+import "./LangBar.css";
 
 
 function LangBar(){
