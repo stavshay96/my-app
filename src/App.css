@@ -7,19 +7,3 @@ body {
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
 }
-
-.left-photo {
-    position: absolute;
-    z-index: -1;
-    left: 0%;
-    bottom: 2.5%;
-    width: 20%
-}
-
-.right-photo {
-    position: absolute;
-    z-index: -1;
-    right: 0%;
-    bottom: 2.5%;
-    width: 20%
-}

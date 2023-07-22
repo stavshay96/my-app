@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import Button from 'react-bootstrap/Button';
 import { useStateWithCallback } from "../../useStateWithCallBack"
 import "./css/Fantasy.css";
-import LangBar from "../HomePage/LangBar"
+import LangBar from "../General/LangBar"
 import FantasyDeadLine from "./FantasyDeadLine";
 import PlayersList from "./PlayersList";
 import TopBar from "./TopBar";
@@ -19,6 +19,7 @@ import Captain from "./Captain";
 import LineupCounter from "./LineupCounter";
 import Rules from "./Rules";
 import FantasyHomePage from "./FantasyHomePage";
+import FantasySubsPage from "./FantasySubsPage";
 
 
 function getLineUp(){
@@ -34,6 +35,8 @@ const Fantasy = (props) => {
     const [captain, SetCaptain] = useState(getCaptain);
     const [currentBudget, SetCurrentBudget] = useState(0);
     const [currentSubs, SetCurrentSubs] = useState(0);
+    const deadLineDate = '2023-09-12T16:00:00';
+    const [isDeadLineDatePass, SetIsDeadLineDatePass] = useState(false);
 
     const handleLineup = (lineup) => {
       SetLineup(lineup); //update lineup
@@ -54,37 +57,30 @@ const Fantasy = (props) => {
       SetCurrentSubs(subs);
     }
 
+    const handleIsDeadLineDatePass = (isDeadLineDatePass) => {
+      SetIsDeadLineDatePass(isDeadLineDatePass);
+      console.log(`${isDeadLineDatePass}`);
+    }
+
  
 
   return(
 
     <Routes>
-      <Route path="/" element={<FantasyHomePage lineup={lineup} SetLineup={SetLineup}
+      <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup}
       currentBudget={currentBudget} handleBudget={handleBudget}
       currentSubs={currentSubs} handleSubs={handleSubs}
-      captain={captain} handleCaptain={handleCaptain}/>}/>
+      captain={captain} handleCaptain={handleCaptain} 
+      deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass} />}/>
 
-      <Route path="subs" element={
-                <div>
-                    <LangBar/> 
-                    <FantasyDeadLine/>
-                    <PlayersList lineup={lineup} onCheckBoxChange={handleLineup} />
-                    <TopBar currentBudget={currentBudget} onCalcBudget={handleBudget} lineup={lineup}
-                            currentSubs={currentSubs} onCountingSubs={handleSubs}/>
-                    <LineupCounter lineup={lineup}/>
-                    <Field lineup={lineup} onRemoveButton={handleLineup} captain={captain}/>
-                    <SpecialChips/> 
-                    <SubmitAndReset/>
-                    <InfoAndFantasyOptions/>
-                    <MatchesList/>
-                    <Captain lineup={lineup} captain={captain} onChangeCaptain={handleCaptain}/>
-                    <Rules/>
-                    <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
-                      backgroundSize: "cover",
-                    backgroundPosition: '0vw 0.1vw', }}/>
-                    <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
-                </div>}/>
-        <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
+      <Route path="subs" element={<FantasySubsPage lineup={lineup} handleLineup={handleLineup} 
+      currentBudget={currentBudget} handleBudget={handleBudget}
+      currentSubs={currentSubs} handleSubs={handleSubs}
+      captain={captain} handleCaptain={handleCaptain} 
+      deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
+      userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} />}/>
+              
+      <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
     </Routes>
   )
 }

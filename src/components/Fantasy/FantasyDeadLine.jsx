@@ -3,14 +3,14 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import "./css/FantasyDeadLine.css"
 
-function FantasyDeadLine()
+function FantasyDeadLine(props)
 {
-    const [deadLineMessage, setDeadLineMessage] = useState(" חלון החילופים פתוח");
+    const [deadLineMessage, setDeadLineMessage] = useState("חלון החילופים סגור");
     const [countdown, setCountdown] = useState('');
 
       useEffect(() => {
-        const deadLineDate = '2023-05-22T20:00:00';
-        const endDate = new Date(deadLineDate); // Replace with your desired end date and time
+        //const deadLineDate = '2023-05-22T20:00:00';
+        const endDate = new Date(props.deadLineDate); // Replace with your desired end date and time
     
         const updateCountdown = () => {
           const currentTime = new Date();
@@ -19,6 +19,7 @@ function FantasyDeadLine()
           if (timeDifference <= 0) {
             setCountdown('00:00:00:00');
             setDeadLineMessage(" חלון החילופים סגור");
+            props.handleIsDeadLineDatePass(true);
           }
           else
           {
@@ -29,6 +30,7 @@ function FantasyDeadLine()
     
             setCountdown(`${days}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
             setDeadLineMessage(" חלון החילופים פתוח");
+            props.handleIsDeadLineDatePass(false);
           }
         };
     
