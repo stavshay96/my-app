@@ -1,12 +1,13 @@
-import {React, useState} from "react";
+import {React, useState,  useRef} from "react";
 import Button from "react-bootstrap/esm/Button";
 import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./css/Login.css";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook , faGoogle } from '@fortawesome/free-brands-svg-icons';
+import SignUp from "./SignUp";
 
 
 const styleLogin = {
@@ -21,11 +22,14 @@ const styleLogin = {
 const Login = (props) => 
 {
     let navigate = useNavigate();
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
     const [open, setOpen] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [enteredEmail, setEnteredEmail] = useState("");
     const [enteredPassword, setEnteredPassword] = useState("");
+    const [showPopup, setShowPopup] = useState(true);
 
    const emailHandler=(event) =>
     {
@@ -38,6 +42,32 @@ const Login = (props) =>
         setIsValidPassword(true);
         setEnteredPassword(event.target.value);
     }
+
+    const handleTrigger = () => {
+
+        if(location.pathname === "/"){
+            return (
+            <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'3%'}}>
+                        התחברות {console.log("login")}
+                    </Button>
+            )
+        } 
+        else
+        {
+          return(  <div>{setOpen(true)}</div>)
+        }
+            
+    }
+
+    const toSignUp = (close) =>{
+    console.log(props.showSignUp);
+      props.onMovingToSignUp(true);
+      console.log(props.showSignUp);
+      window.location.reload();
+        return (close);
+
+    }
+
 
 
     const LoginHandler = (event) =>
@@ -67,13 +97,10 @@ const Login = (props) =>
         }
 
        return(
-        <Popup trigger={ 
-            <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'3%'}}>
-               התחברות {console.log("login")}
-            </Button>}  modal open={open} onClick={()=>setOpen(true)}>
+        <Popup trigger={handleTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false} >
             {close =>(<div>
-            <Button className="close-btn" onClick={close} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
-            X
+            <Button className="close-btn" onClick={(isHomePage? close: ()=>navigate("/", { replace: true }))} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
+            X {console.log(close)}
             </Button>
            
             <Form className="formStyle" style={{ position:'fixed', top:'35%', right:'30%'}}>
@@ -91,16 +118,20 @@ const Login = (props) =>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicCheckbox" >
-                    <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'60%', right:'47%', fontSize: '1.25vw'}}/>
+                    <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'55%', right:'47%', fontSize: '1.25vw'}}/>
                 </Form.Group>
 
-                <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'65%', right:'45%'}}
+                <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'59%', right:'45%'}}
                 onClick={LoginHandler} >
                   התחבר
                 </Button>
 
-                <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'73%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
-                <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'73%', right:'50.5%', fontSize: '3vw'}}/>
+                <Button style={{position:'fixed', top:'67%', right:'43%'}} onClick={() => toSignUp(close)}>
+                    עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
+
+                <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'71%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+                <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'71%', right:'50.5%', fontSize: '3vw'}}/>
+
             </Form>
             </div>
             )}

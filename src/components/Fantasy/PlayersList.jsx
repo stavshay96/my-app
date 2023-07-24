@@ -71,10 +71,10 @@ function PlayersList(props) {
   const [filterModel, setFilterModel] = useState({items: [],});
 
   useEffect(() => {
-    const initialSelectedRows =[];
-    setSelectedRows(initialSelectedRows);
-    handleCheckBox(initialSelectedRows);
-  }, []);
+    //const initialSelectedRows =[1,9,10];
+    setSelectedRows(props.initialSelectedRows);
+    handleCheckBox(props.initialSelectedRows);
+  }, [props.initialSelectedRows]);
   
   const classes = useStyles();
 

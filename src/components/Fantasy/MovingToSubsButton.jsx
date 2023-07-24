@@ -10,7 +10,7 @@ function MovingToSubsButton(props)
     const movingToSubsHandler = () => {
         if (props.isDeadLineDatePass === false)
         {
-            navigate("/Fantasy/subs", { replace: false });
+            navigate("/Fantasy/subs", { replace: true });
         }
         else
         {
