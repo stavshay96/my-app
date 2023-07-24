@@ -12,8 +12,8 @@ function SignUpClick()
 function Login_SignUpBar(props)
 {
     return (<div>
-        <Login changeUserInfo={props.changeUserInfo}/>
-        <SignUp/>
+        <Login showSignUp={props.showSignUp} onMovingToSignUp={props.onMovingToSignUp} changeUserInfo={props.changeUserInfo}/>
+        <SignUp showSignUp={props.showSignUp} onMovingToSignUp={props.onMovingToSignUp}/>
            </div>
     )
 }

@@ -53,6 +53,23 @@ const SignUp = (props) =>
         setEnteredPassword(event.target.value);
     }
 
+    const handleSignUpTrigger =() =>{
+       
+           return( <div>
+                    {/*props.showSignUp && setOpen(true)*/}
+                    <Button className="btnSignUp" style={{position:'fixed', top:'5%', right:'13.5%'}}>
+                            הרשמה {console.log("SignUp")}
+                            </Button>
+           </div> )
+       
+
+    }
+
+    const handleClose =(close)=>{
+        props.onMovingToSignUp(false);
+        return close;
+    }
+
 
     const SignUpHandler = (event) =>
     {
@@ -74,12 +91,9 @@ const SignUp = (props) =>
     }
         
     return(
-            <Popup trigger={ 
-                <Button className="btnSignUp" style={{position:'fixed', top:'5%', right:'13.5%'}}>
-                   הרשמה {console.log("SignUp")}
-                </Button>}  modal nested>
-
-                <Button className="close-btn" onClick={() => setOpen(false)} style={{position:'fixed', top:'30%', right:'30%'}}>
+            <Popup trigger={handleSignUpTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false}>
+             {close =>(<div>
+                <Button className="close-btn" onClick={handleClose(close)} style={{position:'fixed', top:'30%', right:'30%'}}>
                 X
                 </Button>
            
@@ -113,6 +127,7 @@ const SignUp = (props) =>
                     <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'73%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
                     <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'73%', right:'50.5%', fontSize: '3vw'}}/>
                 </Form>
+                </div>)}
             </Popup>
     )
 }

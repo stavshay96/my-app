@@ -49,6 +49,8 @@ function SubmitAndReset(props)
         }
 
         const resetHandler = () =>{
+            props.onResetClick([]);
+            props.onChangeSelectedRows([]);
             
         }
     
