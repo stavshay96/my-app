@@ -21,7 +21,7 @@ function MovingToSubsButton(props)
 
 
     return (
-            <Button  className="btnMovingToSubs"  style= {{position:'fixed', top:'80%', left:'41%'}} onClick={movingToSubsHandler}>
+            <Button  className="btnMovingToSubs"  style= {{position:'fixed', top:'82%', left:'43.5%'}} onClick={movingToSubsHandler}>
             בצע חילופים
             </Button>  
 )

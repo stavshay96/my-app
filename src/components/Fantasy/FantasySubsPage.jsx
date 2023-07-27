@@ -44,14 +44,16 @@ const FantasySubsPage = (props) => {
         <div>
             <LangBar/> 
             <FantasyDeadLine deadLineDate={props.deadLineDate} handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}  />
-            <PlayersList lineup={props.lineup} initialSelectedRows={initialSelectedRows} onCheckBoxChange={props.handleLineup} />
+            <PlayersList lineup={props.lineup} initialSelectedRows={initialSelectedRows} onCheckBoxChange={props.handleLineup} 
+                         captain={props.captain} handleCaptain={props.handleCaptain} />
             <TopBar currentBudget={props.currentBudget} onCalcBudget={props.handleBudget} lineup={props.lineup}
                 currentSubs={props.currentSubs} onCountingSubs={props.handleSubs}/>
             <LineupCounter lineup={props.lineup}/>
-            <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain}/>
+            <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain} onChangeCaptain={props.handleCaptain}/>
             <SpecialChips/> 
             <SubmitAndReset lineup={props.lineup} onResetClick={props.handleLineup} isDeadLineDatePass={props.isDeadLineDatePass}
-                            initialSelectedRows={initialSelectedRows} onChangeSelectedRows={SetInitialSelectedRows} />
+                            initialSelectedRows={initialSelectedRows} onChangeSelectedRows={SetInitialSelectedRows} 
+                            captain={props.captain} handleCaptain={props.handleCaptain}/>
             <InfoAndFantasyOptions/>
             <MatchesList/>
             <Captain lineup={props.lineup} captain={props.captain} onChangeCaptain={props.handleCaptain}/>

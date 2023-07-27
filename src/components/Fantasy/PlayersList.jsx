@@ -95,6 +95,7 @@ function PlayersList(props) {
     setFilterModel({ items: [] });
   };
 
+
  const cancelPickingSelectedRow = (updatedIDArray) => {
     updatedIDArray.forEach((item,index) => {
       if(item !== selectedRows[index]){
@@ -193,6 +194,10 @@ function PlayersList(props) {
       alert("חריגה מהתקציב");
       console.log("חריגה מהתקציב");
     }
+
+    //TO DO
+    //removeCaptainIfNeeded(updatedIDArray);
+    
 
     setSelectedRows(updatedIDArray);
     const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);

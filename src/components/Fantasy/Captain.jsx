@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,9 +8,14 @@ import Select from '@mui/material/Select';
 const Captain = (props)=>{
 
     const handleCaptainChoice = (event) => {
+
+        //console.log(`captain is ${event.target.value.playerName}`);
         props.onChangeCaptain(event.target.value);
         
     }
+  
+
+
 
     return(
         <div>
