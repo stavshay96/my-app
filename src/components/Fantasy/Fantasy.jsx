@@ -27,7 +27,7 @@ function getLineUp(){
 }
 
 function getCaptain(){
-  return {};
+  return undefined;
 }
 
 const Fantasy = (props) => {
@@ -46,7 +46,7 @@ const Fantasy = (props) => {
     
     const handleCaptain = (captain) => {
       SetCaptain(captain);
-      console.log(`${ captain.playerName} captain`); 
+      console.log(`${ captain} captain`); 
     };
 
     const handleBudget = (budget) => {
