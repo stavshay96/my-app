@@ -124,8 +124,8 @@ const SignUp = (props) =>
                     הירשם
                     </Button>
 
-                    <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'73%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
-                    <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'73%', right:'50.5%', fontSize: '3vw'}}/>
+                    <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'75%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+                    <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'75%', right:'50.5%', fontSize: '3vw'}}/>
                 </Form>
                 </div>)}
             </Popup>

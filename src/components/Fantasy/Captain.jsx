@@ -14,10 +14,10 @@ const Captain = (props)=>{
 
     return(
         <div>
-            <Box style={{position:'fixed', top:'32.5%', right:'67%',
-            width:'12%',  backgroundColor: '#e0f9d5'}}>
+            <Box style={{position:'fixed', top:'32.5%', right:'67%', 
+            width:'12%', backgroundColor: '#e0f9d5'}}>
                 <FormControl fullWidth>
-                    <InputLabel id="simple-select-label">קפטן</InputLabel>
+                    <InputLabel id="simple-select-label" style={{ fontSize: '1.2vw' }}>קפטן</InputLabel>
                     <Select
                         labelId="simple-select-label"
                         id="simple-select"
