@@ -43,6 +43,10 @@ function SubmitAndReset(props)
             else if(props.isDeadLineDatePass === true) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
             }
+            else if(props.captain == undefined)
+            {
+                alert("יש לבחור קפטן!");
+            }
             else {
                 navigate("/Fantasy", { replace: false } );
             }
@@ -51,6 +55,9 @@ function SubmitAndReset(props)
         const resetHandler = () =>{
             props.onResetClick([]);
             props.onChangeSelectedRows([]);
+            props.handleCaptain(undefined);
+           // const newPlayer =  { id: 21, points: 64, price: 10, playerName: `ערן זהבי`, position: 'FW' , team: 'מכבי ת"א'};
+           //props.onChangeCaptain(newPlayer);
             
         }
     

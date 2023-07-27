@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from 'react-bootstrap/Image'
 import "./css/Field.css"
 import { Button, ButtonGroup } from "react-bootstrap";
@@ -9,6 +9,7 @@ const  left = 30.8;
 
 function Field(props)
 {
+    
     function createPlayerButton(player)
     {
         return (
@@ -22,6 +23,7 @@ function Field(props)
         )
     }
 
+   
     const goalkeepers = props.lineup.filter((player) => player.position === 'GK');
     const defenders = props.lineup.filter((player) => player.position === 'DF');
     const midfielders = props.lineup.filter((player) => player.position === 'MF');
