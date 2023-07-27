@@ -10,8 +10,8 @@ const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 const rows = players.map(createRow);
 
 const columns = [
-  { field: "points", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center' },
-  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", flex: 1.1, filterable: true, align: 'center' },
+  { field: "points", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
+  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", flex: 1.1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
   { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', flex: 1.3, filterable: true, 
   align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
   {field: "position", headerName: "עמדה", headerAlign: 'center', flex: 0.75, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
@@ -22,26 +22,9 @@ function createRow(player){
   return {id: player.id, points: player.points, price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position}
 }
 
-//not working yet
-function wrapCellPositionColor(params) {
-  return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw', fontWeight: 'bold', }}>
-          {params.value}
-      </div>
-  );
-}
-
-function wrapCellPlayerNameText(params) {
-  return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw', fontWeight: 'bold',}}>
-          {params.value}
-      </div>
-  );
-}
-
 function wrapHeaderText(params) {
   return (
-      <div style={{ whiteSpace: 'normal',lineHeight:'1.5' }}>
+      <div style={{ whiteSpace: 'normal', lineHeight:'1.5vw' }}>
           {params.colDef.headerName}
       </div>
   );
@@ -49,8 +32,33 @@ function wrapHeaderText(params) {
 
 function wrapPositionHeader(params) {
   return (
-      <div style={{ fontSize: '0.001vw' ,whiteSpace: 'normal',lineHeight:'1.5' }}>
+      <div style={{ fontSize: '0.001vw', whiteSpace: 'normal', lineHeight:'1.5vw' }}>
           {params.colDef.headerName}
+      </div>
+  );
+}
+
+function wrapNumberTypeText(params) {
+  return (
+      <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw'}}>
+          {params.value}
+      </div>
+  );
+}
+
+//not working yet
+function wrapCellPositionColor(params) {
+  return (
+      <div style={{ whiteSpace: 'normal', lineHeight:'1.5vw', fontSize:'0.9vw', fontWeight: 'bold', }}>
+          {params.value}
+      </div>
+  );
+}
+
+function wrapCellPlayerNameText(params) {
+  return (
+      <div style={{ whiteSpace: 'normal', lineHeight:'1.2vw', fontSize:'0.9vw', fontWeight: 'bold',}}>
+          {params.value}
       </div>
   );
 }

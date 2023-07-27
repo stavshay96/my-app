@@ -60,12 +60,10 @@ const Login = (props) =>
     }
 
     const toSignUp = (close) =>{
-    console.log(props.showSignUp);
-      props.onMovingToSignUp(true);
-      console.log(props.showSignUp);
-      window.location.reload();
+        console.log(props.showSignUp);
+        props.onMovingToSignUp(true);
+        console.log(props.showSignUp);
         return (close);
-
     }
 
 
@@ -121,16 +119,16 @@ const Login = (props) =>
                     <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'55%', right:'47%', fontSize: '1.25vw'}}/>
                 </Form.Group>
 
-                <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'59%', right:'45%'}}
+                <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'61%', right:'45%'}}
                 onClick={LoginHandler} >
                   התחבר
                 </Button>
 
-                <Button style={{position:'fixed', top:'67%', right:'43%'}} onClick={() => toSignUp(close)}>
+                <Button style={{position:'fixed', top:'70%', right:'42%', fontSize:'50%'}} onClick={() => toSignUp(close)}>
                     עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
 
-                <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'71%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
-                <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'71%', right:'50.5%', fontSize: '3vw'}}/>
+                <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'76%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
+                <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'76%', right:'50.5%', fontSize: '3vw'}}/>
 
             </Form>
             </div>

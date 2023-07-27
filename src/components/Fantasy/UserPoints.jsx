@@ -12,7 +12,7 @@ function UserPoints()
 
     return(
         <div>
-            <Button className="btnDeadLine" style={{position:'fixed', top:'12%', left:'21%', unicodeBidi:'plaintext', fontSize: '94%'}}>
+            <Button className="btnPoints" style={{position:'fixed', top:'12%', left:'20%', unicodeBidi:'plaintext'}}>
             <Badge> 
             סך נקודות שבועי:
             <br/>

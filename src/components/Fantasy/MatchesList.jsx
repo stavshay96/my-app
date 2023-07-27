@@ -11,7 +11,7 @@ const cols = [
     { field: "AwayTeam", headerName: "חוץ", headerAlign: 'center', flex: 1.4, filterable: false, sortable: false, align: 'center', 
     renderCell: wrapCellTeamNameText ,  renderHeader: wrapHeaderText},
     /*{ field: "ScoreAwayTeam", headerName: " ", headerAlign: 'right', type:"number", flex: 0.7, filterable: false, sortable: false, align: 'right' },*/
-    { field: "Score", headerName: " ", headerAlign: 'right',  type:"number", flex: 0.7, filterable: false, sortable: false, align: 'center' },
+    { field: "Score", headerName: " ", headerAlign: 'right',  type:"number", flex: 0.8, filterable: false, sortable: false, align: 'center' },
     { field: "HomeTeam", headerName: "בית", headerAlign: 'center', flex: 1.4, filterable: false, sortable: false, align: 'center',
      renderCell: wrapCellTeamNameText, renderHeader: wrapHeaderText },
 ]
