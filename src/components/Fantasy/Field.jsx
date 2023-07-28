@@ -1,34 +1,45 @@
-import React, { useState } from "react";
-import Image from 'react-bootstrap/Image'
+import React from "react";
 import "./css/Field.css"
-import { Button, ButtonGroup } from "react-bootstrap";
-
+import {Button, ButtonGroup} from "react-bootstrap";
 
 const top = 20;
-const  left = 30.8;
+const left = 30.8;
 
-function Field(props)
-{
-    
-    function createPlayerButton(player)
-    {
+function Field(props) {
+
+    function createPlayerButton(player) {
         return (
-            <Button className="btnPlayerButton" key={player.id} >
-                <h2>  {player.points} </h2>
-                <h3>  {player.price}m </h3>
-                <h1>  {player.playerName}  </h1>
+            <Button className="btnPlayerButton" key={player.id}>
+                <h2>
+                    {player.points}
+                </h2>
+                <h3>
+                    {player.price}m
+                </h3>
+                <h1>
+                    {player.playerName}
+                </h1>
 
-                {player===props.captain?<h4>C</h4>:null}
+                {player === props.captain
+                    ? <h4>C</h4>
+                    : null}
             </Button>
         )
     }
 
-   
-    const goalkeepers = props.lineup.filter((player) => player.position === 'GK');
-    const defenders = props.lineup.filter((player) => player.position === 'DF');
-    const midfielders = props.lineup.filter((player) => player.position === 'MF');
-    const forwards = props.lineup.filter((player) => player.position === 'FW');
-    
+    const goalkeepers = props
+        .lineup
+        .filter((player) => player.position === 'GK');
+    const defenders = props
+        .lineup
+        .filter((player) => player.position === 'DF');
+    const midfielders = props
+        .lineup
+        .filter((player) => player.position === 'MF');
+    const forwards = props
+        .lineup
+        .filter((player) => player.position === 'FW');
+
     return (
         <div>
             <img className="field-img" src={require('../../images/field5.png')}/>
@@ -36,24 +47,32 @@ function Field(props)
                 {goalkeepers.map(createPlayerButton)}
             </ButtonGroup>
 
-            <ButtonGroup style={getButtonStyle(top+15)}>
+            <ButtonGroup style={getButtonStyle(top + 15)}>
                 {defenders.map(createPlayerButton)}
             </ButtonGroup>
 
-            <ButtonGroup style={getButtonStyle(top+31)}>
+            <ButtonGroup style={getButtonStyle(top + 31)}>
                 {midfielders.map(createPlayerButton)}
             </ButtonGroup>
 
-            <ButtonGroup style={getButtonStyle(top+47)}>
+            <ButtonGroup style={getButtonStyle(top + 47)}>
                 {forwards.map(createPlayerButton)}
             </ButtonGroup>
         </div>
     )
 }
 
-const getButtonStyle = (topAdjustment) =>{
-    return {display: 'flex',flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-start',
-    position:'fixed', top:`${topAdjustment}%`, left:`${left}%`, width:'40%'};
+const getButtonStyle = (topAdjustment) => {
+    return {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        position: 'fixed',
+        top: `${topAdjustment}%`,
+        left: `${left}%`,
+        width: '40%'
+    };
 }
 
 export default Field;

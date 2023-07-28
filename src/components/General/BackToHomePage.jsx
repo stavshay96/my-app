@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./BackToHomePage.css"
+import "./css/BackToHomePage.css";
 
 function BackToHomePage(props)
 {
