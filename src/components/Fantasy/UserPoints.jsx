@@ -1,12 +1,12 @@
 import React from "react";
 import {Button} from "react-bootstrap";
 import Badge from 'react-bootstrap/Badge';
-import "./css/UserPoints.css"
+import "./css/UserPoints.css";
 
 function UserPoints() {
-    const weeklyPoints = 20;
-    const totalPoints = 524;
-    // change the class name of btnDeadLine
+    var weeklyPoints = 27;
+    var totalPoints = 524;
+    const user = document.cookie;
 
     return (
         <div>
@@ -20,12 +20,12 @@ function UserPoints() {
             }}>
                 <Badge>
                     סך נקודות שבועי:
-                    <br/> {weeklyPoints}
+                    <br/> {user? weeklyPoints:0}
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                     סך נקודות כללי:
-                    <br/> {totalPoints}
+                    <br/> {user? totalPoints:0}
                 </Badge>
             </Button>
         </div>
