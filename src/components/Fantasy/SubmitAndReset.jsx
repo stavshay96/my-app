@@ -1,78 +1,79 @@
-import {React, useState, useEffect} from "react";
+import {React} from "react";
 import Button from 'react-bootstrap/Button';
 import "./css/SubmitAndReset.css"
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const buttons = [
     {
         buttonID: 1,
         name: 'הגש הרכב',
-        style: { position:'fixed',bottom:'4%', right:'37%'}
-    },
-    {
+        style: {
+            position: 'fixed',
+            bottom: '4%',
+            right: '37%'
+        }
+    }, {
         buttonID: 2,
         name: 'נקה הרכב',
-        style: { position:'fixed', bottom:'4%', right:'51.5%', unicodeBidi:'plaintext',}
-    },
+        style: {
+            position: 'fixed',
+            bottom: '4%',
+            right: '51.5%',
+            unicodeBidi: 'plaintext'
+        }
+    }
 ]
 
-
-
-
-function SubmitAndReset(props)
-{
+function SubmitAndReset(props) {
     let navigate = useNavigate();
-   
 
-    function CreateSubmitAndResetButtons(button){
-       
-    
-       const buttonsHandler = () =>{
-            if(button.buttonID === 1){
-             submitHandler();
-            }
-            else if(button.buttonID === 2) {
-             resetHandler();
+    function CreateSubmitAndResetButtons(button) {
+
+        const buttonsHandler = () => {
+            if (button.buttonID === 1) {
+                submitHandler();
+            } else if (button.buttonID === 2) {
+                resetHandler();
             }
         }
 
-        const submitHandler = () =>{
-            if(props.lineup.length < 11){
+        const submitHandler = () => {
+            if (props.lineup.length < 11) {
                 alert("ההרכב לא מלא!");
-            }
-            else if(props.isDeadLineDatePass === true) {
+            } else if (props.isDeadLineDatePass === true) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
-            }
-            else if(props.captain == undefined)
-            {
+            } else if (props.captain === undefined) {
                 alert("יש לבחור קפטן!");
-            }
-            else {
-                navigate("/Fantasy", { replace: false } );
+            } else {
+                navigate("/Fantasy", {replace: false});
             }
         }
 
-        const resetHandler = () =>{
+        const resetHandler = () => {
             props.onResetClick([]);
             props.onChangeSelectedRows([]);
             props.handleCaptain(undefined);
-           // const newPlayer =  { id: 21, points: 64, price: 10, playerName: `ערן זהבי`, position: 'FW' , team: 'מכבי ת"א'};
-           //props.onChangeCaptain(newPlayer);
-            
+            // const newPlayer =  { id: 21, points: 64, price: 10, playerName: `ערן זהבי`,
+            // position: 'FW' , team: 'מכבי ת"א'}; props.onChangeCaptain(newPlayer);
+
         }
-    
+
         return (
-                   <Button key={button.buttonID} className="btnSubmitAndReset"  style= {button.style} onClick={buttonsHandler}>
-                    {button.name}
-                    </Button>  
+            <Button
+                key={button.buttonID}
+                className="btnSubmitAndReset"
+                style={button.style}
+                onClick={buttonsHandler}>
+                {button.name}
+            </Button>
         )
     }
-    return(
+
+    return (
         <div>
-        {buttons.map(CreateSubmitAndResetButtons)}
+            {buttons.map(CreateSubmitAndResetButtons)}
         </div>
     )
-
 }
 
 export default SubmitAndReset;

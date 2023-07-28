@@ -1,5 +1,5 @@
 import { useState , useEffect} from "react";
-import { DataGrid,  GridToolbar, GridToolbarContainer, GridToolbarFilterButton } from "@material-ui/data-grid";
+import { DataGrid, GridToolbarContainer, GridToolbarFilterButton } from "@material-ui/data-grid";
 
 import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles";
@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 
 function PlayersList(props) {
   const [selectedRows, setSelectedRows] = useState([]);
-   const [selectedPlayers, setSelectedPlayers] = useState([]);
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [filterModel, setFilterModel] = useState({items: [],});
 
   useEffect(() => {
@@ -90,6 +90,7 @@ function PlayersList(props) {
   const handleFilterChange = (model) => {
     setFilterModel(model);
   };
+
  // probably related to filters - not used yet
   const handleClearFilters = () => {
     setFilterModel({ items: [] });
@@ -143,11 +144,11 @@ function PlayersList(props) {
     return forwards.length > 3 ? true:false;
  }
 
-///----------------------------------------------------------
- //selectedRows - the ID array before the last click on some checkbox
- //selectedPlayers - object array of players  before the last click on some checkbox
- //newSelectedPlayers - the updated players (objects) array
-///----------------------------------------------------------
+  ///----------------------------------------------------------
+  //selectedRows - the ID array before the last click on some checkbox
+  //selectedPlayers - object array of players  before the last click on some checkbox
+  //newSelectedPlayers - the updated players (objects) array
+  ///----------------------------------------------------------
 
   const handleCheckBox = (updatedIDArray) => {
     

@@ -1,6 +1,6 @@
-import {React , useState} from "react";
-import { DataGrid,  GridToolbar } from "@material-ui/data-grid";
-import "./css/MyLeagues.css"
+import {React } from "react";
+import { DataGrid } from "@material-ui/data-grid";
+import "./css/MyLeagues.css";
 import Leagues from "./data/Leagues.jsx";
 
 

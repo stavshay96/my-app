@@ -6,29 +6,35 @@ const chips = [
     {
         chipID: 1,
         name: 'טריפל קפטן',
-        style: { position:'fixed', top:'21%', left:'21%',}
-    },
-    {
+        style: {
+            position: 'fixed',
+            top: '21%',
+            left: '21%'
+        }
+    }, {
         chipID: 2,
         name: '11 חילופים',
-        style: { position:'fixed',top:'15%', left:'21%',unicodeBidi:'plaintext',}
-    },
+        style: {
+            position: 'fixed',
+            top: '15%',
+            left: '21%',
+            unicodeBidi: 'plaintext'
+        }
+    }
 ]
 
-function CreateChip(chip){
+function CreateChip(chip) {
     return (
-               <Button key={chip.chipID} className="btnChips"  style= {chip.style}>
-               {chip.name}
-               </Button>  
+        <Button key={chip.chipID} className="btnChips" style={chip.style}>
+            {chip.name}
+        </Button>
     )
 }
 
-
-function SpecialChips()
-{
-    return(
+function SpecialChips() {
+    return (
         <div>
-        {chips.map(CreateChip)}
+            {chips.map(CreateChip)}
         </div>
     )
 
