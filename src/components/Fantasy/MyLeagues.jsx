@@ -4,8 +4,7 @@ import "./css/MyLeagues.css";
 import Leagues from "./data/Leagues.jsx";
 
 let emptyRows = [ {id:1, leagueName: '' , position: ''} ];
-const user = document.cookie;
-let rows = user? Leagues.map(createRowLeague):emptyRows;
+
 
 const cols = [
     { field: "Position", headerName: "מיקום", headerAlign: 'center',  type:"number", flex: 0.8, filterable: false, sortable: false, align: 'center',
@@ -44,10 +43,14 @@ function wrapPositionText(params) {
   
 function MyLeagues()
 {
-    const [refreshFlag, setRefreshFlag] = useState(false);
+    const [rows, setRows] = useState(emptyRows);
     useEffect(() => {
-        console.log("rows");
+        const user = document.cookie;
+        let updatedRows  = user? Leagues.map(createRowLeague):emptyRows;
+        setRows(updatedRows);
     }, [rows]);
+
+
 
     return(
         <div>
