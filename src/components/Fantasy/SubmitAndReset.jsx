@@ -44,6 +44,8 @@ function SubmitAndReset(props) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
             } else if (props.captain === undefined) {
                 alert("יש לבחור קפטן!");
+            } else if (!props.lineup.includes(props.captain)) {
+                alert("הקפטן לא חלק מהקבוצה. יש לבחור קפטן חדש");
             } else {
                 navigate("/Fantasy", {replace: false});
             }

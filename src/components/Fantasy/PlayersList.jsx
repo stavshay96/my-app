@@ -96,7 +96,16 @@ function PlayersList(props) {
     setFilterModel({ items: [] });
   };
 
+  const removeCaptainIfNeeded =(updatedIDArray) =>{
+    selectedRows.forEach((item) => {
+      //if player was in the previous lineup and not in the updated array - he is the unselected. cheking as well he is the captain of the user
+      if(!updatedIDArray.includes(item) && props.captain !== undefined && item === props.captain.id) { 
+        props.handleCaptain(undefined);
+      }
+    });
+  }
 
+//check which player selected and the splice removing him from the updatedIDarray
  const cancelPickingSelectedRow = (updatedIDArray) => {
     updatedIDArray.forEach((item,index) => {
       if(item !== selectedRows[index]){
@@ -197,7 +206,7 @@ function PlayersList(props) {
     }
 
     //TO DO
-    //removeCaptainIfNeeded(updatedIDArray);
+    removeCaptainIfNeeded(updatedIDArray);
     
 
     setSelectedRows(updatedIDArray);
