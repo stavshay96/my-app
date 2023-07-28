@@ -71,7 +71,7 @@ const Fantasy = (props) => {
       currentBudget={currentBudget} handleBudget={handleBudget}
       currentSubs={currentSubs} handleSubs={handleSubs}
       captain={captain} handleCaptain={handleCaptain} 
-      deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass} />}/>
+      deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass} WrapUserInfo={props.WrapUserInfo} />}/>
 
       <Route path="subs" element={<FantasySubsPage lineup={lineup} handleLineup={handleLineup} 
       currentBudget={currentBudget} handleBudget={handleBudget}
