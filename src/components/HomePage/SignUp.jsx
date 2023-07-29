@@ -64,11 +64,15 @@ const SignUp = (props) => {
         setEnteredPassword(event.target.value);
     }
 
+    const openPopup = () => {
+        setOpen(true);
+    }
+
     const handleSignUpTrigger = () => {
 
         return (
             <div>
-                {/*props.showSignUp && setOpen(true)*/}
+                {/*props.showSignUp && <div>setOpen(true)</div>*/}
                 <Button
                     className="btnSignUp"
                     style={{
@@ -76,7 +80,7 @@ const SignUp = (props) => {
                     top: '5%',
                     right: '13.5%'
                 }}>
-                    הרשמה {console.log("SignUp")}
+                    הרשמה {/*console.log("SignUp")*/}
                 </Button>
             </div>
         )
@@ -84,7 +88,7 @@ const SignUp = (props) => {
     }
 
     const handleClose = (close) => {
-        props.onMovingToSignUp(false);
+        props.handleShowSignUp(false);
         return close;
     }
 

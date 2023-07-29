@@ -12,11 +12,11 @@ function Login_SignUpBar(props) {
         <div>
             <Login
                 showSignUp={props.showSignUp}
-                onMovingToSignUp={props.onMovingToSignUp}
+                handleShowSignUp={props.handleShowSignUp}
                 changeUserInfo={props.changeUserInfo}/>
             <SignUp
                 showSignUp={props.showSignUp}
-                onMovingToSignUp={props.onMovingToSignUp}/>
+                handleShowSignUp={props.handleShowSignUp}/>
         </div>
     )
 }

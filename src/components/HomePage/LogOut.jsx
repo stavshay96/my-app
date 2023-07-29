@@ -28,8 +28,8 @@ var LogOut = (props) => {
                 src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                 style={props.imgstyle}
                 alt="UserIcon"/> {locatedAtHomePage && <h1 className="btnNamePresent" style={props.h1style}>
-                !{`${props.userInfo["fullName"]}`}
-                שלום</h1>}
+                !{`${props.userInfo["fullName"]}`} שלום
+               </h1>}
             <Button className="btnLogOut" style={props.btnstyle} onClick={LogOutHandler}>
                 התנתק
             </Button>

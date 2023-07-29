@@ -77,7 +77,19 @@ function wrapHeaderText(params) {
 function MatchesList() {
     const [gameweekNumber,
         SetGameweekNumber] = useState(25);
-    const gameweek = "מחזור";
+    const gameweek = "מחזור ";
+    const limitGameWeek = 38;
+
+    const increaseGameweek = () =>{
+        if (gameweekNumber < limitGameWeek) {
+            SetGameweekNumber(gameweekNumber+1);
+        }
+    }
+    const decreaseGameweek = () =>{
+        if (gameweekNumber > 0) {
+            SetGameweekNumber(gameweekNumber-1);
+        }
+    }
 
     return (
         <div>
@@ -89,14 +101,14 @@ function MatchesList() {
                 unicodeBidi: 'plaintext',
                 width: '15%'
             }}>
-                <Button className="btnLeftArrow">
+                <Button className="btnLeftArrow" onClick={increaseGameweek}>
                     <span>&#9664;</span>
                 </Button>
                 <Button className="btnGameweek">
                     {gameweek}
                     {gameweekNumber}
                 </Button>
-                <Button className="btnRightArrow">
+                <Button className="btnRightArrow" onClick={decreaseGameweek}>
                     <span>&#9654;</span>
                 </Button>
             </ButtonGroup>
