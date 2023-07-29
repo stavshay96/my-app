@@ -29,12 +29,16 @@ const Login = (props) =>
     const [isValidPassword, setIsValidPassword] = useState(true);
     const [enteredEmail, setEnteredEmail] = useState("");
     const [enteredPassword, setEnteredPassword] = useState("");
-    const [showPopup, setShowPopup] = useState(true);
+    const [showSignUp, setSignUpPopup] = useState(false);
 
    const emailHandler=(event) =>
     {
         setIsValidEmail(true);
         setEnteredEmail(event.target.value)
+    }
+
+    const handleShowSignUp=() =>{
+        setSignUpPopup(true)
     }
 
     const passwordHandler=(event) =>
@@ -60,15 +64,12 @@ const Login = (props) =>
     }
 
     const toSignUp = (close) =>{
-       console.log(props.showSignUp);
-      // props.handleShowSignUp(true);
-      // console.log(props.showSignUp);
-       //window.location.reload();
-       return close;
+       setSignUpPopup(true)
+       //return close;
        
     }
 
-
+    const isFromHomePage=false;
 
     const LoginHandler = (event) =>
     {
@@ -130,9 +131,9 @@ const Login = (props) =>
                   התחבר
                 </Button>
 
-                <Button style={{position:'fixed', top:'70%', right:'42%', fontSize:'50%'}} onClick={toSignUp(close)}>
+                <Button style={{position:'fixed', top:'70%', right:'42%', fontSize:'50%'}} onClick={()=> toSignUp(close)}>
                     עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
-
+                {showSignUp && <SignUp isFromHomePage={isFromHomePage} showSignUp={showSignUp} handleShowSignUp={handleShowSignUp}/>}
                 <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'76%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
                 <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'76%', right:'50.5%', fontSize: '3vw'}}/>
 

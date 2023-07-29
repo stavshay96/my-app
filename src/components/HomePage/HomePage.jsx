@@ -22,14 +22,6 @@ function CreateGame(game) {
 
 const HomePage = (props) => {
 
-    const [showSignUp,
-        SetShowSignUp] = useState(false);
-    //window.location.reload();
-
-    const handleShowSignUp = (showSignUp) => {
-        SetShowSignUp(showSignUp);
-      };
-
     const HasCookies = () => {
         const user = document.cookie;
         useEffect(() => {
@@ -100,8 +92,6 @@ const HomePage = (props) => {
                         left: '92%'
                     }}/>
                 : <LoginSignUpBar
-                    showSignUp={showSignUp}
-                    handleShowSignUp={handleShowSignUp}
                     changeUserInfo={props.WrapUserInfo}/>}
             
             {/*showSignUp && <SignUp showSignUp={showSignUp} onMovingToSignUp={SetShowSignUp}/>*/}

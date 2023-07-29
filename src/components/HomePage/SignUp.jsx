@@ -4,6 +4,7 @@ import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./css/SignUp.css";
 import axios from "axios";
+import { useNavigate} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons';
 
@@ -69,7 +70,8 @@ const SignUp = (props) => {
     }
 
     const handleSignUpTrigger = () => {
-
+        if(props.isFromHomePage===true)
+        {
         return (
             <div>
                 {/*props.showSignUp && <div>setOpen(true)</div>*/}
@@ -83,13 +85,11 @@ const SignUp = (props) => {
                     הרשמה {/*console.log("SignUp")*/}
                 </Button>
             </div>
-        )
+        )}
+        else{
+            return(  <div>{setOpen(true)}</div>)
+        }
 
-    }
-
-    const handleClose = (close) => {
-        props.handleShowSignUp(false);
-        return close;
     }
 
     const SignUpHandler = (event) => {
@@ -123,7 +123,7 @@ const SignUp = (props) => {
                 <div>
                     <Button
                         className="close-btn"
-                        onClick={handleClose(close)}
+                        onClick={()=> {window.location.reload();}}
                         style={{
                         position: 'fixed',
                         top: '30%',
