@@ -1,4 +1,4 @@
-import {React} from "react";
+import {React,useState} from "react";
 import "./css/Login-SignUpBar.css";
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -8,15 +8,27 @@ function SignUpClick() {
 }
 
 function Login_SignUpBar(props) {
+
+    const [showSignUp,
+        SetShowSignUp] = useState(false);
+    //window.location.reload();
+
+    const handleShowSignUp = (showSignUp) => {
+        SetShowSignUp(showSignUp);
+      };
+
+      const isFromHomePage=true;
+
     return (
         <div>
             <Login
-                showSignUp={props.showSignUp}
-                handleShowSignUp={props.handleShowSignUp}
+                showSignUp={showSignUp}
+                handleShowSignUp={handleShowSignUp}
                 changeUserInfo={props.changeUserInfo}/>
             <SignUp
-                showSignUp={props.showSignUp}
-                handleShowSignUp={props.handleShowSignUp}/>
+                isFromHomePage={isFromHomePage}
+                showSignUp={showSignUp}
+                handleShowSignUp={handleShowSignUp}/>
         </div>
     )
 }
