@@ -26,15 +26,14 @@ const HomePage = (props) => {
         SetShowSignUp] = useState(false);
     //window.location.reload();
 
-    useEffect(() => {
-        console.log("1");
-        // window.location.reload();
-    }, [showSignUp])
+    const handleShowSignUp = (showSignUp) => {
+        SetShowSignUp(showSignUp);
+      };
 
     const HasCookies = () => {
         const user = document.cookie;
         useEffect(() => {
-            console.log(`showSignUp ${showSignUp}`);
+          
             if (user) {
                 const cookieInfo = splitCookieToString(user);
                 console.log(cookieInfo);
@@ -59,7 +58,7 @@ const HomePage = (props) => {
                     });
             }
 
-        }, [showSignUp]);
+        }, []);
 
         return user;
 
@@ -75,6 +74,7 @@ const HomePage = (props) => {
         }
         return result;
     }
+    //console.log(`showSignUp ${showSignUp}`)
 
     return (
         <div>
@@ -101,10 +101,10 @@ const HomePage = (props) => {
                     }}/>
                 : <LoginSignUpBar
                     showSignUp={showSignUp}
-                    onMovingToSignUp={SetShowSignUp}
+                    handleShowSignUp={handleShowSignUp}
                     changeUserInfo={props.WrapUserInfo}/>}
-
-            {showSignUp && <SignUp showSignUp={showSignUp} onMovingToSignUp={SetShowSignUp}/>}
+            
+            {/*showSignUp && <SignUp showSignUp={showSignUp} onMovingToSignUp={SetShowSignUp}/>*/}
             <LangBar/> {Games.map(CreateGame)}
             <img className="left-photo" src={Messi} alt="Messi"/>
             <img className="right-photo" src={Ronaldo} alt="Ronaldo"/>

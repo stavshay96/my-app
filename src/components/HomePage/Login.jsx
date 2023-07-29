@@ -48,7 +48,7 @@ const Login = (props) =>
         if(location.pathname === "/"){
             return (
             <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'3%'}}>
-                        התחברות {console.log("login")}
+                        התחברות {/*console.log("login")*/}
                     </Button>
             )
         } 
@@ -60,10 +60,12 @@ const Login = (props) =>
     }
 
     const toSignUp = (close) =>{
-        console.log(props.showSignUp);
-        props.onMovingToSignUp(true);
-        console.log(props.showSignUp);
-        return (close);
+       console.log(props.showSignUp);
+      // props.handleShowSignUp(true);
+      // console.log(props.showSignUp);
+       //window.location.reload();
+       return close;
+       
     }
 
 
@@ -90,7 +92,7 @@ const Login = (props) =>
                 if(!isHomePage){
                  window.location.reload(); 
                 }
-                
+
             }     
         }).catch(error => {
         console.error(error);
@@ -102,7 +104,7 @@ const Login = (props) =>
         <Popup trigger={handleTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false} >
             {close =>(<div>
             <Button className="close-btn" onClick={(isHomePage? close: ()=>navigate("/", { replace: true }))} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
-            X {console.log(close)}
+            X 
             </Button>
            
             <Form className="formStyle" style={{ position:'fixed', top:'35%', right:'30%'}}>
@@ -128,7 +130,7 @@ const Login = (props) =>
                   התחבר
                 </Button>
 
-                <Button style={{position:'fixed', top:'70%', right:'42%', fontSize:'50%'}} onClick={() => toSignUp(close)}>
+                <Button style={{position:'fixed', top:'70%', right:'42%', fontSize:'50%'}} onClick={toSignUp(close)}>
                     עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
 
                 <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'76%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>

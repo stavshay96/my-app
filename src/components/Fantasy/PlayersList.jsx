@@ -205,7 +205,7 @@ function PlayersList(props) {
       console.log("חריגה מהתקציב");
     }
 
-    //TO DO
+   
     removeCaptainIfNeeded(updatedIDArray);
     
 

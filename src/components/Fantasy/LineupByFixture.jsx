@@ -6,7 +6,20 @@ function LineupByFixture() {
 
     const [gameweekNumber,
         SetGameweekNumber] = useState(25);
-    const gameweek = "מחזור";
+    const gameweek = "מחזור ";
+    const limitGameWeek = 38;
+
+    const increaseGameweek = () =>{
+        if (gameweekNumber < limitGameWeek) {
+            SetGameweekNumber(gameweekNumber+1);
+        }
+    }
+    const decreaseGameweek = () =>{
+        if (gameweekNumber > 0) {
+            SetGameweekNumber(gameweekNumber-1);
+        }
+    }
+
     return (
         <div>
             <ButtonGroup
@@ -17,14 +30,14 @@ function LineupByFixture() {
                 unicodeBidi: 'plaintext',
                 width: '35%'
             }}>
-                <Button className="btnLeftArrowFixture">
+                <Button className="btnLeftArrowFixture" onClick={increaseGameweek}>
                     <span>&#9664;</span>
                 </Button>
                 <Button className="btnGameweekFixture">
-                    {gameweek}
+                    {gameweek} 
                     {gameweekNumber}
                 </Button>
-                <Button className="btnRightArrowFixture">
+                <Button className="btnRightArrowFixture" onClick={decreaseGameweek}>
                     <span>&#9654;</span>
                 </Button>
             </ButtonGroup>
