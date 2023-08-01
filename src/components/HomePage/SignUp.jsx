@@ -127,7 +127,8 @@ const SignUp = (props) => {
                         style={{
                         position: 'fixed',
                         top: '30%',
-                        right: '30%'
+                        right: '30%',
+                        fontSize: '1.25vw'
                     }}>
                         X
                     </Button>

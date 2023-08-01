@@ -12,15 +12,19 @@ import SignUp from "./SignUp";
 const Messi = require("../../images/Players/Messi.png");
 const Ronaldo = require("../../images/Players/Cristiano Ronaldo.png");
 
-function CreateGame(game) {
-    return (<Game
-        key={game.gameID}
-        gameID={game.gameID}
-        name={game.name}
-        style={game.style}/>)
-}
+
 
 const HomePage = (props) => {
+
+    function CreateGame(game) {
+        return (<Game
+            key={game.gameID}
+            gameID={game.gameID}
+            name={game.name}
+            style={game.style}
+            SetLeagueChoice={props.SetLeagueChoice}/>)
+    }
+    
 
     const HasCookies = () => {
         const user = document.cookie;
@@ -95,7 +99,8 @@ const HomePage = (props) => {
                     changeUserInfo={props.WrapUserInfo}/>}
             
             {/*showSignUp && <SignUp showSignUp={showSignUp} onMovingToSignUp={SetShowSignUp}/>*/}
-            <LangBar/> {Games.map(CreateGame)}
+            <LangBar/> 
+            {Games.map(CreateGame)}
             <img className="left-photo" src={Messi} alt="Messi"/>
             <img className="right-photo" src={Ronaldo} alt="Ronaldo"/>
         </div>

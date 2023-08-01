@@ -67,13 +67,13 @@ const Fantasy = (props) => {
   return(
 
     <Routes>
-      <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup}
+      <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
       currentBudget={currentBudget} handleBudget={handleBudget}
       currentSubs={currentSubs} handleSubs={handleSubs}
       captain={captain} handleCaptain={handleCaptain} 
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass} WrapUserInfo={props.WrapUserInfo} />}/>
 
-      <Route path="subs" element={<FantasySubsPage lineup={lineup} handleLineup={handleLineup} 
+      <Route path="subs" element={<FantasySubsPage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
       currentBudget={currentBudget} handleBudget={handleBudget}
       currentSubs={currentSubs} handleSubs={handleSubs}
       captain={captain} handleCaptain={handleCaptain} 

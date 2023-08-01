@@ -48,8 +48,7 @@ function MyLeagues()
         const user = document.cookie;
         let updatedRows  = user? Leagues.map(createRowLeague):emptyRows;
         setRows(updatedRows);
-    }, [rows]);
-
+    }, []);
 
 
     return(

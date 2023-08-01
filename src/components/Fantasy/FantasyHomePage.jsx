@@ -20,6 +20,7 @@ import Login from "../HomePage/Login";
 const FantasyHomePage = (props) => {
     const user = document.cookie;
     console.log(`${user} user info`);
+    console.log(`${props.leagueChoice} fantasyhomepage`);
 
     return(
         <div>
@@ -33,7 +34,7 @@ const FantasyHomePage = (props) => {
             <MatchesList/>
             <LineupByFixture/>
             <UserPoints/>
-            <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass}/>
+            <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice}/>
             <MyLeagues/>
             <Rules/>
             <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
