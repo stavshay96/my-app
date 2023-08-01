@@ -8,9 +8,11 @@ function Game(props) {
     const GameHandler = () => {
         console.log(`${props.gameID}`);
         console.log(`${props.name}`);
+        const fantasyLeague = "PremierLeague";
+        props.SetLeagueChoice(fantasyLeague);
 
         if (props.gameID === 1) {
-            navigate("/Fantasy", {replace: false});
+            navigate(`/Fantasy/${fantasyLeague}`, {replace: false});
             const originalBackground = document.body.style.backgroundImage;
 
             return () => {

@@ -8,7 +8,7 @@ function MovingToSubsButton(props) {
 
     const movingToSubsHandler = () => {
         if (props.isDeadLineDatePass === false) {
-            navigate("/Fantasy/subs", {replace: true});
+            navigate(`/Fantasy/${props.leagueChoice}/subs`, {replace: true});
         } else {
             alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
         }

@@ -64,7 +64,8 @@ const FantasySubsPage = (props) => {
                 initialSelectedRows={initialSelectedRows}
                 onChangeSelectedRows={SetInitialSelectedRows}
                 captain={props.captain}
-                handleCaptain={props.handleCaptain}/>
+                handleCaptain={props.handleCaptain}
+                leagueChoice={props.leagueChoice}/>
             <InfoAndFantasyOptions/>
             <MatchesList/>
             <Captain

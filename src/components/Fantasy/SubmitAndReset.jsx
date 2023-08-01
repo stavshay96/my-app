@@ -47,7 +47,7 @@ function SubmitAndReset(props) {
             } else if (!props.lineup.includes(props.captain)) {
                 alert("הקפטן לא חלק מהקבוצה. יש לבחור קפטן חדש");
             } else {
-                navigate("/Fantasy", {replace: false});
+                navigate(`/Fantasy/${props.leagueChoice}`, {replace: false});
             }
         }
 
