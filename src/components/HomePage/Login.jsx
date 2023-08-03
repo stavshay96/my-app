@@ -86,9 +86,9 @@ const Login = (props) =>
             {
                 
                 setOpen(false);
-                document.cookie = `userID=${res.data.userInfo.userID}`;
-                document.cookie = `fullName= ${res.data.userInfo.fullName}`;
-                document.cookie = `email= ${res.data.userInfo.email}`;
+                document.cookie = `userID=${res.data.userInfo.userID}; path=/;`;
+                document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/;`;
+                document.cookie = `email= ${res.data.userInfo.email}; path=/;`;
                 props.changeUserInfo(res.data.userInfo);
                 if(!isHomePage){
                  window.location.reload(); 
