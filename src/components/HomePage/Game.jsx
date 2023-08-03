@@ -7,7 +7,15 @@ import FantasyLeagues from "./data/FantasyLeagues";
 import PredictionsLeagues from "./data/PredictionsLeagues";
 import AdditionalGames from "./data/AdditionalGames";
 
+import EnglandFlag from '../../images/Flags/England.png';
+import ChampionsLeagueFlag from '../../images/Flags/ChampionsLeague.png';
+import IsraelFlag from '../../images/Flags/Israel.png';
+import ItalyFlag from '../../images/Flags/Italy.png';
+import SuperLeagueFlag from '../../images/Flags/SuperLeague.png';
+import CustomLeagueFlag from '../../images/Flags/CustomLeague.png';
+
 function Game(props) {
+    const [hoverLeague, setHoverLeague] = useState(null);
     let navigate = useNavigate();
     const [open, setOpen] = useState(false);
 
@@ -25,12 +33,29 @@ function Game(props) {
     }
 
     const createButtonLeague = (league) =>{
+        let flag;
+        switch(league.name) {
+            case 'פרמייר ליג': flag = EnglandFlag; break;
+            case 'ליגת האלופות': flag = ChampionsLeagueFlag; break;
+            case 'ליגת העל': flag = IsraelFlag; break;
+            case 'ליגה איטלקית': flag = ItalyFlag; break;
+            case 'סופרליג': flag = SuperLeagueFlag; break;
+            case 'ליגה מותאמת אישית': flag = CustomLeagueFlag; break;
+            default: flag = null;
+        }
+    
         return (
             <tr>
                 <td className="tdleagues">
-                <Button className="btnleagues" onClick={()=> GameHandler(league.pathName, league.name)} key={league.leagueID}>
-            {league.name}
-            </Button>
+                <Button 
+                className="btnleagues" 
+                style={{backgroundImage: hoverLeague === league.name ? `url(${flag})` : ''}}
+                onMouseEnter={() => setHoverLeague(league.name)}
+                onMouseLeave={() => setHoverLeague(null)}
+                onClick={() => GameHandler(league.pathName, league.name)}
+                key={league.leagueID}>
+                {league.name}
+                </Button>
                 </td>
             </tr>
             

@@ -48,8 +48,13 @@
     white-space: nowrap; /* Prevent the text from wrapping */
     overflow: hidden; /* Hide the text that doesn't fit */
     text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
+    background-size: cover; /* This will ensure the flag image fits the button */
+    background-repeat: no-repeat;
+    background-position: center -2.5px;
+    transition: background 0.3s;
 }
 
+/*
 .btnleagues:hover {
-    background-color: #b6d7a8;
-}
+     background-color: #b6d7a8;
+}*/
