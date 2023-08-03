@@ -27,7 +27,7 @@ function Game(props) {
     const createButtonLeague = (league) =>{
         return (
             <tr>
-                <td>
+                <td className="tdleagues">
                 <Button className="btnleagues" onClick={()=> GameHandler(league.pathName)} key={league.leagueID}>
             {league.name}
             </Button>
