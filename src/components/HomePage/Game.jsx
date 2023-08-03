@@ -28,7 +28,7 @@ function Game(props) {
         return (
             <tr>
                 <td className="tdleagues">
-                <Button className="btnleagues" onClick={()=> GameHandler(league.pathName)} key={league.leagueID}>
+                <Button className="btnleagues" onClick={()=> GameHandler(league.pathName, league.name)} key={league.leagueID}>
             {league.name}
             </Button>
                 </td>
@@ -37,21 +37,13 @@ function Game(props) {
         )
     }
 
-    const ShowListOfGames = () =>{
-        if (props.gameID === 1) {
-            return FantasyLeagues.map(createButtonLeague);
-        } else if (props.gameID === 2) {
-            return PredictionsLeagues.map(createButtonLeague);
-        } else if (props.gameID === 3) {
-            return AdditionalGames.map(createButtonLeague);
-        }
-    }
 
-    const GameHandler = (pathName) => {
+    const GameHandler = (pathName, leagueName) => {
         console.log(`${props.gameID}`);
         console.log(`${props.name}`);
        // const fantasyLeague = path;
         props.SetLeagueChoice(pathName);
+        props.SetTopbarLeagueName(leagueName);
 
         if (props.gameID === 1) {
             navigate(`/Fantasy/${pathName}`, {replace: true});

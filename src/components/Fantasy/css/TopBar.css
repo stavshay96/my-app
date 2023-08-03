@@ -12,6 +12,9 @@
     /* box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);*/
     /*text-decoration: none;*/
     /*width: 7%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btnItems {
@@ -23,10 +26,18 @@
     display: inline-block;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 0.9vw;
+    font-size: 0.8vw;
     padding: 2% 2%;
     font-weight: bold;
-    width: 20%;
+    width: 100px;
+    height: 60px;
+    /* Set the height */
+    white-space: break-spaces;
+    /* Prevent the text from wrapping */
+    overflow: hidden;
+    /* Hide the text that doesn't fit */
+    text-overflow: clip;
+    /* Add ellipsis (...) for overflow text */
     box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);
     /*text-decoration: none;*/
 }
