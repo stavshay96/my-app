@@ -1,18 +1,60 @@
-import {React} from "react";
+import {React, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from "react-router-dom";
 import "./css/Game.css";
+import Popup from 'reactjs-popup';
+import FantasyLeagues from "./data/FantasyLeagues";
+import PredictionsLeagues from "./data/PredictionsLeagues";
+import AdditionalGames from "./data/AdditionalGames";
 
 function Game(props) {
     let navigate = useNavigate();
-    const GameHandler = () => {
+    const [open, setOpen] = useState(false);
+
+    const handleTrigger = () => {
+
+        return (
+            <Button
+            className="btnGame"
+            variant="primary"
+            style={props.style}
+           >
+            {props.name}
+        </Button>
+        )
+    }
+
+    const createButtonLeague = (league) =>{
+        return (
+            <tr>
+                <td>
+                <Button className="btnleagues" onClick={()=> GameHandler(league.pathName)} key={league.leagueID}>
+            {league.name}
+            </Button>
+                </td>
+            </tr>
+            
+        )
+    }
+
+    const ShowListOfGames = () =>{
+        if (props.gameID === 1) {
+            return FantasyLeagues.map(createButtonLeague);
+        } else if (props.gameID === 2) {
+            return PredictionsLeagues.map(createButtonLeague);
+        } else if (props.gameID === 3) {
+            return AdditionalGames.map(createButtonLeague);
+        }
+    }
+
+    const GameHandler = (pathName) => {
         console.log(`${props.gameID}`);
         console.log(`${props.name}`);
-        const fantasyLeague = "PremierLeague";
-        props.SetLeagueChoice(fantasyLeague);
+       // const fantasyLeague = path;
+        props.SetLeagueChoice(pathName);
 
         if (props.gameID === 1) {
-            navigate(`/Fantasy/${fantasyLeague}`, {replace: false});
+            navigate(`/Fantasy/${pathName}`, {replace: true});
             const originalBackground = document.body.style.backgroundImage;
 
             return () => {
@@ -26,13 +68,25 @@ function Game(props) {
     }
 
     return (
-        <Button
-            className="btnGame"
-            variant="primary"
-            style={props.style}
-            onClick={GameHandler}>
-            {props.name}
-        </Button>
+        <Popup trigger={handleTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false} >
+            {close =>(<div>
+            <Button className="close-btn" onClick={ close} style={{position:'fixed', top:'25%', right:'37%', fontSize: '1.25vw'}}>
+            X 
+            </Button>
+            
+            <table className="leaguesList" style={{ position:'fixed', top:'30%', right:'37%'}}>
+                <tbody>
+                {props.gameID === 1? FantasyLeagues.map(createButtonLeague):
+                 (props.gameID === 2? PredictionsLeagues.map(createButtonLeague): AdditionalGames.map(createButtonLeague))}
+                   
+                </tbody>
+            </table>
+           
+           
+            </div>
+            )}
+        </Popup>
+      
     )
 }
 
