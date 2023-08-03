@@ -13,6 +13,16 @@ function App() {
       // Try to retrieve 'leagueChoice' from localStorage, or use an empty string if not found
       return localStorage.getItem("leagueChoice") || "";});
 
+    const [topbarLeagueName, SetTopbarLeagueName] =useState(() => {
+      // Try to retrieve 'leagueChoice' from localStorage, or use an empty string if not found
+      return localStorage.getItem("topbarLeagueName") || "";});
+
+    /*const WrapLeagueChoice = (chosenPathName, chosenLeagueName) =>{
+      SetLeagueChoice({pathName:chosenPathName, leagueName: chosenLeagueName})
+    }
+    */
+
+
     const WrapUserInfo = (userInfo) => {
         SetUserInfo(() => {
           return userInfo;
@@ -22,7 +32,8 @@ function App() {
      // Save 'leagueChoice' to localStorage whenever they change
     useEffect(() => {
       localStorage.setItem("leagueChoice", leagueChoice);
-    }, [leagueChoice]);
+      localStorage.setItem("topbarLeagueName", topbarLeagueName);
+    }, [leagueChoice, topbarLeagueName]);
 
 
     return ( 
@@ -30,9 +41,11 @@ function App() {
        <Router>
          <Routes>
             <Route path='/' element= {<HomePage userInfo={userInfo} WrapUserInfo={WrapUserInfo}
-                                                leagueChoice={leagueChoice} SetLeagueChoice={SetLeagueChoice} />}/>
+                                                leagueChoice={leagueChoice} SetLeagueChoice={SetLeagueChoice} 
+                                                topbarLeagueName={topbarLeagueName} SetTopbarLeagueName={SetTopbarLeagueName}/>}/>
 
-            <Route path="/Fantasy/:fantasyLeague/*" element={<Fantasy userInfo={userInfo} WrapUserInfo={WrapUserInfo} leagueChoice={leagueChoice}/>}/>
+            <Route path="/Fantasy/:fantasyLeague/*" element={<Fantasy userInfo={userInfo} WrapUserInfo={WrapUserInfo}
+                                                           leagueChoice={leagueChoice} topbarLeagueName={topbarLeagueName}/>}/>
             
             <Route path="/Predictions" element={<NotReadyPage/>} />
 

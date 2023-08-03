@@ -5,11 +5,11 @@ import {useLocation} from 'react-router-dom';
 
 function TopBar(props) {
     const fantasy = "ליגת פנטזי:";
-    const fantasyName = "פרמייר ליג";
+    const fantasyName = props.topbarLeagueName;
     const teamName = "שם קבוצה:";
     const teamGivenName = "האקדמית";
 
-    const subs = "חילופים:";
+    const subs = "חילופים:\n";
     const maxSubs = 80;
 
     const budget = "תקציב:";
@@ -29,7 +29,7 @@ function TopBar(props) {
 
     const location = useLocation();
 
-    const showButton = location.pathname === '/Fantasy/subs';
+    const showButton = location.pathname === `/Fantasy/${props.leagueChoice}/subs`;
 
     return (
         <div>

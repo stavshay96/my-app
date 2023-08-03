@@ -22,7 +22,8 @@ const HomePage = (props) => {
             gameID={game.gameID}
             name={game.name}
             style={game.style}
-            SetLeagueChoice={props.SetLeagueChoice}/>)
+            SetLeagueChoice={props.SetLeagueChoice}
+            SetTopbarLeagueName={props.SetTopbarLeagueName}/>)
     }
     
 

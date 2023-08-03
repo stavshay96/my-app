@@ -68,13 +68,13 @@ const Fantasy = (props) => {
 
     <Routes>
       <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
-      currentBudget={currentBudget} handleBudget={handleBudget}
+      currentBudget={currentBudget} handleBudget={handleBudget}  topbarLeagueName={props.topbarLeagueName}
       currentSubs={currentSubs} handleSubs={handleSubs}
       captain={captain} handleCaptain={handleCaptain} 
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass} WrapUserInfo={props.WrapUserInfo} />}/>
 
       <Route path="subs" element={<FantasySubsPage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
-      currentBudget={currentBudget} handleBudget={handleBudget}
+      currentBudget={currentBudget} handleBudget={handleBudget}  topbarLeagueName={props.topbarLeagueName}
       currentSubs={currentSubs} handleSubs={handleSubs}
       captain={captain} handleCaptain={handleCaptain} 
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
