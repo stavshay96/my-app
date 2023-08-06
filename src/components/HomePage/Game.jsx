@@ -6,13 +6,8 @@ import Popup from 'reactjs-popup';
 import FantasyLeagues from "./data/FantasyLeagues";
 import PredictionsLeagues from "./data/PredictionsLeagues";
 import AdditionalGames from "./data/AdditionalGames";
+import { gridColumnGroupsLookupSelector } from "@mui/x-data-grid";
 
-import EnglandFlag from '../../images/Flags/England.png';
-import ChampionsLeagueFlag from '../../images/Flags/ChampionsLeague.png';
-import IsraelFlag from '../../images/Flags/Israel.png';
-import ItalyFlag from '../../images/Flags/Italy.png';
-import SuperLeagueFlag from '../../images/Flags/SuperLeague.png';
-import CustomLeagueFlag from '../../images/Flags/CustomLeague.png';
 
 function Game(props) {
     const [hoverLeague, setHoverLeague] = useState(null);
@@ -33,23 +28,13 @@ function Game(props) {
     }
 
     const createButtonLeague = (league) =>{
-        let flag;
-        switch(league.name) {
-            case 'פרמייר ליג': flag = EnglandFlag; break;
-            case 'ליגת האלופות': flag = ChampionsLeagueFlag; break;
-            case 'ליגת העל': flag = IsraelFlag; break;
-            case 'ליגה איטלקית': flag = ItalyFlag; break;
-            case 'סופרליג': flag = SuperLeagueFlag; break;
-            case 'ליגה מותאמת אישית': flag = CustomLeagueFlag; break;
-            default: flag = null;
-        }
     
         return (
             <tr>
                 <td className="tdleagues">
                 <Button 
                 className="btnleagues" 
-                style={{backgroundImage: hoverLeague === league.name ? `url(${flag})` : ''}}
+                style={{backgroundImage: hoverLeague === league.name ? `url(${league.flag})` : ''}}
                 onMouseEnter={() => setHoverLeague(league.name)}
                 onMouseLeave={() => setHoverLeague(null)}
                 onClick={() => GameHandler(league.pathName, league.name)}
@@ -66,17 +51,20 @@ function Game(props) {
     const GameHandler = (pathName, leagueName) => {
         console.log(`${props.gameID}`);
         console.log(`${props.name}`);
+        console.log(`${props.userInfo["fullName"]} full name`);
        // const fantasyLeague = path;
         props.SetLeagueChoice(pathName);
         props.SetTopbarLeagueName(leagueName);
 
         if (props.gameID === 1) {
-            navigate(`/Fantasy/${pathName}`, {replace: true});
-            const originalBackground = document.body.style.backgroundImage;
+            props.userInfo["fullName"] === "admin"?
+            navigate(`/Fantasy/${pathName}/admin`, {replace: false}) :
+            navigate(`/Fantasy/${pathName}`, {replace: true}) ;
+            //const originalBackground = document.body.style.backgroundImage;
 
-            return () => {
+           /* return () => {
                 document.body.style.backgroundImage = originalBackground;
-            }
+            }*/
         } else if (props.gameID === 2) {
             navigate("/NotReadyYet", {replace: false})
         } else if (props.gameID === 3) {
