@@ -2,24 +2,10 @@ import {React, useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import Button from 'react-bootstrap/Button';
-import { useStateWithCallback } from "../../useStateWithCallBack"
 import "./css/Fantasy.css";
-import LangBar from "../General/LangBar"
-import FantasyDeadLine from "./FantasyDeadLine";
-import PlayersList from "./PlayersList";
-import TopBar from "./TopBar";
-import Field from "./Field";
-import SpecialChips from "./SpecialChips";
-import SubmitAndReset from "./SubmitAndReset";
-import InfoAndFantasyOptions from "./InfoAndFantasyOptions";
-import MatchesList from "./MatchesList";
-import BackToHomePage from "../General/BackToHomePage";
-import HomePageImage from "../../images/HomePageImage.png"
-import Captain from "./Captain";
-import LineupCounter from "./LineupCounter";
-import Rules from "./Rules";
 import FantasyHomePage from "./FantasyHomePage";
 import FantasySubsPage from "./FantasySubsPage";
+import AdminFantasy from "../Admin/AdminFantasy";
 
 
 function getLineUp(){
@@ -81,6 +67,8 @@ const Fantasy = (props) => {
       userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} />}/>
               
       <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
+      
+      <Route path ="/admin" element={<AdminFantasy/>}/>
     </Routes>
   )
 }

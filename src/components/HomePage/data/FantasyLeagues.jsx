@@ -1,23 +1,41 @@
+import EnglandFlag from '../../../images/Flags/England.png';
+import ChampionsLeagueFlag from '../../../images/Flags/ChampionsLeague.png';
+import IsraelFlag from '../../../images/Flags/Israel.png';
+import ItalyFlag from '../../../images/Flags/Italy.png';
+import SuperLeagueFlag from '../../../images/Flags/SuperLeague.png';
+import CustomLeagueFlag from '../../../images/Flags/CustomLeague.png';
+
+
 const FantasyLeagues = [
     
     { leagueID: 1,
         name: "פרמייר ליג",
-        pathName:"PremierLeague"},
+        pathName:"PremierLeague",
+        flag: EnglandFlag},
     {leagueID:2,
         name:"ליגת העל",
-        pathName:"LigatHa'al"},
+        pathName:"LigatHa'al",
+        flag: IsraelFlag},
     {leagueID: 3,
-        name:"ליגה איטלקית",
-        pathName:"ItalyLeague"},
+        name:"ליגה לאומית",
+        pathName:"LeumitLeague",
+        flag: IsraelFlag},
     {leagueID: 4,
-        name:"ליגת האלופות",
-        pathName:"ChampionsLeague"},
+        name:"ליגה איטלקית",
+        pathName:"SerieA",
+        flag: ItalyFlag},
     {leagueID: 5,
-        name:"סופרליג",
-        pathName:"SuperLeague"},
+        name:"ליגת האלופות",
+        pathName:"ChampionsLeague",
+        flag: ChampionsLeagueFlag},
     {leagueID: 6,
+        name:"סופרליג",
+        pathName:"SuperLeague",
+        flag: SuperLeagueFlag},
+    {leagueID: 7,
         name:"ליגה מותאמת אישית",
-        pathName:"CostumLeague"}
+        pathName:"CostumLeague",
+        flag: CustomLeagueFlag}
 ]
 
 export default FantasyLeagues; 
