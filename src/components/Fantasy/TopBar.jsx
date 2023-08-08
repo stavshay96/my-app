@@ -4,15 +4,15 @@ import {Button, ButtonGroup} from "react-bootstrap";
 import {useLocation} from 'react-router-dom';
 
 function TopBar(props) {
-    const fantasy = "ליגת פנטזי:";
+    const fantasy = "ליגה";
     const fantasyName = props.topbarLeagueName;
-    const teamName = "שם קבוצה:";
+    const teamName = "שם קבוצה";
     const teamGivenName = "האקדמית";
 
-    const subs = "חילופים:\n";
+    const subs = "חילופים";
     const maxSubs = 80;
 
-    const budget = "תקציב:";
+    const budget = "תקציב";
     const maxBudget = 100;
 
     //calculating Budget
@@ -45,23 +45,27 @@ function TopBar(props) {
                 <Button
                     className="btnItems"
                     style={{
+                    height: '110%',
                     unicodeBidi: 'plaintext'
-                }}>{budget} {props.currentBudget}M/{maxBudget}M</Button>
+                }}>{budget}<hr/>{props.currentBudget}M/{maxBudget}M</Button>
                 {showButton && <Button
                     className="btnItems"
                     style={{
+                    height: '110%',
                     unicodeBidi: 'plaintext'
-                }}>{subs} {props.currentSubs}/{maxSubs}</Button>}
+                }}>{subs}<hr/>{props.currentSubs}/{maxSubs}</Button>}
                 <Button
                     className="btnItems"
                     style={{
+                    height: '110%',
                     unicodeBidi: 'plaintext'
-                }}>{teamName} {teamGivenName}</Button>
+                }}>{teamName}<hr/>{teamGivenName}</Button>
                 <Button
                     className="btnItems"
                     style={{
+                    height: '110%',
                     unicodeBidi: 'plaintext'
-                }}>{fantasy} {fantasyName}</Button>
+                }}>{fantasy}<hr/>{fantasyName}</Button>
             </ButtonGroup>
         </div>
     )

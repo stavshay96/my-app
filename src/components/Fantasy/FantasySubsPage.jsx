@@ -14,6 +14,7 @@ import BackToHomePage from "../General/BackToHomePage";
 import Captain from "./Captain";
 import LineupCounter from "./LineupCounter";
 import Rules from "./Rules";
+import players from "./data/Players";
 
 const FantasySubsPage = (props) => {
     let navigate = useNavigate();

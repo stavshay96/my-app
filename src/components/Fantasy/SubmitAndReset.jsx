@@ -2,7 +2,9 @@ import {React} from "react";
 import Button from 'react-bootstrap/Button';
 import "./css/SubmitAndReset.css"
 import {useNavigate} from "react-router-dom";
+import players from "./data/Players";
 
+let afterSubmit = false;
 const buttons = [
     {
         buttonID: 1,
@@ -47,7 +49,10 @@ function SubmitAndReset(props) {
             } else if (!props.lineup.includes(props.captain)) {
                 alert("הקפטן לא חלק מהקבוצה. יש לבחור קפטן חדש");
             } else {
-                navigate(`/Fantasy/${props.leagueChoice}`, {replace: false});
+                players.forEach(data => {
+                    data.currentPoints = data.totalPoints;
+                    data.totalPoints = 0;})
+                navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
             }
         }
 

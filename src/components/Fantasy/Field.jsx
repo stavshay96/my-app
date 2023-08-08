@@ -1,17 +1,20 @@
 import React from "react";
 import "./css/Field.css"
 import {Button, ButtonGroup} from "react-bootstrap";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const top = 20;
 const left = 30.8;
 
 function Field(props) {
 
+    let location = useLocation();
+
     function createPlayerButton(player) {
         return (
             <Button className="btnPlayerButton" key={player.id}>
                 <h2>
-                    {player.points}
+                    {player.totalPoints}
                 </h2>
                 <h3>
                     {player.price}m
