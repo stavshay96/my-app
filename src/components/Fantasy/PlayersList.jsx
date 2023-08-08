@@ -10,7 +10,7 @@ const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 const rows = players.map(createRow);
 
 const columns = [
-  { field: "points", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
+  { field: "totalPoints", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
   { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", flex: 1.1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
   { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', flex: 1.3, filterable: true, 
   align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
@@ -19,7 +19,7 @@ const columns = [
 ];
 
 function createRow(player){
-  return {id: player.id, points: player.points, price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position}
+  return {id: player.id, totalPoints: player.totalPoints, currentPoints: player.currentPoints, price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position}
 }
 
 function wrapHeaderText(params) {
