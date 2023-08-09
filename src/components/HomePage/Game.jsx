@@ -59,7 +59,7 @@ function Game(props) {
         if (props.gameID === 1) {
             props.userInfo["fullName"] === "admin"?
             navigate(`/Fantasy/${pathName}/admin`, {replace: false}) :
-            navigate(`/Fantasy/${pathName}`, {replace: true}) ;
+            navigate(`/Fantasy/${pathName}`, {replace: false}) ;
             //const originalBackground = document.body.style.backgroundImage;
 
            /* return () => {

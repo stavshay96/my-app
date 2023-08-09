@@ -1,0 +1,89 @@
+/* AdminFantasy.css */
+
+.adminform {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 2vw;
+    border: 0.3vw solid #b6d7a8;
+    cursor: default !important;
+    /* display: block;*/
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 2rem;
+    /* width: 50%;*/
+    unicode-bidi: plaintext;
+    width: 80rem;
+    /* Set a fixed width to create a square */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    /* Adjust flex direction and alignment */
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-right: 10px;
+    text-align: left;
+    /* Align the label text to the left */
+    flex: 1;
+}
+
+.form-group input,
+.form-group select {
+    text-align: left;
+    font-size: 1.5rem;
+    /* Align input/select text to the left */
+}
+
+.form-column {
+    flex: 1;
+    /* Take up available space */
+    padding-right: 20px;
+    /* Add spacing between columns */
+}
+
+.player-column {
+    flex: 1;
+    /* Take up available space */
+    padding-left: 20px;
+    /* Add spacing between columns */
+}
+
+.players-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.player-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    unicode-bidi: plaintext;
+}
+
+.player-label input {
+    text-align: right;
+    font-size: 1.5rem;
+    width: 14%;
+    margin-left: 17rem;
+    /* Align input text to the right */
+}
+
+.btnSave {
+    top: 50px;
+    left: 150px;
+}
