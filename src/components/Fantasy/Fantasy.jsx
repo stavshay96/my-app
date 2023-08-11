@@ -68,7 +68,7 @@ const Fantasy = (props) => {
               
       <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
       
-      <Route path ="/admin" element={<AdminFantasy/>}/>
+      <Route path ="/admin" element={<AdminFantasy leagueChoice = {props.leagueChoice}/>}/>
     </Routes>
   )
 }

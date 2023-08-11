@@ -34,13 +34,13 @@ async function FindUserByCookie(email, fullName, userID) {
 }
 
 async function InsertFantasySettings(FantasySettings) {
-    const pervFantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne();
+    const query = {leagueChoice : FantasySettings.leagueChoice}
+    const pervFantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne(query);
     
     if(pervFantasySettings)
     {
         await client.db("FantasyGame").collection("FantasySettings").deleteOne(pervFantasySettings);
         await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
-        return pervFantasySettings;
     }
     else
     {

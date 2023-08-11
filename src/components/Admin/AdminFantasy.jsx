@@ -3,6 +3,7 @@ import "./AdminFantasy.css";
 import teams from "../Fantasy/data/Teams";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 
 const AdminFantasy = (props) =>{
 
@@ -87,11 +88,12 @@ const handleTeamChange = (event) => {
   };
 
   const handleFantasySettingsUpdate = () => {
-    console.log(formData.deadline, formData.budgetLimit, formData.subsLimit )
+    console.log(props.leagueChoice)
     axios.post(`http://localhost:7777/Fantasy/Admin`, {
+        leagueChoice: props.leagueChoice,
         deadline: formData.deadline,
         budgetlimit: formData.budgetLimit,
-        subslimit: formData.subsLimit
+        subslimit: formData.subsLimit,
     }).then((res) =>{
         console.log(res.data);
     }).catch(error => {

@@ -27,22 +27,11 @@ FantasyRouter.post("/FantasyPL", async(req, res) => {
 });
 
 FantasyRouter.post("/Admin", async(req, res) => {
-    console.log(req.body.deadline);
-    const newFantasySet  = new FantasySettings(req.body.deadline,req.body.budgetlimit,req.body.subslimit);
-    const FantasySetInDB = await DBManager.InsertFantasySettings(newFantasySet);
+    const newFantasySet  = new FantasySettings(req.body.leagueChoice,req.body.deadline,req.body.budgetlimit,req.body.subslimit);
+    console.log(newFantasySet.leagueChoice)
+    await DBManager.InsertFantasySettings(newFantasySet);
 
-    if(lod.isEqual(newFantasySet, FantasySetInDB))
-    {
-        res.send("The Fantasy Settings is updated");
-    }
-    else
-    {
-        res.send("The Fantasy Settings Insert To DB is failed");
-    }
-});
-
-FantasyRouter.post("/Check", async(req, res) => {
-    res.send("work");
+    res.send("The Fantasy Settings is updated");
 });
 
 async function BuildFantasyUser(UserInfo, League )
