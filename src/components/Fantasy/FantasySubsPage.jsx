@@ -52,7 +52,9 @@ const FantasySubsPage = (props) => {
                 currentSubs={props.currentSubs}
                 onCountingSubs={props.handleSubs}
                 topbarLeagueName={props.topbarLeagueName}
-                leagueChoice={props.leagueChoice}/>
+                leagueChoice={props.leagueChoice}
+                budgetLimit={props.budgetLimit} 
+                subsLimit={props.subsLimit}/>
                 
             <LineupCounter lineup={props.lineup}/>
             <Field

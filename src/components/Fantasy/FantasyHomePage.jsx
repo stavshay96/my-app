@@ -27,7 +27,8 @@ const FantasyHomePage = (props) => {
             <LangBar/> 
             <FantasyDeadLine deadLineDate={props.deadLineDate} handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}  />
             <TopBar currentBudget={props.currentBudget} onCalcBudget={props.handleBudget} lineup={props.lineup} leagueChoice={props.leagueChoice}
-                        currentSubs={props.currentSubs} onCountingSubs={props.handleSubs}  topbarLeagueName={props.topbarLeagueName}/>
+                        currentSubs={props.currentSubs} onCountingSubs={props.handleSubs}  topbarLeagueName={props.topbarLeagueName} 
+                        budgetLimit={props.budgetLimit} subsLimit={props.subsLimit}/>
             <LineupCounter lineup={props.lineup}/>
             <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain}/>
             <InfoAndFantasyOptions/>

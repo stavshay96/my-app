@@ -3,7 +3,7 @@ import "./AdminFantasy.css";
 import teams from "../Fantasy/data/Teams";
 import axios from "axios";
 import { Button } from "react-bootstrap";
-import axios from "axios";
+
 
 const AdminFantasy = (props) =>{
 
