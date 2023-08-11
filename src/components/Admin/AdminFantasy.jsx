@@ -1,6 +1,7 @@
 import {React ,useState} from "react";
 import "./AdminFantasy.css";
 import teams from "../Fantasy/data/Teams";
+import axios from "axios";
 import { Button } from "react-bootstrap";
 
 const AdminFantasy = (props) =>{
@@ -34,7 +35,39 @@ const [formData, setFormData] = useState({
             ...prevData,
             gameweek: 1
         }));
-    } 
+    } else if (name.startsWith('player-')) {
+        const playerName = name.split('-')[1];
+        setFormData((prevData) => {
+            const updatedTeamsData = prevData.teamsData.map((team) => {
+                if (team.name === prevData.selectedTeam) {
+                    const updatedPlayers = team.players.map((player) => {
+                        if (player.playerName === playerName) {
+                            const updatedPoints = [...player.points];
+                            updatedPoints[prevData.gameweek - 1] = parseInt(value);
+    
+                            return {
+                                ...player,
+                                points: updatedPoints,
+                            };
+                        }
+                        return player;
+                    });
+    
+                    return {
+                        ...team,
+                        players: updatedPlayers,
+                    };
+                }
+                return team;
+            });
+    
+            return {
+                ...prevData,
+                teamsData: updatedTeamsData,
+            };
+        });
+        console.log(`${formData.teamsData[1].players[0].playerName} now get ${formData.teamsData[1].players[0].points[0]} points`)
+    }
    
     else {
         setFormData((prevData) => ({
@@ -52,6 +85,19 @@ const handleTeamChange = (event) => {
       selectedPlayer: '' // Reset selected player when changing teams
     }));
   };
+
+  const handleFantasySettingsUpdate = () => {
+    console.log(formData.deadline, formData.budgetLimit, formData.subsLimit )
+    axios.post(`http://localhost:7777/Fantasy/Admin`, {
+        deadline: formData.deadline,
+        budgetlimit: formData.budgetLimit,
+        subslimit: formData.subsLimit
+    }).then((res) =>{
+        console.log(res.data);
+    }).catch(error => {
+        console.error(error);
+        });
+  }
 
 
 return (
@@ -116,7 +162,7 @@ return (
                     ))}
                 </select>
             </div>
-            <Button className="btnSave">שמור נתונים</Button>
+            <Button className="btnSave" onClick={handleFantasySettingsUpdate}>שמור נתונים</Button>
         </form>
         </div>
             {formData.selectedTeam && (
@@ -130,8 +176,8 @@ return (
                                 <div key={index} className="player-label">
                                     <input
                                     type="number"
-                                    name={`${player.playerName}`}
-                                    value={player.points[formData.gameweek]}
+                                    name={`player-${player.playerName}`}
+                                    value={player.points[formData.gameweek-1]}
                                     onChange={handleInputChange}
                                     placeholder="Points"
                                 
