@@ -27,22 +27,22 @@ const teams = [
       name: 'ארסנל',
       players: [{
         playerName: "מרטין אודגור",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "13",
       },
       {
         playerName: "בוקאיו סאקה",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "15",
       },
       {
         playerName: "גבריאל מרטינלי",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "10",
       },
       {
         playerName: "דקלאן רייס",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "7",
       },]
     },
@@ -51,22 +51,22 @@ const teams = [
         name: "צ'לסי",
         players: [{
         playerName: "ריס ג'יימס",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "8",
       },
       {
         playerName: "אנזו פרננדס",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "7",
       },
       {
         playerName: "כריסטופר אנקונקו",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "10",
       },
       {
         playerName: "בן צ'ילוול",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "7",
       },
     ]
@@ -76,22 +76,22 @@ const teams = [
         name: "מנצ'סטר סיטי",
         players: [{
             playerName: "ארלינג האלאנד",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "15",
           },
           {
             playerName: "קווין דה בריינה",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "14",
           },
           {
             playerName: "רובן דיאס",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "7",
           },
           {
             playerName: "ברנרדו סילבה",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "10",
           },]
       },
@@ -100,22 +100,22 @@ const teams = [
         name: 'טוטנהאם',
         players: [{
             playerName: "מנור סלומון",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "8",
           },
           {
             playerName: "הארי קיין",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "14",
           },
           {
             playerName: "איבן פריסיץ'",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "8",
           },
           {
             playerName: "דיאן קולוסבסקי",
-            points: [],
+            points: Array.from({ length: 38 }, () => 0),
             price: "12",
           },]
       },
@@ -124,22 +124,22 @@ const teams = [
         name: 'ליברפול',
         players: [{
         playerName: "וירג'יל ואן דייק",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "8",
       },
       {
         playerName: "אנדרו רוברטסון",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "7",
       },
       {
         playerName: "קודי גאקפו",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "10",
       },
       {
         playerName: "דרווין נונייז",
-        points: [],
+        points: Array.from({ length: 38 }, () => 0),
         price: "12",
       },]
       },

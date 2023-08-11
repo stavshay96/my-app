@@ -1,6 +1,7 @@
 import {React ,useState} from "react";
 import "./AdminFantasy.css";
 import teams from "../Fantasy/data/Teams";
+import axios from "axios";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 
@@ -35,7 +36,39 @@ const [formData, setFormData] = useState({
             ...prevData,
             gameweek: 1
         }));
-    } 
+    } else if (name.startsWith('player-')) {
+        const playerName = name.split('-')[1];
+        setFormData((prevData) => {
+            const updatedTeamsData = prevData.teamsData.map((team) => {
+                if (team.name === prevData.selectedTeam) {
+                    const updatedPlayers = team.players.map((player) => {
+                        if (player.playerName === playerName) {
+                            const updatedPoints = [...player.points];
+                            updatedPoints[prevData.gameweek - 1] = parseInt(value);
+    
+                            return {
+                                ...player,
+                                points: updatedPoints,
+                            };
+                        }
+                        return player;
+                    });
+    
+                    return {
+                        ...team,
+                        players: updatedPlayers,
+                    };
+                }
+                return team;
+            });
+    
+            return {
+                ...prevData,
+                teamsData: updatedTeamsData,
+            };
+        });
+        console.log(`${formData.teamsData[1].players[0].playerName} now get ${formData.teamsData[1].players[0].points[0]} points`)
+    }
    
     else {
         setFormData((prevData) => ({
@@ -145,8 +178,8 @@ return (
                                 <div key={index} className="player-label">
                                     <input
                                     type="number"
-                                    name={`${player.playerName}`}
-                                    value={player.points[formData.gameweek]}
+                                    name={`player-${player.playerName}`}
+                                    value={player.points[formData.gameweek-1]}
                                     onChange={handleInputChange}
                                     placeholder="Points"
                                 
