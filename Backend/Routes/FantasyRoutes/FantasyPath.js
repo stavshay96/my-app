@@ -5,6 +5,8 @@ const path = require("path");
 const Fantasy = require('../../Classes/Games/Fantasy/Fantasy');
 const FantasyUser = require('../../Classes/Games/Fantasy/FantasyUser');
 const cookieParser = require('cookie-parser');
+const FantasySettings = require("../../Classes/Games/Fantasy/FantasySettings");
+const lod = require('lodash');
 
 const DBManager = require(path.join(
     __dirname,
@@ -22,6 +24,25 @@ FantasyRouter.post("/FantasyPL", async(req, res) => {
     console.log(req.cookies);
     console.log(FantasyPL);
     res.send(await BuildFantasyUser(req.cookies, FantasyPL));
+});
+
+FantasyRouter.post("/Admin", async(req, res) => {
+    console.log(req.body.deadline);
+    const newFantasySet  = new FantasySettings(req.body.deadline,req.body.budgetlimit,req.body.subslimit);
+    const FantasySetInDB = await DBManager.InsertFantasySettings(newFantasySet);
+
+    if(lod.isEqual(newFantasySet, FantasySetInDB))
+    {
+        res.send("The Fantasy Settings is updated");
+    }
+    else
+    {
+        res.send("The Fantasy Settings Insert To DB is failed");
+    }
+});
+
+FantasyRouter.post("/Check", async(req, res) => {
+    res.send("work");
 });
 
 async function BuildFantasyUser(UserInfo, League )

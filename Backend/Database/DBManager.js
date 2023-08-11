@@ -33,6 +33,22 @@ async function FindUserByCookie(email, fullName, userID) {
     return user;
 }
 
+async function InsertFantasySettings(FantasySettings) {
+    const pervFantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne();
+    
+    if(pervFantasySettings)
+    {
+        await client.db("FantasyGame").collection("FantasySettings").deleteOne(pervFantasySettings);
+        await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
+        return pervFantasySettings;
+    }
+    else
+    {
+        return await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
+    }
+
+}
+
 async function CreateNewLeagueInDataBase(NewLeague) {
     const newAddedTeam = await client
         .db("LeaguesInfo")
@@ -76,4 +92,5 @@ module.exports = {
     GetFantasyUserFromDataBase: GetFantasyUserFromDataBase,
     CreateFantasyUserInDataBase: CreateFantasyUserInDataBase,
     FindUserByCookie: FindUserByCookie,
+    InsertFantasySettings: InsertFantasySettings,
 };
