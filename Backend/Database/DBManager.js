@@ -3,7 +3,7 @@ const { MongoClient } = require("mongodb");
 const uriDB = "mongodb+srv://Pendel:Pendel@pendel.2h5nfcp.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uriDB);
 
-
+///--------------------------------- main connecting ------------------------------/////
 async function ConnectToMongoDB() {
     try {
         console.log("Connecting To database...");
@@ -15,7 +15,7 @@ async function ConnectToMongoDB() {
     }
 }
 
-
+////--------------------------------- user functions ------------------------////////
 
 async function CreateNewPersonInDataBase(NewPerson) {
     let num_of_users = await client.db("Users").collection("Users").estimatedDocumentCount();
@@ -31,37 +31,6 @@ async function CheckUserExists(email, password) {
 async function FindUserByCookie(email, fullName, userID) {
     const user = await client.db("Users").collection("Users").findOne({ email: email, fullName: fullName, userID: userID });
     return user;
-}
-
-async function InsertFantasySettings(FantasySettings) {
-    const query = {leagueChoice : FantasySettings.leagueChoice}
-    const pervFantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne(query);
-    
-    if(pervFantasySettings)
-    {
-        await client.db("FantasyGame").collection("FantasySettings").deleteOne(pervFantasySettings);
-        await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
-    }
-    else
-    {
-        return await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
-    }
-
-}
-
-async function CreateNewLeagueInDataBase(NewLeague) {
-    const newAddedTeam = await client
-        .db("LeaguesInfo")
-        .collection("Info")
-        .insertOne(NewLeague);
-}
-
-async function GetLeagueFromDataBase(LeagueName) {
-    const league = await client
-        .db("LeaguesInfo")
-        .collection("Info")
-        .findOne({ "leagueName": LeagueName });
-    return league;
 }
 
 async function GetFantasyUserFromDataBase(userInfo) {
@@ -80,6 +49,49 @@ async function UpdateUserTeamInDataBase(FantasyUser) {
     await client.db("FantasyGame").collection("FantasyUser").updateOne(FantasyUser);
 }
 
+////--------------------------------- fantasy functions ------------------------////////
+
+async function InsertFantasySettings(FantasySettings) {
+    const query = { leagueChoice: FantasySettings.leagueChoice }
+    const pervFantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne(query);
+
+    if (pervFantasySettings) {
+        await client.db("FantasyGame").collection("FantasySettings").deleteOne(pervFantasySettings);
+        await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
+    } else {
+        return await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
+    }
+
+}
+
+async function GetFantasySettingsFromDatabase(i_leagueChoice) {
+    const query = { leagueChoice: i_leagueChoice }
+    try {
+        // Use the leagueChoice parameter to fetch the specific Fantasy settings from the database
+        const fantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne(query);
+        return fantasySettings;
+    } catch (error) {
+        console.error("Error fetching Fantasy settings:", error);
+        throw error; // You might want to handle this error in the calling function
+    }
+}
+
+async function CreateNewLeagueInDataBase(NewLeague) {
+    const newAddedTeam = await client
+        .db("LeaguesInfo")
+        .collection("Info")
+        .insertOne(NewLeague);
+}
+
+async function GetLeagueFromDataBase(LeagueName) {
+    const league = await client
+        .db("LeaguesInfo")
+        .collection("Info")
+        .findOne({ "leagueName": LeagueName });
+    return league;
+}
+
+
 
 module.exports = {
 
@@ -93,4 +105,5 @@ module.exports = {
     CreateFantasyUserInDataBase: CreateFantasyUserInDataBase,
     FindUserByCookie: FindUserByCookie,
     InsertFantasySettings: InsertFantasySettings,
+    GetFantasySettingsFromDatabase: GetFantasySettingsFromDatabase,
 };

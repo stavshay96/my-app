@@ -10,10 +10,10 @@ function TopBar(props) {
     const teamGivenName = "האקדמית";
 
     const subs = "חילופים";
-    const maxSubs = 80;
+    const maxSubs = props.subsLimit;
 
     const budget = "תקציב";
-    const maxBudget = 100;
+    const maxBudget = props.budgetLimit;
 
     //calculating Budget
     const totalBudget = props
