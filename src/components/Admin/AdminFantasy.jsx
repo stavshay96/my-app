@@ -2,6 +2,7 @@ import {React ,useState} from "react";
 import "./AdminFantasy.css";
 import teams from "../Fantasy/data/Teams";
 import { Button } from "react-bootstrap";
+import axios from "axios";
 
 const AdminFantasy = (props) =>{
 
@@ -52,6 +53,20 @@ const handleTeamChange = (event) => {
       selectedPlayer: '' // Reset selected player when changing teams
     }));
   };
+
+  const handleFantasySettingsUpdate = () => {
+    console.log(props.leagueChoice)
+    axios.post(`http://localhost:7777/Fantasy/Admin`, {
+        leagueChoice: props.leagueChoice,
+        deadline: formData.deadline,
+        budgetlimit: formData.budgetLimit,
+        subslimit: formData.subsLimit,
+    }).then((res) =>{
+        console.log(res.data);
+    }).catch(error => {
+        console.error(error);
+        });
+  }
 
 
 return (
@@ -116,7 +131,7 @@ return (
                     ))}
                 </select>
             </div>
-            <Button className="btnSave">שמור נתונים</Button>
+            <Button className="btnSave" onClick={handleFantasySettingsUpdate}>שמור נתונים</Button>
         </form>
         </div>
             {formData.selectedTeam && (
