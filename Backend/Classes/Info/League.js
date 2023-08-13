@@ -6,18 +6,25 @@
 class League {
     constructor(
         leagueID,
-        leagueName,
-        teamsList
+        englishleagueName,
+        hebrewleagueName,
+        teamsList,
+        numOfGames
     ) {
         this.leagueID = leagueID;
-        this.leagueName = leagueName;
+        this.englishleagueName = englishleagueName;
+        this.hebrewleagueName = hebrewleagueName;
         this.teamsList = teamsList;
+        this.numOfGames = numOfGames;
     }
     get LeagueID() {
         return this.leagueID;
     }
-    get Name() {
-        return this.name;
+    get EnglishleagueName() {
+        return this.englishleagueName;
+    }
+    get HebrewleagueName() {
+        return this.hebrewleagueName;
     }
     get TeamsList() {
         return this.teamsList;

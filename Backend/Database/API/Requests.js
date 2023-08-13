@@ -19,11 +19,11 @@ let config = {
 axios(config)
     .then(function(response) {
         let league_full_data = JSON.parse(JSON.stringify(response.data))
-        const league=new League(0,"Premier League",[])
+        const league=new League(0,"PremierLeague","ליגה אנגלית",[],38)
         league_full_data.teams.forEach(element => {
-            const team = new Team(0, element.shortName, [])
+            const team = new Team(0, element.shortName,"", [])
             element.squad.forEach(p => {
-                const player = new Player(0, p.name, p.position)
+                const player = new Player(0, p.name,"",team.englishName,"", p.position, Array.from({ length: league.numOfGames }, () => 0), 0)
                 team.Players.push(player)
             })
             league.TeamsList.push(team)
