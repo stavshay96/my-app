@@ -77,17 +77,34 @@ async function GetFantasySettingsFromDatabase(i_leagueChoice) {
 }
 
 async function CreateNewLeagueInDataBase(NewLeague) {
-    const newAddedTeam = await client
-        .db("LeaguesInfo")
-        .collection("Info")
-        .insertOne(NewLeague);
-}
-
-async function GetLeagueFromDataBase(LeagueName) {
+    const query = { englishleagueName: NewLeague.englishleagueName }
+    
     const league = await client
         .db("LeaguesInfo")
         .collection("Info")
-        .findOne({ "leagueName": LeagueName });
+        .findOne(query);
+
+        if (league) {
+                    await client.db("LeaguesInfo").collection("Info").deleteOne(league);
+                    await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        }
+        else{
+            await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        }
+}
+
+async function UpdatePlayersPoints(FantasyUser) {
+    await client.db("FantasyGame").collection("FantasyUser").updateOne(FantasyUser);
+}
+
+async function GetLeagueFromDataBase(LeagueName) {
+    const query = { englishleagueName: LeagueName }
+    
+    const league = await client
+        .db("LeaguesInfo")
+        .collection("Info")
+        .findOne(query);
+
     return league;
 }
 

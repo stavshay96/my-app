@@ -8,18 +8,37 @@
 class Player {
     constructor(
         playerID,
-        fullName,
-        position
+        englishName,
+        hebrewName,
+        englishTeamName,
+        hebrewTeamName,
+        position,
+        pointsPerWeek,
+        totalPoints
     ) {
         this.playerID = playerID;
-        this.fullName = fullName;
+        this.englishName = englishName;
+        this.hebrewName = hebrewName;
+        this.englishTeamName = englishTeamName;
+        this.hebrewTeamName = hebrewTeamName;
         this.position = position;
+        this.pointsPerWeek = pointsPerWeek;
+        this.totalPoints = totalPoints;
     }
     get PlayerID() {
         return this.playerID;
     }
-    get FullName() {
-        return this.fullName;
+    get EnglishName() {
+        return this.englishName;
+    }
+    get HebrewName() {
+        return this.hebrewName;
+    }
+    get EnglishTeamName() {
+        return this.englishTeamName;
+    }
+    get HebrewTeamName() {
+        return this.hebrewTeamName;
     }
     get Position() {
         return this.position;
@@ -27,8 +46,11 @@ class Player {
     get Price() {
         return this.price;
     }
-    get Points() {
-        return this.points;
+    get PointsPerWeek() {
+        return this.pointsPerWeek;
+    }
+    get TotalPoints() {
+        return this.totalPoints;
     }
     get Statistics() {
         return this.statistics;

@@ -7,18 +7,23 @@
 class Team {
     constructor(
         teamID,
-        name,
+        englishName,
+        hebrewName,
         players
     ) {
         this.teamID = teamID;
-        this.name = name;
+        this.englishName = englishName;
+        this.hebrewName = hebrewName;
         this.players = players;
     }
     get TeamID() {
         return this.teamID;
     }
-    get Name() {
-        return this.name;
+    get EnglishName() {
+        return this.englishName;
+    }
+    get HebrewName() {
+        return this.hebrewName;
     }
     get Players() {
         return this.players;
@@ -28,7 +33,7 @@ class Team {
         this.teamID = newTeamID;
     }
     changeName(newName) {
-        this.name = newName;
+        this.englishName = newName;
     }
     changePosition(newPosition) {
         this.position = newPosition;
