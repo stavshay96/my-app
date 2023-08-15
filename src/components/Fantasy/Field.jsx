@@ -3,6 +3,7 @@ import "./css/Field.css"
 import {Button, ButtonGroup} from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 //import manCityKit from "../../images/city_1.png"
+import Arsenal from "../../images/kits/Arsenal.png"
 
 const top = 20;
 const left = 30.8;
@@ -12,8 +13,13 @@ function Field(props) {
     let location = useLocation();
 
     function createPlayerButton(player) {
+       console.log(`team ${player.team}`);
+       // const urlback = `url(../../images/kits/${player.kit}.png)`;
+        //const urlback1 = "../../images/kits/Arsenal.png"
+      //  console.log(urlback);
+    
         return (
-            <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${player.kit})`, backgroundSize: 'cover'}} key={player.id}>
+            <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${Arsenal})`, backgroundSize: 'cover'}} key={player.id}>
                 <h2>
                     {player.totalPoints}
                 </h2>

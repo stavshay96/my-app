@@ -4,10 +4,12 @@ import { DataGrid, GridToolbarContainer, GridToolbarFilterButton } from "@materi
 import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/PlayersList.css";
-import players from "./data/Players.jsx";
+//import players from "./data/Players.jsx";
+import Arsenal from "../../images/kits/Arsenal.png";
+
 
 const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
-const rows = players.map(createRow);
+
 
 const columns = [
   { field: "totalPoints", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
@@ -19,7 +21,10 @@ const columns = [
 ];
 
 function createRow(player){
-  return {id: player.id, totalPoints: player.totalPoints, currentPoints: player.currentPoints, price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position}
+  const kitTeam = player.team.replace(/ /g, '');
+  console.log(`kit team ${kitTeam}`);
+  return {id: player.id, totalPoints: player.totalPoints, currentPoints: player.currentPoints, 
+    price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position,/* kit: `../../images/kits/${kitTeam}.png`*/}
 }
 
 function wrapHeaderText(params) {
@@ -74,6 +79,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PlayersList(props) {
+ const players = props.playersList;
+const rows = props.playersList.map(createRow);
+ //const rows = players.map(createRow);
+  console.log(`rows got ${rows.length}`);
+  console.log(rows);
   const [selectedRows, setSelectedRows] = useState([]);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [filterModel, setFilterModel] = useState({items: [],});
@@ -131,7 +141,7 @@ function PlayersList(props) {
 
  const isMaxGoalkeepers = (updatedIDArray) =>{
     const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
-    const goalkeepers = newSelectedPlayers.filter((player) => player.position === 'GK');
+    const goalkeepers = newSelectedPlayers.filter((player) => player.position === "GK");
     return goalkeepers.length > 1 ? true:false;
  }
 
@@ -251,10 +261,10 @@ function PlayersList(props) {
         disableColumnMenu
         checkboxSelection
         disableSelectionOnClick
-        hideFooter
+        //hideFooter
         selectionModel={selectedRows}
         onSelectionModelChange={handleCheckBox}
-
+        pageSize={100}
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
 

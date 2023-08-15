@@ -51,12 +51,18 @@ const Fantasy = (props) => {
       axios.get(`http://localhost:7777/Fantasy/FantasyLeagueData?leagueChoice=${props.leagueChoice}`)
       .then((res) => {
         const leaguedata = res.data;
+        SetLeagueData(leaguedata);
         console.log(leaguedata);
-        setIsLoading(false);
-        
+        const extractedPlayers = getPlayersList(leaguedata);
 
       
-       
+        console.log(extractedPlayers);
+        SetPlayersList(extractedPlayers);
+
+
+
+        
+        setIsLoading(false);
           //console.log(res.data.userInfo);
       })
       .catch(error => {
@@ -65,26 +71,38 @@ const Fantasy = (props) => {
       });
     }
 
-    const getPlayersList = () => {
+    const getShortedPosition= (position) =>{
+      if (position == "Goalkeeper") return "GK";
+      if (position == "Defence") return "DF";
+      if (position == "Midfield") return "MF";
+      if (position == "Offence") return "FW";
+    }
+
+    const getPlayersList = (leagueData) => {
       const extractedPlayers = [];
-        leagueData.teams.forEach((team) => {
+     // console.log(`in get func ${leagueData[0].players[0].fullName}`)
+     let count =0;
+        leagueData.forEach((team) => {
+        
+        
           team.players.forEach((player) => {
+           // console.log(player.fullName);
             const extractedPlayer = {
-              id: player.teamID, // Assuming this is the player's unique ID
+              id: count, // Assuming this is the player's unique ID
               totalPoints: player.totalPoints,
               currentPoints: 0,
-              price: player.price,
-              playerName: player.englishName, // Assuming you want to use the English name
-              position: player.position,
-              team: team.englishName, // Assuming you want to use the English name of the team
+              price: 0,
+              playerName: player.fullName, // Assuming you want to use the English name
+              position: getShortedPosition(player.position),
+              team: player.englishTeamName, // Assuming you want to use the English name of the team
               kit: player.englishTeamName, // Assuming you have a way to get the kit value
             };
+            count++;
             extractedPlayers.push(extractedPlayer);
           });
         });
-     
-  
-     SetPlayersList(extractedPlayers);
+     return extractedPlayers;
+    
     }
 
     useEffect(() => {
@@ -129,13 +147,13 @@ const Fantasy = (props) => {
       <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
       currentBudget={currentBudget} handleBudget={handleBudget} budgetLimit={budgetLimit} topbarLeagueName={props.topbarLeagueName}
       currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit}
-      captain={captain} handleCaptain={handleCaptain} leagueData= {leagueData}
+      captain={captain} handleCaptain={handleCaptain} playersList= {playersList}
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass} WrapUserInfo={props.WrapUserInfo} />}/>
 
       <Route path="subs" element={<FantasySubsPage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
       currentBudget={currentBudget} handleBudget={handleBudget} budgetLimit={budgetLimit} topbarLeagueName={props.topbarLeagueName}
       currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit}
-      captain={captain} handleCaptain={handleCaptain} leagueData= {leagueData}
+      captain={captain} handleCaptain={handleCaptain} playersList= {playersList}
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
       userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} />}/>
               
