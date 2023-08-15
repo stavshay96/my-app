@@ -76,21 +76,39 @@ async function GetFantasySettingsFromDatabase(i_leagueChoice) {
     }
 }
 
+async function GetLeagueDataFromDatabase(i_leagueChoice) {
+    const formattedLeagueChoice = addSpacesToCamelCase(i_leagueChoice);
+    //const query = { leagueChoice: formattedLeagueChoice }
+    //console.log(formattedLeagueChoice);
+    try {
+        // Use the leagueChoice parameter to fetch the specific Fantasy settings from the database
+        const fantasyLeagueData = await client.db("Teams").collection(formattedLeagueChoice).find().toArray();
+        return fantasyLeagueData;
+    } catch (error) {
+        console.error("Error fetching Fantasy settings:", error);
+        throw error; // You might want to handle this error in the calling function
+    }
+}
+
+function addSpacesToCamelCase(inputString) {
+    return inputString.replace(/(?<!^)([A-Z])/g, ' $1');
+}
+
+
 async function CreateNewLeagueInDataBase(NewLeague) {
     const query = { englishleagueName: NewLeague.englishleagueName }
-    
+
     const league = await client
         .db("LeaguesInfo")
         .collection("Info")
         .findOne(query);
 
-        if (league) {
-                    await client.db("LeaguesInfo").collection("Info").deleteOne(league);
-                    await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
-        }
-        else{
-            await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
-        }
+    if (league) {
+        await client.db("LeaguesInfo").collection("Info").deleteOne(league);
+        await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+    } else {
+        await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+    }
 }
 
 async function UpdatePlayersPoints(FantasyUser) {
@@ -99,7 +117,7 @@ async function UpdatePlayersPoints(FantasyUser) {
 
 async function GetLeagueFromDataBase(LeagueName) {
     const query = { englishleagueName: LeagueName }
-    
+
     const league = await client
         .db("LeaguesInfo")
         .collection("Info")
@@ -123,4 +141,5 @@ module.exports = {
     FindUserByCookie: FindUserByCookie,
     InsertFantasySettings: InsertFantasySettings,
     GetFantasySettingsFromDatabase: GetFantasySettingsFromDatabase,
+    GetLeagueDataFromDatabase: GetLeagueDataFromDatabase,
 };

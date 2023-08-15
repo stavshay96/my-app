@@ -43,8 +43,9 @@ const FantasySubsPage = (props) => {
                 lineup={props.lineup}
                 initialSelectedRows={initialSelectedRows}
                 onCheckBoxChange={props.handleLineup}
-                captain={props.captain}
-                handleCaptain={props.handleCaptain}/>
+                captain={props.captain} 
+                handleCaptain={props.handleCaptain}
+                leagueData= {props.leagueData}/>
             <TopBar
                 currentBudget={props.currentBudget}
                 onCalcBudget={props.handleBudget}
