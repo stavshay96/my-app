@@ -52,6 +52,22 @@ FantasyRouter.get("/FantasySettings", async(req, res) => {
     }
 });
 
+FantasyRouter.get("/FantasyLeagueData", async(req, res) => {
+    const leagueChoice = req.query.leagueChoice; // Assuming the leagueChoice is passed as a query parameter
+    try {
+        // Fetch Fantasy settings from the database (you need to implement this)
+        const fantasyLeagueData = await DBManager.GetLeagueDataFromDatabase(leagueChoice);
+
+        // Send the fetched settings as the response
+        res.json(fantasyLeagueData);
+    } catch (error) {
+        console.error("Error fetching Fantasy settings:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
+
 FantasyRouter.get("/LeagueData", async(req, res) => {
     const leagueChoice = req.query.leagueChoice; // Assuming the leagueChoice is passed as a query parameter
     try {
