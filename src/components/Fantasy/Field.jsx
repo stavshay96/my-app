@@ -2,6 +2,7 @@ import React from "react";
 import "./css/Field.css"
 import {Button, ButtonGroup} from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
+//import manCityKit from "../../images/city_1.png"
 
 const top = 20;
 const left = 30.8;
@@ -12,7 +13,7 @@ function Field(props) {
 
     function createPlayerButton(player) {
         return (
-            <Button className="btnPlayerButton" key={player.id}>
+            <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${player.kit})`, backgroundSize: 'cover'}} key={player.id}>
                 <h2>
                     {player.totalPoints}
                 </h2>
