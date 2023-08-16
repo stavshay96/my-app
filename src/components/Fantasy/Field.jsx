@@ -3,10 +3,22 @@ import "./css/Field.css"
 import {Button, ButtonGroup} from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 //import manCityKit from "../../images/city_1.png"
-import Arsenal from "../../images/kits/Arsenal.png"
+//import Arsenal from "../../images/kits/Arsenal.png"
 
 const top = 20;
 const left = 30.8;
+
+// Create a function to require all images from a directory
+function importAll(r) {
+    let images = {};
+    r.keys().forEach(key => {
+      images[key] = r(key);
+    });
+    return images;
+  }
+
+  // Import all images from the kits directory
+const kitImages = importAll(require.context('../../images/kits/', false, /\.(png|jpg|jpeg|gif)$/));
 
 function Field(props) {
 
@@ -17,9 +29,11 @@ function Field(props) {
        // const urlback = `url(../../images/kits/${player.kit}.png)`;
         //const urlback1 = "../../images/kits/Arsenal.png"
       //  console.log(urlback);
-    
+      const TeamNameWithoutSpaces = player.team.replace(/ /g, '');
+      const teamName = "ManCity";
+       const teamKit = kitImages[`./${TeamNameWithoutSpaces}.png`];
         return (
-            <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${Arsenal})`, backgroundSize: 'cover'}} key={player.id}>
+            <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${teamKit})`, backgroundSize: 'cover'}} key={player.id}>
                 <h2>
                     {player.totalPoints}
                 </h2>

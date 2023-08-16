@@ -34,6 +34,7 @@ function Game(props) {
                 <td className="tdleagues">
                 <Button 
                 className="btnleagues" 
+                disabled={league.isButtonDisabled}
                 style={{backgroundImage: hoverLeague === league.name ? `url(${league.flag})` : ''}}
                 onMouseEnter={() => setHoverLeague(league.name)}
                 onMouseLeave={() => setHoverLeague(null)}

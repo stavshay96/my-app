@@ -38,7 +38,7 @@ const Fantasy = (props) => {
         SetDeadLineDate(settings.deadline);
         SetSubsLimit(settings.numOfSubsLimit);
         SetBudgetLimit(settings.budgetLimit);
-        //setIsLoading(false);
+        setIsLoading(false);
           //console.log(res.data.userInfo);
       })
       .catch(error => {
@@ -52,17 +52,14 @@ const Fantasy = (props) => {
       .then((res) => {
         const leaguedata = res.data;
         SetLeagueData(leaguedata);
-        console.log(leaguedata);
+        //console.log(leaguedata);
         const extractedPlayers = getPlayersList(leaguedata);
 
       
-        console.log(extractedPlayers);
+        //console.log(extractedPlayers);
         SetPlayersList(extractedPlayers);
 
-
-
-        
-        setIsLoading(false);
+        //setIsLoading(false);
           //console.log(res.data.userInfo);
       })
       .catch(error => {
