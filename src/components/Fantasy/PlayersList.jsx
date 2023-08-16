@@ -24,7 +24,7 @@ function createRow(player){
   const kitTeam = player.team.replace(/ /g, '');
   console.log(`kit team ${kitTeam}`);
   return {id: player.id, totalPoints: player.totalPoints, currentPoints: player.currentPoints, 
-    price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position,/* kit: `../../images/kits/${kitTeam}.png`*/}
+    price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position,}
 }
 
 function wrapHeaderText(params) {
@@ -82,8 +82,8 @@ function PlayersList(props) {
  const players = props.playersList;
 const rows = props.playersList.map(createRow);
  //const rows = players.map(createRow);
-  console.log(`rows got ${rows.length}`);
-  console.log(rows);
+  //console.log(`rows got ${rows.length}`);
+  //console.log(rows);
   const [selectedRows, setSelectedRows] = useState([]);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [filterModel, setFilterModel] = useState({items: [],});
