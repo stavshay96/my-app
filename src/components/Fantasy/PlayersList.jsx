@@ -21,8 +21,7 @@ const columns = [
 ];
 
 function createRow(player){
-  const kitTeam = player.team.replace(/ /g, '');
-  console.log(`kit team ${kitTeam}`);
+
   return {id: player.id, totalPoints: player.totalPoints, currentPoints: player.currentPoints, 
     price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position,}
 }
@@ -136,7 +135,7 @@ const rows = props.playersList.map(createRow);
  const isOverBudget = (updatedIDArray) =>{
     const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
     let totalBudget = newSelectedPlayers.reduce((sum, item) => sum + item.price, 0); 
-    return totalBudget > 100 ? true:false;
+    return totalBudget > props.budgetLimit ? true:false;
  }
 
  const isMaxGoalkeepers = (updatedIDArray) =>{

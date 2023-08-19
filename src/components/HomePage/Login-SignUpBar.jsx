@@ -28,7 +28,8 @@ function Login_SignUpBar(props) {
             <SignUp
                 isFromHomePage={isFromHomePage}
                 showSignUp={showSignUp}
-                handleShowSignUp={handleShowSignUp}/>
+                handleShowSignUp={handleShowSignUp}
+                changeUserInfo={props.changeUserInfo}/>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./css/SignUp.css";
 import axios from "axios";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons';
 
@@ -33,6 +33,9 @@ const styleSignUp = {
 }
 
 const SignUp = (props) => {
+    let navigate = useNavigate();
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
     const [open,
         setOpen] = useState(false);
     const [isValidName,
@@ -102,6 +105,26 @@ const SignUp = (props) => {
             password: enteredPassword
         })
             .then((res) => {
+                if (res.data.Status === "Sign Up succseeded")
+                {
+                    
+                    setOpen(false);
+                    document.cookie = `userID=${res.data.userInfo.userID}; path=/;`;
+                    document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/;`;
+                    document.cookie = `email= ${res.data.userInfo.email}; path=/;`;
+                    if(!isHomePage){
+                        navigate("/", {
+                            replace: true,
+                        });
+                       }
+                    //props.changeUserInfo(res.data.userInfo);
+                    //window.location.reload(); 
+                    
+    
+                }     
+                else{
+                    alert(res.data.Reason);
+                }
                 console.log(res.data);
                 /* navigate("/userHomePage", {
                         replace: true,

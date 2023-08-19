@@ -63,11 +63,11 @@ async function Login(email, password) {
     const userDocument = await DBManager.CheckUserExists(email, password);
 
     if (userDocument != null) {
-        return { Status: "Login succssed", userInfo: userDocument };
+        return { Status: "Login succseeded", userInfo: userDocument };
     } else {
         return {
             Status: "Login failed",
-            Reason: "Incorrent email and password",
+            Reason: "Incorrect email or password",
         };
     }
 
@@ -113,7 +113,7 @@ async function SignUp(fullName, email, password) {
     if (userDocument == null) {
         const user = new User(0, fullName, email, password);
         await DBManager.CreateNewPersonInDataBase(user);
-        return { Status: "Sign Up succssed" };
+        return { Status: "Sign Up succseeded", userInfo: user };
     } else {
         return {
             Status: "Sign Up Failed",
