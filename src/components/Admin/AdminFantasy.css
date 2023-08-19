@@ -22,6 +22,10 @@
     flex-direction: row;
     align-items: flex-start;
     margin-top: 50px;
+    max-height: 500px;
+    /* Adjust this value to your desired maximum height */
+    overflow-y: auto;
+    /* Enable vertical scrolling when content overflows */
 }
 
 .form-group {
@@ -29,6 +33,7 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    white-space: nowrap;
 }
 
 .form-group label {
@@ -69,21 +74,60 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 50rem;
     margin-top: 5px;
     margin-bottom: 5px;
     unicode-bidi: plaintext;
+    white-space: nowrap;
+    /* Prevent player names from wrapping */
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    /* Adjust the width as needed */
+}
+
+.player-name {
+    flex: 3;
+    white-space: nowrap;
+    /* margin-right: 4rem;*/
+    /* Add margin to separate columns */
+}
+
+.player-position {
+    flex: 2;
+    text-align: right;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+    /* margin-left: 1rem;*/
 }
 
 .player-label input {
     text-align: right;
     font-size: 1.5rem;
-    width: 14%;
-    margin-left: 17rem;
+    width: 5rem;
+    margin-left: 5rem;
+    margin-right: 1rem;
     /* Align input text to the right */
 }
 
 .btnSave {
-    top: 50px;
-    left: 150px;
+    height: 2rem;
+    width: 10rem;
+    margin-left: 5rem;
+    background-color: #ededed;
+    border-radius: 0.5vw;
+    border: 0.15vw solid #131313;
+    display: inline-block;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 1.4vw;
+    font-family: 'Alef', sans-serif;
+}
+
+.btnSave:hover {
+    background-color: #a0be92;
 }

@@ -28,14 +28,22 @@ function Game(props) {
     }
 
     const createButtonLeague = (league) =>{
+
+        const buttonClass = league.isButtonDisabled ? 'disabledBtnleagues' : 'btnleagues';
+
+        const buttonStyles = {
+            backgroundImage: hoverLeague === league.name ? `url(${league.flag})` : '',
+            color: league.isButtonDisabled ? 'grey' : 'inherit', // Apply grey color if disabled
+            cursor: league.isButtonDisabled ? 'default' : 'pointer' // Apply default cursor if disabled
+        };
     
         return (
             <tr>
                 <td className="tdleagues">
                 <Button 
-                className="btnleagues" 
+                className={buttonClass} 
                 disabled={league.isButtonDisabled}
-                style={{backgroundImage: hoverLeague === league.name ? `url(${league.flag})` : ''}}
+                style={buttonStyles}
                 onMouseEnter={() => setHoverLeague(league.name)}
                 onMouseLeave={() => setHoverLeague(null)}
                 onClick={() => GameHandler(league.pathName, league.name)}

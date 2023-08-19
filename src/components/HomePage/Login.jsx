@@ -82,7 +82,7 @@ const Login = (props) =>
             console.log(res.data);
             console.log(res.data.userInfo);
 
-            if (res.data.Status === "Login succssed")
+            if (res.data.Status === "Login succseeded")
             {
                 
                 setOpen(false);
@@ -95,7 +95,11 @@ const Login = (props) =>
                 }
 
             }     
+            else{
+                alert(res.data.Reason);
+            }
         }).catch(error => {
+        alert(error);
         console.error(error);
         setOpen(false);
         });
