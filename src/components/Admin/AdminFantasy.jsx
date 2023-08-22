@@ -23,7 +23,7 @@ const [formData, setFormData] = useState({
     deadline: '2023-09-12T16:00:00',
     budgetLimit: 100,
     subsLimit: 3,
-    teamsData: teams,
+    teamsData: props.leagueData,
     selectedTeam:'',
     selectedPlayer:''
   });
@@ -49,9 +49,18 @@ const [formData, setFormData] = useState({
 
     useEffect(() => {
     
-        getFantasyLeagueData();
+        //getFantasyLeagueData();
+
+       setFormData((prevData) => ({
+            ...prevData,
+            teamsData: props.leagueData
+        }))
+        console.log(props.leagueData);
+        if(isLoading === true) {
+         setIsLoading(false);
+        }
     
-    }, []);
+    }, [isLoading]);
 
   
 
@@ -66,17 +75,23 @@ const [formData, setFormData] = useState({
         }));
     } else if (name.startsWith('player-')) {
         const playerName = name.split('-')[1];
-        setFormData((prevData) => {
-            const updatedTeamsData = prevData.teamsData.map((team) => {
-                if (team.name === prevData.selectedTeam) {
+        console.log(playerName);
+
+        props.SetLeagueData((prevData) => {
+            const updatedTeamsData = prevData.map((team) => {
+               // console.log(team.hebrewName);
+                //console.log(`${ formData.selectedTeam} has chosen`);
+                if (team.hebrewName === formData.selectedTeam) {
                     const updatedPlayers = team.players.map((player) => {
-                        if (player.playerName === playerName) {
-                            const updatedPoints = [...player.points];
-                            updatedPoints[prevData.gameweek - 1] = parseInt(value);
+                        if (player.englishName === playerName) {
+                            console.log(value);
+                            const updatedPoints = [...player.pointsPerWeek];
+                            updatedPoints[formData.gameweek - 1] = parseInt(value);
+                            console.log(updatedPoints);
     
                             return {
                                 ...player,
-                                points: updatedPoints,
+                                pointsPerWeek: updatedPoints,
                             };
                         }
                         return player;
@@ -89,13 +104,11 @@ const [formData, setFormData] = useState({
                 }
                 return team;
             });
-    
-            return {
-                ...prevData,
-                teamsData: updatedTeamsData,
-            };
+            console.log(props.leagueData);
+            return  updatedTeamsData;
+           
         });
-        console.log(`${formData.teamsData[1].players[0].playerName} now get ${formData.teamsData[1].players[0].points[0]} points`)
+       // console.log(`${formData.teamsData[1].players[0].fullName} now get ${formData.teamsData[1].players[0].pointsPerWeek[0]} points`)
     }
    
     else {
@@ -108,6 +121,7 @@ const [formData, setFormData] = useState({
 
 const handleTeamChange = (event) => {
     const { value } = event.target;
+    console.log(`${value} from select` );
     setFormData((prevData) => ({
       ...prevData,
       selectedTeam: value,
@@ -191,9 +205,9 @@ return (
 
                     >
                         <option value="">Select a team</option>
-                        {formData.teamsData.map((team, index) => (
-                        <option key={index} value={team.hebrwTeamName} >
-                            {team.hebrwTeamName}
+                        {props.leagueData.map((team, index) => (
+                        <option key={index} value={team.hebrewName} >
+                            {team.hebrewName}
                         </option>
                         ))}
                     </select>
@@ -206,20 +220,20 @@ return (
                             <div className="form-group">
                             
                                 <div className="players-list">
-                                {formData.teamsData
-                                    .find((team) => team.hebrwTeamName === formData.selectedTeam)
+                                {props.leagueData
+                                    .find((team) => team.hebrewName === formData.selectedTeam)
                                     .players.map((player, index) => (
                                     <div key={index} className="player-label">
                                         <div className="player-info">
                                             <div className="player-name">
                                                 <input
                                                     type="number"
-                                                    name={`player-${player.fullName}`}
+                                                    name={`player-${player.englishName}`}
                                                     value={player.pointsPerWeek[formData.gameweek - 1]}
                                                     onChange={handleInputChange}
                                                     placeholder="Points"
                                                 />
-                                                {player.fullName}
+                                                {player.englishName}
                                             </div>
                                             <div className="player-position">
                                                 ({player.position})

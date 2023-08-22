@@ -111,6 +111,22 @@ async function CreateNewLeagueInDataBase(NewLeague) {
     }
 }
 
+async function CreateNewTeamsInDataBase(NewLeague) {
+
+    //const league = await client.db("Teams").getCollection(NewLeague.englishleagueName);
+    const collection = client.db("Teams").collection(NewLeague.englishleagueName);
+    const documentsArray = await collection.find({}).toArray();
+
+    if (documentsArray.length > 0) {
+        await client.db("Teams").collection(NewLeague.englishleagueName).drop();
+        await client.db("Teams").collection(NewLeague.englishleagueName).insertMany(NewLeague.teamsList);
+    } else {
+        await client.db("Teams").collection(NewLeague.englishleagueName).insertMany(NewLeague.teamsList);
+    }
+}
+
+
+
 async function UpdatePlayersPoints(FantasyUser) {
     await client.db("FantasyGame").collection("FantasyUser").updateOne(FantasyUser);
 }
@@ -142,4 +158,5 @@ module.exports = {
     InsertFantasySettings: InsertFantasySettings,
     GetFantasySettingsFromDatabase: GetFantasySettingsFromDatabase,
     GetLeagueDataFromDatabase: GetLeagueDataFromDatabase,
+    CreateNewTeamsInDataBase: CreateNewTeamsInDataBase
 };

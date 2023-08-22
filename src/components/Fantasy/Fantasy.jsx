@@ -35,10 +35,10 @@ const Fantasy = (props) => {
       .then((res) => {
         const settings = res.data;
         console.log(settings);
+        setIsLoading(false);
         SetDeadLineDate(settings.deadline);
         SetSubsLimit(settings.numOfSubsLimit);
         SetBudgetLimit(settings.budgetLimit);
-        setIsLoading(false);
           //console.log(res.data.userInfo);
       })
       .catch(error => {
@@ -52,7 +52,7 @@ const Fantasy = (props) => {
       .then((res) => {
         const leaguedata = res.data;
         SetLeagueData(leaguedata);
-        //console.log(leaguedata);
+        console.log(leaguedata);
         const extractedPlayers = getPlayersList(leaguedata);
 
       
@@ -78,23 +78,22 @@ const Fantasy = (props) => {
     const getPlayersList = (leagueData) => {
       const extractedPlayers = [];
      // console.log(`in get func ${leagueData[0].players[0].fullName}`)
-     let count =0;
+    // let count =0;
         leagueData.forEach((team) => {
         
         
           team.players.forEach((player) => {
            // console.log(player.fullName);
             const extractedPlayer = {
-              id: count, // Assuming this is the player's unique ID
+              id:  player.playerID, // Assuming this is the player's unique ID
               totalPoints: player.totalPoints,
               currentPoints: 0,
-              price: 0,
-              playerName: player.fullName, // Assuming you want to use the English name
+              price: player.price,
+              playerName: player.englishName, // Assuming you want to use the English name
               position: getShortedPosition(player.position),
               team: player.englishTeamName, // Assuming you want to use the English name of the team
-              kit: player.englishTeamName, // Assuming you have a way to get the kit value
             };
-            count++;
+            //count++;
             extractedPlayers.push(extractedPlayer);
           });
         });
@@ -156,7 +155,7 @@ const Fantasy = (props) => {
               
       <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
       
-      <Route path ="/admin" element={<AdminFantasy leagueChoice = {props.leagueChoice}/>}/>
+      <Route path ="/admin" element={<AdminFantasy leagueChoice = {props.leagueChoice} leagueData={leagueData} SetLeagueData={SetLeagueData}/>}/>
       </>)}
     </Routes>
   )
