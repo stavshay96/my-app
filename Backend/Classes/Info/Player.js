@@ -3,7 +3,7 @@
 // Position
 // Price
 // Points
-// statistics(goals, assists, appearences, clean sheet..)
+// statistics (goals, assists, appearences, clean sheet..)
 
 class Player {
     constructor(
@@ -14,7 +14,9 @@ class Player {
         hebrewTeamName,
         position,
         pointsPerWeek,
-        totalPoints
+        totalPoints,
+        price,
+        statistics
     ) {
         this.playerID = playerID;
         this.englishName = englishName;
@@ -24,6 +26,8 @@ class Player {
         this.position = position;
         this.pointsPerWeek = pointsPerWeek;
         this.totalPoints = totalPoints;
+        this.price = price;
+        this.statistics = statistics;
     }
     get PlayerID() {
         return this.playerID;
