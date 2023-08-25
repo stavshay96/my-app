@@ -51,9 +51,10 @@ const Fantasy = (props) => {
       axios.get(`http://localhost:7777/Fantasy/FantasyLeagueData?leagueChoice=${props.leagueChoice}`)
       .then((res) => {
         const leaguedata = res.data;
-        SetLeagueData(leaguedata);
+        SetLeagueData(leaguedata.teamsList);
         console.log(leaguedata);
-        const extractedPlayers = getPlayersList(leaguedata);
+        console.log(leaguedata.teamsList);
+        const extractedPlayers = getPlayersList(leaguedata.teamsList);
 
       
         //console.log(extractedPlayers);
@@ -78,22 +79,22 @@ const Fantasy = (props) => {
     const getPlayersList = (leagueData) => {
       const extractedPlayers = [];
      // console.log(`in get func ${leagueData[0].players[0].fullName}`)
-    // let count =0;
+    let count =0;
         leagueData.forEach((team) => {
         
         
           team.players.forEach((player) => {
            // console.log(player.fullName);
             const extractedPlayer = {
-              id:  player.playerID, // Assuming this is the player's unique ID
+              id:  count,//player.playerID, // Assuming this is the player's unique ID
               totalPoints: player.totalPoints,
               currentPoints: 0,
-              price: player.price,
+              price: 0,//player.price,
               playerName: player.englishName, // Assuming you want to use the English name
               position: getShortedPosition(player.position),
               team: player.englishTeamName, // Assuming you want to use the English name of the team
             };
-            //count++;
+            count++;
             extractedPlayers.push(extractedPlayer);
           });
         });

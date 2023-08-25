@@ -20,7 +20,7 @@ function MovingToSubsButton(props) {
             className="btnMovingToSubs"
             style={{
             position: 'fixed',
-            top: '83.5%',
+            top: '84%',
             left: '43.5%'
         }}
             onClick={movingToSubsHandler}>

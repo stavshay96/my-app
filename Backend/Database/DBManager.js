@@ -76,13 +76,32 @@ async function GetFantasySettingsFromDatabase(i_leagueChoice) {
     }
 }
 
+
+//if teams are in league object in Info collection
 async function GetLeagueDataFromDatabase(i_leagueChoice) {
+    const query = { englishleagueName: i_leagueChoice }
+        //console.log(formattedLeagueChoice);
+    try {
+        // Use the leagueChoice parameter to fetch the specific Fantasy settings from the database
+        const fantasyLeagueData = await client.db("LeaguesInfo").collection("Info").findOne(query);
+        //console.log(fantasyLeagueData);
+        return fantasyLeagueData;
+    } catch (error) {
+        console.error("Error fetching Fantasy settings:", error);
+        throw error; // You might want to handle this error in the calling function
+    }
+}
+
+
+//if teams are in array of object in collection
+async function GetLeagueDataFromDatabaseArray(i_leagueChoice) {
     const formattedLeagueChoice = addSpacesToCamelCase(i_leagueChoice);
-    //const query = { leagueChoice: formattedLeagueChoice }
+    //const query = { englishleagueName: i_leagueChoice }
     //console.log(formattedLeagueChoice);
     try {
         // Use the leagueChoice parameter to fetch the specific Fantasy settings from the database
         const fantasyLeagueData = await client.db("Teams").collection(formattedLeagueChoice).find().toArray();
+        //console.log(fantasyLeagueData);
         return fantasyLeagueData;
     } catch (error) {
         console.error("Error fetching Fantasy settings:", error);
@@ -158,5 +177,7 @@ module.exports = {
     InsertFantasySettings: InsertFantasySettings,
     GetFantasySettingsFromDatabase: GetFantasySettingsFromDatabase,
     GetLeagueDataFromDatabase: GetLeagueDataFromDatabase,
-    CreateNewTeamsInDataBase: CreateNewTeamsInDataBase
+    GetLeagueDataFromDatabaseArray: GetLeagueDataFromDatabaseArray,
+    CreateNewTeamsInDataBase: CreateNewTeamsInDataBase,
+
 };

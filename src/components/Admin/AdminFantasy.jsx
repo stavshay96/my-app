@@ -28,24 +28,6 @@ const [formData, setFormData] = useState({
     selectedPlayer:''
   });
 
-  const getFantasyLeagueData = () => {
-    axios.get(`http://localhost:7777/Fantasy/FantasyLeagueData?leagueChoice=${props.leagueChoice}`)
-    .then((res) => {
-      const leaguedata = res.data;
-       console.log(leaguedata);
-
-      setFormData((prevData) => ({
-        ...prevData,
-        teamsData: leaguedata
-    }));
-
-      setIsLoading(false);
-    })
-    .catch(error => {
-        console.error(error);
-        setIsLoading(false);
-    });
-  }
 
     useEffect(() => {
     
@@ -73,15 +55,15 @@ const [formData, setFormData] = useState({
             ...prevData,
             gameweek: 1
         }));
-    } else if (name.startsWith('player-')) {
-        const playerName = name.split('-')[1];
+    } else if (name.startsWith('player_')) {
+        const playerName = name.split('_')[1];
         console.log(playerName);
 
         props.SetLeagueData((prevData) => {
             const updatedTeamsData = prevData.map((team) => {
                // console.log(team.hebrewName);
                 //console.log(`${ formData.selectedTeam} has chosen`);
-                if (team.hebrewName === formData.selectedTeam) {
+                if (team.englishName === formData.selectedTeam) {
                     const updatedPlayers = team.players.map((player) => {
                         if (player.englishName === playerName) {
                             console.log(value);
@@ -206,8 +188,8 @@ return (
                     >
                         <option value="">Select a team</option>
                         {props.leagueData.map((team, index) => (
-                        <option key={index} value={team.hebrewName} >
-                            {team.hebrewName}
+                        <option key={index} value={team.englishName} >
+                            {team.englishName}
                         </option>
                         ))}
                     </select>
@@ -221,14 +203,14 @@ return (
                             
                                 <div className="players-list">
                                 {props.leagueData
-                                    .find((team) => team.hebrewName === formData.selectedTeam)
+                                    .find((team) => team.englishName === formData.selectedTeam)
                                     .players.map((player, index) => (
                                     <div key={index} className="player-label">
                                         <div className="player-info">
                                             <div className="player-name">
                                                 <input
                                                     type="number"
-                                                    name={`player-${player.englishName}`}
+                                                    name={`player_${player.englishName}`}
                                                     value={player.pointsPerWeek[formData.gameweek - 1]}
                                                     onChange={handleInputChange}
                                                     placeholder="Points"

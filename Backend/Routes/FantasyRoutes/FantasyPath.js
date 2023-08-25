@@ -68,20 +68,6 @@ FantasyRouter.get("/FantasyLeagueData", async(req, res) => {
 
 
 
-FantasyRouter.get("/LeagueData", async(req, res) => {
-    const leagueChoice = req.query.leagueChoice; // Assuming the leagueChoice is passed as a query parameter
-    try {
-        // Fetch Fantasy settings from the database (you need to implement this)
-        const fantasyLeague = await DBManager.GetLeagueFromDataBase(leagueChoice);
-
-        // Send the fetched settings as the response
-        res.json(fantasyLeague);
-    } catch (error) {
-        console.error("Error fetching Fantasy league:", error);
-        res.status(500).send("Internal Server Error");
-    }
-});
-
 
 async function BuildFantasyUser(UserInfo, League) {
     const playerGK = League.LeagueInfo.teamsList[2].players[0];
