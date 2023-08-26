@@ -226,6 +226,7 @@ const rows = props.playersList.map(createRow);
     console.log(`${newSelectedPlayers.length} selectedPlayers`);
     console.log(`${selectedRows.length} selectedRows`);
     console.log(`${updatedIDArray.length} updatedIDArray`);
+    console.log(`${updatedIDArray} updatedIDArray`);
       
   };
 

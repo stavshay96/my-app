@@ -30,7 +30,7 @@ const FantasyHomePage = (props) => {
                         currentSubs={props.currentSubs} onCountingSubs={props.handleSubs}  topbarLeagueName={props.topbarLeagueName} 
                         budgetLimit={props.budgetLimit} subsLimit={props.subsLimit}/>
             <LineupCounter lineup={props.lineup}/>
-            <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain}/>
+            <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain} leagueChoice={props.leagueChoice}/>
             <InfoAndFantasyOptions/>
             <MatchesList/>
             <LineupByFixture/>
