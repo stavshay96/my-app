@@ -64,7 +64,9 @@ const FantasySubsPage = (props) => {
                 lineup={props.lineup}
                 onRemoveButton={props.handleLineup}
                 captain={props.captain}
-                onChangeCaptain={props.handleCaptain}/>
+                onChangeCaptain={props.handleCaptain}
+                leagueChoice={props.leagueChoice}
+                onChangeSelectedRows={SetInitialSelectedRows}/>
             <SpecialChips/>
             <SubmitAndReset
                 lineup={props.lineup}

@@ -23,14 +23,15 @@ const kitImages = importAll(require.context('../../images/kits/', false, /\.(png
 function Field(props) {
 
     let location = useLocation();
+    const showButton = location.pathname === `/Fantasy/${props.leagueChoice}/subs`;
 
     function createPlayerButton(player) {
-       console.log(`team ${player.team}`);
+       //console.log(`team ${player.team}`);
        // const urlback = `url(../../images/kits/${player.kit}.png)`;
         //const urlback1 = "../../images/kits/Arsenal.png"
       //  console.log(urlback);
       const TeamNameWithoutSpaces = player.team.replace(/ /g, '');
-      const teamName = "ManCity";
+     // const teamName = "ManCity";
        const teamKit = kitImages[`./${TeamNameWithoutSpaces}.png`];
         return (
             <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${teamKit})`, backgroundSize: 'cover'}} key={player.id}>
@@ -47,8 +48,26 @@ function Field(props) {
                 {player === props.captain
                     ? <h4>C</h4>
                     : null}
+
+                {showButton && <Button className="Xbtn" onClick={() => handleXbutton(player)}> x </Button>}
             </Button>
         )
+    }
+
+    const handleXbutton = (chosenPlayer) => {
+       // alert(`${player.playerName}  button ${player.id}`);
+        console.log(chosenPlayer);
+        const newSelectedPlayers = props.lineup.filter((player) => player !== chosenPlayer);
+        const updatedIDArray = newSelectedPlayers.map((player) => player.id);
+        console.log(newSelectedPlayers);
+        console.log(updatedIDArray);
+        props.onRemoveButton(newSelectedPlayers);
+        props.onChangeSelectedRows(updatedIDArray);
+        if(chosenPlayer === props.captain) {
+            props.onChangeCaptain(undefined);
+        }
+
+
     }
 
     const goalkeepers = props
