@@ -47,7 +47,8 @@ function App() {
             <Route path="/Fantasy/:fantasyLeague/*" element={<Fantasy userInfo={userInfo} WrapUserInfo={WrapUserInfo}
                                                            leagueChoice={leagueChoice} topbarLeagueName={topbarLeagueName}/>}/>
             
-            <Route path="/Predictions" element={<NotReadyPage/>} />
+            <Route path="/Predictions/:predictionsLeague/*" element={<Predictions userInfo={userInfo} WrapUserInfo={WrapUserInfo}
+                                                           leagueChoice={leagueChoice} topbarLeagueName={topbarLeagueName}/>}/>
 
             <Route path="/NotReadyYet" element={<NotReadyPage/>}/>
            
