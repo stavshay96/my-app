@@ -74,8 +74,11 @@ function Game(props) {
            /* return () => {
                 document.body.style.backgroundImage = originalBackground;
             }*/
-        } else if (props.gameID === 2) {
-            navigate("/NotReadyYet", {replace: false})
+        }
+        else if (props.gameID === 2) {
+            props.userInfo["fullName"] === "admin"?
+            navigate(`/Predictions/${pathName}/admin`, {replace: false}) :
+            navigate(`/Predictions/${pathName}`, {replace: false}) ;
         } else if (props.gameID === 3) {
             navigate("/NotReadyYet", {replace: false})
         }

@@ -1,0 +1,13 @@
+.DataGrid {
+    text-align: center;
+    background-color: #ffdec9;
+    border-radius: 0.5vw 0.5vw 0 0;
+    border: 0.25vw solid #131313;
+    display: inline-block;
+    cursor: pointer;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.1vw;
+    padding: 1% 2%;
+    /*text-decoration: none;*/
+}

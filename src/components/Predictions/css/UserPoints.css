@@ -1,0 +1,16 @@
+.PbtnPoints {
+    text-align: center;
+    background-color: #ffdec9;
+    border-radius: 0.5vw;
+    border: 0.15vw solid #131313;
+    display: inline-block;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    padding: 1% 2%;
+}
+
+hr.seperator {
+    border-top: 1px dashed rgb(37, 32, 32);
+}
