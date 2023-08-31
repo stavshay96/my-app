@@ -1,5 +1,5 @@
 .field-img {
-    position: fixed;
+    position: absolute;
     border-radius: 2vw;
     border: 0.25vw solid #d9f7cc;
     z-index: -1;

@@ -95,32 +95,33 @@ function MatchesList() {
         <div>
             <ButtonGroup
                 style={{
-                position: 'fixed',
-                top: '40.8%',
+                position: 'absolute',
+                top: '100.8%',
                 right: '6.25%',
                 unicodeBidi: 'plaintext',
                 width: '15%'
             }}>
-                <Button className="btnLeftArrow" onClick={increaseGameweek}>
+                <Button className="btnLeftArrowFantasy" onClick={increaseGameweek}>
                     <span>&#9664;</span>
                 </Button>
-                <Button className="btnGameweek">
+                <Button className="btnGameweekFantasy">
                     {gameweek}
                     {gameweekNumber}
                 </Button>
-                <Button className="btnRightArrow" onClick={decreaseGameweek}>
+                <Button className="btnRightArrowFantasy" onClick={decreaseGameweek}>
                     <span>&#9654;</span>
                 </Button>
             </ButtonGroup>
 
             <DataGrid
                 style={{
-                position: 'fixed',
-                top: '45.8%',
+                position: 'absolute',
+                top: '105.8%',
                 right: '3.25%',
                 width: '25%',
                 height: '47%',
-                backgroundColor: '#e0f9d5'
+                backgroundColor: '#e0f9d5',
+            
             }}
                 rows={rows}
                 columns={cols}

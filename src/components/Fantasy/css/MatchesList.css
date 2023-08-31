@@ -12,7 +12,7 @@
     /*text-decoration: none;*/
 }
 
-.btnLeftArrow {
+.btnLeftArrowFantasy {
     text-align: center;
     background-color: #f3faf6;
     border-radius: 1.5vw 0.5vw 0 0;
@@ -27,11 +27,11 @@
     /*text-decoration: none;*/
 }
 
-.btnLeftArrow:hover {
+.btnLeftArrowFantasy:hover {
     background-color: #b6d7a8;
 }
 
-.btnGameweek {
+.btnGameweekFantasy {
     text-align: center;
     background-color: #bae9a6;
     border-radius: 0.5vw 0.5vw 0 0;
@@ -47,7 +47,7 @@
     /*width: 7%;*/
 }
 
-.btnRightArrow {
+.btnRightArrowFantasy {
     text-align: center;
     background-color: #f3faf6;
     border-radius: 0.5vw 1.5vw 0 0;
@@ -61,6 +61,6 @@
     /*text-decoration: none;*/
 }
 
-.btnRightArrow:hover {
+.btnRightArrowFantasy:hover {
     background-color: #b6d7a8;
 }
