@@ -43,9 +43,9 @@ const FantasyHomePage = (props) => {
                 backgroundPosition: '0vw 0.1vw', }}/>
             <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
             {user? <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}
-                                  h1style={{position:'fixed', top:'4.35%', right:'7.75%' ,fontSize:'1.3vw', textShadow: "0vw 0.05vw 0vw"}}
-                                  btnstyle={{position:'fixed', top:'11%',left:'69%'}}
-                                  imgstyle={{position:'fixed', top:'4%', left:'70.5%' }}/> : <Login changeUserInfo={props.WrapUserInfo}/>}
+                                  h1style={{position:'absolute', top:'4.35%', right:'7.75%' ,fontSize:'1.3vw', textShadow: "0vw 0.05vw 0vw"}}
+                                  btnstyle={{position:'absolute', top:'11%',left:'69%'}}
+                                  imgstyle={{position:'absolute', top:'4%', left:'70.5%' }}/> : <Login changeUserInfo={props.WrapUserInfo}/>}
         </div>
     )
 }

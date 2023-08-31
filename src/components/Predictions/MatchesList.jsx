@@ -75,10 +75,10 @@ function CustomDropdown() {
     }
 
     return (
-      <div style={{ display: 'flex', alignItems: 'center', fontSize: '1vw', marginLeft: "25%"}}>
-        <input name="awayScore" type="number" style={{fontSize: '1vw', width: "28%"}} value={awayTeamScore} onChange={handleInputChange} min={start} max={end}/>
+      <div style={{ display: 'flex', alignItems: 'center', fontSize: '1vw', marginLeft: "0.2rem"}}>
+        <input name="awayScore" type="number" style={{fontSize: '1vw', width: "1.9rem"}} value={awayTeamScore} onChange={handleInputChange} min={start} max={end}/>
         <span style={{ margin: '0 2%' }}>:</span>
-        <input name="homeScore" type="number" style={{fontSize: '1vw', width: "25%"}} value={homeTeamScore} onChange={handleInputChange} min={start} max={end}/>
+        <input name="homeScore" type="number" style={{fontSize: '1vw', width: "1.9rem"}} value={homeTeamScore} onChange={handleInputChange} min={start} max={end}/>
       </div>
     );
 }
