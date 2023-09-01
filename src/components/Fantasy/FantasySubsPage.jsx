@@ -91,7 +91,8 @@ const FantasySubsPage = (props) => {
                 right: '3%',
                 width: '4.5%',
                 backgroundSize: "cover",
-                backgroundPosition: '0vw 0.1vw'
+                backgroundPosition: '0vw 0.1vw',
+                zIndex: '-1',
             }}/>
             <img className="fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
 
