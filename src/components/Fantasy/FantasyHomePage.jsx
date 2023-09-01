@@ -34,7 +34,6 @@ const FantasyHomePage = (props) => {
             <InfoAndFantasyOptions/>
             <MatchesList/>
             <LineupByFixture/>
-            <UserPoints/>
             <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice}/>
             <MyLeagues/>
             <Rules/>

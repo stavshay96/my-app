@@ -19,7 +19,6 @@ const cols = [
         renderCell: wrapCellTeamNameText,
         renderHeader: wrapHeaderText
     },
-    /*{ field: "ScoreAwayTeam", headerName: " ", headerAlign: 'right', type:"number", flex: 0.7, filterable: false, sortable: false, align: 'right' },*/
     {
         field: "Score",
         headerName: " ",
@@ -121,7 +120,8 @@ function MatchesList() {
                 width: '25%',
                 height: '47%',
                 backgroundColor: '#e0f9d5',
-            
+                backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
+                backgroundSize: 'cover'
             }}
                 rows={rows}
                 columns={cols}
