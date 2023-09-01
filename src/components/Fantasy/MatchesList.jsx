@@ -93,7 +93,7 @@ function MatchesList() {
     return (
         <div style={{
             position: 'absolute',
-            top: '75.8%',
+            top: '74%',
             right: '3.25%',
             width: '26%',
             height: '47%',
@@ -122,7 +122,8 @@ function MatchesList() {
                 <DataGrid
                    style={{ backgroundColor: '#e0f9d5',
                    backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
-                   backgroundSize: 'cover',}}
+                   backgroundSize: 'cover',
+                   height: '20rem',}}
                     rows={rows}
                     columns={cols}
                     disableColumnMenu

@@ -23,7 +23,7 @@ const FantasyHomePage = (props) => {
     console.log(`${props.leagueChoice} fantasyhomepage`);
 
     return(
-        <div>
+        <div style={{height:'53rem'}}>
             <LangBar/> 
             <FantasyDeadLine deadLineDate={props.deadLineDate} handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}  />
             <TopBar currentBudget={props.currentBudget} onCalcBudget={props.handleBudget} lineup={props.lineup} leagueChoice={props.leagueChoice}
