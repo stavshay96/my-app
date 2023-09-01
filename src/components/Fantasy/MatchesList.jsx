@@ -91,15 +91,22 @@ function MatchesList() {
     }
 
     return (
-        <div>
+        <div style={{
+            position: 'absolute',
+            top: '75.8%',
+            right: '3.25%',
+            width: '26%',
+            height: '47%',
+            unicodeBidi: 'plaintext',
+          // alignItems:'flex-start',
+          alignContent:'flex-start',
+           display:'block',
+          
+           
+         
+        }}>
             <ButtonGroup
-                style={{
-                position: 'absolute',
-                top: '100.8%',
-                right: '6.25%',
-                unicodeBidi: 'plaintext',
-                width: '15%'
-            }}>
+                style={{ marginLeft:'6rem' }}>
                 <Button className="btnLeftArrowFantasy" onClick={increaseGameweek}>
                     <span>&#9664;</span>
                 </Button>
@@ -111,23 +118,17 @@ function MatchesList() {
                     <span>&#9654;</span>
                 </Button>
             </ButtonGroup>
-
-            <DataGrid
-                style={{
-                position: 'absolute',
-                top: '105.8%',
-                right: '3.25%',
-                width: '25%',
-                height: '47%',
-                backgroundColor: '#e0f9d5',
-                backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
-                backgroundSize: 'cover'
-            }}
-                rows={rows}
-                columns={cols}
-                disableColumnMenu
-                disableColumnSort
-                hideFooter/>
+         
+                <DataGrid
+                   style={{ backgroundColor: '#e0f9d5',
+                   backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
+                   backgroundSize: 'cover',}}
+                    rows={rows}
+                    columns={cols}
+                    disableColumnMenu
+                    disableColumnSort
+                    hideFooter/>
+           
         </div>
     )
 }
