@@ -19,7 +19,7 @@ function InfoAndFantasyOptions() {
             <ButtonGroup
                 style={{
                 position: 'absolute',
-                top: '15%',
+                top: '18%',
                 right: '-1%',
                 unicodeBidi: 'plaintext',
                 width: '25%'
@@ -45,7 +45,7 @@ function InfoAndFantasyOptions() {
             <ButtonGroup
                 style={{
                 position: 'absolute',
-                top: '24%',
+                top: '27%',
                 right: '-1.5%',
                 unicodeBidi: 'plaintext',
                 width: '27%'
@@ -65,7 +65,7 @@ function InfoAndFantasyOptions() {
             <ButtonGroup
                 style={{
                 position: 'absolute',
-                top: '30%',
+                top: '33%',
                 right: '-1.6%',
                 unicodeBidi: 'plaintext',
                 width: '27%'
