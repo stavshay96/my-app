@@ -41,3 +41,7 @@
     box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);
     /*text-decoration: none;*/
 }
+
+hr.seperator {
+    border-top: 0.5px dashed rgb(37, 32, 32);
+}

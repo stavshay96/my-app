@@ -14,9 +14,11 @@ function UserPoints() {
                 className="PbtnPoints"
                 style={{
                 position: 'fixed',
-                top: '20%',
-                left: '81%',
-                unicodeBidi: 'plaintext'
+                top: '17%',
+                left: '7%',
+                unicodeBidi: 'plaintext',
+                backgroundImage: `url(https://img.freepik.com/premium-photo/colorful-defocus-motions-lights-bokeh-lights-blurred-background-effect_87555-1288.jpg?w=900)`,
+                backgroundSize: 'cover', // Adjust the background size as needed
             }}>
                 <Badge>
                     סך נקודות שבועי:

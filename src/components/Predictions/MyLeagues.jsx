@@ -2,6 +2,8 @@ import {React, useEffect, useState } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import "./css/MyLeagues.css";
 import Leagues from "./data/Leagues.jsx";
+import DownArrow from "../../images/download.png";
+import UpArrow from "../../images/up-arrow.png";
 
 let emptyRows = [ {id:1, leagueName: '' , position: ''} ];
 
@@ -36,6 +38,7 @@ function wrapCellTeamNameText(params) {
 function wrapPositionText(params) {
     return (
         <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw'}}>
+            <img src={UpArrow} alt="upArrow" style={{ marginRight: '0.2rem', height: '0.7rem', width: 'auto' }} />
             {params.value}
         </div>
     );
@@ -46,8 +49,7 @@ function MyLeagues()
     const [rows, setRows] = useState(emptyRows);
     useEffect(() => {
         const user = document.cookie;
-        // let updatedRows  = user? Leagues.map(createRowLeague):emptyRows;
-        let updatedRows = Leagues.map(createRowLeague);
+        let updatedRows  = user? Leagues.map(createRowLeague):emptyRows;
         setRows(updatedRows);
     }, []);
 
@@ -55,8 +57,11 @@ function MyLeagues()
     return(
         <div>
     <DataGrid
-    style={{position:'fixed', top:'30.8%', left:'4%',
-        width:'20%', height: '47%', backgroundColor: '#ffdec9'}}
+    style={{position:'fixed', top:'44.8%', left:'4%',
+        width:'20%', height: '47%', backgroundColor: '#ffdec9',
+        backgroundImage: `url(https://img.freepik.com/free-vector/yellow-orange-gradient-abstract-background_53876-60243.jpg?w=740&t=st=1693524857~exp=1693525457~hmac=3be0050042821c39d05c028b710da828ca2700c3e549914f54c82de025cbfb2a)`, // Use the background image URL
+        backgroundSize: 'cover', // Adjust the background size as needed
+    }}
     rows={rows}
     columns={cols}
     disableColumnMenu

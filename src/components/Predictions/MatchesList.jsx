@@ -75,10 +75,33 @@ function CustomDropdown() {
     }
 
     return (
-      <div style={{ display: 'flex', alignItems: 'center', fontSize: '1vw', marginLeft: "0.2rem"}}>
-        <input name="awayScore" type="number" style={{fontSize: '1vw', width: "1.9rem"}} value={awayTeamScore} onChange={handleInputChange} min={start} max={end}/>
+        <div style={{ display: 'flex', alignItems: 'center', fontSize: '1vw', marginLeft: "0.2rem"}}>
+        <input
+          name="awayScore"
+          type="number"
+          style={{
+            fontSize: '1vw',
+            width: "1.9rem",
+            appearance: 'textfield', // Show arrows in all browsers
+          }}
+          value={awayTeamScore}
+          onChange={handleInputChange}
+          min={start}
+          max={end}
+        />
         <span style={{ margin: '0 2%' }}>:</span>
-        <input name="homeScore" type="number" style={{fontSize: '1vw', width: "1.9rem"}} value={homeTeamScore} onChange={handleInputChange} min={start} max={end}/>
+        <input
+          name="homeScore"
+          type="number"
+          style={{
+            fontSize: '1vw',
+            width: "1.9rem",
+          }}
+          value={homeTeamScore}
+          onChange={handleInputChange}
+          min={start}
+          max={end}
+        />
       </div>
     );
 }
@@ -139,7 +162,7 @@ function MatchesList() {
                 top: '12%',
                 right: '39.25%',
                 unicodeBidi: 'plaintext',
-                width: '15%'
+                width: '15%',
             }}>
                 <Button className="btnLeftArrow" onClick={increaseGameweek}>
                     <span>&#9664;</span>
@@ -160,7 +183,9 @@ function MatchesList() {
                 right: '23.75%',
                 width: '50.4%',
                 height: '75%',
-                backgroundColor: '#ffdec9'
+                backgroundColor: '#ffdec9',
+                backgroundImage: `url(https://img.freepik.com/free-vector/yellow-orange-gradient-abstract-background_53876-60243.jpg?w=740&t=st=1693524857~exp=1693525457~hmac=3be0050042821c39d05c028b710da828ca2700c3e549914f54c82de025cbfb2a)`, // Use the background image URL
+                backgroundSize: 'cover', // Adjust the background size as needed
             }}
                 rows={rows}
                 columns={cols}

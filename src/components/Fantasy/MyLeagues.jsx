@@ -2,6 +2,8 @@ import {React, useEffect, useState } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import "./css/MyLeagues.css";
 import Leagues from "./data/Leagues.jsx";
+import DownArrow from "../../images/download.png";
+import UpArrow from "../../images/up-arrow.png";
 
 let emptyRows = [ {id:1, leagueName: '' , position: ''} ];
 
@@ -36,6 +38,7 @@ function wrapCellTeamNameText(params) {
 function wrapPositionText(params) {
     return (
         <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw'}}>
+            <img src={UpArrow} alt="upArrow" style={{ marginRight: '0.2rem', height: '0.7rem', width: 'auto' }} />
             {params.value}
         </div>
     );
@@ -55,7 +58,10 @@ function MyLeagues()
         <div>
     <DataGrid
     style={{position:'fixed', top:'45.8%', left:'5%',
-        width:'25%', height: '47%', backgroundColor: '#e0f9d5'}}
+        width:'25%', height: '47%', backgroundColor: '#e0f9d5',
+        backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
+        backgroundSize: 'cover'
+    }}
     rows={rows}
     columns={cols}
     disableColumnMenu

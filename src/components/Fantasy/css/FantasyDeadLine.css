@@ -2,7 +2,7 @@
     text-align: center;
     background-color: #bae9a6;
     border-radius: 0.5vw;
-    border: 0.15vw solid #131313;
+    border: 0.05vw solid #131313;
     display: inline-block;
     color: #000000;
     font-family: 'Alef', sans-serif;
@@ -13,4 +13,8 @@
 
 hr.seperator {
     border-top: 1px dashed rgb(37, 32, 32);
+}
+
+hr {
+    border-top: 1.5px solid rgb(37, 32, 32);
 }
