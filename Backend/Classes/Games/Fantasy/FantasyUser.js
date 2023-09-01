@@ -30,24 +30,21 @@ class FantasyUser {
     constructor(
         userInfo,
         userTeamName,
-        playerGK,
-        playersDef,
-        playersMid,
-        playersAtt,
+        lineup,
+        captain,
+        isTriple,
+        isWildCard,
+        subsRemaining,
     ) {
         this.userInfo = userInfo;
         this.userTeamName = userTeamName;
-        this.playerGK = playerGK;
-        this.playersDef = playersDef;
-        this.playersMid = playersMid;
-        this.playersAtt = playersAtt;
-        this.caption = new Player(0," ", " ");
-        this.isTriple = false;
-        this.tripleIsUsed = false;
-        this.isWildCard = false;
-        this.wildCardIsUsed = false;
-        this.budgetRemaining = 100;
-        this.subsRemaining = 11;  
+        this.lineup = lineup;
+        this.captain = captain;
+        this.isTriple = isTriple;
+        this.tripleIsUsed = isTriple;
+        this.isWildCard = isWildCard;
+        this.wildCardIsUsed = isWildCard;
+        this.subsRemaining = subsRemaining;  
     }
     get UserInfo() {
         return this.userInfo;

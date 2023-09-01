@@ -53,13 +53,13 @@ async function UpdateUserTeamInDataBase(FantasyUser) {
 
 async function InsertFantasySettings(FantasySettings) {
     const query = { leagueChoice: FantasySettings.leagueChoice }
-    const pervFantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne(query);
+    const pervFantasySettings = await client.db("FantasyUser").collection("FantasySettings").findOne(query);
 
     if (pervFantasySettings) {
-        await client.db("FantasyGame").collection("FantasySettings").deleteOne(pervFantasySettings);
-        await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
+        await client.db("FantasyUser").collection("FantasySettings").deleteOne(pervFantasySettings);
+        await client.db("FantasyUser").collection("FantasySettings").insertOne(FantasySettings);
     } else {
-        return await client.db("FantasyGame").collection("FantasySettings").insertOne(FantasySettings);
+        return await client.db("FantasyUser").collection("FantasySettings").insertOne(FantasySettings);
     }
 
 }
@@ -68,7 +68,7 @@ async function GetFantasySettingsFromDatabase(i_leagueChoice) {
     const query = { leagueChoice: i_leagueChoice }
     try {
         // Use the leagueChoice parameter to fetch the specific Fantasy settings from the database
-        const fantasySettings = await client.db("FantasyGame").collection("FantasySettings").findOne(query);
+        const fantasySettings = await client.db("FantasyUser").collection("FantasySettings").findOne(query);
         return fantasySettings;
     } catch (error) {
         console.error("Error fetching Fantasy settings:", error);
