@@ -1,5 +1,5 @@
 import { React, useState, useEffect} from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Fantasy from "./components/Fantasy/Fantasy"
 import Predictions from "./components/Predictions/Predictions"
 import NotReadyPage from "./components/NotReadyYet/NotReadyPage";
@@ -22,6 +22,7 @@ function App() {
     }
     */
 
+    
 
     const WrapUserInfo = (userInfo) => {
         SetUserInfo(() => {

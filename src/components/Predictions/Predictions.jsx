@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useEffect} from "react";
 import "./css/Predictions.css";
 import LangBar from "../General/LangBar";
 // import InfoAndFantasyOptions from "./InfoAndFantasyOptions";
@@ -10,14 +10,33 @@ import BackToHomePage from "../General/BackToHomePage";
 import LogOut from "../HomePage/LogOut";
 import Login from "../HomePage/Login";
 import InfoAndPredictionsOptions from "./InfoAndPredictionsOptions";
+import Pele from "../../images/Players/Pele.png"
+import { useLocation } from "react-router-dom";
 
 const Predictions = (props) => {
     const user = document.cookie;
     console.log(`${user} user info`);
     console.log(`${props.leagueChoice} predictionshomepage`);
 
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname.includes("/Predictions/")) {
+          document.body.classList.add("predictions-page");
+        } else {
+          document.body.classList.remove("predictions-page");
+        }
+      
+        // Cleanup function to remove the class when the component unmounts
+        return () => {
+          document.body.classList.remove("predictions-page");
+        };
+      }, [location.pathname]);
+  
+
+
     return(
-        <div>
+        <div className="predictionsDiv">
             <LangBar/> 
             <UserPoints/>
             <MatchesList/>

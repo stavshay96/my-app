@@ -2,8 +2,21 @@ body {
     font-family: 'Alef', sans-serif;
     background-image: url('images/newBackground1.jpeg');
     min-height: 100%;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     background-repeat: no-repeat;
-    background-size: 100% 103%;
+    background-size: 100% 100%;
     -moz-background-size: 100% 100%;
+}
+
+body.predictions-page {
+    background-image: url('images/PredictionsBackground.jpg');
+    min-height: 100%;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.home-page {
+    background-attachment: fixed;
 }

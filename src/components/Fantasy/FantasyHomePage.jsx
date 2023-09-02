@@ -37,8 +37,8 @@ const FantasyHomePage = (props) => {
             <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice}/>
             <MyLeagues/>
             <Rules/>
-            <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
-                  backgroundSize: "cover", zIndex: '-1',
+            <BackToHomePage style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  
+                  backgroundSize: "cover", zIndex: '1',
                 backgroundPosition: '0vw 0.1vw', }}/>
             <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
             {user? <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}

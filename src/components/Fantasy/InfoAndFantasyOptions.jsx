@@ -22,7 +22,8 @@ function InfoAndFantasyOptions() {
                 top: '18%',
                 right: '-1%',
                 unicodeBidi: 'plaintext',
-                width: '25%'
+                width: '25%',
+                zIndex: '2'
             }}>
                 <Button className="btnInfoAndOptions1">
                     {squad15}
@@ -48,7 +49,8 @@ function InfoAndFantasyOptions() {
                 top: '27%',
                 right: '-1.5%',
                 unicodeBidi: 'plaintext',
-                width: '27%'
+                width: '27%',
+                zIndex: '2'
             }}>
                 <Button
                     className="btnInfoAndOptions2"
@@ -68,7 +70,8 @@ function InfoAndFantasyOptions() {
                 top: '33%',
                 right: '-1.6%',
                 unicodeBidi: 'plaintext',
-                width: '27%'
+                width: '27%',
+                zIndex: '2'
             }}>
                 <Button
                     className="btnInfoAndOptions2"

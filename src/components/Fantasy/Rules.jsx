@@ -7,8 +7,8 @@ function Rules() {
         <Button
             className="btnRules"
             style={{
-            position: 'fixed',
-            top: '3.5%',
+            position: 'absolute',
+            top: '4.5%',
             left: '27%'
         }}>
             חוקים
