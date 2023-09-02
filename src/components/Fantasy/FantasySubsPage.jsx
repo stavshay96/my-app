@@ -34,7 +34,7 @@ const FantasySubsPage = (props) => {
     }, [location.pathname, props.isDeadLineDatePass]);
 
     return (
-        <div>
+        <div style={{height:'53rem'}}>
             <LangBar/>
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate}
@@ -86,13 +86,13 @@ const FantasySubsPage = (props) => {
             <Rules/>
             <BackToHomePage
                 style={{
-                position: 'fixed',
-                top: '4.5%',
+                position: 'absolute',
+                top: '5.5%',
                 right: '3%',
                 width: '4.5%',
                 backgroundSize: "cover",
                 backgroundPosition: '0vw 0.1vw',
-                zIndex: '-1',
+                zIndex: '1',
             }}/>
             <img className="fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
 

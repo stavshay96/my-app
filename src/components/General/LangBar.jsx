@@ -7,8 +7,8 @@ function LangBar(){
     
    return(
       <div>
-            <Button className="btnNotCurrLang" variant="primary" style={{position:'fixed', top:'3.5%', left:'3%'}}>English</Button>
-            <Button className="btnCurrLang" style={{position:'fixed', top:'3.5%', left:'10%'}}>עברית</Button>
+            <Button className="btnNotCurrLang" variant="primary" style={{position:'absolute', top:'4.5%', left:'3%'}}>English</Button>
+            <Button className="btnCurrLang" style={{position:'absolute', top:'4.5%', left:'10%'}}>עברית</Button>
       </div>)
 }
 

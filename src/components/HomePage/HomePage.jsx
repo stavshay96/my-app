@@ -8,6 +8,7 @@ import LogOut from "./LogOut";
 import axios from "axios";
 import "./css/HomePage.css";
 import SignUp from "./SignUp";
+import { useLocation } from "react-router-dom";
 
 const Messi = require("../../images/Players/Messi.png");
 const Ronaldo = require("../../images/Players/Cristiano Ronaldo.png");
@@ -15,6 +16,22 @@ const Ronaldo = require("../../images/Players/Cristiano Ronaldo.png");
 
 
 const HomePage = (props) => {
+
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname === "/") {
+          document.body.classList.add("home-page");
+        } else {
+          document.body.classList.remove("home-page");
+        }
+      
+        // Cleanup function to remove the class when the component unmounts
+        return () => {
+          document.body.classList.remove("home-page");
+        };
+      }, [location.pathname]);
 
     function CreateGame(game) {
         return (<Game
