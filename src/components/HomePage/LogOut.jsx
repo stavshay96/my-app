@@ -21,6 +21,9 @@ var LogOut = (props) => {
 
     }
 
+    const buttonClass =  (location.pathname.includes("/Predictions/"))? "btnLogOutPred": "btnLogOut";
+  
+
     return (
         <div>
             <img
@@ -30,7 +33,7 @@ var LogOut = (props) => {
                 alt="UserIcon"/> {locatedAtHomePage && <h1 className="btnNamePresent" style={props.h1style}>
                 !{`${props.userInfo["fullName"]}`} שלום
                </h1>}
-            <Button className="btnLogOut" style={props.btnstyle} onClick={LogOutHandler}>
+            <Button className={buttonClass} style={props.btnstyle} onClick={LogOutHandler}>
                 התנתק
             </Button>
         </div>
