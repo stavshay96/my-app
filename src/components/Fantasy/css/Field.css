@@ -1,10 +1,10 @@
 .field-img {
-    position: absolute;
+    position: fixed;
     border-radius: 2vw;
     border: 0.25vw solid #d9f7cc;
     z-index: -1;
     left: 33%;
-    bottom: 3%;
+    bottom: 2.5%;
     height: 85%;
     width: 35%
 }

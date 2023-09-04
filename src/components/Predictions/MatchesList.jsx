@@ -81,7 +81,7 @@ function CustomDropdown() {
           type="number"
           style={{
             fontSize: '1vw',
-            width: "1.9rem",
+            width: "2.1rem",
             appearance: 'textfield', // Show arrows in all browsers
           }}
           value={awayTeamScore}
@@ -95,7 +95,7 @@ function CustomDropdown() {
           type="number"
           style={{
             fontSize: '1vw',
-            width: "1.9rem",
+            width: "2.1rem",
           }}
           value={homeTeamScore}
           onChange={handleInputChange}

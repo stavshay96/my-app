@@ -8,16 +8,18 @@ const chips = [
         name: 'טריפל קפטן',
         style: {
             position: 'fixed',
-            top: '21%',
-            left: '21%'
+            top: '17%',
+            right: '52%',
+            width: '9.5%'
         }
     }, {
         chipID: 2,
         name: '11 חילופים',
         style: {
             position: 'fixed',
-            top: '15%',
-            left: '21%',
+            top: '17%',
+            right: '37.5%',
+            width: '9.5%',
             unicodeBidi: 'plaintext'
         }
     }

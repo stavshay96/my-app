@@ -40,8 +40,8 @@ function TopBar(props) {
             <ButtonGroup
                 className="btnTopBar"
                 style={{
-                position: 'absolute',
-                top: '3.5%',
+                position: 'fixed',
+                top: '3.75%',
                 right: '31.7%',
                 width: '29%',
                 height: '8%',

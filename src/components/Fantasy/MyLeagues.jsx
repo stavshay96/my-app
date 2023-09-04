@@ -57,7 +57,7 @@ function MyLeagues()
     return(
         <div>
     <DataGrid
-    style={{position:'fixed', top:'45.8%', left:'5%',
+    style={{position:'absolute', top:'45.8%', left:'5%',
         width:'25%', height: '47%', backgroundColor: '#e0f9d5',
         backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
         backgroundSize: 'cover'
