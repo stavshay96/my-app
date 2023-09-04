@@ -93,7 +93,7 @@ function MatchesList() {
     return (
         <div style={{
             position: 'absolute',
-            top: '74%',
+            top: '54%',
             right: '3.25%',
             width: '26%',
             height: '47%',
@@ -101,9 +101,6 @@ function MatchesList() {
           // alignItems:'flex-start',
           alignContent:'flex-start',
            display:'block',
-          
-           
-         
         }}>
             <ButtonGroup
                 style={{ marginLeft:'6rem' }}>

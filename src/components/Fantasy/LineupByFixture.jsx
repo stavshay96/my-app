@@ -24,7 +24,7 @@ function LineupByFixture() {
         <div>
             <ButtonGroup
                 style={{
-                position: 'absolute',
+                position: 'fixed',
                 bottom: '3%',
                 right: '23.6%',
                 unicodeBidi: 'plaintext',

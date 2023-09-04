@@ -1,52 +1,46 @@
 import {React} from "react";
+import "./css/Captain.css";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { right } from "@popperjs/core";
 
 const Captain = (props) => {
-
     const handleCaptainChoice = (event) => {
-
-        //console.log(`captain is ${event.target.value.playerName}`);
-        props.onChangeCaptain(event.target.value);
-    }
-
+      const selectedPlayerId = event.target.value;
+      const selectedPlayer = props.lineup.find((player) => player.id === selectedPlayerId);
+      props.onChangeCaptain(selectedPlayer);
+    };
+  
     return (
-        <div>
-            <Box
-                style={{
-                position: 'fixed',
-                top: '32.5%',
-                right: '67%',
-                width: '12%',
-                backgroundColor: '#e0f9d5'
-            }}>
-                <FormControl fullWidth>
-                    <InputLabel
-                        id="simple-select-label"
-                        style={{
-                        fontSize: '1.2vw'
-                    }}>קפטן</InputLabel>
-                    <Select
-                        labelId="simple-select-label"
-                        id="simple-select"
-                        value={props.Captain}
-                        label="captain"
-                        onChange={handleCaptainChoice}>
-                        {props
-                            .lineup
-                            .map((player) => (
-                                <MenuItem key={player.id} value={player}>
-                                    {player.playerName}
-                                </MenuItem>
-                            ))}
-                    </Select>
-                </FormControl>
-            </Box>
-        </div>
-    )
-}
+      <div className="form-group">
+        <select
+          className="minimal"
+          name="selectedCaptain"
+          value={props.captain}
+          onChange={handleCaptainChoice}
+          style={{
+            fontSize: "1vw",
+            unicodeBidi: "plaintext",
+            width: "14%",
+            maxHeight: "2.75rem",
+            position: "absolute",
+            left: "19%",
+            top: "40%",
+            textAlign: "center",
+          }}
+        >
+          <option value="">בחר קפטן</option>
+          {props.lineup.map((player) => (
+            <option key={player.id} value={player.id}>
+              {player.playerName}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  };
 
 export default Captain;

@@ -18,13 +18,9 @@ function LineupCounter(props){
 
     return (
         <div>
-            <ButtonGroup style={{position:'absolute', top:'14%', right:'6.5%', width:'30%', }}>
+            <ButtonGroup style={{position:'fixed', top:'14%', right:'8.5%', width:'30%', }}>
                 <ul>
                 <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext'}}> {lineup} {props.lineup.length}/{maxPlayersInTeam}</Button></li>
-                <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{goalkeepers.length} {GK}</Button></li>
-                <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{defenders.length} {DEF}</Button></li>
-                <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{midfielders.length} {MID}</Button></li>
-                <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext',}}>{forwards.length} {FWD}</Button></li>
                 </ul>
             </ButtonGroup>
         </div>

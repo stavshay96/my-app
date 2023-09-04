@@ -13,3 +13,11 @@
     bottom: 2.5%;
     width: 20%
 }
+
+.main-logo {
+    position: absolute;
+    z-index: -1;
+    right: 36.25%;
+    top: 15.5%;
+    width: 25%
+}

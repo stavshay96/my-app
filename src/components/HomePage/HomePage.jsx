@@ -10,9 +10,9 @@ import "./css/HomePage.css";
 import SignUp from "./SignUp";
 import { useLocation } from "react-router-dom";
 
+const Logo = require("../../images/PendelLogo.png");
 const Messi = require("../../images/Players/Messi.png");
 const Ronaldo = require("../../images/Players/Cristiano Ronaldo.png");
-
 
 
 const HomePage = (props) => {
@@ -93,6 +93,7 @@ const HomePage = (props) => {
 
     return (
         <div>
+            <img className="main-logo" src={Logo}/>
             {HasCookies()
                 ? <LogOut
                         userInfo={props.userInfo}

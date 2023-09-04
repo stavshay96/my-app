@@ -130,7 +130,7 @@ const handleTeamChange = (event) => {
 
 return (
     
-    <div style={{height:'40.65rem'}}>
+    <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
     {!isLoading && (
     <>
         <div className="adminform">

@@ -10,7 +10,7 @@ const buttons = [
         buttonID: 1,
         name: 'הגש הרכב',
         style: {
-            position: 'absolute',
+            position: 'fixed',
             bottom: '4%',
             right: '37%'
         }
@@ -18,7 +18,7 @@ const buttons = [
         buttonID: 2,
         name: 'נקה הרכב',
         style: {
-            position: 'absolute',
+            position: 'fixed',
             bottom: '4%',
             right: '51.5%',
             unicodeBidi: 'plaintext'

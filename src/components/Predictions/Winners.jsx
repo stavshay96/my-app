@@ -15,7 +15,7 @@ function Winners(props) {
                 className="PbtnPoints"
                 style={{
                 position: 'fixed',
-                top: '30%',
+                top: '25%',
                 left: '79.5%',
                 width: '15%',
                 unicodeBidi: 'plaintext',
@@ -25,27 +25,27 @@ function Winners(props) {
                 <Badge>
                     אלופה:
                     <br/>
-                    <select style={{width: '100%', fontSize: '1.3vw'}}></select>
+                    <select style={{width: '100%', fontSize: '1vw'}}></select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                   מלך השערים:
-                    <br/> <select style={{width: '100%', fontSize: '1.3vw'}}></select>
+                    <br/> <select style={{width: '100%', fontSize: '1vw'}}></select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                   מלך הבישולים:
-                    <br/> <select style={{width: '100%', fontSize: '1.3vw'}}></select>
+                    <br/> <select style={{width: '100%', fontSize: '1vw'}}></select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                   מלך הצהובים:
-                    <br/> <select style={{width: '100%', fontSize: '1.3vw'}}></select>
+                    <br/> <select style={{width: '100%', fontSize: '1vw'}}></select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                   מלך האדומים:
-                    <br/> <select style={{width: '100%', fontSize: '1.3vw'}}></select>
+                    <br/> <select style={{width: '100%', fontSize: '1vw'}}></select>
                 </Badge>
             </Button>
         </div>

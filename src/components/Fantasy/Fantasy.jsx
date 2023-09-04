@@ -70,10 +70,10 @@ const Fantasy = (props) => {
     }
 
     const getShortedPosition= (position) =>{
-      if (position == "Goalkeeper") return "GK";
-      if (position == "Defence") return "DF";
-      if (position == "Midfield") return "MF";
-      if (position == "Offence") return "FW";
+      if (position === "Goalkeeper") return "GK";
+      if (position === "Defence") return "DF";
+      if (position === "Midfield") return "MF";
+      if (position === "Offence") return "FW";
     }
 
     const getPlayersList = (leagueData) => {

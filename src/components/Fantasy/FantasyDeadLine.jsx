@@ -45,9 +45,9 @@ function FantasyDeadLine(props) {
         <Button
             className="btnDeadLine"
             style={{
-            position: 'fixed',
+            position: 'absolute',
             top: '12%',
-            left: '3.5%',
+            left: '8.5%',
             unicodeBidi: 'plaintext',
             backgroundImage: `url(https://img.freepik.com/free-vector/green-curve-frame-template_53876-99025.jpg?w=900&t=st=1693520574~exp=1693521174~hmac=31612521b16feec03c061c9f10c87d1c819cb5e958fb984c702d1e23fac40d2a)`, // Use the background image URL
             backgroundSize: 'cover', // Adjust the background size as needed

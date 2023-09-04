@@ -20,7 +20,7 @@ function InfoAndFantasyOptions() {
                 style={{
                 position: 'absolute',
                 top: '18%',
-                right: '-1%',
+                right: '1.5%',
                 unicodeBidi: 'plaintext',
                 width: '25%',
                 zIndex: '2'
@@ -47,7 +47,7 @@ function InfoAndFantasyOptions() {
                 style={{
                 position: 'absolute',
                 top: '27%',
-                right: '-1.5%',
+                right: '0.6%',
                 unicodeBidi: 'plaintext',
                 width: '27%',
                 zIndex: '2'
@@ -68,7 +68,7 @@ function InfoAndFantasyOptions() {
                 style={{
                 position: 'absolute',
                 top: '33%',
-                right: '-1.6%',
+                right: '0.6%',
                 unicodeBidi: 'plaintext',
                 width: '27%',
                 zIndex: '2'

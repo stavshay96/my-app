@@ -111,7 +111,7 @@ const getButtonStyle = (topAdjustment) => {
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        position: 'absolute',
+        position: 'fixed',
         top: `${topAdjustment}%`,
         left: `${left}%`,
         width: '40%'

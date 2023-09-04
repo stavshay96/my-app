@@ -34,7 +34,7 @@ const FantasySubsPage = (props) => {
     }, [location.pathname, props.isDeadLineDatePass]);
 
     return (
-        <div style={{height:'53rem'}}>
+        <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
             <LangBar/>
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate}
