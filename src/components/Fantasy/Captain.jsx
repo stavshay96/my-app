@@ -1,4 +1,4 @@
-import {React} from "react";
+import {React, useState} from "react";
 
 import "./css/Captain.css";
 import Box from '@mui/material/Box';
@@ -9,22 +9,27 @@ import Select from '@mui/material/Select';
 import { right } from "@popperjs/core";
 
 const Captain = (props) => {
+    //const [captainName, setCaptainName] = useState('');
+
     const handleCaptainChoice = (event) => {
-      const { value} = event.target;
-      console.log(`${value} from captain` );
-      const selectedPlayerId = parseInt(value);
-      const selectedPlayer = props.lineup.find((player) => player.id === selectedPlayerId);
-      console.log(selectedPlayer);
+      const { key, selectedIndex ,value} = event.target;
+      //const selecet = event.target.selectedIndex;
+      console.log(`${value} value   captain` );
+      //const selectedPlayerId = parseInt(value);
+      //const selectedPlayer = props.lineup.find((player) => player.id === selectedPlayerId);
+      
+      const selectedPlayer = props.lineup.find((player) => player.playerName === value);
+      //setCaptainName(selectedPlayer? selectedPlayer.playerName : '');
       props.onChangeCaptain(selectedPlayer);
     };
   
     return (
       <div className="form-group">
-        <label htmlFor="selectedCaptain">בחר קפטן</label>
+       
         <select
           className="minimal"
           name="selectedCaptain"
-          value={props.captain}
+          value={props.captain? props.captain.playerName: ''}
           onChange={handleCaptainChoice}
           style={{
             fontSize: "1vw",
@@ -37,10 +42,10 @@ const Captain = (props) => {
             textAlign: "center",
           }}
         >
-           <option value="">בחר קפטן</option>
+          <option value="">בחר קפטן</option>
        
           {props.lineup.map((player) => (
-            <option key={player.id} value={player.id}>
+            <option key={player.id} value={player.playerName}>
               {player.playerName}
             </option>
           ))}

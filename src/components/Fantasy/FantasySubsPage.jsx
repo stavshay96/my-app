@@ -20,7 +20,7 @@ const FantasySubsPage = (props) => {
     let navigate = useNavigate();
     const location = useLocation();
     const [initialSelectedRows,
-        SetInitialSelectedRows] = useState([]);
+        SetInitialSelectedRows] = useState(props.lineup.map((player) => player.id));
 
     useEffect(() => {
         if (location.pathname === '/Fantasy/subs') {
