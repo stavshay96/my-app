@@ -1,4 +1,5 @@
 import {React} from "react";
+
 import "./css/Captain.css";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,13 +10,17 @@ import { right } from "@popperjs/core";
 
 const Captain = (props) => {
     const handleCaptainChoice = (event) => {
-      const selectedPlayerId = event.target.value;
+      const { value} = event.target;
+      console.log(`${value} from captain` );
+      const selectedPlayerId = parseInt(value);
       const selectedPlayer = props.lineup.find((player) => player.id === selectedPlayerId);
+      console.log(selectedPlayer);
       props.onChangeCaptain(selectedPlayer);
     };
   
     return (
       <div className="form-group">
+        <label htmlFor="selectedCaptain">בחר קפטן</label>
         <select
           className="minimal"
           name="selectedCaptain"
@@ -32,7 +37,8 @@ const Captain = (props) => {
             textAlign: "center",
           }}
         >
-          <option value="">בחר קפטן</option>
+           <option value="">בחר קפטן</option>
+       
           {props.lineup.map((player) => (
             <option key={player.id} value={player.id}>
               {player.playerName}
