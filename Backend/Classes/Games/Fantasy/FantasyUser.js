@@ -1,23 +1,19 @@
-//PlayerGK[1] - player
-//PlayerDef[5] - player
-//PlayerMid[5] - player
-//PlayerAtt[3] - player
+//lineupsArr - matrix
 //Captain - player
 //isTriple - bool
 //isWildCard - bool
 //BudgetRemaining  - int
 //SubsRemaining  - int
 //UserTeamName - string
-
-//FantasyUserID - list int [ha'al, premier league , superLeague]
 //FantasyRoom - list room ?
 
 
-// stav - ID 10              Daniel - 234
-// FUID HA'AL 101        HA'AL    2341
-//  EPL   102        EPL      2342
-//  SPL   103        SPL      2343
-//  UCL   104        UCL      2344
+// stav - ID 10              Roy - 234
+
+// FUID -  GLT00000ID  -- G - Game, L- League, T-Type of lineup
+//example: 1110000010 -   fantasy      epl         lineup            stav 
+//example: 2100000234 - predictions   epl        ---------          roy
+
 
 const path = require("path");
 const Player = require('../../Info/Player');
@@ -28,23 +24,27 @@ const DBManager = require(path.join(
 
 class FantasyUser {
     constructor(
+        fantasyUserID,
         userInfo,
-        userTeamName,
-        lineup,
+        fantasyUserTeamName,
+        lineupsArr,
         captain,
         isTriple,
         isWildCard,
         subsRemaining,
+        fantasyRoomsId,
     ) {
+        this.fantasyUserID = fantasyUserID;
         this.userInfo = userInfo;
-        this.userTeamName = userTeamName;
-        this.lineup = lineup;
+        this.fantasyUserTeamName = fantasyUserTeamName;
+        this.lineupsArr = lineupsArr;
         this.captain = captain;
         this.isTriple = isTriple;
         this.tripleIsUsed = isTriple;
         this.isWildCard = isWildCard;
         this.wildCardIsUsed = isWildCard;
-        this.subsRemaining = subsRemaining;  
+        this.subsRemaining = subsRemaining;
+        this.fantasyRoomsId = fantasyRoomsId;
     }
     get UserInfo() {
         return this.userInfo;
@@ -127,13 +127,11 @@ class FantasyUser {
         this.subsRemaining = newSubsRemaining;
     }
 
-    UpdateUserFantasyInDataBase()
-    {
+    UpdateUserFantasyInDataBase() {
         DBManager.UpdateUserTeamInDataBase(this);
     }
 
-    CreasteUserFantasyInDataBase()
-    {
+    CreasteUserFantasyInDataBase() {
         DBManager.CreateFantasyUserInDataBase(this);
     }
 

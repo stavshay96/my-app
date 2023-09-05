@@ -162,6 +162,22 @@ async function GetLeagueFromDataBase(LeagueName) {
 }
 
 
+/////////////--------------------------- fantasy user functions -----------------------------///////////////////
+
+const FantasyUser = require('../Classes/Games/Fantasy/FantasyUser');
+
+async function CreateFantasyUserInDB(userInfo, fantasyUserTeamName, numOfGames) {
+    const gameCode = 1; // 1 - fantasy, 2 - predictions ...
+    const leagueCode = 1; // 1 - premier league , 2 -ligat ha'al ...
+    const typeOfGameCode = 1; // 1 - lineup11, 2 - squad15, 0 - other
+    const fantasyUserID = gameCode * 100000000 + leagueCode * 10000000 + typeOfGameCode * 1000000 + userInfo.userID;
+    const fantasyUser = new FantasyUser(fantasyUserID, userInfo, fantasyUserTeamName, Array.from({ length: numOfGames }, () => []),
+        undefined, false, false, 80, [1]);
+    const newAddedFantasyUser = await client.db("FantasyUser").collection("PremierLeague_11").insertOne(fantasyUser);
+    return newAddedFantasyUser;
+}
+
+
 
 module.exports = {
 
@@ -179,5 +195,6 @@ module.exports = {
     GetLeagueDataFromDatabase: GetLeagueDataFromDatabase,
     GetLeagueDataFromDatabaseArray: GetLeagueDataFromDatabaseArray,
     CreateNewTeamsInDataBase: CreateNewTeamsInDataBase,
+    CreateFantasyUserInDB: CreateFantasyUserInDB
 
 };

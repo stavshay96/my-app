@@ -66,6 +66,39 @@ FantasyRouter.get("/FantasyLeagueData", async(req, res) => {
     }
 });
 
+////---------------------------- Fantasy User -----------------------------------------------------
+
+UserRouter.post("/CreateFantasyUser", async(req, res) => {
+
+    if (!req.body.fantasyUserTeamName) {
+        return {
+            Status: "create fantasy user failed",
+            Reason: "Missing input, fantasyUserTeamName",
+        };
+    }
+
+    const fantasyUserDocument = await DBManager.CreateFantasyUserInDB(req.body.userInfo, req.body.fantasyUserTeamName, req.body.numOfGames);
+    const info = { Status: "fantasy user created", fantasyUserInfo: fantasyUserDocument };
+    //console.log(user);
+    res.send(info);
+});
+
+
+/////TO DO
+UserRouter.get("/GetFantasyUser", async(req, res) => {
+
+});
+/////
+
+
+///// TO DO
+UserRouter.post("/UpdateFantasyUser", async(req, res) => {
+    let info = await UpdateFantasyUser(req.body.fantasyUserInfo);
+    //console.log(user);
+    res.send(info);
+});
+///////
+
 
 
 
