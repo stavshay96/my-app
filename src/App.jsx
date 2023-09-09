@@ -8,7 +8,12 @@ import "./App.css"
 
 
 function App() {
-    const [userInfo, SetUserInfo] = useState({});
+    const [userInfo, SetUserInfo] = useState(() => {
+      // Try to retrieve 'userInfo' from localStorage and parse it back into an object
+      const storedUserInfo = localStorage.getItem("userInfo");
+      return storedUserInfo ? JSON.parse(storedUserInfo) : {};
+    });
+
     const [leagueChoice, SetLeagueChoice] = useState(() => {
       // Try to retrieve 'leagueChoice' from localStorage, or use an empty string if not found
       return localStorage.getItem("leagueChoice") || "";});
@@ -30,11 +35,14 @@ function App() {
         });
     };
 
-     // Save 'leagueChoice' to localStorage whenever they change
-    useEffect(() => {
-      localStorage.setItem("leagueChoice", leagueChoice);
-      localStorage.setItem("topbarLeagueName", topbarLeagueName);
-    }, [leagueChoice, topbarLeagueName]);
+   useEffect(() => {
+  localStorage.setItem("leagueChoice", leagueChoice);
+  localStorage.setItem("topbarLeagueName", topbarLeagueName);
+
+  // Serialize userInfo to JSON and save it to localStorage
+  localStorage.setItem("userInfo", JSON.stringify(userInfo));
+}, [leagueChoice, topbarLeagueName, userInfo]);
+
 
 
     return ( 

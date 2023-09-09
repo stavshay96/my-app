@@ -1,11 +1,13 @@
 //lineupsArr - matrix
-//Captain - player
+//Captain - arr
 //isTriple - bool
 //isWildCard - bool
 //BudgetRemaining  - int
 //SubsRemaining  - int
 //UserTeamName - string
 //FantasyRoom - list room ?
+
+// for FU of squad 15 - bench, benchBoost, freeHit, 
 
 
 // stav - ID 10              Roy - 234
@@ -31,8 +33,9 @@ class FantasyUser {
         captain,
         isTriple,
         isWildCard,
-        subsRemaining,
+        subsNumInThisGameweek,
         fantasyRoomsId,
+        startFromGameweek,
     ) {
         this.fantasyUserID = fantasyUserID;
         this.userInfo = userInfo;
@@ -43,8 +46,9 @@ class FantasyUser {
         this.tripleIsUsed = isTriple;
         this.isWildCard = isWildCard;
         this.wildCardIsUsed = isWildCard;
-        this.subsRemaining = subsRemaining;
+        this.subsNumInThisGameweek = subsNumInThisGameweek;
         this.fantasyRoomsId = fantasyRoomsId;
+        this.startFromGameweek = startFromGameweek;
     }
     get UserInfo() {
         return this.userInfo;

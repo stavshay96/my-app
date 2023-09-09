@@ -57,7 +57,10 @@ const FantasySubsPage = (props) => {
                 topbarLeagueName={props.topbarLeagueName}
                 leagueChoice={props.leagueChoice}
                 budgetLimit={props.budgetLimit} 
-                subsLimit={props.subsLimit}/>
+                subsLimit={props.subsLimit}
+                fantasyUser={props.fantasyUser}
+                currentGameweek={props.currentGameweek}
+                SetSubsLimit={props.SetSubsLimit}/>
                 
             <LineupCounter lineup={props.lineup}/>
             <Field
@@ -78,7 +81,9 @@ const FantasySubsPage = (props) => {
                 handleCaptain={props.handleCaptain}
                 leagueChoice={props.leagueChoice}/>
             <InfoAndFantasyOptions/>
-            <MatchesList/>
+            <MatchesList
+                currentGameweek={props.currentGameweek}
+                numOfGames={props.numOfGames}/>
             <Captain
                 lineup={props.lineup}
                 captain={props.captain}

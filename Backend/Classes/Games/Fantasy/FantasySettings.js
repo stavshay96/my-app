@@ -1,16 +1,16 @@
-
-
 class FantasySettings {
     constructor(
         leagueChoice,
         deadline,
         budgetLimit,
         numOfSubsLimit,
+        currentGameweek
     ) {
         this.leagueChoice = leagueChoice;
         this.deadline = deadline;
         this.budgetLimit = budgetLimit;
         this.numOfSubsLimit = numOfSubsLimit;
+        this.currentGameweek = currentGameweek;
     }
 
     get LeagueChoice() {

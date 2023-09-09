@@ -3,7 +3,7 @@ const FantasyRouter = express.Router();
 module.exports = FantasyRouter;
 const path = require("path");
 const Fantasy = require('../../Classes/Games/Fantasy/Fantasy');
-const FantasyUser = require('../../Classes/Games/Fantasy/FantasyUser');
+const FantasyUser = require('../../Classes/Games/Fantasy/FantasyUser_11');
 const cookieParser = require('cookie-parser');
 const FantasySettings = require("../../Classes/Games/Fantasy/FantasySettings");
 const lod = require('lodash');
@@ -29,7 +29,7 @@ FantasyRouter.post("/FantasyPL", async(req, res) => {
 ///------------------ post admin settings to DB -------------------/////
 
 FantasyRouter.post("/Admin", async(req, res) => {
-    const newFantasySet = new FantasySettings(req.body.leagueChoice, req.body.deadline, req.body.budgetlimit, req.body.subslimit);
+    const newFantasySet = new FantasySettings(req.body.leagueChoice, req.body.deadline, req.body.budgetlimit, req.body.subslimit, req.body.currentGameweek);
     console.log(newFantasySet.leagueChoice)
     await DBManager.InsertFantasySettings(newFantasySet);
 
@@ -68,31 +68,41 @@ FantasyRouter.get("/FantasyLeagueData", async(req, res) => {
 
 ////---------------------------- Fantasy User -----------------------------------------------------
 
-UserRouter.post("/CreateFantasyUser", async(req, res) => {
-
-    if (!req.body.fantasyUserTeamName) {
-        return {
-            Status: "create fantasy user failed",
-            Reason: "Missing input, fantasyUserTeamName",
-        };
+FantasyRouter.post("/CreateFantasyUser", async(req, res) => {
+    try {
+        const fantasyUserDocument = await DBManager.CreateFantasyUserInDB(req.body.userInfo, req.body.fantasyUserTeamName,
+            req.body.numOfGames, req.body.startFromGameweek);
+        const info = { Status: "fantasy user created", fantasyUserInfo: fantasyUserDocument };
+        //console.log(user);
+        res.send(info);
+    } catch (error) {
+        console.error("Error creating Fantasy User :", error);
+        res.status(500).send("Internal Server Error");
     }
 
-    const fantasyUserDocument = await DBManager.CreateFantasyUserInDB(req.body.userInfo, req.body.fantasyUserTeamName, req.body.numOfGames);
-    const info = { Status: "fantasy user created", fantasyUserInfo: fantasyUserDocument };
-    //console.log(user);
-    res.send(info);
 });
 
 
-/////TO DO
-UserRouter.get("/GetFantasyUser", async(req, res) => {
 
+FantasyRouter.get("/GetFantasyUser", async(req, res) => {
+    const userID = req.query.userID; // Assuming the userID is passed as a query parameter
+    const leagueChoice = req.query.leagueChoice;
+    const fantasyType = req.query.fantasyType;
+    try {
+        const fantasyUser = await DBManager.GetFantasyUserFromDB(userID, leagueChoice, fantasyType);
+
+        // Send the fetched settings as the response
+        res.json(fantasyUser);
+    } catch (error) {
+        console.error("Error fetching Fantasy User:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
 /////
 
 
 ///// TO DO
-UserRouter.post("/UpdateFantasyUser", async(req, res) => {
+FantasyRouter.post("/UpdateFantasyUser", async(req, res) => {
     let info = await UpdateFantasyUser(req.body.fantasyUserInfo);
     //console.log(user);
     res.send(info);

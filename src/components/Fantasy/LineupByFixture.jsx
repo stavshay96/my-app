@@ -1,13 +1,17 @@
-import {React, useState} from "react";
+import {React, useState,useEffect} from "react";
 import {Button, ButtonGroup} from "react-bootstrap";
 import "./css/LineupByFixture.css"
 
-function LineupByFixture() {
+function LineupByFixture(props) {
 
     const [gameweekNumber,
-        SetGameweekNumber] = useState(25);
+        SetGameweekNumber] = useState(1);
     const gameweek = "מחזור ";
-    const limitGameWeek = 38;
+    const limitGameWeek = props.numOfGames;
+
+    useEffect(() => {
+        SetGameweekNumber(props.currentGameweek);
+     }, [props.currentGameweek]);
 
     const increaseGameweek = () =>{
         if (gameweekNumber < limitGameWeek) {
@@ -15,7 +19,7 @@ function LineupByFixture() {
         }
     }
     const decreaseGameweek = () =>{
-        if (gameweekNumber > 0) {
+        if (gameweekNumber > 1) {
             SetGameweekNumber(gameweekNumber-1);
         }
     }
