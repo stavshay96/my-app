@@ -49,12 +49,21 @@ const [formData, setFormData] = useState({
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     
-    if (name === 'gameweek' && parseInt(value) < 1) {
+    if (name === 'gameweek') {
+        const gameweekValue =parseInt(value);
         // If gameweek is less than 1, set it to 1
-        setFormData((prevData) => ({
-            ...prevData,
-            gameweek: 1
-        }));
+        if (gameweekValue < 1){
+            setFormData((prevData) => ({
+                ...prevData,
+                gameweek: 1
+            }));
+        }
+        else {
+            setFormData((prevData) => ({
+                ...prevData,
+                gameweek: gameweekValue
+            }));
+        }
     } else if (name.startsWith('player_')) {
         const playerName = name.split('_')[1];
         console.log(playerName);
@@ -118,6 +127,7 @@ const handleTeamChange = (event) => {
         deadline: formData.deadline,
         budgetlimit: formData.budgetLimit,
         subslimit: formData.subsLimit,
+        currentGameweek: formData.gameweek
     }).then((res) =>{
         console.log(res.data);
         alert("הגדרות הליגה עודכנו בהצלחה!");
@@ -230,7 +240,7 @@ return (
             
         </div>
      
-    <BackToHomePage style={{position:'fixed', top:'4.5%', right:'3%', width:'4.5%',  
+    <BackToHomePage style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  
                   backgroundSize: "cover",
                 backgroundPosition: '0vw 0.1vw', }}/> 
                   </>)}

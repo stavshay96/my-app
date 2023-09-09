@@ -12,6 +12,7 @@ var LogOut = (props) => {
         document.cookie = 'userID=; Max-Age=0; path=/;';
         document.cookie = 'fullName=; Max-Age=0; path=/;';
         document.cookie = 'email=; Max-Age=0; path=/;';
+        localStorage.removeItem("userInfo");
         if (!locatedAtHomePage) {
             navigate("/", {replace: true});
         }

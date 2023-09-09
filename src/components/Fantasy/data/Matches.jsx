@@ -1,12 +1,14 @@
 const Matches =[
-    {id:1, HomeTeam: 'מכבי נתניה' , ScoreHomeTeam: 1, ScoreAwayTeam: '5', AwayTeam: 'מכבי חיפה'},
-    {id:2, HomeTeam: 'מכבי ת"א' , ScoreHomeTeam:'3', ScoreAwayTeam: '0', AwayTeam: 'הפועל ב"ש'},
-    {id:3, HomeTeam: 'מילאן' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'אינטר'},
-    {id:4, HomeTeam: 'פסז' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'מנצסטר סיטי'},
-    {id:5, HomeTeam: ' הפועל ת"א' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'בית"ר ירושלים'},
-    {id:6, HomeTeam: 'מכבי הרצליה' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'בני יהודה'},
-    {id:7, HomeTeam: 'ברצלונה' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'ריאל מדריד'},
-
+    {id:1, HomeTeam: 'וולבס' , ScoreHomeTeam: '-', ScoreAwayTeam: '-', AwayTeam: 'ליברפול'},
+    {id:2, HomeTeam: 'אסטון וילה' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'קריסטל פאלאס'},
+    {id:3, HomeTeam: 'פולהאם' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'לוטון'},
+    {id:4, HomeTeam: "מנצ'סטר יונייטד" , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'ברייטון'},
+    {id:5, HomeTeam: 'טוטנהאם' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'שפילד יונייטד'},
+    {id:6, HomeTeam: 'ווסטהאם' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: "מנצ'סטר סיטי"},
+    {id:7, HomeTeam: 'ניוקאסל' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'ברנטפורד'},
+    {id:8, HomeTeam: "בורנמות" , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: "צ'לסי"},
+    {id:9, HomeTeam: 'אברטון' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'ארסנל'},
+    {id:10, HomeTeam: 'נוטינגהאם' , ScoreHomeTeam:'-', ScoreAwayTeam: '-', AwayTeam: 'ברנלי'},
 ]
 
 export default Matches;

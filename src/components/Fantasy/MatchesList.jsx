@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import {DataGrid} from "@material-ui/data-grid";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -73,19 +73,27 @@ function wrapHeaderText(params) {
     );
 }
 
-function MatchesList() {
+function MatchesList(props) {
+    
     const [gameweekNumber,
-        SetGameweekNumber] = useState(25);
+        SetGameweekNumber] = useState(1);
     const gameweek = "מחזור ";
-    const limitGameWeek = 38;
+    const limitGameWeek = props.numOfGames;
 
+
+    useEffect(() => {
+        SetGameweekNumber(props.currentGameweek);
+     }, [props.currentGameweek]);
+    
     const increaseGameweek = () =>{
         if (gameweekNumber < limitGameWeek) {
+            //gameweekNumber1++;
             SetGameweekNumber(gameweekNumber+1);
         }
     }
     const decreaseGameweek = () =>{
-        if (gameweekNumber > 0) {
+        if (gameweekNumber > 1) {
+            //gameweekNumber1++;
             SetGameweekNumber(gameweekNumber-1);
         }
     }

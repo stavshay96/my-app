@@ -7,11 +7,13 @@ function TopBar(props) {
     const fantasy = "ליגה";
     const fantasyName = props.topbarLeagueName;
     const teamName = "שם קבוצה";
-    const teamGivenName = "האקדמית";
+    const teamGivenName = props.fantasyUser? props.fantasyUser.fantasyUserTeamName: "" ;
 
     const subs = "חילופים";
-    const maxSubs = props.subsLimit;
-
+    const maxSubs = props.fantasyUser? (props.fantasyUser.startFromGameweek === props.currentGameweek? 80: props.subsLimit) : props.subsLimit;
+    props.SetSubsLimit(maxSubs);
+    
+    
     const budget = "תקציב";
     const maxBudget = props.budgetLimit;
 
