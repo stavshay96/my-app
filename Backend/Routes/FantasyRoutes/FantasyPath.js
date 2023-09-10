@@ -82,6 +82,19 @@ FantasyRouter.post("/CreateFantasyUser", async(req, res) => {
 
 });
 
+FantasyRouter.post("/SetUserLineUpAndCaptain", async(req, res) => {
+    try {
+        await DBManager.SetFantasyUserLineUp(req.body.userInfo, req.body.leagueChoice,
+            req.body.fantasyType, req.body.Gameweek, req.body.lineup, req.body.Captain);
+        const info = { Status: "fantasy user updated"};
+        res.send(info);
+    } catch (error) {
+        console.error("Error creating Fantasy User :", error);
+        res.status(500).send("Internal Server Error");
+    }
+
+});
+
 
 
 FantasyRouter.get("/GetFantasyUser", async(req, res) => {

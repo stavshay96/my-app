@@ -77,8 +77,11 @@ const FantasySubsPage = (props) => {
                 isDeadLineDatePass={props.isDeadLineDatePass}
                 initialSelectedRows={initialSelectedRows}
                 onChangeSelectedRows={SetInitialSelectedRows}
+                fantasyUser={props.fantasyUser}
+                currentGameweek={props.currentGameweek}
                 captain={props.captain}
                 handleCaptain={props.handleCaptain}
+                fantasyType={props.fantasyType}
                 leagueChoice={props.leagueChoice}/>
             <InfoAndFantasyOptions/>
             <MatchesList

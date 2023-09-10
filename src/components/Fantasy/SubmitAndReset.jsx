@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import "./css/SubmitAndReset.css"
 import {useNavigate} from "react-router-dom";
 import players from "./data/Players";
+import axios from "axios";
 
 let afterSubmit = false;
 const buttons = [
@@ -42,6 +43,9 @@ function SubmitAndReset(props) {
         const submitHandler = () => {
             if (props.lineup.length < 11) {
                 alert("ההרכב לא מלא!");
+            } else if (!props.lineup.find(((player) => player.position === "GK")))
+            {
+                alert("חובה עלייך שההרכב שלך יכיל שוער");
             } else if (props.isDeadLineDatePass === true) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
             } else if (props.captain === undefined) {
@@ -52,6 +56,7 @@ function SubmitAndReset(props) {
                 players.forEach(data => {
                     data.currentPoints = data.totalPoints;
                     data.totalPoints = 0;})
+                    saveLineup();
                 navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
             }
         }
@@ -63,6 +68,23 @@ function SubmitAndReset(props) {
             // const newPlayer =  { id: 21, points: 64, price: 10, playerName: `ערן זהבי`,
             // position: 'FW' , team: 'מכבי ת"א'}; props.onChangeCaptain(newPlayer);
 
+        }
+
+        const saveLineup = () => {
+            axios.post(`http://localhost:7777/Fantasy/SetUserLineUpAndCaptain`, {
+                userInfo: props.fantasyUser.userInfo.userID,
+                leagueChoice: props.leagueChoice,
+                fantasyType: props.fantasyType,
+                Gameweek: props.currentGameweek,
+                lineup: props.lineup,
+                Captain: props.captain
+            }).then((res) =>{
+                console.log(res.data);
+                window.location.reload(); 
+            }).catch(error => {
+                console.error(error);
+                alert("ניסיון שמירת ההרכב נכשלה!!");
+                });
         }
 
         return (

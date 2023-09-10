@@ -14,7 +14,7 @@ function getLineUp(){
 }
 
 function getCaptain(){
-  return undefined;
+  return {};
 }
 
 const Fantasy = (props) => {
@@ -178,7 +178,7 @@ const Fantasy = (props) => {
       <>
       <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
       currentBudget={currentBudget} handleBudget={handleBudget} budgetLimit={budgetLimit} topbarLeagueName={props.topbarLeagueName}
-      currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit}  SetSubsLimit={SetSubsLimit}currentGameweek={currentGameweek}
+      currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit}  SetSubsLimit={SetSubsLimit} currentGameweek={currentGameweek}
       captain={captain} handleCaptain={handleCaptain} playersList= {playersList} numOfGames={numOfGames} fantasyType={fantasyType}
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
       userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} fantasyUser={fantasyUser} SetFantasyUser={SetFantasyUser} />}/>
@@ -188,7 +188,7 @@ const Fantasy = (props) => {
       currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit} SetSubsLimit={SetSubsLimit} currentGameweek={currentGameweek}
       captain={captain} handleCaptain={handleCaptain} playersList= {playersList} numOfGames={numOfGames}
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
-      userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} fantasyUser={fantasyUser} SetFantasyUser={SetFantasyUser} />}/>
+      userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} fantasyUser={fantasyUser} SetFantasyUser={SetFantasyUser} fantasyType={fantasyType} />}/>
               
       <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
       
