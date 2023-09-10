@@ -9,12 +9,14 @@ class League {
         englishleagueName,
         hebrewleagueName,
         teamsList,
+        gameweeksList,
         numOfGames
     ) {
         this.leagueID = leagueID;
         this.englishleagueName = englishleagueName;
         this.hebrewleagueName = hebrewleagueName;
         this.teamsList = teamsList;
+        this.gameweeksList = gameweeksList;
         this.numOfGames = numOfGames;
     }
     get LeagueID() {

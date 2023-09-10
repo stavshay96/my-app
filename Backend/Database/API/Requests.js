@@ -22,18 +22,18 @@ let countPlayerID = 1000;
 axios(config)
     .then(function(response) {
         let league_full_data = JSON.parse(JSON.stringify(response.data))
-        const league = new League(0, "Premier League", "ליגה אנגלית", [], 38)
+        const league = new League(0, "PremierLeague", "ליגה אנגלית", [], Array.from({ length: 38 }, () => []), 38)
         league_full_data.teams.forEach(element => {
-            const team = new Team(countTeamID, element.shortName, "", [])
+            const team = new Team(0, element.shortName, "", [])
             element.squad.forEach(p => {
-                const player = new Player(countPlayerID, p.name, "", team.englishName, "", p.position, Array.from({ length: league.numOfGames }, () => 0), 0, 0, [])
+                const player = new Player(0, p.name, "", team.englishName, "", p.position, Array.from({ length: league.numOfGames }, () => 0), 0, 0, [])
                 team.Players.push(player)
                 countPlayerID++;
             })
             league.TeamsList.push(team)
             countTeamID++;
         })
-        DBManager.CreateNewTeamsInDataBase(league);
+        DBManager.CreateNewLeagueInDataBase(league);
         console.log("finished")
 
     })
