@@ -2,7 +2,9 @@ import React from "react";
 import {Button} from "react-bootstrap";
 import Badge from 'react-bootstrap/Badge';
 import "./css/UserPoints.css";
-import Players from "./data/Players";
+import TopScorer from "./data/TopScorer";
+import assistPlayers from "./data/TopAssistPlayer";
+import Champions from "./data/Champions";
 
 function Winners(props) {
     var weeklyPoints = 27;
@@ -25,17 +27,75 @@ function Winners(props) {
                 <Badge>
                     אלופה:
                     <br/>
-                    <select style={{width: '100%', fontSize: '1vw'}}></select>
+                    <select
+                        style={{
+                          width: '100%',
+                          fontSize: '1vw',
+                          direction: 'rtl',
+                          textAlign: 'right',
+                          color: '#797979'
+                        }}
+                      >
+                        <option value=""></option>
+                        {Champions.map((player) => (
+                          <option
+                            key={player.id}
+                            value={player.team}
+                            style={{ lineHeight: '2' }} // Set the line height to center vertically
+                          >
+                            {player.team}
+                          </option>
+                        ))}
+                      </select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                   מלך השערים:
-                    <br/> <select style={{width: '100%', fontSize: '1vw'}}></select>
+                    <br/>
+                    <select
+                        style={{
+                          width: '100%',
+                          fontSize: '1vw',
+                          direction: 'rtl',
+                          textAlign: 'right',
+                          color: '#797979'
+                        }}
+                      >
+                        <option value=""></option>
+                        {TopScorer.map((player) => (
+                          <option
+                            key={player.id}
+                            value={player.playerName}
+                            style={{ lineHeight: '2' }} // Set the line height to center vertically
+                          >
+                            {player.playerName}
+                          </option>
+                        ))}
+                      </select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
                   מלך הבישולים:
-                    <br/> <select style={{width: '100%', fontSize: '1vw'}}></select>
+                    <br/> <select
+                        style={{
+                          width: '100%',
+                          fontSize: '1vw',
+                          direction: 'rtl',
+                          textAlign: 'right',
+                          color: '#797979'
+                        }}
+                      >
+                        <option value=""></option>
+                        {assistPlayers.map((player) => (
+                          <option
+                            key={player.id}
+                            value={player.playerName}
+                            style={{ lineHeight: '2' }} // Set the line height to center vertically
+                          >
+                            {player.playerName}
+                          </option>
+                        ))}
+                      </select>
                 </Badge>
                 <hr className="seperator"/>
                 <Badge>
