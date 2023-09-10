@@ -33,7 +33,7 @@ const FantasyHomePage = (props) => {
             <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain} leagueChoice={props.leagueChoice}/>
             <InfoAndFantasyOptions/>
             <MatchesList currentGameweek={props.currentGameweek} numOfGames={props.numOfGames}/>
-            <LineupByFixture currentGameweek={props.currentGameweek} numOfGames={props.numOfGames}/>
+            <LineupByFixture currentGameweek={props.currentGameweek} numOfGames={props.numOfGames} fantasyUser={props.fantasyUser}/>
             <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice}/>
             <MyLeagues/>
             <Rules/>

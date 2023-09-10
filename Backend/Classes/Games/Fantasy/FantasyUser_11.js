@@ -31,10 +31,10 @@ class FantasyUser {
         fantasyUserTeamName,
         lineupsArr,
         captain,
-        isTriple,
-        isWildCard,
+        tripleUsedInGameweek,
+        wildCardUsedInGameweek,
         subsNumInThisGameweek,
-        fantasyRoomsId,
+        fantasyRoomsIds,
         startFromGameweek,
     ) {
         this.fantasyUserID = fantasyUserID;
@@ -42,12 +42,10 @@ class FantasyUser {
         this.fantasyUserTeamName = fantasyUserTeamName;
         this.lineupsArr = lineupsArr;
         this.captain = captain;
-        this.isTriple = isTriple;
-        this.tripleIsUsed = isTriple;
-        this.isWildCard = isWildCard;
-        this.wildCardIsUsed = isWildCard;
+        this.tripleUsedInGameweek = tripleUsedInGameweek;
+        this.wildCardUsedInGameweek = wildCardUsedInGameweek;
         this.subsNumInThisGameweek = subsNumInThisGameweek;
-        this.fantasyRoomsId = fantasyRoomsId;
+        this.fantasyRoomsIds = fantasyRoomsIds;
         this.startFromGameweek = startFromGameweek;
     }
     get UserInfo() {

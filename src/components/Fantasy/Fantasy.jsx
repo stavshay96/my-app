@@ -118,7 +118,7 @@ const Fantasy = (props) => {
               id:  count,//player.playerID, // Assuming this is the player's unique ID
               totalPoints: player.totalPoints,
               currentPoints: 0,
-              price: 0,//player.price,
+              price: player.price,
               playerName: player.englishName, // Assuming you want to use the English name
               position: getShortedPosition(player.position),
               team: player.englishTeamName, // Assuming you want to use the English name of the team
