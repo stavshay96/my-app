@@ -165,6 +165,7 @@ async function GetLeagueFromDataBase(LeagueName) {
 /////////////--------------------------- fantasy user functions -----------------------------///////////////////
 
 const FantasyUser_11 = require('../Classes/Games/Fantasy/FantasyUser_11');
+const Player = require("../Classes/Info/Player");
 
 async function CreateFantasyUserInDB(userInfo, fantasyUserTeamName, numOfGames, startFromGameweek) {
     const gameCode = 1; // 1 - fantasy, 2 - predictions ...
@@ -172,7 +173,7 @@ async function CreateFantasyUserInDB(userInfo, fantasyUserTeamName, numOfGames, 
     const typeOfGameCode = 1; // 1 - lineup11, 2 - squad15, 0 - other
     const fantasyUserID = gameCode * 100000000 + leagueCode * 10000000 + typeOfGameCode * 1000000 + userInfo.userID;
     const fantasyUser = new FantasyUser_11(fantasyUserID, userInfo, fantasyUserTeamName, Array.from({ length: numOfGames }, () => []),
-        Array.from({ length: numOfGames }, () => undefined), false, false, 0, [1], startFromGameweek);
+        Array.from({ length: numOfGames }, () => new Player()), false, false, 0, [1], startFromGameweek);
     const newAddedFantasyUser = await client.db("FantasyUser").collection("PremierLeague_11").insertOne(fantasyUser);
     return fantasyUser;
 }
@@ -187,6 +188,28 @@ async function GetFantasyUserFromDB(i_userID, i_LeagueChoice, i_FantasyType) {
         const fantasyUser = await client.db("FantasyUser").collection(collection).findOne(query);
         //console.log(fantasyLeagueData);
         return fantasyUser;
+    } catch (error) {
+        console.error("Error fetching Fantasy User from dbManager:", error);
+        throw error; // You might want to handle this error in the calling function
+    }
+
+}
+
+async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gameweek, lineup, captain) {
+    const query = { "userInfo.userID": parseInt(i_userID) };
+    const filter = {userID: parseInt(i_userID)}
+    const collection = `${i_LeagueChoice}_${i_FantasyType}`;
+    try {
+
+        const fantasyUser = await client.db("FantasyUser").collection(collection).findOne(query);
+
+        if(fantasyUser)
+        {
+            await client.db("FantasyUser").collection(collection).deleteOne(fantasyUser);
+            fantasyUser.lineupsArr[gameweek-1]= lineup;
+            fantasyUser.captain[gameweek-1]= captain;
+            await client.db("FantasyUser").collection(collection).insertOne(fantasyUser);
+        }
     } catch (error) {
         console.error("Error fetching Fantasy User from dbManager:", error);
         throw error; // You might want to handle this error in the calling function
@@ -213,6 +236,7 @@ module.exports = {
     GetLeagueDataFromDatabaseArray: GetLeagueDataFromDatabaseArray,
     CreateNewTeamsInDataBase: CreateNewTeamsInDataBase,
     CreateFantasyUserInDB: CreateFantasyUserInDB,
-    GetFantasyUserFromDB: GetFantasyUserFromDB
+    GetFantasyUserFromDB: GetFantasyUserFromDB,
+    SetFantasyUserLineUp: SetFantasyUserLineUp
 
 };
