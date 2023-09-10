@@ -7,19 +7,20 @@ function LineupByFixture(props) {
     const [gameweekNumber,
         SetGameweekNumber] = useState(1);
     const gameweek = "מחזור ";
-    const limitGameWeek = props.numOfGames;
+    const limitMaxGameWeek = props.numOfGames;
+    let   limitMinGameWeek = props.fantasyUser? props.fantasyUser.startFromGameweek: 1;
 
     useEffect(() => {
         SetGameweekNumber(props.currentGameweek);
      }, [props.currentGameweek]);
 
     const increaseGameweek = () =>{
-        if (gameweekNumber < limitGameWeek) {
+        if (gameweekNumber < limitMaxGameWeek) {
             SetGameweekNumber(gameweekNumber+1);
         }
     }
     const decreaseGameweek = () =>{
-        if (gameweekNumber > 1) {
+        if (gameweekNumber > limitMinGameWeek) {
             SetGameweekNumber(gameweekNumber-1);
         }
     }
