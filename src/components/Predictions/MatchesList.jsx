@@ -51,9 +51,9 @@ const cols = [
   ];
   
 
-function CustomDropdown() {
+function CustomDropdown(match) {
     const options = [];
-    const start = 3;
+    const start = 0;
     const end = 30;
     const [homeTeamScore, setHomeTeamScore] = useState(0);
     const [awayTeamScore, setAwayTeamScore] = useState(0);
@@ -107,8 +107,31 @@ function CustomDropdown() {
 }
 
 function createRowMatch(match) {
-    return {id: match.id, HomeTeam: match.HomeTeam, Score: <CustomDropdown/>, AwayTeam: match.AwayTeam}
-}
+    // Check if the scores match
+    const isMatch = match.ScoreHomeTeam === match.GuessScoreHomeTeam && match.ScoreAwayTeam === match.GuessScoreAwayTeam;
+    const isHalfMatch = match.ScoreHomeTeam !== '-' && match.ScoreAwayTeam !== '-' &&
+            ((match.ScoreHomeTeam > match.ScoreAwayTeam && match.GuessScoreHomeTeam > match.GuessScoreAwayTeam) ||
+            (match.ScoreHomeTeam < match.ScoreAwayTeam && match.GuessScoreHomeTeam < match.GuessScoreAwayTeam));
+
+    const textStyle = {
+        color: isMatch ? 'green' : isHalfMatch ? 'black' : 'red',
+    };
+
+    return {
+      id: match.id,
+      HomeTeam: match.HomeTeam,
+      Score: match.ScoreHomeTeam !== '-' ? (
+        <p style={textStyle}>
+          ({match.GuessScoreAwayTeam}) &nbsp; {/* Add non-breaking space for extra spacing */}
+          {match.ScoreAwayTeam} : {match.ScoreHomeTeam} &nbsp; {/* Add non-breaking space for extra spacing */}
+          ({match.GuessScoreHomeTeam})
+        </p>
+      ) : (
+        <CustomDropdown />
+      ),
+      AwayTeam: match.AwayTeam
+    };
+  }
 
 function wrapCellTeamNameText(params) {
     return (
