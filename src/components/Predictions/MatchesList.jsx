@@ -3,7 +3,7 @@ import {DataGrid} from "@material-ui/data-grid";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import "./css/MatchesList.css"
-import Matches from "./../Fantasy/data/Matches.jsx";
+import Matches from "./data/Matches.jsx";
 
 const rows = Matches.map(createRowMatch);
 
@@ -53,7 +53,7 @@ const cols = [
 
 function CustomDropdown() {
     const options = [];
-    const start = 0;
+    const start = 3;
     const end = 30;
     const [homeTeamScore, setHomeTeamScore] = useState(0);
     const [awayTeamScore, setAwayTeamScore] = useState(0);
@@ -139,7 +139,7 @@ function wrapHeaderText(params) {
 
 function MatchesList() {
     const [gameweekNumber,
-        SetGameweekNumber] = useState(25);
+        SetGameweekNumber] = useState(5);
     const gameweek = "מחזור ";
     const limitGameWeek = 38;
 
@@ -160,7 +160,7 @@ function MatchesList() {
                 style={{
                 position: 'fixed',
                 top: '12%',
-                right: '39.25%',
+                right: '38.75%',
                 unicodeBidi: 'plaintext',
                 width: '15%',
             }}>

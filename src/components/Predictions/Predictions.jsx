@@ -10,7 +10,6 @@ import BackToHomePage from "../General/BackToHomePage";
 import LogOut from "../HomePage/LogOut";
 import Login from "../HomePage/Login";
 import InfoAndPredictionsOptions from "./InfoAndPredictionsOptions";
-import Pele from "../../images/Players/Pele.png"
 import { useLocation } from "react-router-dom";
 
 const Predictions = (props) => {
