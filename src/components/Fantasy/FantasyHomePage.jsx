@@ -19,6 +19,7 @@ import Login from "../HomePage/Login";
 import FantasyTeamNamePopup from "./FantasyTeamNamePopup";
 
 const FantasyHomePage = (props) => {
+    const [isThisGameweek,SetisThisGameweek] = useState(true);
     const user = document.cookie;
     console.log(`${user} user info`);
     console.log(`${props.leagueChoice} fantasyhomepage`);
@@ -33,8 +34,9 @@ const FantasyHomePage = (props) => {
             <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain} leagueChoice={props.leagueChoice}/>
             <InfoAndFantasyOptions/>
             <MatchesList currentGameweek={props.currentGameweek} numOfGames={props.numOfGames}/>
-            <LineupByFixture currentGameweek={props.currentGameweek} numOfGames={props.numOfGames} fantasyUser={props.fantasyUser}/>
-            <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice}/>
+            <LineupByFixture currentGameweek={props.currentGameweek} numOfGames={props.numOfGames} fantasyUser={props.fantasyUser} 
+            handleLineup={props.handleLineup} handleCaptain={props.handleCaptain} isThisGameweek={isThisGameweek} SetisThisGameweek={SetisThisGameweek}/>
+            <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice} isThisGameweek={isThisGameweek}/>
             <MyLeagues/>
             <Rules/>
             <BackToHomePage style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  

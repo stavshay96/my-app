@@ -6,6 +6,8 @@ import "./css/MovingToSubsButton.css"
 function MovingToSubsButton(props) {
     let navigate = useNavigate();
 
+    const buttonClass = !props.isThisGameweek ? 'disabledbtnMovingToSubs' : 'btnMovingToSubs';
+
     const movingToSubsHandler = () => {
         if (props.isDeadLineDatePass === false) {
             navigate(`/Fantasy/${props.leagueChoice}/subs`, {replace:false });
@@ -17,13 +19,14 @@ function MovingToSubsButton(props) {
 
     return (
         <Button
-            className="btnMovingToSubs"
+            className={buttonClass}
             style={{
             position: 'fixed',
             top: '84.25%',
             left: '43.5%'
         }}
-            onClick={movingToSubsHandler}>
+            onClick={movingToSubsHandler}
+            disabled = {!props.isThisGameweek}>
             בצע חילופים
         </Button>
     )

@@ -27,7 +27,7 @@ const Fantasy = (props) => {
     const [subsLimit, SetSubsLimit] = useState(0);
     const [deadLineDate,SetDeadLineDate] = useState('2023-09-12T16:00:00');
     const [isDeadLineDatePass, SetIsDeadLineDatePass] = useState(false);
-    const [currentGameweek, SetCurrentGameweek] = useState(1);
+    const [currentGameweek, SetCurrentGameweek] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [leagueData, SetLeagueData] = useState([]);
     const [playersList, SetPlayersList] = useState([]);
@@ -131,18 +131,24 @@ const Fantasy = (props) => {
     
     }
 
+     useEffect(() => {
+      getFantasySettings();
+      getFantasyLeagueData();
+   }, []);
+
     useEffect(() => {
-          getFantasySettings();
-          getFantasyLeagueData();
-          if (props.userInfo.userID && isLoading) {
+          // getFantasySettings();
+          // getFantasyLeagueData();
+          if (props.userInfo.userID && isLoading && currentGameweek > 0) {
             getFantasyUser();
           }
          // if(fantasyUser) {
+          if(currentGameweek > 0)
             setIsLoading(false);
           
         // if (leagueData!== undefined) { getPlayersList();}
           console.log(playersList);
-       }, [fantasyUser]);
+       }, [fantasyUser, currentGameweek]);
 
 
     const handleLineup = (lineup) => {

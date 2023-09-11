@@ -45,10 +45,9 @@ function Field(props) {
                     {player.playerName}
                 </h1>
 
-                {player === props.captain
+                {props.captain && player.id === props.captain.id
                     ? <h4>C</h4>
                     : null}
-
                 {showButton && <Button className="Xbtn" onClick={() => handleXbutton(player)}> x </Button>}
             </Button>
         )

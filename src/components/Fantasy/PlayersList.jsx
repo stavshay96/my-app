@@ -109,10 +109,10 @@ const rows = props.playersList.map(createRow);
     selectedRows.forEach((item) => {
       console.log(props.captain);
       //if player was in the previous lineup and not in the updated array - he is the unselected. cheking as well he is the captain of the user
-      if(!updatedIDArray.includes(item) && !props.captain  /*&& item === props.captain.id*/) { 
-        //if (item === props.captain.id) {
+      if(!updatedIDArray.includes(item) && props.captain  /*&& item === props.captain.id*/) { 
+        if (item === props.captain.id) {
           props.handleCaptain(undefined);
-      //  }
+        }
       }
     });
   }

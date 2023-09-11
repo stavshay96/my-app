@@ -50,7 +50,7 @@ function SubmitAndReset(props) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
             } else if (props.captain === undefined) {
                 alert("יש לבחור קפטן!");
-            } else if (!props.lineup.includes(props.captain)) {
+            } else if (!props.lineup.find(((player) => player.id === props.captain.id))) {
                 alert("הקפטן לא חלק מהקבוצה. יש לבחור קפטן חדש");
             } else {
                 players.forEach(data => {

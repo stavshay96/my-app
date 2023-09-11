@@ -173,7 +173,7 @@ async function CreateFantasyUserInDB(userInfo, fantasyUserTeamName, numOfGames, 
     const typeOfGameCode = 1; // 1 - lineup11, 2 - squad15, 0 - other
     const fantasyUserID = gameCode * 100000000 + leagueCode * 10000000 + typeOfGameCode * 1000000 + userInfo.userID;
     const fantasyUser = new FantasyUser_11(fantasyUserID, userInfo, fantasyUserTeamName, Array.from({ length: numOfGames }, () => []),
-        Array.from({ length: numOfGames }, () => new Player()), false, false, 0, [1], startFromGameweek);
+        Array.from({ length: numOfGames }, () => {}), false, false, 0, [1], startFromGameweek);
     const newAddedFantasyUser = await client.db("FantasyUser").collection("PremierLeague_11").insertOne(fantasyUser);
     return fantasyUser;
 }
