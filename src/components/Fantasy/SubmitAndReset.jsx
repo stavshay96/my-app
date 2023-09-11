@@ -48,7 +48,7 @@ function SubmitAndReset(props) {
                 alert("חובה עלייך שההרכב שלך יכיל שוער");
             } else if (props.isDeadLineDatePass === true) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
-            } else if (props.captain === undefined) {
+            } else if (!props.captain) {
                 alert("יש לבחור קפטן!");
             } else if (!props.lineup.find(((player) => player.id === props.captain.id))) {
                 alert("הקפטן לא חלק מהקבוצה. יש לבחור קפטן חדש");
