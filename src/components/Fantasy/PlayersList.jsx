@@ -23,7 +23,7 @@ const columns = [
 function createRow(player){
 
   return {id: player.id, totalPoints: player.totalPoints, currentPoints: player.currentPoints, 
-    price: player.price, playerName: `${player.playerName} (${player.team})`, position: player.position,}
+    price: player.price, playerName: `${player.playerHebName} (${player.team})`, position: player.position, kit: player.kit}
 }
 
 function wrapHeaderText(params) {

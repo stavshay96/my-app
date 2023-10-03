@@ -26,11 +26,11 @@ function Field(props) {
     const showButton = location.pathname === `/Fantasy/${props.leagueChoice}/subs`;
 
     function createPlayerButton(player) {
-       //console.log(`team ${player.team}`);
+       console.log(`team ${player.kit}`);
        // const urlback = `url(../../images/kits/${player.kit}.png)`;
         //const urlback1 = "../../images/kits/Arsenal.png"
       //  console.log(urlback);
-      const TeamNameWithoutSpaces = player.team.replace(/ /g, '');
+      const TeamNameWithoutSpaces = player.kit.replace(/ /g, '');
      // const teamName = "ManCity";
        const teamKit = kitImages[`./${TeamNameWithoutSpaces}.png`];
         return (
@@ -42,7 +42,7 @@ function Field(props) {
                     {player.price}m
                 </h3>
                 <h1>
-                    {player.playerName}
+                    {player.playerHebName}
                 </h1>
 
                 {props.captain && player.id === props.captain.id

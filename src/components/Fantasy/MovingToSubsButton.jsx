@@ -10,6 +10,7 @@ function MovingToSubsButton(props) {
 
     const movingToSubsHandler = () => {
         if (props.isDeadLineDatePass === false) {
+            window.history.pushState({ navigationDirection: "back" }, "", `/Fantasy/${props.leagueChoice}`);
             navigate(`/Fantasy/${props.leagueChoice}/subs`, {replace:false });
         } else {
             alert("חלון החילופים סגור! לא ניתן לבצע חילופים");

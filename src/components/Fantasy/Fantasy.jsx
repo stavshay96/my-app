@@ -108,22 +108,24 @@ const Fantasy = (props) => {
     const getPlayersList = (leagueData) => {
       const extractedPlayers = [];
      // console.log(`in get func ${leagueData[0].players[0].fullName}`)
-    let count =0;
+    //let count =0;
         leagueData.forEach((team) => {
         
         
           team.players.forEach((player) => {
            // console.log(player.fullName);
             const extractedPlayer = {
-              id:  count,//player.playerID, // Assuming this is the player's unique ID
+              id:  player.playerID, // Assuming this is the player's unique ID
               totalPoints: player.totalPoints,
               currentPoints: 0,
               price: player.price,
               playerName: player.englishName, // Assuming you want to use the English name
+              playerHebName: player.hebrewName,          
               position: getShortedPosition(player.position),
-              team: player.englishTeamName, // Assuming you want to use the English name of the team
+              team: team.hebrewName, // Assuming you want to use the English name of the team
+              kit: team.englishName
             };
-            count++;
+           // count++;
             extractedPlayers.push(extractedPlayer);
           });
         });
@@ -174,6 +176,14 @@ const Fantasy = (props) => {
       SetIsDeadLineDatePass(isDeadLineDatePass);
       console.log(`${isDeadLineDatePass}`);
     }
+
+    window.onpopstate = function (event) {
+      // Check if the user is navigating back
+      if (event.state && event.state.navigationDirection === "back") {
+        // Refresh the page
+        window.location.reload();
+      }
+    };
 
  
 
