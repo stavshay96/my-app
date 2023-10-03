@@ -46,7 +46,7 @@ const Captain = (props) => {
        
           {props.lineup.map((player) => (
             <option key={player.id} value={player.playerName}>
-              {player.playerName}
+              {player.playerHebName}
             </option>
           ))}
         </select>

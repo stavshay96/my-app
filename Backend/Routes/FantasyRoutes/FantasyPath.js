@@ -86,7 +86,7 @@ FantasyRouter.post("/SetUserLineUpAndCaptain", async(req, res) => {
     try {
         await DBManager.SetFantasyUserLineUp(req.body.userInfo, req.body.leagueChoice,
             req.body.fantasyType, req.body.Gameweek, req.body.lineup, req.body.Captain);
-        const info = { Status: "fantasy user updated"};
+        const info = { Status: "fantasy user updated" };
         res.send(info);
     } catch (error) {
         console.error("Error creating Fantasy User :", error);
@@ -121,6 +121,24 @@ FantasyRouter.post("/UpdateFantasyUser", async(req, res) => {
     res.send(info);
 });
 ///////
+
+
+
+////-------------------------------------- external routes (requests only from postman) -------------------------------
+
+FantasyRouter.post("/AddPlayer", async(req, res) => {
+    try {
+        const insertStatus = await DBManager.AddPlayerToTeam(req.body.englishLeagueName, req.body.hebrewPlayerName, req.body.englishPlayerName,
+            req.body.position, req.body.englishTeamName, req.body.hebrewTeamName, req.body.price);
+        const info = { Status: insertStatus };
+        //console.log(user);
+        res.send(info);
+    } catch (error) {
+        console.error("Error inserting player :", error);
+        res.status(500).send("Internal Server Error");
+    }
+
+});
 
 
 

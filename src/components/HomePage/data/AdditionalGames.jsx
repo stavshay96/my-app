@@ -2,16 +2,20 @@ const AdditionalGames = [
     
     { leagueID: 1,
         name: "טריוויה",
-        pathName:"TtiviaQuiz"},
+        pathName:"TtiviaQuiz",
+        isButtonDisabled: true},
     {leagueID:2,
         name:"דראפט ליג",
-        pathName:"DraftLeague"},
+        pathName:"DraftLeague",
+        isButtonDisabled: true},
     {leagueID: 3,
         name:"זיהוי שחקן",
-        pathName:"IdentifyPlayer"},
+        pathName:"IdentifyPlayer",
+        isButtonDisabled: true},
     {leagueID: 4,
         name:"זיהוי קבוצה",
-        pathName:"IdentifyTeam"},
+        pathName:"IdentifyTeam",
+        isButtonDisabled: true},
    
 ]
 
