@@ -47,7 +47,8 @@ const FantasySubsPage = (props) => {
                 handleCaptain={props.handleCaptain}
                 playersList= {props.playersList}
                 budgetLimit={props.budgetLimit} 
-                subsLimit={props.subsLimit}/>
+                subsLimit={props.subsLimit}
+                playersFromSameTeamLimit={props.playersFromSameTeamLimit}/>
             <TopBar
                 currentBudget={props.currentBudget}
                 onCalcBudget={props.handleBudget}

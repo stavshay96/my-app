@@ -31,6 +31,11 @@ function SubmitAndReset(props) {
     let navigate = useNavigate();
 
     function CreateSubmitAndResetButtons(button) {
+        const goalkeeperCount = props.lineup.filter(player => player.position === "GK").length;
+        const defendersCount = props.lineup.filter(player => player.position === "DF").length;
+        const midfieldersCount = props.lineup.filter(player => player.position === "MF").length;
+        const forwardsCount = props.lineup.filter(player=> player.position === "FW").length;
+
 
         const buttonsHandler = () => {
             if (button.buttonID === 1) {
@@ -43,9 +48,14 @@ function SubmitAndReset(props) {
         const submitHandler = () => {
             if (props.lineup.length < 11) {
                 alert("ההרכב לא מלא!");
-            } else if (!props.lineup.find(((player) => player.position === "GK")))
-            {
-                alert("חובה עלייך שההרכב שלך יכיל שוער");
+            } else if (goalkeeperCount < 1){
+                alert("ההרכב שלך חייב להכיל שוער");
+            } else if (defendersCount < 3){
+                alert("ההרכב שלך חייב להכיל לפחות 3 שחקני הגנה");
+            } else if (midfieldersCount < 3){
+                alert("ההרכב שלך חייב להכיל לפחות 3 שחקני קישור");
+            } else if (forwardsCount < 1){
+                alert("ההרכב שלך חייב להכיל לפחות שחקן התקפה אחד");
             } else if (props.isDeadLineDatePass === true) {
                 alert("חלון החילופים סגור! לא ניתן לבצע חילופים");
             } else if (!props.captain) {

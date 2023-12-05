@@ -33,7 +33,7 @@ class FantasyUser {
         captain,
         tripleUsedInGameweek,
         wildCardUsedInGameweek,
-        subsNumInThisGameweek,
+        //subsNumInThisGameweek,
         fantasyRoomsIds,
         startFromGameweek,
     ) {
@@ -44,7 +44,7 @@ class FantasyUser {
         this.captain = captain;
         this.tripleUsedInGameweek = tripleUsedInGameweek;
         this.wildCardUsedInGameweek = wildCardUsedInGameweek;
-        this.subsNumInThisGameweek = subsNumInThisGameweek;
+        //this.subsNumInThisGameweek = subsNumInThisGameweek;
         this.fantasyRoomsIds = fantasyRoomsIds;
         this.startFromGameweek = startFromGameweek;
     }

@@ -29,7 +29,8 @@ FantasyRouter.post("/FantasyPL", async(req, res) => {
 ///------------------ post admin settings to DB -------------------/////
 
 FantasyRouter.post("/Admin", async(req, res) => {
-    const newFantasySet = new FantasySettings(req.body.leagueChoice, req.body.deadline, req.body.budgetlimit, req.body.subslimit, req.body.currentGameweek);
+    const newFantasySet = new FantasySettings(req.body.leagueChoice, req.body.deadline, req.body.budgetlimit,
+        req.body.subslimit, req.body.playersFromSameTeamLimit, req.body.currentGameweek);
     console.log(newFantasySet.leagueChoice)
     await DBManager.InsertFantasySettings(newFantasySet);
 
@@ -70,7 +71,8 @@ FantasyRouter.get("/FantasyLeagueData", async(req, res) => {
 
 FantasyRouter.post("/CreateFantasyUser", async(req, res) => {
     try {
-        const fantasyUserDocument = await DBManager.CreateFantasyUserInDB(req.body.userInfo, req.body.fantasyUserTeamName,
+        const fantasyUserDocument = await DBManager.CreateFantasyUserInDB(req.body.leagueID, req.body.leagueChoice,
+            req.body.fantasyType, req.body.userInfo, req.body.fantasyUserTeamName,
             req.body.numOfGames, req.body.startFromGameweek);
         const info = { Status: "fantasy user created", fantasyUserInfo: fantasyUserDocument };
         //console.log(user);
