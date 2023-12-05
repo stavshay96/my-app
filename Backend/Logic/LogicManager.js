@@ -4,6 +4,7 @@ const DBManager = require(path.join(__dirname, "../Database/DBManager"));
 const Player = require('../Classes/Info/Player');
 const Team = require('../Classes/Info/Team');
 const League = require('../Classes/Info/League');
+const { Console } = require("console");
 const fs = require('fs').promises;
 
 
@@ -134,6 +135,58 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
 //transferPlayersBetweenTeamsFromFileHebrew(filePath, "PremierLeague");
 
 
-async function insertLeagueAndTeamsToDBFromFile(filePath) {
+async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {
+    try {
+        const league = new League(leagueID, englishLeagueName, hebrewLeagueName, [], Array.from({ length: numOfGames }, () => []), numOfGames);
+        const data = await fs.readFile(filePath, 'utf8');
+        const lines = data.split('\n');
+        let countTeamID = leagueID * 100;
+
+        //console.log(lines);
+        for (let line of lines) {
+            const TeamData = line.split(',');
+            if (TeamData.length === 2) {
+                const hebName = TeamData[0].trim();
+                const engName = TeamData[1].trim();
+                //console.log(`the team name is  ${engName} and in hebrew ${hebName} `)
+                const team = new Team(countTeamID, engName, hebName, []);
+                league.TeamsList.push(team);
+                countTeamID++;
+            }
+        }
+        const insertStatus = await DBManager.CreateNewLeagueInDataBase(league);
+        console.log(insertStatus);
+        process.exit(0);
+    } catch (error) {
+        console.error(`Error insert league and team in ${englishLeagueName} :`, error);
+        process.exit(1);
+    }
 
 }
+
+//const filePath = "../../files/LigaLeumit/namesTeamsLeumit.txt"
+//insertLeagueAndTeamsToDBFromFile(filePath, 3, "LigaLeumit", "ליגה לאומית", 37);
+
+async function insertPlayersToDBFromFileManyTeams(filePath, englishLeagueName) {
+    /* format file:
+     ** hebrew team name
+     ** each line - hebrew player name , english player name, position
+     ** blank line
+     ** "END" in last line (after blank line)
+     */
+
+    try {
+        const data = await fs.readFile(filePath, 'utf8');
+        const lines = data.split('\n');
+
+        const insertStatus = await DBManager.InsertPlayersInfoManyTeams(lines, englishLeagueName);
+        console.log(insertStatus);
+        process.exit(0);
+    } catch (error) {
+        console.error("Error inserting players info :", error);
+        process.exit(1);
+    }
+
+}
+const filePath = "../../files/LigaLeumit/namesPlayersLeumit2.txt"
+insertPlayersToDBFromFileManyTeams(filePath, "LigaLeumit");

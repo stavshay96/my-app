@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/PlayersList.css";
 //import players from "./data/Players.jsx";
-import Arsenal from "../../images/kits/Arsenal.png";
+//import Arsenal from "../../images/kits/Arsenal.png";
 
 
 const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
@@ -141,6 +141,21 @@ const rows = props.playersList.map(createRow);
     return totalBudget > props.budgetLimit ? true:false;
  }
 
+ const isOverPlayersFromSameTeam = (updatedIDArray) => {
+   const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+   const teamCounts = {};  // Create an object to store the count of players for each team
+   // Iterate through the players and count the number of players for each team
+   newSelectedPlayers.forEach(player => {
+       const team = player.kit; 
+       teamCounts[team] = (teamCounts[team] || 0) + 1;
+   });
+   console.log(teamCounts);
+   // Check if any kit has more than the allowed limit
+   const isOverLimit = Object.values(teamCounts).some(count => count > props.playersFromSameTeamLimit);
+   return isOverLimit;
+
+ }
+
  const isMaxGoalkeepers = (updatedIDArray) =>{
     const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
     const goalkeepers = newSelectedPlayers.filter((player) => player.position === "GK");
@@ -209,17 +224,27 @@ const rows = props.playersList.map(createRow);
       alert("ניתן לבחור עד 3 חלוצים בלבד!");
       console.log("ניתן לבחור עד 3 חלוצים בלבד!");
     }
-    
     if(isOverBudget(updatedIDArray))
     {
       updatedIDArray = cancelPickingSelectedRow(updatedIDArray, selectedRows);
       alert("חריגה מהתקציב");
       console.log("חריגה מהתקציב");
     }
+   /* if(isOverSubs(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray, selectedRows);
+      alert(" חריגה בכמות החילופים ");
+      console.log("חריגה בכמות החילופים");
+    }*/
+    if(isOverPlayersFromSameTeam(updatedIDArray))
+    {
+      updatedIDArray = cancelPickingSelectedRow(updatedIDArray, selectedRows);
+      alert(`חריגה בכמות השחקנים מאותה הקבוצה. מותר ${props.playersFromSameTeamLimit} בלבד `);
+      console.log("חריגה בכמות השחקנים מאותה הקבוצה");
+    }
+    //if isOverSubs
 
-   
     removeCaptainIfNeeded(updatedIDArray);
-    
 
     setSelectedRows(updatedIDArray);
     const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);

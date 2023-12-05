@@ -1,5 +1,5 @@
-import manCityKit from "../../../images/kits/ManCity.png"
-import arsenalKit from "../../../images/kits/Arsenal.png"
+import manCityKit from "../../../images/kits/PremierLeague/ManCity.png"
+import arsenalKit from "../../../images/kits/PremierLeague/Arsenal.png"
 
 const TopScorer = [
   { id: 1, totalPoints: 64, currentPoints: 0, price: 10, playerName: 'ארלינג האלנד', position: 'FW', team: 'מכבי ת"א' , kit: manCityKit},

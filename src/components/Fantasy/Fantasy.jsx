@@ -33,6 +33,8 @@ const Fantasy = (props) => {
     const [playersList, SetPlayersList] = useState([]);
     const [fantasyType, SetFantasyType] = useState(11);
     const [numOfGames, SetNumOfGames] = useState(0);
+    const [leagueID, SetLeagueID] = useState(0);
+    const [playersFromSameTeamLimit, SetPlayersFromSameTeamLimit] = useState(2);
 
     const getFantasySettings = () => {
       axios.get(`http://localhost:7777/Fantasy/FantasySettings?leagueChoice=${props.leagueChoice}`)
@@ -43,6 +45,7 @@ const Fantasy = (props) => {
         SetDeadLineDate(settings.deadline);
         SetSubsLimit(settings.numOfSubsLimit);
         SetBudgetLimit(settings.budgetLimit);
+        SetPlayersFromSameTeamLimit(settings.playersFromSameTeamLimit);
         SetCurrentGameweek(settings.currentGameweek);
           //console.log(res.data.userInfo);
       })
@@ -58,6 +61,7 @@ const Fantasy = (props) => {
         const leaguedata = res.data;
         SetLeagueData(leaguedata.teamsList);
         SetNumOfGames(leaguedata.numOfGames);
+        SetLeagueID(leaguedata.leagueID)
         console.log(leaguedata);
         console.log(leaguedata.teamsList);
         console.log(leaguedata.numOfGames); 
@@ -195,7 +199,7 @@ const Fantasy = (props) => {
       <Route path="/" element={<FantasyHomePage lineup={lineup} handleLineup={handleLineup} leagueChoice={props.leagueChoice}
       currentBudget={currentBudget} handleBudget={handleBudget} budgetLimit={budgetLimit} topbarLeagueName={props.topbarLeagueName}
       currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit}  SetSubsLimit={SetSubsLimit} currentGameweek={currentGameweek}
-      captain={captain} handleCaptain={handleCaptain} playersList= {playersList} numOfGames={numOfGames} fantasyType={fantasyType}
+      captain={captain} handleCaptain={handleCaptain} playersList= {playersList} numOfGames={numOfGames} fantasyType={fantasyType} leagueID= {leagueID}      
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
       userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} fantasyUser={fantasyUser} SetFantasyUser={SetFantasyUser} />}/>
 
@@ -204,11 +208,14 @@ const Fantasy = (props) => {
       currentSubs={currentSubs} handleSubs={handleSubs} subsLimit={subsLimit} SetSubsLimit={SetSubsLimit} currentGameweek={currentGameweek}
       captain={captain} handleCaptain={handleCaptain} playersList= {playersList} numOfGames={numOfGames}
       deadLineDate={deadLineDate}  handleIsDeadLineDatePass={handleIsDeadLineDatePass}  isDeadLineDatePass={isDeadLineDatePass}
-      userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} fantasyUser={fantasyUser} SetFantasyUser={SetFantasyUser} fantasyType={fantasyType} />}/>
+      userInfo={props.userInfo} WrapUserInfo={props.WrapUserInfo} fantasyUser={fantasyUser} SetFantasyUser={SetFantasyUser} fantasyType={fantasyType}
+      playersFromSameTeamLimit={playersFromSameTeamLimit} />}/>
               
       <Route path="/daniel" element={<div><h1>daniel</h1></div>} />
       
-      <Route path ="/admin" element={<AdminFantasy leagueChoice = {props.leagueChoice} leagueData={leagueData} SetLeagueData={SetLeagueData}/>}/>
+      <Route path ="/admin" element={<AdminFantasy leagueChoice = {props.leagueChoice} leagueData={leagueData} SetLeagueData={SetLeagueData}
+      currentGameweek = {currentGameweek} deadLineDate ={deadLineDate} subsLimit={subsLimit} budgetLimit={budgetLimit}
+      playersFromSameTeamLimit={playersFromSameTeamLimit}/>}/>
       </>)}
     </Routes>
   )

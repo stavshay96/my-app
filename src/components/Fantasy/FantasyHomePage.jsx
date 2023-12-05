@@ -49,7 +49,8 @@ const FantasyHomePage = (props) => {
                                   imgstyle={{position:'absolute', top:'4.5%', left:'70.5%' }}/> : <Login changeUserInfo={props.WrapUserInfo}/>}
 
             {user && <FantasyTeamNamePopup userInfo={props.userInfo} fantasyUser={props.fantasyUser} SetFantasyUser={props.SetFantasyUser}
-                         numOfGames={props.numOfGames} currentGameweek={props.currentGameweek} /> }
+                         numOfGames={props.numOfGames} currentGameweek={props.currentGameweek} leagueID= {props.leagueID}
+                         leagueChoice={props.leagueChoice} fantasyType={props.fantasyType}/> }
         </div>
     )
 }

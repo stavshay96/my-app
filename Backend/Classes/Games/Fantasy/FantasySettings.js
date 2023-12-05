@@ -4,12 +4,14 @@ class FantasySettings {
         deadline,
         budgetLimit,
         numOfSubsLimit,
+        playersFromSameTeamLimit,
         currentGameweek
     ) {
         this.leagueChoice = leagueChoice;
         this.deadline = deadline;
         this.budgetLimit = budgetLimit;
         this.numOfSubsLimit = numOfSubsLimit;
+        this.playersFromSameTeamLimit = playersFromSameTeamLimit;
         this.currentGameweek = currentGameweek;
     }
 

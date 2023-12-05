@@ -1,0 +1,475 @@
+הפועל נוף הגליל
+דורון מיכאלי, Doron Michaeli ,שוער
+לידור כהן , Lidor Cohen , שוער
+תומר ליטבינוב, Tomer Litvinov , שוער
+יבגני ברקמן, Evgeniy Berkman , הגנה 
+סידיקי ג'אוורה,  Sidiki Jawara , הגנה
+תומר לבנון,  Tomer Levanon , הגנה
+עלי כיאל ,  Ali Kiyal , הגנה
+יונתן לוי ,  Yonatan Levi , הגנה
+חגי גולדנברג , Hagai Goldenberg  , הגנה
+עידו כהן , Idan Cohen , הגנה
+מור ברמי ,  Mor Berami , הגנה
+סאלח חוסיין ,  Salah Hussein , הגנה
+דולב אזולאי,  Dolev Azulay , הגנה
+ניר לקס , Nir Lax , קישור
+מוחמד גינגי מחאמיד, Mohamad Mahamid , קישור 
+נבו שדו ,  Nevo Shedo, קישור
+וליד דרויש , Walid Darwish , קישור
+גוליאן שלופה , Jolian Shalofa , קישור
+קווין ריינשטיין , Kevin Rainstein , קישור
+ירין סרדל, Yarin Sardal , קישור
+מייקי גרופר, Mikey Gruper , קישור
+שי מוסינקו , Shay Moseinko , קישור
+אוהד רבינוביץ, Ohad Rabinovich , קישור
+אופיר מזרחי, Ofir Mizrahi , קישור
+ולנטין מטאליס , Valentin Mettalis , קישור
+סמיר פרהוד, Samir Farhud , התקפה
+אלחסן קייטה, Alhassane Keita , התקפה
+אלון בוזורגי, Alon Buzorgi , התקפה
+ליאם ביתן, Liam Bittan , התקפה
+איתמר ביטון, Itamar Biton , התקפה
+עידן דוד,  Idan David , התקפה
+
+הפועל כפר סבא
+יואב פלטין, Yoav Feltin , שוער
+אביחי דהן , Avihai Dahan , שוער
+אריאל ברדוגו, Ariel Bardugo , שוער
+עבדוליי, Abdoulie Kabia , הגנה 
+דניאל מור יוסף , Daniel Mor Yosef , הגנה 
+יהושע שטרימלינג , Yehoshua Shtrimling , הגנה 
+אלון דמול, Alon Damol , הגנה 
+טום שלח , Tom Shelach , הגנה 
+עידן וינטראוב, Idan Weintraub , הגנה 
+עלי דחלה, Ali Dahla , הגנה 
+עומר יצחק , Omer Itzhak , הגנה 
+טום אחי מרדכי , Tom Achi Mordechai , הגנה 
+רמי סולטאן, Rami Sulatan , הגנה 
+עומרי בן הרוש, Omri Ben Harush , הגנה 
+רז ברוכיאן, Raz Baruchian , הגנה 
+דניאל גולאני, Daniel Joulani , קישור
+טום ברקוביץ , Tom Berkovich , קישור
+טל נעים,  Tal Naim , קישור
+יואב פוריאן , Yoav Forian , קישור
+אליאן רוחנא , Elian Rohana , קישור
+דניאל שניאור , Daniel Seneor , קישור
+רוי בקר , Roy Becker , קישור
+שי מזור , Shay Mazor , קישור
+שקד נבון, Shaked Navon , קישור
+ליאם מלכה , Liam Mlka , קישור
+רוסלו פליטר , Roscello Vlijter , קישור
+פראס תלחמי, Feras Telhami , התקפה
+איאד חאג , Iyad Haj , התקפה
+אופק ראובן , Ofek Reuven , התקפה
+אריק קבווה, Arik Kabawa , התקפה
+דודו ביטון , Dudu Biton , התקפה
+רועי בן שמעון , Roei Ben Shimon , התקפה
+דניאל אונימוכרה, Daniel Onyemuchara, התקפה
+
+הפועל עפולה
+ליאב זלקין , Liav Zelkin , שוער
+יובל קינן  , Yuval Keinan , שוער
+שגיא מלול  , Sagi Malul , שוער
+ניתאי גרייס , Nitai Greis , שוער
+דוד אקווה, David Acquah , הגנה 
+שליו דסטה, Shalev Desta , הגנה
+ארז שיפמן, Erez Shifman , הגנה
+טל כחילה, Tal Kahila , הגנה
+בר איבגי, Bar Ivgi , הגנה
+תמיר ארבל, Tamir Arbel , הגנה
+מור נעמן, Mor Naaman , הגנה
+אוראל כהן, Orel Cohen , הגנה
+סהר בן מנשה, Sahar Ben Menashe , הגנה
+דולב אזרואל, Dolev Azruel, הגנה
+אלמוג שנקור , Almog Shenkor , קישור
+אביתר ברק , Evyatar Barak , קישור
+עמית מור, Amit Mor , קישור
+אפיק כהן , Afik Cohen , קישור
+רוי קטרי , Roy Katari , קישור
+נהוראי יפרח , Nehoray Ifrah , קישור
+ניל גולדברג , Neil Goldberg , קישור
+לביא שוקרון , Lavi Shukrun , קישור
+זיו בן שימול, Ziv Ben Shimol , קישור
+ליאם חרמש , Liam Hermesh , קישור
+בראהים קונטה, Brahim Konate , קישור
+רז כהן, Raz Cohen , קישור
+רומן הבראן ,  Romain Habran , התקפה
+מוחמד עוואדה, Mohamad Awawdi , התקפה
+עילאי עזר , Ilay Azar  , התקפה
+פרנק ריבולייה, Franck Rivollier , התקפה
+
+הפועל עכו
+ראזי אבו חמדאן, Razi Abu Hamdan , שוער 
+נסים חאיכ, Nissim Hayek , שוער  
+שון בן נשר, Shon Ben Nesher , שוער 
+חנן ביטון, Hanan Biton , הגנה
+גפרי ניסמבאום , Jeffrey Nisembaum , הגנה
+אחמד שעבאן , Ahmad Shaaban , הגנה
+לואי טאהא, Loai Taha , הגנה
+אופק אטיאס , Ofek Atias , הגנה
+איתמר מונקה, Itamar Monka , הגנה
+סטפן וילוטיץ, Stefan Vilotic , הגנה
+ניתאי ביתן, Nitay Bitan , הגנה
+ניר דרורי, Nir Drori , הגנה
+איהם שחאדה, Ayham Shhade , קישור 
+אסף הרשקו, Assaf Hershko , קישור 
+גל אביב , Gal Aviv , קישור 
+גיתי סופיר , Gitay Sofir , קישור 
+אינן גונזלס ,  Einan Gonzales , קישור 
+איתי טאקו , Itay Tako , קישור 
+אמיר ריאן , Ameer Rayan , קישור 
+מוחמד אבו פאני , Mohamad Abu Fani , קישור 
+ננה דומו אקוסה במפה, Nana Akosah Bempah , קישור  
+אוהד חזוט , Ohad Hazut , קישור 
+אורי פורת, Ori Porat , קישור 
+בן אמסלם, Ben Amsalem , קישור 
+אורן סיטבון, Oren Sitbon , קישור
+אור דסה , Or Dasa , קישור 
+איציק אמירה , Itzik Amira , התקפה
+גיורגי גבדווה, Giorgi Gabedava , התקפה 
+רווה אסייג, Ravve Assayag , התקפה
+שחף ספיר, Shahaf Sapir , התקפה
+נתנאל חגאני , Netanel Hagani , התקפה 
+
+הפועל אום אל-פאחם
+אריק ינקו, Arik Yanko, שוער
+ראמי גבארין , Rami Jabarin , שוער
+שגיא פנחס , Sagi Pinhas , שוער
+ניב סרדל, Niv Sardal , הגנה 
+קובי מור, Kobi Mor  , הגנה
+עמרי לוזון, Omri Luzon , הגנה
+אחמד יונס ,  Ahmed Younes , הגנה
+עמיד מחאג'נה, Ameed Mhagna , הגנה 
+מרקוס דיניז, Marcus Diniz , הגנה
+ליעד לוי, Liad Levi , הגנה
+אדר אזרואל, Adar Azruel , הגנה
+אלכס נאזא, Alex Naza , הגנה
+סאשה פטשי, Sacha Petshi , קישור 
+ריף מסיקה, Reef Messika , קישור
+מוחמד ג'בארין , Mohammed Jabarin , קישור
+סגס תאמבי , Sagas Tambi , קישור
+גל לוי,  Gal Levi , קישור
+ראוף ג'בארין ,  Rauf Jabarin , קישור
+עמית זנטי,  Amit Zenati , קישור
+עוז פרץ, Oz Peretz, קישור
+בשאר מחאג'נה, Bashar Mhagne, קישור
+אחמד ג'בארין, Ahmed Jabarin, קישור
+דובב גבאי , Dovev Gabay , התקפה
+נואף בזיע,Noaf Bazea  , התקפה
+סאמח מראב , Sameh Marab , התקפה
+עלאא אגבריה, Alaa Agbaria , התקפה
+אביאל בן חמו , Aviel Ben Hemo , התקפה
+בן אזובל, Ben Azubel , התקפה
+מיקו ממן,  Miko Maman , התקפה
+
+הפועל ראשון לציון
+ליאור גליקליך, Lior Gliklich , שוער
+דביר ניר , Dvir Nir , שוער
+מתן עמבר, Matan Ambar , שוער
+אלירן גומלסקי,  Eliran Gomelski, שוער
+מור עדרי, Mor Edri , הגנה
+עמית מוסרי , Amit Moseri , הגנה
+רועי זריהן , Roei Zrihan , הגנה
+יובל חליבה , Yuval Haliva , הגנה
+סהר רביבו, Sahar Revivo , הגנה
+טל מכלוף , Tal Machluf , הגנה
+בני טרידובסקי , Benny Tridovski , הגנה
+דור אוסובסקי , Dor Ossovski , הגנה
+גיפד אמפנדה, Gift Mphande , הגנה
+דניאל בוהדנה, Daniel Bohadana , הגנה
+ויקי כחלון , Viki Kahlon , הגנה
+עמנואל סמדיה, Emmanuel Samadia , קישור 
+רועי פדידה, Roy Fadida , קישור 
+גל שלהבת, Gal Shalhevet , קישור 
+אורי זוהר,  Ori Zohar , קישור 
+עדן דהן , Eden Dahan , קישור 
+משה סמל,  Moshe Semel , קישור 
+וובה בראון, Vova Broun , קישור 
+מירון טל, Meron Tal , קישור 
+איאס מסאלחה , Eyas Masalha , קישור 
+גל קולני, Gal Kolani , קישור 
+ברני קאבלה,  Braney Kabala, קישור 
+נס זמיר, Ness Zamir , קישור
+אבראהים בדיר, Ibrahim Badir , התקפה
+גל קעטבי , Gal Kaatabi , התקפה
+יובל ששון , Yuval Sason , התקפה
+אוהד אלמגור , Ohad Almagor , התקפה
+רוי טליו , Roy Talev , התקפה
+לוואגה קיזיטו, Luwanga Kizito , התקפה
+נתנאל פרץ, Netanel Peretz , התקפה
+יהונתן לוי,  Yehonatan Levi , התקפה
+
+הפועל רמת השרון
+עידו שרון, Ido Sharon  , שוער
+טמיר סטולר, Tamir Stoller , שוער
+ירין חסן, Yarin Hassan , הגנה 
+דודי תירם , Dudi Tiram , הגנה 
+איתי בן חמו , Itay Ben Hemo , הגנה 
+רון בן דקון , Ron Ben Dakon , הגנה 
+עמית בוהדנה , Amit Bohadana , הגנה 
+דן סירקיס , Dan Sirkis , הגנה 
+עידו מדויל , Ido Madvil , הגנה 
+אלון גינת, Alon Ginat , הגנה 
+שון עדרי, Shon Edri , הגנה 
+גל מעתוק, Gal Maatuk , הגנה 
+איתמר גורי , Itamar Guri , הגנה 
+בן רייכרט, Ben Reichert , קישור 
+ניב לבנת, Niv Livnat , קישור 
+אור אוסטוינד , Or Ostvind , קישור 
+בן הדדי , Ben Hadadi , קישור 
+שחף מור , Shahaf Mor , קישור 
+רועי הר , Roi Hare , קישור 
+נתי אסקיאס , Netanel Askias , קישור 
+עמית יברבאום, Amit Yeverbaum , קישור 
+דור כוכב, Dor Kochav , קישור 
+שי בלחסן , Shay Balahssan , קישור 
+אברהם רדאי, Avraham Redai , התקפה
+פטר אוניקאצי , Peter Onyekachi , התקפה
+איבי רנסום , Ivy Ransum , התקפה
+ריצ'ארד קולו מבומבו, Richard Kule Mbombo , התקפה
+רוי מליקה , Roi Melika , התקפה
+ימבה איביופ, Yamba Ibiup , התקפה
+
+הפועל רמת גן
+עמית רייף, Amit Reif , שוער
+בן גורדין, Ben Gordin , שוער 
+עמית ביטון, Amit Bitton , הגנה
+איתי עוזרי, Itay Ozeri , הגנה
+אושר אבו , Osher Abu , הגנה
+גאי אביב , Guy Aviv , הגנה
+אוסמן טוראי , Osman Touray , הגנה
+נירן רוטשטיין , Niran Rotshtein , הגנה
+מור סמן טוב , Mor Simantov , הגנה
+רז נחמיאס  , Raz Nahmias , הגנה
+עמרי שמיר  , Omri Shamir , קישור
+הוד מסיקה  , Hod Messika , קישור
+רז כהן  , Raz Cohen , קישור
+ריצארד נגומה , Richard Ngoma , קישור
+איסמעיל ריאן  , Ismaeel Rayan , קישור
+דג'אץ וורקו  , Dagats Worko , קישור
+גור מושקטל  , Gur Muskatel , קישור
+עומר אבוהב  , Omer Abuhav , קישור
+ניר חסון  , Nir Hasson , קישור
+אייל אינברום , Eyal Inbrum , קישור
+אדר רטנר , Adar Ratner , קישור
+לאונרדו סילבה , Leonardo Silva , קישור
+דסאלין איילה , Desalin Ayala , קישור
+גידי קניוק, Gidi Kanyuk, קישור
+הראל שאשא, Harel Shasha, קישור
+גודניוס איגבקווה, Goodnews Igbokwe , התקפה
+בן מיזן , Ben Mizan , התקפה
+לירן אלמליח , Liran Elmaliach , התקפה
+שגיא דרור , Sagi Dror , התקפה
+מור פדידה, Mor Fadida, התקפה
+
+מ.ס כפר קאסם
+איסמעאיל בחאש, Ismaeel Bahash ,  שוער 
+יהונתן עוזר , Yehonatan Ozer ,  שוער 
+מאור ארליך, Maor Erlich ,  שוער 
+פאדי נגאר , Fadi Najar , הגנה
+גיל סלם , Gil Salem , הגנה
+צליל נחמיה  , Tzlil Nehemya , הגנה
+איהם אבדאח  , Iham Ebdah , הגנה
+אחמד טאהא  , Ahmed Taha , הגנה
+איליי שפיקי , Elay Shafiki , הגנה
+נועם כהן , Noam Cohen , הגנה
+ניר אברגיל, Nir Abergil , קישור 
+שי גולן , Shay Golan , קישור 
+מידן כהן , Meidan Cohen , קישור 
+אלפא ממדו, Alfa Mamadou , קישור 
+פדרו פטראצי, Pedro Petrazzi , קישור 
+עומרי עאמר , Omri Amer , קישור 
+זרמי לובובאדיו , Jeremy Lububadio , קישור 
+מוחמד סרסור , Mohamad Sarsur , קישור 
+ראמז טאהא , Ramez Taha , קישור 
+רועי דיין , Roy Dayan , קישור 
+תמיר עזה, Tamir Azza , קישור 
+לירן ריגן , Liran Rigen , קישור 
+רוי דוגה , Roy Doga , קישור 
+שון מלכה, Sean Malka , קישור 
+אביב נגבי, Aviv Negbi , קישור 
+מחמוד עוויסאת , Mohamad Awissat , התקפה
+פאדי זידאן , Fadi Zidan , התקפה
+מוחמד בדיר  , Mohamad Badir , התקפה
+מוחמד עאמר  , Mohamad Amer , התקפה
+אסיל כנאני  , Asil Knani , התקפה
+רון אשכנזי , Ron Ashkenazi , התקפה
+גיא דהן , Guy Dahan , התקפה
+יהאב אבו אלשיך  , Ihab Abu Alshech , התקפה
+עומאר יונס, Omar Younes, התקפה
+
+עירוני טבריה
+דן דרורי, Dan Drori , שוער
+דניאל בניש, Daniel Benish , שוער
+טל בומשטיין, Tal Bomshtein , שוער
+יעקב אבבה, Yakov Ababa , הגנה 
+אלי בלילתי , Eli Balilti , הגנה 
+שי קונסטנטין, Shay Konstatin , הגנה 
+הארון שפסו , Haroon Shapso , הגנה 
+נמיר אגא, Namir Aga , הגנה 
+בן והבה , Ben Vahaba , הגנה 
+אילון אלימלך , Eilon Elimelech , קישור
+שון וייס, Shon Weisz , קישור
+גרשון קופי , Gershon Koffie , קישור
+יניב בריק, Yaniv Brik , קישור
+איתן וולבלום , Eitan Velblum , קישור
+רון אפלבאום , Ron Apelbaum , קישור
+רועי בן דוד , Roy Ben David , קישור
+שניר טליאס , Snir Talias , קישור
+פרנקו מאזורק, Franco Mazurek , קישור
+חוליו סזאר , Julio Cesar , התקפה
+אחמד עאבד, Ahmed Abed , התקפה
+באסל שעבאן ,Basel Shaaban  , התקפה
+והיב חביבאללה , Waheb Habiballah , התקפה
+מושיקו עשור, Moshiko Asor , התקפה
+אמיר לביא, Amir Lavi , התקפה
+עומר בוארון, Omer Buaron , התקפה
+תימור אביטן, Timor Avitan , התקפה
+
+עירוני קריית שמונה
+מתן זלמנוביץ, Matan Zalmanovich , שוער
+אסף צור, Assaf Tzur , שוער
+דודי טויטו, Dudu Twitto , הגנה
+שי בן דוד , Shay Ben David , הגנה
+עאיד חבשי, Ayid Habshi , הגנה
+אופיר בנבנישתי, Ofir Benbenishti , הגנה
+נועם כהן, Noam Cohen , הגנה
+אור חסין, Or Hasin , הגנה
+עלאא גאפר, Alaa Jafer , הגנה
+זיו לי, Ziv Leigh , הגנה
+ג'ורג' מנדז'ק, Georges Mandjeck, קישור
+אביחי וודגה , Avihai Wodaje , קישור
+גיא בן לולו  , Guy Ben Lulu , קישור
+גיאן מרטינס , Gyan Martins , קישור
+דוד דגו  , David Dego , קישור
+אריאל שירצקי , Areil Sheratzky , קישור
+מוחמד אבו רומי , Mohamad Abu Rumi , קישור
+בילאל שאהין, Bilal Shaheen, קישור
+רוי הראל  , Roy Harel , קישור
+מוחמד חטיב  , Mohamed Khatib , התקפה
+כריס אמימי  , Evo Christ Ememe , התקפה
+רועי זיקרי  , Roei Zikri , התקפה
+סטיבס אלפרדו פרנסיס  , Alfredo Stephens , התקפה
+יאיר מרדכי, Yair Mordechai, התקפה
+
+איחוד בני שפרעם
+יוסי גינזבורג, Yossi Ginzburg , שוער
+ראני עודה, Rani Odeh , שוער
+אופק פישלר, Ofek Fishler , הגנה
+מואמן קאדרי, Moamen Kadri , הגנה
+בר מאיר, Bar Meir , הגנה
+פאדי ארמאלי, Fadi Armali , הגנה
+חיים איצרין, Haim Izrin , הגנה
+דואוגוי מאלה , Doueugui Mala , הגנה
+עמית בר, Amit Bar , הגנה
+אחמד מוחסן, Ahmad Mohassan , הגנה
+איימן עלי, Ayman Ali , הגנה
+ברק אנגליסטר, Barak Anglister, הגנה
+גרי אקוסה, Jerry Akose , קישור
+מוסטפא שייח יוסף, Mustafa Sheikh Yosef , קישור
+ראמי מיזאנה, Rami Mizanne , קישור
+אמיר אבו ניל, Amir Abu Nil , קישור
+עלי חטיב, Ali Khatib , קישור
+מוחמד באדיר, Mohammad Badir , קישור
+כארם ארשיד , Karem Arshid , קישור
+מוחמד אבו ראס, Mohammed Abu Ras , קישור
+דניאל אוליביירה, Daniel Oliveira , קישור
+יונס גבארין , Younes Jabarin , קישור
+אנס דאבור, Anas Dabur, קישור
+מוחמד אדם מחאמיד, Muhamad Adam Mahamid, קישור
+ויסאם עיאשי, Wissam Ayashi , התקפה
+אנאס נסאר, Anas Nassar , התקפה
+עמאר אלדדה , Amer Eldada , התקפה
+עידן שמש, Idan Shemesh , התקפה
+ג'וביר בושנאק, Jubayer Bushnak , התקפה
+חסן סובח, Hassan Subeh, התקפה
+
+מכבי קביליו יפו
+אלמוג מלול, Almog Malul , שוער
+עדי נסה, Adi Nasa , שוער
+גיא משפתי , Guy Mishpati , הגנה
+גל מאיו, Gal Mayo , הגנה
+אורי מגבו, Uri Magbo , הגנה
+גיא עיני , Guy Eini , הגנה
+מאמדו דיאבטה, Mamamdou Diabate , הגנה
+דניאל אנגל , Daniel Angel , הגנה
+אדיר מאיה , Adir Maya , הגנה
+שלו סמרלי, Shalev Samorlo , הגנה
+אלעד אשרם , Elad Ashram , הגנה
+עמית כהן, Amit Cohen , הגנה
+ליאם אבי נגאר, Liam Nagar , הגנה
+ג'ון אוגו , John Ogu , קישור
+אברהימה קונטה , Ibrahima Conte , קישור
+טריקו גטהון , Triko Getahon , קישור
+רונן חנציס , Ronen Hanzis , קישור
+דני רוזנבליט, Dani Rozenblit , קישור
+יונתן פז , Yonatan Paz , קישור
+רונן פרץ , Ronen Peretz , קישור
+דניאל אגמי , Daniel Agami , קישור
+בר מאיר , Bar Meir , קישור
+פדיל זבידאת, Fadel Zbedat , קישור
+סלי גנון, Sali Ganon , קישור
+דניאל מאיה, Daniel Maya, קישור
+עבדול ג'וניור קברה, Abdul Junior Kavara, קישור
+מתן בית יעקב , Matan Beit Yaakov , התקפה
+אדגיי הייפורד, Hayford Adjei , התקפה
+יקיר זילברמן, Yakir Zilberman , התקפה
+גיל יצחק , Gil Itzhak , התקפה
+דוד צור, David Tzur , התקפה
+
+מכבי הרצליה
+עומר קבילו, Omer Kabilo , שוער
+שחר אמסלם, Shahar Amsalem , שוער
+עומרי זוארץ, Omri Zuaretz , שוער
+אמיר רוסתום, Amir Rustum , הגנה
+ברק לביא, Barak Lavi , הגנה
+עופר ורטה, Ofer Verta , הגנה
+דור אלברמן, Dor Alberman , הגנה
+רום אליאס, Rom Elias , הגנה
+שון קלימקין, Shon Klimkin , הגנה
+איליי איבגי, Ilay Ivgi, הגנה
+איתן אבירן, Eitan Aviran, הגנה
+אופק עובדיה, Ofek Ovadia , קישור
+רועי דוד , Roee David , קישור
+סאקו דומביה, Sekou Doumbia , קישור
+דייגו ניקוליבסקי, Diego Nicolaievsky , קישור
+עידן וקנין, Idan Vaknin , קישור
+עודד בירו, Oded Biro , קישור
+ארתור פרידמן, Arthur Fridman , קישור
+אילון ירושלמי, Eilon Yerushalmi , קישור
+רועי רבינוביץ, Roei Rabinovich , קישור
+ניר גואטה, Nir Guetta, קישור
+סטיבן אלפרד, Steven Alfred , התקפה
+עידו אקסברד, Ido Exbard , התקפה
+עמית מזרחי, Amit Mizrahi , התקפה
+
+סקציה נס ציונה
+דני עמוס, Dani Amos , שוער
+רועי כהן, Roee Cohen , שוער
+אמיר בן שמעון , Amir Ben Shimon , הגנה
+איתי רוטמן  , Itay Rotman , הגנה
+ניסו קפילוטו , Nisso Kapiloto , הגנה
+בן כוואז  , Ben Khawaz , הגנה
+מיקי סירושטיין , Miki Siroshten , הגנה
+עילאי תומר , Ilay Tomer , הגנה
+נתנאל אמויאל , Netanel Amoyal , הגנה
+אורי צעדון , Ori Tzaadon , הגנה
+אמנון טדלה , Amnon Tadela , קישור
+אמיר עגייב  , Amir Agayev , קישור
+יואב גביזון , Yoav Gabizon , קישור
+ליאור ברקוביץ , Lior Berkovich , קישור
+ליאל זנה , Liel Zana , קישור
+דן כדורי , Dan Kaduri , קישור
+סינטאיהו סלליך, Sintayehu Sallalich , קישור
+צ'אפיוקה סונגה, Chipyoka Songa, קישור
+אורי כהן, Uri Cohen, קישור
+ג'וזף אומה אדה, Joseph Oma Adah, קישור
+בן אוזלבו, Ben Ozalvo, התקפה
+ינאי דוד , Yanay David , התקפה
+בנגמין קוקו, Benjamin Kuku , התקפה
+אלי אלבז, Eli Elbaz , התקפה
+עדן הרשקוביץ , Eden Hershkovitz , התקפה
+יעקוב סילבסטר, Jakub Sylvestr , התקפה
+שון בוסקילה, Shon Buskila, התקפה
+
+END

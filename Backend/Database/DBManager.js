@@ -89,10 +89,12 @@ async function CreateNewLeagueInDataBase(NewLeague) {
         .findOne(query);
 
     if (league) {
-        await client.db("LeaguesInfo").collection("Info").deleteOne(league);
-        await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        //await client.db("LeaguesInfo").collection("Info").deleteOne(league);
+        //await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        return "this league is already exist in db";
     } else {
         await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        return `the league ${NewLeague.englishleagueName} inserted to db`;
     }
 }
 
@@ -202,9 +204,9 @@ async function InsertHebrewNamesManyTeams(i_lines, i_englishLeagueName) {
             if (teamIndex !== -1) {
                 //console.log(i_lines);
                 league.teamsList[teamIndex].players.forEach(player => {
-                    const playerdetails = i_lines[i].split(',');
-                    player.hebrewName = playerdetails[0];
-                    player.price = parseInt(playerdetails[1]);
+                    const playerInfo = i_lines[i].split(',');
+                    player.hebrewName = playerInfo[0];
+                    player.price = parseInt(playerInfo[1]);
                     player.hebrewTeamName = line.trim();
                     i++;
                     // console.log(player);
@@ -221,6 +223,55 @@ async function InsertHebrewNamesManyTeams(i_lines, i_englishLeagueName) {
         // Update the league document in the database
         await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         return `the players hebrew names in  the teams added  successfully`;
+    } else {
+        return "League not found";
+    }
+
+}
+
+async function InsertPlayersInfoManyTeams(i_lines, i_englishLeagueName) {
+    const query = { englishleagueName: i_englishLeagueName };
+    const league = await client.db("LeaguesInfo").collection("Info").findOne(query);
+    if (league) {
+        let i = 0
+        let line = i_lines[i];
+        while (line.trim() !== "END") {
+            console.log(line);
+            let team = league.teamsList.find(team => team.hebrewName.trim() === line.trim());
+            let teamIndex = league.teamsList.findIndex(team => team.hebrewName.trim() === line.trim());
+            console.log(`league found ${teamIndex}`);
+            i++;
+            if (teamIndex !== -1) {
+                while (i_lines[i].length !== 1) {
+                    console.log(i_lines[i]);
+                    const playerInfo = i_lines[i].split(',');
+                    const hebPlayerName = playerInfo[0].trim();
+                    const engPlayerName = playerInfo[1].trim();
+                    console.log(engPlayerName);
+                    const position = translatePosition(playerInfo[2].trim());
+                    const playerID = findPlayerID(league);
+                    console.log(`playerID found ${playerID}`);
+                    // Create the player object
+                    const player = new Player(playerID, engPlayerName, hebPlayerName, team.englishName, team.hebrewName, position,
+                        Array.from({ length: league.numOfGames }, () => 0), 0, 0, []);
+
+                    // Add the player to the team's playersList (assuming you have a playersList array in your team object)
+                    league.teamsList[teamIndex].players.push(player);
+                    i++;
+                }
+
+            } else {
+                return "Team not found in the league";
+            }
+            i++;
+            line = i_lines[i];
+
+
+        }
+        // Update the league document in the database
+        //console.log(league);
+        await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
+        return `the players info  added  successfully`;
     } else {
         return "League not found";
     }
@@ -416,14 +467,15 @@ async function GetLeagueFromDataBase(LeagueName) {
 const FantasyUser_11 = require('../Classes/Games/Fantasy/FantasyUser_11');
 const Player = require("../Classes/Info/Player");
 
-async function CreateFantasyUserInDB(userInfo, fantasyUserTeamName, numOfGames, startFromGameweek) {
+async function CreateFantasyUserInDB(leagueID, leagueChoice, fantasyType, userInfo, fantasyUserTeamName, numOfGames, startFromGameweek) {
     const gameCode = 1; // 1 - fantasy, 2 - predictions ...
-    const leagueCode = 1; // 1 - premier league , 2 -ligat ha'al ...
+    const leagueCode = leagueID; // 1 - premier league , 2 -ligat ha'al ...
     const typeOfGameCode = 1; // 1 - lineup11, 2 - squad15, 0 - other
     const fantasyUserID = gameCode * 100000000 + leagueCode * 10000000 + typeOfGameCode * 1000000 + userInfo.userID;
+    const collection = `${leagueChoice}_${fantasyType}`;
     const fantasyUser = new FantasyUser_11(fantasyUserID, userInfo, fantasyUserTeamName, Array.from({ length: numOfGames }, () => []),
-        Array.from({ length: numOfGames }, () => {}), 0, 0, 0, [1], startFromGameweek);
-    const newAddedFantasyUser = await client.db("FantasyUser").collection("PremierLeague_11").insertOne(fantasyUser);
+        Array.from({ length: numOfGames }, () => {}), 0, 0, [1], startFromGameweek);
+    const newAddedFantasyUser = await client.db("FantasyUser").collection(collection).insertOne(fantasyUser);
     return fantasyUser;
 }
 
@@ -453,8 +505,19 @@ async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gam
         const fantasyUser = await client.db("FantasyUser").collection(collection).findOne(query);
 
         if (fantasyUser) {
-            fantasyUser.lineupsArr[gameweek - 1] = lineup;
+            console.log("found fantasy user");
+            /*fantasyUser.lineupsArr[gameweek - 1] = lineup;
             fantasyUser.captain[gameweek - 1] = captain;
+            if (gameweek < fantasyUser.lineupsArr.length) {
+                fantasyUser.lineupsArr[gameweek] = lineup;
+                fantasyUser.captain[gameweek] = captain;
+            }*/
+            let i;
+            for (i = gameweek - 1; i < fantasyUser.lineupsArr.length; i++) {
+                //console.log(`i = ${i}`);
+                fantasyUser.lineupsArr[i] = lineup;
+                fantasyUser.captain[i] = captain;
+            }
             await client.db("FantasyUser").collection(collection).updateOne(query, { $set: fantasyUser });
         }
     } catch (error) {
@@ -463,8 +526,6 @@ async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gam
     }
 
 }
-
-
 
 
 
@@ -493,6 +554,7 @@ module.exports = {
     InsertHebrewNamesManyTeams: InsertHebrewNamesManyTeams,
     InsertNewPlayersToLeague: InsertNewPlayersToLeague,
     transfersPlayersBetweenTeamsHebrew: transfersPlayersBetweenTeamsHebrew,
+    InsertPlayersInfoManyTeams: InsertPlayersInfoManyTeams,
 
 
 };

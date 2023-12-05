@@ -23,6 +23,7 @@ const [formData, setFormData] = useState({
     deadline: '2023-09-12T16:00:00',
     budgetLimit: 100,
     subsLimit: 3,
+    playersFromSameTeamLimit: 2,
     teamsData: props.leagueData,
     selectedTeam:'',
     selectedPlayer:''
@@ -35,6 +36,11 @@ const [formData, setFormData] = useState({
 
        setFormData((prevData) => ({
             ...prevData,
+            gameweek: props.currentGameweek,
+            deadline: props.deadLineDate,
+            budgetLimit: props.budgetLimit,
+            subsLimit: props.subsLimit ,
+            playersFromSameTeamLimit: props.playersFromSameTeamLimit,
             teamsData: props.leagueData
         }))
         console.log(props.leagueData);
@@ -64,6 +70,12 @@ const [formData, setFormData] = useState({
                 gameweek: gameweekValue
             }));
         }
+    } else if (name === 'subsLimit' || name === 'budgetLimit' || name === 'playersFromSameTeamLimit') {
+        const intValue = parseInt(value);
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: intValue,
+        }));
     } else if (name.startsWith('player_')) {
         const playerName = name.split('_')[1];
         console.log(playerName);
@@ -127,6 +139,7 @@ const handleTeamChange = (event) => {
         deadline: formData.deadline,
         budgetlimit: formData.budgetLimit,
         subslimit: formData.subsLimit,
+        playersFromSameTeamLimit: formData.playersFromSameTeamLimit,
         currentGameweek: formData.gameweek
     }).then((res) =>{
         console.log(res.data);
@@ -185,6 +198,17 @@ return (
                     value={formData.subsLimit}
                     onChange={handleInputChange}
                     placeholder="subsLimit"
+        
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="playersFromSameTeamLimit">Players From Same Team Limit:</label>
+                    <input
+                    type="number"
+                    name="playersFromSameTeamLimit"
+                    value={formData.playersFromSameTeamLimit}
+                    onChange={handleInputChange}
+                    placeholder="playersFromSameTeamLimit"
         
                     />
                 </div>
