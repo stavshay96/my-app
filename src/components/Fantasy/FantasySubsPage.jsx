@@ -23,12 +23,12 @@ const FantasySubsPage = (props) => {
         SetInitialSelectedRows] = useState(props.lineup.map((player) => player.id));
 
     useEffect(() => {
-        if (location.pathname === '/Fantasy/subs') {
+        if (location.pathname === `/Fantasy/${props.leagueChoice}/subs`) {
             console.log('FantasySubsPage is rendering');
             console.log(`isDeadLineDatePass: ${props.isDeadLineDatePass}`);
             if (props.isDeadLineDatePass === true) {
                 alert('חלון החילופים סגור! לא ניתן לבצע חילופים');
-                navigate('/Fantasy', {replace: false});
+                navigate(`/Fantasy/${props.leagueChoice}`, {replace: false});
             }
         }
     }, [location.pathname, props.isDeadLineDatePass]);
@@ -47,6 +47,7 @@ const FantasySubsPage = (props) => {
                 handleCaptain={props.handleCaptain}
                 playersList= {props.playersList}
                 budgetLimit={props.budgetLimit} 
+                currentSubs={props.currentSubs}
                 subsLimit={props.subsLimit}
                 playersFromSameTeamLimit={props.playersFromSameTeamLimit}/>
             <TopBar
