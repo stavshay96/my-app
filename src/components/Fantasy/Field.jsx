@@ -45,9 +45,7 @@ function Field(props) {
                     {player.playerHebName}
                 </h1>
 
-                {props.captain && player.id === props.captain.id
-                    ? <h4>C</h4>
-                    : null}
+                {props.captain && player.id === props.captain.id? ( props.fantasyUser.tripleUsedInGameweek !== props.gameweekNumber ? <h4>C</h4> : <h4>x3</h4>) : null}
                 {showButton && <Button className="Xbtn" onClick={() => handleXbutton(player)}> x </Button>}
             </Button>
         )

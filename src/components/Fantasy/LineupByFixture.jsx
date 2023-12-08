@@ -4,30 +4,29 @@ import "./css/LineupByFixture.css"
 
 function LineupByFixture(props) {
 
-    const [gameweekNumber,
-        SetGameweekNumber] = useState(1);
+    //const [gameweekNumber, SetGameweekNumber] = useState(1);
     const gameweek = "מחזור ";
     const limitMaxGameWeek = props.currentGameweek;
     let   limitMinGameWeek = props.fantasyUser? props.fantasyUser.startFromGameweek: 1;
 
     useEffect(() => {
-        SetGameweekNumber(props.currentGameweek);
+        props.SetGameweekNumber(props.currentGameweek);
      }, [props.currentGameweek]);
 
     const increaseGameweek = () =>{
-        if (gameweekNumber < limitMaxGameWeek) {
-            SetGameweekNumber(gameweekNumber+1);
-            props.SetisThisGameweek((gameweekNumber+1) === props.currentGameweek)
-            props.handleLineup(props.fantasyUser.lineupsArr[gameweekNumber])
-            props.handleCaptain(props.fantasyUser.captain[gameweekNumber])
+        if (props.gameweekNumber < limitMaxGameWeek) {
+            props.SetGameweekNumber(props.gameweekNumber+1);
+            props.SetisThisGameweek((props.gameweekNumber+1) === props.currentGameweek)
+            props.handleLineup(props.fantasyUser.lineupsArr[props.gameweekNumber])
+            props.handleCaptain(props.fantasyUser.captain[props.gameweekNumber])
         }
     }
     const decreaseGameweek = () =>{
-        if (gameweekNumber > limitMinGameWeek) {
-            SetGameweekNumber(gameweekNumber-1);
-            props.SetisThisGameweek((gameweekNumber-1) === props.currentGameweek)
-            props.handleLineup(props.fantasyUser.lineupsArr[gameweekNumber-2])
-            props.handleCaptain(props.fantasyUser.captain[gameweekNumber-2])
+        if (props.gameweekNumber > limitMinGameWeek) {
+            props.SetGameweekNumber(props.gameweekNumber-1);
+            props.SetisThisGameweek((props.gameweekNumber-1) === props.currentGameweek)
+            props.handleLineup(props.fantasyUser.lineupsArr[props.gameweekNumber-2])
+            props.handleCaptain(props.fantasyUser.captain[props.gameweekNumber-2])
         }
     }
 
@@ -46,7 +45,7 @@ function LineupByFixture(props) {
                 </Button>
                 <Button className="btnGameweekFixture">
                     {gameweek} 
-                    {gameweekNumber}
+                    {props.gameweekNumber}
                 </Button>
                 <Button className="btnRightArrowFixture" onClick={decreaseGameweek}>
                     <span>&#9654;</span>

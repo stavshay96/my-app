@@ -66,7 +66,7 @@ function Game(props) {
         props.SetTopbarLeagueName(leagueName);
 
         if (props.gameID === 1) {
-            props.userInfo["fullName"] === "admin"?
+            props.userInfo["email"] === "pendel@gmail.com"?
             navigate(`/Fantasy/${pathName}/admin`, {replace: false}) :
             navigate(`/Fantasy/${pathName}`, {replace: false}) ;
             //const originalBackground = document.body.style.backgroundImage;
@@ -76,7 +76,7 @@ function Game(props) {
             }*/
         }
         else if (props.gameID === 2) {
-            props.userInfo["fullName"] === "admin"?
+            props.userInfo["email"] === "pendel@gmail.com"?
             navigate(`/Predictions/${pathName}/admin`, {replace: false}) :
             navigate(`/Predictions/${pathName}`, {replace: false}) ;
         } else if (props.gameID === 3) {

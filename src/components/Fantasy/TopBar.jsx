@@ -27,30 +27,6 @@ function TopBar(props) {
         .reduce((sum, item) => sum + item.price, 0);
     props.onCalcBudget(totalBudget);
 
-    //counting Subs
-    const countSubs = () =>{
-        let subs = 0;
-        if(props.fantasyUser && props.fantasyUser.lineupsArr) {
-            if (props.fantasyUser.startFromGameweek === props.currentGameweek) {
-                subs =  props.lineup.reduce((count, item) => count + 1, 0);
-                return subs;
-            }
-            else {
-                // compare current lineup (currentGameweek-1) to prev (currentGameweek-2)
-                const prevLineup = props.fantasyUser.lineupsArr[props.currentGameweek-2];
-                console.log(prevLineup)
-                const subsArr = props.lineup.filter(player => !prevLineup.some(prevPlayer => prevPlayer.id === player.id));
-                console.log(subsArr)
-                return subsArr.length;
-            }
-        }
-        else {
-            return subs;
-        }
-    }
-
-    const totalSubs = countSubs();
-    props.onCountingSubs(totalSubs);
 
     const location = useLocation();
 

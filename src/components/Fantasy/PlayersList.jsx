@@ -156,6 +156,39 @@ const rows = props.playersList.map(createRow);
 
  }
 
+ const isOverSubs = (updatedIDArray) => {
+   // return props.currentSubs > props.subsLimit ? true : false;
+   const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
+   //need to do the same as i did in topBar (maybe moving the functioanllity to this func and in topBar just show the current subs)
+   // need to equal between the lineup with change (updatedIDArray => newSelected) to the previousLineup
+
+   if(props.fantasyUser && props.fantasyUser.lineupsArr) {
+       if (props.fantasyUser.startFromGameweek === props.currentGameweek) {
+           const lineupCounter =  newSelectedPlayers.reduce((count, item) => count + 1, 0);
+           props.onCountingSubs(lineupCounter);
+           return false;
+       }
+       else {
+           // compare current lineup (currentGameweek-1) to prev (currentGameweek-2)
+           const prevLineup = props.fantasyUser.lineupsArr[props.currentGameweek-2];
+           console.log(prevLineup)
+           const subsArr = newSelectedPlayers.filter(player => !prevLineup.some(prevPlayer => prevPlayer.id === player.id));
+           console.log(subsArr)
+           if(subsArr.length > props.subsLimit){
+            return true;
+           } else {
+            props.onCountingSubs(subsArr.length);
+            return false;
+           }
+           
+          // return subsArr.length > props.subsLimit? true : false ;
+       }
+   }
+   else {
+       return false;
+   }
+ }
+
  const isMaxGoalkeepers = (updatedIDArray) =>{
     const newSelectedPlayers = convertIDArrToPlayersArr(updatedIDArray);
     const goalkeepers = newSelectedPlayers.filter((player) => player.position === "GK");
@@ -230,12 +263,12 @@ const rows = props.playersList.map(createRow);
       alert("חריגה מהתקציב");
       console.log("חריגה מהתקציב");
     }
-   /* if(isOverSubs(updatedIDArray))
+    if(isOverSubs(updatedIDArray))
     {
       updatedIDArray = cancelPickingSelectedRow(updatedIDArray, selectedRows);
       alert(" חריגה בכמות החילופים ");
       console.log("חריגה בכמות החילופים");
-    }*/
+    }
     if(isOverPlayersFromSameTeam(updatedIDArray))
     {
       updatedIDArray = cancelPickingSelectedRow(updatedIDArray, selectedRows);

@@ -16,3 +16,18 @@
 .btnChips:hover {
     background-color: #b6d7a8;
 }
+
+.disabledBtnChips {
+    text-align: center;
+    background-color: #f4fdf0;
+    border-radius: 0.5vw;
+    border: 0.15vw solid #b6d7a8;
+    display: inline-block;
+    cursor: default;
+    color: grey;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.1vw;
+    padding: 0.25% 0.5%;
+    text-shadow: 0vw 0.075vw 0vw #2f6627;
+    width: 11%;
+}
