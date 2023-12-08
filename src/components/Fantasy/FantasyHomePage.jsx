@@ -27,22 +27,57 @@ const FantasyHomePage = (props) => {
     return(
         <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
             <LangBar/> 
-            <FantasyDeadLine deadLineDate={props.deadLineDate} handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}  />
-            <TopBar currentBudget={props.currentBudget} onCalcBudget={props.handleBudget} lineup={props.lineup} leagueChoice={props.leagueChoice}
-                        currentSubs={props.currentSubs} onCountingSubs={props.handleSubs}  topbarLeagueName={props.topbarLeagueName} 
-                        budgetLimit={props.budgetLimit} subsLimit={props.subsLimit}  SetSubsLimit={props.SetSubsLimit} fantasyUser={props.fantasyUser}  currentGameweek={props.currentGameweek}/>
-            <Field lineup={props.lineup} onRemoveButton={props.handleLineup} captain={props.captain} leagueChoice={props.leagueChoice}/>
+            <FantasyDeadLine
+                deadLineDate={props.deadLineDate} 
+                handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}  />
+            <TopBar
+                currentBudget={props.currentBudget} 
+                onCalcBudget={props.handleBudget} 
+                lineup={props.lineup} 
+                leagueChoice={props.leagueChoice}
+                currentSubs={props.currentSubs} 
+                onCountingSubs={props.handleSubs}  
+                topbarLeagueName={props.topbarLeagueName} 
+                budgetLimit={props.budgetLimit} 
+                subsLimit={props.subsLimit}  
+                SetSubsLimit={props.SetSubsLimit} 
+                fantasyUser={props.fantasyUser} 
+                currentGameweek={props.currentGameweek}/>
+            <Field 
+                lineup={props.lineup} 
+                onRemoveButton={props.handleLineup} 
+                captain={props.captain} 
+                leagueChoice={props.leagueChoice}
+                fantasyUser={props.fantasyUser}
+                currentGameweek={props.currentGameweek}
+                gameweekNumber={props.gameweekNumber}/>
             <InfoAndFantasyOptions/>
-            <MatchesList currentGameweek={props.currentGameweek} numOfGames={props.numOfGames}/>
-            <LineupByFixture currentGameweek={props.currentGameweek} numOfGames={props.numOfGames} fantasyUser={props.fantasyUser} 
-            handleLineup={props.handleLineup} handleCaptain={props.handleCaptain} isThisGameweek={isThisGameweek} SetisThisGameweek={SetisThisGameweek}/>
-            <MovingToSubsButton isDeadLineDatePass={props.isDeadLineDatePass} leagueChoice={props.leagueChoice} isThisGameweek={isThisGameweek}/>
+            <MatchesList 
+                currentGameweek={props.currentGameweek} 
+                numOfGames={props.numOfGames}/>
+            <LineupByFixture 
+                currentGameweek={props.currentGameweek} 
+                numOfGames={props.numOfGames} 
+                fantasyUser={props.fantasyUser} 
+                handleLineup={props.handleLineup} 
+                handleCaptain={props.handleCaptain} 
+                isThisGameweek={isThisGameweek} 
+                SetisThisGameweek={SetisThisGameweek}
+                gameweekNumber={props.gameweekNumber} 
+                SetGameweekNumber={props.SetGameweekNumber}/>
+            <MovingToSubsButton 
+                isDeadLineDatePass={props.isDeadLineDatePass} 
+                leagueChoice={props.leagueChoice} 
+                isThisGameweek={isThisGameweek}/>
             <MyLeagues/>
             <Rules/>
-            <BackToHomePage style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  
-                  backgroundSize: "cover", zIndex: '1',
-                backgroundPosition: '0vw 0.1vw', }}/>
-            <img className= "fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
+            <BackToHomePage 
+                style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  
+                        backgroundSize: "cover", zIndex: '1',
+                        backgroundPosition: '0vw 0.1vw', }}/>
+            <img 
+                className= "fantasy-logo" 
+                src={require('../../images/FantasyLogo.png')}/>
             {user? <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}
                                   h1style={{position:'absolute', top:'4.35%', right:'7.75%' ,fontSize:'1.3vw', textShadow: "0vw 0.05vw 0vw"}}
                                   btnstyle={{position:'absolute', top:'11%',left:'69%'}}

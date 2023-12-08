@@ -48,7 +48,10 @@ const FantasySubsPage = (props) => {
                 playersList= {props.playersList}
                 budgetLimit={props.budgetLimit} 
                 currentSubs={props.currentSubs}
+                onCountingSubs={props.handleSubs}
                 subsLimit={props.subsLimit}
+                fantasyUser={props.fantasyUser}
+                currentGameweek={props.currentGameweek}
                 playersFromSameTeamLimit={props.playersFromSameTeamLimit}/>
             <TopBar
                 currentBudget={props.currentBudget}
@@ -71,8 +74,17 @@ const FantasySubsPage = (props) => {
                 captain={props.captain}
                 onChangeCaptain={props.handleCaptain}
                 leagueChoice={props.leagueChoice}
-                onChangeSelectedRows={SetInitialSelectedRows}/>
-            <SpecialChips/>
+                onChangeSelectedRows={SetInitialSelectedRows}
+                fantasyUser={props.fantasyUser}
+                currentGameweek={props.currentGameweek}
+                gameweekNumber={props.gameweekNumber}/>
+            <SpecialChips
+                fantasyUser={props.fantasyUser}
+                SetFantasyUser={props.SetFantasyUser}
+                SetSubsLimit={props.SetSubsLimit}
+                currentGameweek={props.currentGameweek}
+                fantasyType={props.fantasyType}
+                />
             <SubmitAndReset
                 lineup={props.lineup}
                 onResetClick={props.handleLineup}

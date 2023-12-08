@@ -4,6 +4,7 @@ import teams from "../Fantasy/data/Teams";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import BackToHomePage from "../General/BackToHomePage"
+import {useNavigate} from "react-router-dom";
 
 
 const AdminFantasy = (props) =>{
@@ -17,6 +18,7 @@ const AdminFantasy = (props) =>{
     
 
 */
+let navigate = useNavigate();
 const [isLoading, setIsLoading] = useState(true);
 const [formData, setFormData] = useState({
     gameweek: 1,
@@ -28,6 +30,12 @@ const [formData, setFormData] = useState({
     selectedTeam:'',
     selectedPlayer:''
   });
+
+  useEffect(() => {
+    if (props.userInfo && props.userInfo["email"] !== "pendel@gmail.com") {
+        navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
+        }
+    }, [isLoading]);
 
 
     useEffect(() => {
