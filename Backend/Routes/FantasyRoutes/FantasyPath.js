@@ -26,15 +26,23 @@ FantasyRouter.post("/FantasyPL", async(req, res) => {
     res.send(await BuildFantasyUser(req.cookies, FantasyPL));
 });
 
-///------------------ post admin settings to DB -------------------/////
+///------------------ post admin  to DB -------------------/////
 
-FantasyRouter.post("/Admin", async(req, res) => {
+FantasyRouter.post("/AdminFantasySettings", async(req, res) => {
     const newFantasySet = new FantasySettings(req.body.leagueChoice, req.body.deadline, req.body.budgetlimit,
         req.body.subslimit, req.body.playersFromSameTeamLimit, req.body.currentGameweek);
     console.log(newFantasySet.leagueChoice)
     await DBManager.InsertFantasySettings(newFantasySet);
 
     res.send("The Fantasy Settings is updated");
+});
+
+FantasyRouter.post("/AdminPointsUpdate", async(req, res) => {
+    console.log("post http request of points")
+        //console.log(req.body.teamsData);
+    const reponse = await DBManager.UpdatePlayersPointsInDB(req.body.leagueChoice, req.body.teamsData, req.body.currentGameweek);
+
+    res.send(reponse);
 });
 
 ///------------------------------------------------------------------
@@ -87,7 +95,8 @@ FantasyRouter.post("/CreateFantasyUser", async(req, res) => {
 FantasyRouter.post("/SetUserLineUpAndCaptain", async(req, res) => {
     try {
         await DBManager.SetFantasyUserLineUp(req.body.userInfo, req.body.leagueChoice,
-            req.body.fantasyType, req.body.Gameweek, req.body.lineup, req.body.Captain);
+            req.body.fantasyType, req.body.Gameweek, req.body.lineup, req.body.Captain,
+            req.body.tripleUsedInGameweek, req.body.wildCardUsedInGameweek);
         const info = { Status: "fantasy user updated" };
         res.send(info);
     } catch (error) {

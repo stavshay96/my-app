@@ -313,7 +313,7 @@ const rows = props.playersList.map(createRow);
 
   return (
     <div>
-      <DataGrid className={classes.root} style={{position:'absolute', top:'39.75%', right:'66.95%', zindex:'1',
+      <DataGrid className={classes.root} style={{position:'absolute', top:'39.75%', right:'66.95%', zindex:'2',
         width:'30.75%', height: '97%', backgroundColor: '#e0f9d5',  backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`  }}
        // filterModel={filterModel}
        // onFilterModelChange={handleFilterChange}

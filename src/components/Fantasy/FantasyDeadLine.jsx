@@ -5,8 +5,7 @@ import "./css/FantasyDeadLine.css"
 import Background from "../../images/backgroundDeadline.jpg";
 
 function FantasyDeadLine(props) {
-    var weeklyPoints = 27;
-    var totalPoints = 524;
+   
     const user = document.cookie;
     const [deadLineMessage,
         setDeadLineMessage] = useState("חלון החילופים סגור");
@@ -40,6 +39,20 @@ function FantasyDeadLine(props) {
         const interval = setInterval(updateCountdown, 1000);
         return () => clearInterval(interval);
     }, []);
+
+    const calcTotalPoints = () =>{
+        let sumPoints = 0;
+        if(props.fantasyUser.lineupsArr){
+            for(let lineup of props.fantasyUser.lineupsArr){
+                if(lineup.length > 0){
+                    sumPoints += lineup.reduce((sum, item) => sum + item.currentPoints, 0)
+                }
+            }
+        }
+        return sumPoints;
+    }
+
+    const totalPoints = calcTotalPoints();
 
     return (
         <Button

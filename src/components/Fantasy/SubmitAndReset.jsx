@@ -63,9 +63,7 @@ function SubmitAndReset(props) {
             } else if (!props.lineup.find(((player) => player.id === props.captain.id))) {
                 alert("הקפטן לא חלק מהקבוצה. יש לבחור קפטן חדש");
             } else {
-                players.forEach(data => {
-                    data.currentPoints = data.totalPoints;
-                    data.totalPoints = 0;})
+                
                     saveLineup();
                 navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
             }
@@ -87,7 +85,9 @@ function SubmitAndReset(props) {
                 fantasyType: props.fantasyType,
                 Gameweek: props.currentGameweek,
                 lineup: props.lineup,
-                Captain: props.captain
+                Captain: props.captain,
+                tripleUsedInGameweek: props.fantasyUser.tripleUsedInGameweek,
+                wildCardUsedInGameweek: props.fantasyUser.wildCardUsedInGameweek
             }).then((res) =>{
                 console.log(res.data);
                 window.location.reload(); 

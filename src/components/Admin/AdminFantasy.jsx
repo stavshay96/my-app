@@ -4,7 +4,7 @@ import teams from "../Fantasy/data/Teams";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import BackToHomePage from "../General/BackToHomePage"
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 
 
 const AdminFantasy = (props) =>{
@@ -31,6 +31,21 @@ const [formData, setFormData] = useState({
     selectedPlayer:''
   });
 
+  const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname.includes("/admin/")) {
+          document.body.classList.add("home-page");
+        } else {
+          document.body.classList.remove("home-page");
+        }
+      
+        // Cleanup function to remove the class when the component unmounts
+        return () => {
+          document.body.classList.remove("home-page");
+        };
+      }, [location.pathname]);
+
   useEffect(() => {
     if (props.userInfo && props.userInfo["email"] !== "pendel@gmail.com") {
         navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
@@ -52,11 +67,11 @@ const [formData, setFormData] = useState({
             teamsData: props.leagueData
         }))
         console.log(props.leagueData);
-        if(isLoading === true) {
+        if(props.leagueData && props.leagueData.length > 0) {
          setIsLoading(false);
         }
-    
-    }, [isLoading]);
+      
+    }, [isLoading, props.leagueData]);
 
   
 
@@ -87,38 +102,38 @@ const [formData, setFormData] = useState({
     } else if (name.startsWith('player_')) {
         const playerName = name.split('_')[1];
         console.log(playerName);
+        const updatedTeamsData = formData.teamsData.map((team) => {
+            // console.log(team.hebrewName);
+             //console.log(`${ formData.selectedTeam} has chosen`);
+             if (team.englishName === formData.selectedTeam) {
+                 const updatedPlayers = team.players.map((player) => {
+                     if (player.englishName === playerName) {
+                         console.log(value);
+                         const updatedPoints = [...player.pointsPerWeek];
+                         updatedPoints[formData.gameweek - 1] = parseInt(value);
+                         console.log(updatedPoints);
+ 
+                         return {
+                             ...player,
+                             pointsPerWeek: updatedPoints,
+                         };
+                     }
+                     return player;
+                 });
+ 
+                 return {
+                     ...team,
+                     players: updatedPlayers,
+                 };
+             }
+             return team;
+         });
 
-        props.SetLeagueData((prevData) => {
-            const updatedTeamsData = prevData.map((team) => {
-               // console.log(team.hebrewName);
-                //console.log(`${ formData.selectedTeam} has chosen`);
-                if (team.englishName === formData.selectedTeam) {
-                    const updatedPlayers = team.players.map((player) => {
-                        if (player.englishName === playerName) {
-                            console.log(value);
-                            const updatedPoints = [...player.pointsPerWeek];
-                            updatedPoints[formData.gameweek - 1] = parseInt(value);
-                            console.log(updatedPoints);
-    
-                            return {
-                                ...player,
-                                pointsPerWeek: updatedPoints,
-                            };
-                        }
-                        return player;
-                    });
-    
-                    return {
-                        ...team,
-                        players: updatedPlayers,
-                    };
-                }
-                return team;
-            });
-            console.log(props.leagueData);
-            return  updatedTeamsData;
-           
-        });
+         console.log(updatedTeamsData);
+         setFormData((prevData) => ({
+            ...prevData,
+            ["teamsData"]: updatedTeamsData,
+        }));
        // console.log(`${formData.teamsData[1].players[0].fullName} now get ${formData.teamsData[1].players[0].pointsPerWeek[0]} points`)
     }
    
@@ -142,7 +157,7 @@ const handleTeamChange = (event) => {
 
   const handleFantasySettingsUpdate = () => {
     console.log(props.leagueChoice)
-    axios.post(`http://localhost:7777/Fantasy/Admin`, {
+    axios.post(`http://localhost:7777/Fantasy/AdminFantasySettings`, {
         leagueChoice: props.leagueChoice,
         deadline: formData.deadline,
         budgetlimit: formData.budgetLimit,
@@ -156,6 +171,22 @@ const handleTeamChange = (event) => {
         console.error(error);
         alert("ניסיון עדכון הגדרות הליגה נכשל!!");
         });
+  }
+
+  const handlePlayersPointsUpdate = () => {
+    //alert("points update");
+    axios.post(`http://localhost:7777/Fantasy/AdminPointsUpdate`, {
+        leagueChoice: props.leagueChoice,
+        teamsData : formData.teamsData,
+        currentGameweek: formData.gameweek
+    }).then((res) =>{
+        console.log(res.data);
+        alert("הנקודות עודכנו בהצלחה!");
+    }).catch(error => {
+        console.error(error);
+        alert("ניסיון עדכון הנקודות נכשל!!");
+        });
+    
   }
 
 
@@ -231,43 +262,54 @@ return (
                         <option value="">Select a team</option>
                         {props.leagueData.map((team, index) => (
                         <option key={index} value={team.englishName} >
-                            {team.englishName}
+                            {team.hebrewName}
                         </option>
                         ))}
                     </select>
                 </div>
-                <Button className="btnSave" onClick={handleFantasySettingsUpdate}>שמור נתונים</Button>
+                <Button className="btnSave" onClick={handleFantasySettingsUpdate}>שמור הגדרות</Button>
+                <Button className="btnSave" onClick={handlePlayersPointsUpdate}>שמור ניקוד  </Button>
+                <div style={{fontSize:'1rem', textAlign:'center', unicodeBidi:'plaintext', color:'red'}}>לשים לב: הניקוד שנשמר בלחיצה הוא הניקוד למחזור המצוין ב-gameweek</div>
             </form>
             </div>
                 {formData.selectedTeam && (
                     <div className="player-column">
                             <div className="form-group">
-                            
-                                <div className="players-list">
-                                {props.leagueData
-                                    .find((team) => team.englishName === formData.selectedTeam)
-                                    .players.map((player, index) => (
-                                    <div key={index} className="player-label">
-                                        <div className="player-info">
-                                            <div className="player-name">
-                                                <input
-                                                    type="number"
-                                                    name={`player_${player.englishName}`}
-                                                    value={player.pointsPerWeek[formData.gameweek - 1]}
-                                                    onChange={handleInputChange}
-                                                    placeholder="Points"
-                                                />
-                                                {player.englishName}
-                                            </div>
-                                            <div className="player-position">
-                                                ({player.position})
-                                            </div>
-                                        </div>
-                                    </div>
-                                    ))}
-                                </div>
+                                <table className="players-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Player Name</th>
+                                            <th>Position</th>
+                                            <th>Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {formData.teamsData
+                                            .find((team) => team.englishName === formData.selectedTeam)
+                                            .players.map((player, index) => (
+                                                <tr key={index} >
+                                                    <td  className="player-name">
+                                                        {player.hebrewName}
+                                                    </td>
+                                                    <td className="player-position">
+                                                        {player.position}
+                                                    </td>
+                                                    <td>
+                                                        <input
+                                                            type="number"
+                                                            name={`player_${player.englishName}`}
+                                                            value={player.pointsPerWeek[formData.gameweek - 1]}
+                                                            onChange={handleInputChange}
+                                                            placeholder="Points"
+                                                        />
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                    </tbody>
+                                </table>
+
                             </div>
-                        </div>
+                    </div>
                 )}
             
         </div>
