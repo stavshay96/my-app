@@ -38,7 +38,8 @@ const FantasySubsPage = (props) => {
             <LangBar/>
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate}
-                handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}/>
+                handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}
+                fantasyUser={props.fantasyUser}/>
             <PlayersList
                 lineup={props.lineup}
                 initialSelectedRows={initialSelectedRows}
@@ -65,7 +66,9 @@ const FantasySubsPage = (props) => {
                 subsLimit={props.subsLimit}
                 fantasyUser={props.fantasyUser}
                 currentGameweek={props.currentGameweek}
-                SetSubsLimit={props.SetSubsLimit}/>
+                SetSubsLimit={props.SetSubsLimit}
+                fantasyType={props.fantasyType}
+                gameweekNumber={props.gameweekNumber}/>
                 
             <LineupCounter lineup={props.lineup}/>
             <Field

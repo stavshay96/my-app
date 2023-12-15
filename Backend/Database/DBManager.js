@@ -50,6 +50,110 @@ async function InsertFantasySettings(FantasySettings) {
 
 }
 
+async function UpdatePlayersPointsInDB(leagueChoice, teamsDataArr, currentGameweek) {
+    const query = { englishleagueName: leagueChoice }
+    const fantasyLeagueData = await GetLeagueDataFromDatabase(leagueChoice);
+
+    if (fantasyLeagueData) {
+        //updating points in leagueInfo in currentGameweek
+        let i, j;
+        const teamsListDB = fantasyLeagueData.teamsList; // more comfortable
+        for (i = 0; i < teamsListDB.length; i++) { //each team in data base (teamListDB and teamDataArr - same size same content except points)
+            // console.log(`work on team ${teamsListDB[i].englishName}`);
+            const playersListDB = teamsListDB[i].players;
+            const playersListAdmin = teamsDataArr[i].players;
+            for (j = 0; j < playersListDB.length; j++) { //each player in the team
+                if (playersListDB[j].playerID === playersListAdmin[j].playerID) { //check if the right order of players in the arrays
+                    //console.log(`found player ${playersListDB[j].englishName} ${playersListDB[j].playerID}`)
+                    // update points in db array by currrent gameweek
+                    playersListDB[j].pointsPerWeek[currentGameweek - 1] = playersListAdmin[j].pointsPerWeek[currentGameweek - 1];
+                    //calculate and update new total points 
+                    const totalPoints = playersListDB[j].pointsPerWeek.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+                    playersListDB[j].totalPoints = totalPoints;
+                    /*console.log("data in db")
+                    console.log(playersListDB[j].pointsPerWeek);
+                    console.log(playersListDB[j].totalPoints);*/
+
+                }
+            }
+        }
+        console.log("done loops")
+        await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: fantasyLeagueData });
+        await UpdateFantasyUsersPointsInDB(leagueChoice, fantasyLeagueData, currentGameweek);
+
+        return "The points of the players has updated in league info and fantasy users";
+
+    } else {
+        return "league not found";
+    }
+    //TO DO
+    //2. get league info
+    //3. change player points each player in currentGamweek
+    //4. make update for fantasy users:
+    //4.1. get fantasy users
+    //4.2 change points of fantasy users in current gameweek
+    //4.3 calculate points
+
+
+    //update relevant to specific current gameweek (need to save each gameweek in admin page)
+}
+
+async function UpdateFantasyUsersPointsInDB(i_englishLeagueName, fantasyLeagueData, currentGameweek) {
+    const fantasyUsers11CollectionName = `${i_englishLeagueName}_11`;
+    const fantasyUsers11 = await client.db("FantasyUser").collection(fantasyUsers11CollectionName).find().toArray();
+    const fantasyUsers15CollectionName = `${i_englishLeagueName}_15`;
+    const fantasyUsers15 = await client.db("FantasyUser").collection(fantasyUsers15CollectionName).find().toArray();
+
+    console.log(fantasyUsers11);
+    console.log(fantasyUsers15);
+
+    CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyUsers11);
+    CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyUsers15);
+
+    if (fantasyUsers11.length > 0) {
+        const updateOperations11 = collectUpdatesInArray(fantasyUsers11);
+        const result11 = await client.db("FantasyUser").collection(fantasyUsers11CollectionName).bulkWrite(updateOperations11);
+        console.log(`${result11.modifiedCount} documents updated in ${fantasyUsers11CollectionName}`); // Print the number of updated documents
+    }
+    if (fantasyUsers15.length > 0) {
+        const updateOperations15 = collectUpdatesInArray(fantasyUsers15);
+        const result15 = await client.db("FantasyUser").collection(fantasyUsers15CollectionName).bulkWrite(updateOperations15);
+        console.log(`${result15.modifiedCount} documents updated in ${fantasyUsers15CollectionName}`);
+    }
+
+}
+
+function CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyUsersArr) {
+    let i;
+
+    for (i = 0; i < fantasyUsersArr.length; i++) {
+        const fantasyUser = fantasyUsersArr[i];
+        const currentLineup = fantasyUser.lineupsArr[currentGameweek - 1];
+        const currentCaptain = fantasyUser.captain[currentGameweek - 1];
+        if (currentLineup.length > 0) { //if user has lineup in this gameweek (maybe not signup on that time)
+            for (let playerInLineup of currentLineup) { // pass on the lineup
+                let teamFound = fantasyLeagueData.teamsList.find(team => team.hebrewName === playerInLineup.team);
+                //console.log(`found team in calculation ${teamFound.englishName}`)
+                let playerFound = teamFound.players.find(player => player.playerID === playerInLineup.id)
+                    //console.log(`found player in calculation ${playerFound.englishName}`)
+                playerInLineup.currentPoints = playerFound.pointsPerWeek[currentGameweek - 1];
+                playerInLineup.totalPoints = playerFound.totalPoints; //total points may not necessary in this case
+                if (playerInLineup.id === currentCaptain.id) {
+                    if (fantasyUser.tripleUsedInGameweek === currentGameweek) {
+                        playerInLineup.currentPoints = playerInLineup.currentPoints * 3;
+                    } else {
+                        playerInLineup.currentPoints = playerInLineup.currentPoints * 2;
+                    }
+                    currentCaptain.currentPoints = playerInLineup.currentPoints;
+                    currentCaptain.totalPoints = playerInLineup.totalPoints; // the same - may not necessary
+                }
+
+            }
+        }
+        // console.log(fantasyUser.lineupsArr[currentGameweek - 1])
+    }
+}
+
 async function GetFantasySettingsFromDatabase(i_leagueChoice) {
     const query = { leagueChoice: i_leagueChoice }
     try {
@@ -61,6 +165,7 @@ async function GetFantasySettingsFromDatabase(i_leagueChoice) {
         throw error; // You might want to handle this error in the calling function
     }
 }
+
 
 
 //if teams are in league object in Info collection
@@ -496,7 +601,7 @@ async function GetFantasyUserFromDB(i_userID, i_LeagueChoice, i_FantasyType) {
 
 }
 
-async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gameweek, lineup, captain) {
+async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gameweek, lineup, captain, tripleUsedInGameweek, wildCardUsedInGameweek) {
     const query = { "userInfo.userID": parseInt(i_userID) };
     const filter = { userID: parseInt(i_userID) }
     const collection = `${i_LeagueChoice}_${i_FantasyType}`;
@@ -518,6 +623,14 @@ async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gam
                 fantasyUser.lineupsArr[i] = lineup;
                 fantasyUser.captain[i] = captain;
             }
+
+            if (fantasyUser.tripleUsedInGameweek !== tripleUsedInGameweek) {
+                fantasyUser.tripleUsedInGameweek = tripleUsedInGameweek;
+            }
+            if (fantasyUser.wildCardUsedInGameweek !== wildCardUsedInGameweek) {
+                fantasyUser.wildCardUsedInGameweek = wildCardUsedInGameweek;
+            }
+
             await client.db("FantasyUser").collection(collection).updateOne(query, { $set: fantasyUser });
         }
     } catch (error) {
@@ -541,6 +654,7 @@ module.exports = {
     //CreateFantasyUserInDataBase: CreateFantasyUserInDataBase,
     FindUserByCookie: FindUserByCookie,
     InsertFantasySettings: InsertFantasySettings,
+    UpdatePlayersPointsInDB: UpdatePlayersPointsInDB,
     GetFantasySettingsFromDatabase: GetFantasySettingsFromDatabase,
     GetLeagueDataFromDatabase: GetLeagueDataFromDatabase,
     // GetLeagueDataFromDatabaseArray: GetLeagueDataFromDatabaseArray,

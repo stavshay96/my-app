@@ -36,7 +36,7 @@ function Field(props) {
         return (
             <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${teamKit})`, backgroundSize: 'cover'}} key={player.id}>
                 <h2>
-                    {player.totalPoints}
+                    {player.currentPoints}
                 </h2>
                 <h3>
                     {player.price}m
