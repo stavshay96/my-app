@@ -21,6 +21,12 @@ const FantasyTeamNamePopup = (props) => {
 }
 
 
+  const handleEnterPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit();
+    }
+  };
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -29,6 +35,7 @@ const FantasyTeamNamePopup = (props) => {
   };
 
   const handleSubmit = () => {
+  
     //const cookieInfo = splitCookieToString(user);
     const userInfoWithoutPassword = { ...props.userInfo };
      delete userInfoWithoutPassword.password;
@@ -77,6 +84,7 @@ const FantasyTeamNamePopup = (props) => {
                 name="fantasyTeamName"
                 value={fantasyTeamName}
                 onChange={handleInputChange}
+                onKeyDown={handleEnterPress}
                 placeholder="שם הקבוצה"
                 className="input-style"
                 dir="auto" // Automatically detect text direction

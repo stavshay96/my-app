@@ -26,6 +26,9 @@ const FantasySubsPage = (props) => {
         if (location.pathname === `/Fantasy/${props.leagueChoice}/subs`) {
             console.log('FantasySubsPage is rendering');
             console.log(`isDeadLineDatePass: ${props.isDeadLineDatePass}`);
+            if (!props.userInfo.fullName) {
+                navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
+                }
             if (props.isDeadLineDatePass === true) {
                 alert('חלון החילופים סגור! לא ניתן לבצע חילופים');
                 navigate(`/Fantasy/${props.leagueChoice}`, {replace: false});
@@ -100,7 +103,8 @@ const FantasySubsPage = (props) => {
                 handleCaptain={props.handleCaptain}
                 fantasyType={props.fantasyType}
                 leagueChoice={props.leagueChoice}/>
-            <InfoAndFantasyOptions/>
+            <InfoAndFantasyOptions
+             leagueChoice={props.leagueChoice}/>
             <MatchesList
                 currentGameweek={props.currentGameweek}
                 numOfGames={props.numOfGames}/>

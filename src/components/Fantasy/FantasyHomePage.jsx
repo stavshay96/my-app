@@ -54,7 +54,8 @@ const FantasyHomePage = (props) => {
                 fantasyUser={props.fantasyUser}
                 currentGameweek={props.currentGameweek}
                 gameweekNumber={props.gameweekNumber}/>
-            <InfoAndFantasyOptions/>
+            <InfoAndFantasyOptions
+             leagueChoice={props.leagueChoice}/>
             <MatchesList 
                 currentGameweek={props.currentGameweek} 
                 numOfGames={props.numOfGames}/>
@@ -72,7 +73,8 @@ const FantasyHomePage = (props) => {
                 isDeadLineDatePass={props.isDeadLineDatePass} 
                 leagueChoice={props.leagueChoice} 
                 isThisGameweek={isThisGameweek}/>
-            <MyLeagues/>
+            <MyLeagues
+             leagueChoice={props.leagueChoice}/>
             <Rules/>
             <BackToHomePage 
                 style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  

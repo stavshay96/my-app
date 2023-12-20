@@ -33,9 +33,14 @@ function Field(props) {
       const TeamNameWithoutSpaces = player.kit.replace(/ /g, '');
      // const teamName = "ManCity";
        const teamKit = kitImages[`./${TeamNameWithoutSpaces}.png`];
+
+       const buttonStyles_h2 = {
+        backgroundColor: player.currentPoints >= 0? (player.currentPoints > 0? 'rgb(7, 86, 15)' : 'rgb(80,80,80)'): 'rgb(255, 73, 73)',
+       
+    };
         return (
             <Button className="btnPlayerButton"  style={{ backgroundImage: `url(${teamKit})`, backgroundSize: 'cover'}} key={player.id}>
-                <h2>
+                <h2 style={buttonStyles_h2}>
                     {player.currentPoints}
                 </h2>
                 <h3>
