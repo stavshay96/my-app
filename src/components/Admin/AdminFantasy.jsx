@@ -157,7 +157,7 @@ const handleTeamChange = (event) => {
 
   const handleFantasySettingsUpdate = () => {
     console.log(props.leagueChoice)
-    axios.post(`http://localhost:7777/Fantasy/AdminFantasySettings`, {
+    axios.post(`https://pendel-server.onrender.com/Fantasy/AdminFantasySettings`, {
         leagueChoice: props.leagueChoice,
         deadline: formData.deadline,
         budgetlimit: formData.budgetLimit,
@@ -175,7 +175,7 @@ const handleTeamChange = (event) => {
 
   const handlePlayersPointsUpdate = () => {
     //alert("points update");
-    axios.post(`http://localhost:7777/Fantasy/AdminPointsUpdate`, {
+    axios.post(`https://pendel-server.onrender.com/Fantasy/AdminPointsUpdate`, {
         leagueChoice: props.leagueChoice,
         teamsData : formData.teamsData,
         currentGameweek: formData.gameweek

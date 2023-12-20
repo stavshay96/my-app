@@ -40,7 +40,7 @@ const Fantasy = (props) => {
     const [gameweekNumber, SetGameweekNumber] = useState(1);
 
     const getFantasySettings = () => {
-      axios.get(`http://localhost:7777/Fantasy/FantasySettings?leagueChoice=${props.leagueChoice}`)
+      axios.get(`https://pendel-server.onrender.com/Fantasy/FantasySettings?leagueChoice=${props.leagueChoice}`)
       .then((res) => {
         const settings = res.data;
         console.log(settings);
@@ -59,7 +59,7 @@ const Fantasy = (props) => {
     }
 
     const getFantasyLeagueData = () => {
-      axios.get(`http://localhost:7777/Fantasy/FantasyLeagueData?leagueChoice=${props.leagueChoice}`)
+      axios.get(`https://pendel-server.onrender.com/Fantasy/FantasyLeagueData?leagueChoice=${props.leagueChoice}`)
       .then((res) => {
         const leaguedata = res.data;
         SetLeagueData(leaguedata.teamsList);
@@ -85,7 +85,7 @@ const Fantasy = (props) => {
 
     const getFantasyUser = () =>{
       console.log(props.userInfo.userID);
-      axios.get(`http://localhost:7777/Fantasy/GetFantasyUser?userID=${props.userInfo.userID}&leagueChoice=${props.leagueChoice}&fantasyType=${fantasyType}`)
+      axios.get(`https://pendel-server.onrender.com/Fantasy/GetFantasyUser?userID=${props.userInfo.userID}&leagueChoice=${props.leagueChoice}&fantasyType=${fantasyType}`)
       .then((res) => {
         const fantasyUserFromDB = res.data;
         console.log(fantasyUserFromDB);

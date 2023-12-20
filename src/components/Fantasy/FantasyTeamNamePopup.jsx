@@ -40,7 +40,7 @@ const FantasyTeamNamePopup = (props) => {
     const userInfoWithoutPassword = { ...props.userInfo };
      delete userInfoWithoutPassword.password;
     if(fantasyTeamName){
-        axios.post(`http://localhost:7777/Fantasy/CreateFantasyUser`, {
+        axios.post(`https://pendel-server.onrender.com/Fantasy/CreateFantasyUser`, {
             leagueID: props.leagueID,
             leagueChoice: props.leagueChoice,
             fantasyType: props.fantasyType,
