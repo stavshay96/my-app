@@ -7,6 +7,8 @@ import "./css/Fantasy.css";
 import FantasyHomePage from "./FantasyHomePage";
 import FantasySubsPage from "./FantasySubsPage";
 import AdminFantasy from "../Admin/AdminFantasy";
+import FantasyRoomPage from "./FantasyRoomPage";
+import MyLeagues from "./MyLeagues";
 
 
 function getLineUp(){
@@ -231,6 +233,12 @@ const Fantasy = (props) => {
                     leagueChoice = {props.leagueChoice} leagueData={leagueData} SetLeagueData={SetLeagueData}
                     currentGameweek = {currentGameweek} deadLineDate ={deadLineDate} subsLimit={subsLimit} budgetLimit={budgetLimit}
                     playersFromSameTeamLimit={playersFromSameTeamLimit} userInfo={props.userInfo}/>}/>
+
+      <Route path ="/rooms"
+        element={<FantasyRoomPage
+                     leagueChoice = {props.leagueChoice}
+                     currentGameweek = {currentGameweek}
+                     fantasyType={fantasyType}/>}/>
       </>)}
     </Routes>
   )

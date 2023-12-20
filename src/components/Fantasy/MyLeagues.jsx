@@ -4,13 +4,27 @@ import "./css/MyLeagues.css";
 import Leagues from "./data/Leagues.jsx";
 import DownArrow from "../../images/download.png";
 import UpArrow from "../../images/up-arrow.png";
+import {useNavigate} from "react-router-dom";
+
 
 let emptyRows = [ {id:1, leagueName: '' , position: ''} ];
+function MyLeagues(props)
+{
+    const [rows, setRows] = useState(emptyRows);
+    useEffect(() => {
+        const user = document.cookie;
+        let updatedRows  = user? Leagues.map(createRowLeague):emptyRows;
+        setRows(updatedRows);
+    }, []);
+
+    let navigate = useNavigate();
+
+    
 
 
 const cols = [
-    { field: "Position", headerName: "מיקום", headerAlign: 'center',  type:"number", flex: 0.8, filterable: false, sortable: false, align: 'center',
-    renderCell: wrapPositionText, renderHeader: wrapHeaderText},
+    /*{ field: "Position", headerName: "מיקום", headerAlign: 'center',  type:"number", flex: 0.8, filterable: false, sortable: false, align: 'center',
+    renderCell: wrapPositionText, renderHeader: wrapHeaderText},*/
     { field: "LeagueName", headerName: "שם הליגה", headerAlign: 'center', flex: 1.4, filterable: false, sortable: false, align: 'center', 
     renderCell: wrapCellTeamNameText ,  renderHeader: wrapHeaderText},
 ]
@@ -27,13 +41,7 @@ function wrapHeaderText(params) {
     );
 }
 
-function wrapCellTeamNameText(params) {
-    return (
-        <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw', fontWeight: 'bold'}}>
-            {params.value}
-        </div>
-    );
-}
+
 
 function wrapPositionText(params) {
     return (
@@ -43,15 +51,20 @@ function wrapPositionText(params) {
         </div>
     );
 }
-  
-function MyLeagues()
-{
-    const [rows, setRows] = useState(emptyRows);
-    useEffect(() => {
-        const user = document.cookie;
-        let updatedRows  = user? Leagues.map(createRowLeague):emptyRows;
-        setRows(updatedRows);
-    }, []);
+
+    function wrapCellTeamNameText(params) {
+       
+        return (
+            <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw', fontWeight: 'bold'}}  >
+                {params.value}
+            </div>
+        );
+    }
+
+    const handleRowClick = () =>{
+        window.history.pushState({ navigationDirection: "back" }, "", `/Fantasy/${props.leagueChoice}`);
+        navigate(`/Fantasy/${props.leagueChoice}/rooms`, {replace:false });
+    }
 
 
     return(
@@ -67,6 +80,7 @@ function MyLeagues()
     disableColumnMenu
     disableColumnSort
     hideFooter
+    onRowClick={handleRowClick} 
     />
     </div>)
 }

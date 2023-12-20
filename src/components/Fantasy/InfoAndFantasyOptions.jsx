@@ -1,9 +1,10 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import "./css/InfoAndFantasyOptions.css"
+import "./css/InfoAndFantasyOptions.css";
+import {useNavigate} from "react-router-dom";
 
-function InfoAndFantasyOptions() {
+function InfoAndFantasyOptions(props) {
     const lineup11 = "הרכב 11";
     const squad15 = "סגל 15";
     const news = "חדשות";
@@ -13,6 +14,14 @@ function InfoAndFantasyOptions() {
     const myLeagues = "הליגות שלי";
     const expectedLineups = "הרכבים משוערים";
     const drafts = "טיוטות";
+
+    let navigate = useNavigate();
+
+    const handleMyLeaguesButton = () =>{
+        window.history.pushState({ navigationDirection: "back" }, "", `/Fantasy/${props.leagueChoice}`);
+        navigate(`/Fantasy/${props.leagueChoice}/rooms`, {replace:false });
+
+    }
 
     return (
         <div>
@@ -56,7 +65,8 @@ function InfoAndFantasyOptions() {
                     className="btnInfoAndOptions2"
                     style={{
                     backgroundColor: '#bae9a6'
-                }}>
+                }}
+                onClick={handleMyLeaguesButton}>
                     {myLeagues}
                 </Button>
                 <Button className="btnInfoAndOptions2">

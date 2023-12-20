@@ -117,6 +117,10 @@ const SignUp = (props) => {
                             replace: true,
                         });
                        }
+                       else{
+                            window.location.reload(); 
+                          
+                       }
                     //props.changeUserInfo(res.data.userInfo);
                     //window.location.reload(); 
                     

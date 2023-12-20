@@ -52,7 +52,7 @@ function FantasyDeadLine(props) {
         return sumPoints;
     }
 
-    const totalPoints = calcTotalPoints();
+    const totalPoints =  props.fantasyUser ? calcTotalPoints(): 0;
 
     return (
         <Button

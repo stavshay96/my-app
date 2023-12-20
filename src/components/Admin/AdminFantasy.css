@@ -90,6 +90,10 @@
     /* Center text horizontally */
 }
 
+.players-table tbody tr:nth-child(odd) {
+    background-color: #c1f993;
+}
+
 td input {
     width: 70px;
     /* Adjust the width as needed */

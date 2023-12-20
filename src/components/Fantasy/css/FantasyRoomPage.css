@@ -1,0 +1,52 @@
+.form {
+    background-color: rgba(197, 255, 182, 0.9);
+    /*background-image: url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740);*/
+    border-radius: 0.5vw;
+    border: 0.3vw solid #000000;
+    cursor: default !important;
+    /* display: block;*/
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 1.7rem;
+    /* width: 50%;*/
+    unicode-bidi: plaintext;
+    /*width: 80rem;*/
+    /* Set a fixed width to create a square */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    /* Adjust flex direction and alignment */
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 50px;
+    max-height: 500px;
+    /* Adjust this value to your desired maximum height */
+    overflow-y: auto;
+    /* Enable vertical scrolling when content overflows */
+}
+
+.fantasyUsers-table {
+    text-align: center;
+}
+
+.fantasyUsers-table th {
+    background-color: #5e7c5a;
+    border-radius: 0.15vw;
+    border: 0.1vw solid #000000;
+    /* Blue color */
+    color: #fff;
+    /* White text color */
+}
+
+.fantasyUsers-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+
+/* Optional: Add hover effect on rows */
+
+.fantasyUsers-table tbody tr:hover {
+    background-color: #d9d9d9;
+}

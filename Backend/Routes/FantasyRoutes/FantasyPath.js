@@ -45,7 +45,7 @@ FantasyRouter.post("/AdminPointsUpdate", async(req, res) => {
     res.send(reponse);
 });
 
-///------------------------------------------------------------------
+///--------------------------------------------Fantasy Data ---------------------------------
 
 FantasyRouter.get("/FantasySettings", async(req, res) => {
     const leagueChoice = req.query.leagueChoice; // Assuming the leagueChoice is passed as a query parameter
@@ -74,6 +74,23 @@ FantasyRouter.get("/FantasyLeagueData", async(req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
+FantasyRouter.get("/FantasyUsersList", async(req, res) => {
+    const leagueChoice = req.query.leagueChoice; // Assuming the leagueChoice is passed as a query parameter
+    const fantasyType = req.query.fantasyType;
+    console.log(fantasyType);
+    try {
+        // Fetch Fantasy users list from the database (you need to implement this)
+        const fantasyUsersList = await DBManager.GetFantasyUsersListFromDatabase(leagueChoice, fantasyType);
+
+        // Send the fetched list as the response
+        res.json(fantasyUsersList);
+    } catch (error) {
+        console.error("Error fetching Fantasy settings:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 
 ////---------------------------- Fantasy User -----------------------------------------------------
 

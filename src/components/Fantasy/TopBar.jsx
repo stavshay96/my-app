@@ -10,10 +10,15 @@ function TopBar(props) {
     const teamGivenName = props.fantasyUser? props.fantasyUser.fantasyUserTeamName: "" ;
 
     const subs = "חילופים";
-    const maxSubs = props.fantasyUser.startFromGameweek? 
-                    props.fantasyUser.startFromGameweek === props.currentGameweek? 80: 
-                        props.fantasyUser.wildCardUsedInGameweek === props.currentGameweek? props.fantasyType: props.subsLimit
-                                :props.subsLimit;
+
+    const determineMaxSubs = () => {
+        return props.fantasyUser.startFromGameweek? 
+        props.fantasyUser.startFromGameweek === props.currentGameweek? 80: 
+            props.fantasyUser.lineupsArr[props.fantasyUser.startFromGameweek-1].length === 0 ? 80:
+                props.fantasyUser.wildCardUsedInGameweek === props.currentGameweek? props.fantasyType: props.subsLimit
+                    :props.subsLimit;
+    }
+    const maxSubs = props.fantasyUser? determineMaxSubs() : props.subsLimit;
     props.SetSubsLimit(maxSubs);
     
     
@@ -21,8 +26,14 @@ function TopBar(props) {
     const maxBudget = props.budgetLimit;
 
     const points = "נקודות";
-    const weeklyPoints = props.fantasyUser.lineupsArr? 
-            props.fantasyUser.lineupsArr[props.gameweekNumber-1].reduce((sum, item) => sum + item.currentPoints, 0) : 0;
+
+    const calcWeeklyPoints = () =>{
+
+        return props.fantasyUser.lineupsArr? 
+        props.fantasyUser.lineupsArr[props.gameweekNumber-1].reduce((sum, item) => sum + item.currentPoints, 0) : 0;
+    }
+
+    const weeklyPoints = props.fantasyUser?  calcWeeklyPoints() : 0;
 
     //calculating Budget
     const totalBudget = props

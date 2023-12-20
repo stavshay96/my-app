@@ -278,7 +278,8 @@ return (
                                 <table className="players-table">
                                     <thead>
                                         <tr>
-                                            <th>Player Name</th>
+                                            <th>Player Name Eng</th>
+                                            <th>Player Name Heb</th>
                                             <th>Position</th>
                                             <th>Points</th>
                                         </tr>
@@ -288,6 +289,9 @@ return (
                                             .find((team) => team.englishName === formData.selectedTeam)
                                             .players.map((player, index) => (
                                                 <tr key={index} >
+                                                     <td  className="player-name">
+                                                        {player.englishName}
+                                                    </td>
                                                     <td  className="player-name">
                                                         {player.hebrewName}
                                                     </td>
