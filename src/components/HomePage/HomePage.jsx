@@ -55,7 +55,7 @@ const HomePage = (props) => {
                 console.log("work");
 
                 axios
-                    .post(`http://localhost:7777/User/UserCookie`, {
+                    .post(`https://pendel-server.onrender.com/User/UserCookie`, {
                     email: cookieInfo.email,
                     fullName: cookieInfo.fullName,
                     userID: parseInt(cookieInfo.userID, 10)

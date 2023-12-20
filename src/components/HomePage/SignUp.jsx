@@ -99,7 +99,7 @@ const SignUp = (props) => {
         event.preventDefault();
         console.log("enteredEmail");
         axios
-            .post(`http://localhost:7777/User/SignUp`, {
+            .post(`https://pendel-server.onrender.com/User/SignUp`, {
             fullName: enteredName,
             email: enteredEmail,
             password: enteredPassword

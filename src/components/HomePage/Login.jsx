@@ -75,7 +75,7 @@ const Login = (props) =>
     {
         event.preventDefault();
         console.log("enteredEmail");
-        axios.post(`http://localhost:7777/User/Login`, {
+        axios.post(`https://pendel-server.onrender.com/User/Login`, {
             email: enteredEmail,
             password: enteredPassword
         }).then((res) =>{

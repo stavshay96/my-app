@@ -79,7 +79,7 @@ function SubmitAndReset(props) {
         }
 
         const saveLineup = () => {
-            axios.post(`http://localhost:7777/Fantasy/SetUserLineUpAndCaptain`, {
+            axios.post(`https://pendel-server.onrender.com/Fantasy/SetUserLineUpAndCaptain`, {
                 userInfo: props.fantasyUser.userInfo.userID,
                 leagueChoice: props.leagueChoice,
                 fantasyType: props.fantasyType,
