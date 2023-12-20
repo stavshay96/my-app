@@ -17,7 +17,7 @@ function FantasyRoomPage(props){
     useEffect(() => {
         if (location.pathname === `/Fantasy/${props.leagueChoice}/rooms`){
             let FantasyUsers = [];
-            axios.get(`http://localhost:7777/Fantasy/FantasyUsersList?leagueChoice=${props.leagueChoice}&fantasyType=${props.fantasyType}`)
+            axios.get(`https://pendel-server.onrender.com/Fantasy/FantasyUsersList?leagueChoice=${props.leagueChoice}&fantasyType=${props.fantasyType}`)
             .then((res) => {
                 SetFantasyUsersList(res.data);
                 console.log(res.data)
