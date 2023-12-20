@@ -86,16 +86,8 @@ async function UpdatePlayersPointsInDB(leagueChoice, teamsDataArr, currentGamewe
     } else {
         return "league not found";
     }
-    //TO DO
-    //2. get league info
-    //3. change player points each player in currentGamweek
-    //4. make update for fantasy users:
-    //4.1. get fantasy users
-    //4.2 change points of fantasy users in current gameweek
-    //4.3 calculate points
 
-
-    //update relevant to specific current gameweek (need to save each gameweek in admin page)
+    //this func updates specific current gameweek (need to save each gameweek in admin page)
 }
 
 async function UpdateFantasyUsersPointsInDB(i_englishLeagueName, fantasyLeagueData, currentGameweek) {
@@ -411,7 +403,7 @@ async function InsertNewPlayersToLeague(i_lines, i_englishLeagueName) {
 
                 // Add the player to the team's playersList (assuming you have a playersList array in your team object)
                 league.teamsList[teamIndex].players.push(player);
-                //console.log(player);
+                console.log(player);
             } else {
                 return "Team not found in the league";
             }
@@ -456,13 +448,14 @@ async function transfersPlayersBetweenTeamsHebrew(i_lines, i_englishLeagueName) 
 
     if (league) {
         const currentGameweek = parseInt(i_lines[0]);
-        let i = 1
+        const numOfGames = parseInt(i_lines[1]);
+        let i = 2
         let line = i_lines[i];
         while (line.trim() !== "END") {
             const info = line.split(',');
             const transerResult = makeTransferInLeagueDB(league, info)
-            updateTransferInFantasyUsers(currentGameweek, fantasyUsers11, transerResult.player, transerResult.teamTo);
-            updateTransferInFantasyUsers(currentGameweek, fantasyUsers15, transerResult.player, transerResult.teamTo);
+            updateTransferInFantasyUsers(currentGameweek, numOfGames, fantasyUsers11, transerResult.player, transerResult.teamTo);
+            updateTransferInFantasyUsers(currentGameweek, numOfGames, fantasyUsers15, transerResult.player, transerResult.teamTo);
 
             i++;
             line = i_lines[i];
@@ -517,23 +510,26 @@ function makeTransferInLeagueDB(io_league, i_info) {
     return { teamTo, player };
 }
 
-function updateTransferInFantasyUsers(i_currentGameweek, io_fantasyUsersArr, i_player, i_teamTo) {
+function updateTransferInFantasyUsers(i_currentGameweek, i_numOfGames, io_fantasyUsersArr, i_player, i_teamTo) {
     const currentGameweekInIndex = i_currentGameweek - 1;
 
     console.log("update fantasy users \n");
 
     for (let i = 0; i < io_fantasyUsersArr.length; i++) {
-        const currentLineup = io_fantasyUsersArr[i].lineupsArr[currentGameweekInIndex];
-        const currentCaptain = io_fantasyUsersArr[i].captain[currentGameweekInIndex];
+        for (let j = currentGameweekInIndex; j < i_numOfGames; j++) {
+            const currentLineup = io_fantasyUsersArr[i].lineupsArr[j];
+            const currentCaptain = io_fantasyUsersArr[i].captain[j];
 
-        for (let player of currentLineup) {
-            updatePlayerDataInFantasyUser(player, i_player, currentGameweekInIndex);
-            //console.log(player);
+            for (let player of currentLineup) {
+                updatePlayerDataInFantasyUser(player, i_player, j);
+                console.log(player);
+            }
+            if (currentCaptain) {
+                updatePlayerDataInFantasyUser(currentCaptain, i_player, j);
+                //console.log(currentCaptain);
+            }
         }
-        if (currentCaptain) {
-            updatePlayerDataInFantasyUser(currentCaptain, i_player, currentGameweekInIndex);
-            //console.log(currentCaptain);
-        }
+
     }
 }
 
@@ -601,6 +597,20 @@ async function GetFantasyUserFromDB(i_userID, i_LeagueChoice, i_FantasyType) {
 
 }
 
+async function GetFantasyUsersListFromDatabase(i_LeagueChoice, i_FantasyType) {
+    const collection = `${i_LeagueChoice}_${i_FantasyType}`;
+    try {
+
+        const fantasyUsersList = await client.db("FantasyUser").collection(collection).find().toArray();
+
+        return fantasyUsersList;
+    } catch (error) {
+        console.error("Error fetching Fantasy User from dbManager:", error);
+        throw error; // You might want to handle this error in the calling function
+    }
+
+}
+
 async function SetFantasyUserLineUp(i_userID, i_LeagueChoice, i_FantasyType, gameweek, lineup, captain, tripleUsedInGameweek, wildCardUsedInGameweek) {
     const query = { "userInfo.userID": parseInt(i_userID) };
     const filter = { userID: parseInt(i_userID) }
@@ -661,6 +671,7 @@ module.exports = {
     // CreateNewTeamsInDataBase: CreateNewTeamsInDataBase,
     CreateFantasyUserInDB: CreateFantasyUserInDB,
     GetFantasyUserFromDB: GetFantasyUserFromDB,
+    GetFantasyUsersListFromDatabase: GetFantasyUsersListFromDatabase,
     SetFantasyUserLineUp: SetFantasyUserLineUp,
     AddPlayerToTeam: AddPlayerToTeam,
     ArrangePlayersIDinDB: ArrangePlayersIDinDB,
