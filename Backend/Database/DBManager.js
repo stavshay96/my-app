@@ -128,8 +128,10 @@ function CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyU
                 //console.log(`found team in calculation ${teamFound.englishName}`)
                 let playerFound = teamFound.players.find(player => player.playerID === playerInLineup.id)
                     //console.log(`found player in calculation ${playerFound.englishName}`)
-                playerInLineup.currentPoints = playerFound.pointsPerWeek[currentGameweek - 1];
-                playerInLineup.totalPoints = playerFound.totalPoints; //total points may not necessary in this case
+                if (playerFound) {
+                    playerInLineup.currentPoints = playerFound.pointsPerWeek[currentGameweek - 1];
+                    playerInLineup.totalPoints = playerFound.totalPoints; //total points may not necessary in this case
+                }
                 if (playerInLineup.id === currentCaptain.id) {
                     if (fantasyUser.tripleUsedInGameweek === currentGameweek) {
                         playerInLineup.currentPoints = playerInLineup.currentPoints * 3;
@@ -522,7 +524,7 @@ function updateTransferInFantasyUsers(i_currentGameweek, i_numOfGames, io_fantas
 
             for (let player of currentLineup) {
                 updatePlayerDataInFantasyUser(player, i_player, j);
-                console.log(player);
+                //console.log(player);
             }
             if (currentCaptain) {
                 updatePlayerDataInFantasyUser(currentCaptain, i_player, j);
