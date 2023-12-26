@@ -108,13 +108,13 @@ async function insertNewPlayersToLeagueFromFile(filePath, englishLeagueName) {
     }
 }
 
-//const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit.txt"
-//insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
+const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit.txt"
+insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
 
 async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeagueName) {
     /* format file:
      ** first line - current gameweek
-     ** second line - num of games in this league (for transfer in whole future linups)
+     ** second line - num of games in this league (for transfer in whole future linups..)
      ** each line - heb player name, heb team from, heb team to
      ** END in last line
      ** NO BLANK LINES!
@@ -132,8 +132,8 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
     }
 }
 
-const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
-transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
+//const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
+//transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
 
 
 async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {
