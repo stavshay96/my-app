@@ -10,7 +10,7 @@ import "./css/HomePage.css";
 import SignUp from "./SignUp";
 import { useLocation } from "react-router-dom";
 
-const Logo = require("../../images/PendelLogo.png");
+const Logo = require("../../images/PendelLogo-removebg.png");
 const Messi = require("../../images/Players/Messi.png");
 const Ronaldo = require("../../images/Players/Cristiano Ronaldo.png");
 
@@ -34,14 +34,16 @@ const HomePage = (props) => {
       }, [location.pathname]);
 
     function CreateGame(game) {
-        return (<Game
-            key={game.gameID}
-            gameID={game.gameID}
-            name={game.name}
-            style={game.style}
-            userInfo={props.userInfo}
-            SetLeagueChoice={props.SetLeagueChoice}
-            SetTopbarLeagueName={props.SetTopbarLeagueName}/>)
+        return (
+                <Game
+                key={game.gameID}
+                gameID={game.gameID}
+                name={game.name}
+                style={game.style}
+                userInfo={props.userInfo}
+                SetLeagueChoice={props.SetLeagueChoice}
+                SetTopbarLeagueName={props.SetTopbarLeagueName}/>
+            )
     }
     
 
@@ -93,36 +95,46 @@ const HomePage = (props) => {
 
     return (
         <div>
-            <img className="main-logo" src={Logo}/>
-            {HasCookies()
-                ? <LogOut
-                        userInfo={props.userInfo}
-                        changeUserInfo={props.WrapUserInfo}
-                        h1style={{
-                        position: 'fixed',
-                        top: '4.35%',
-                        right: '7.75%',
-                        fontSize: '1.3vw',
-                        textShadow: "0vw 0.05vw 0vw"
-                    }}
-                        btnstyle={{
-                        position: 'fixed',
-                        top: '13%',
-                        right: '8.825%'
-                    }}
-                        imgstyle={{
-                        position: 'fixed',
-                        top: '6.5%',
-                        left: '92%'
-                    }}/>
-                : <LoginSignUpBar
-                    changeUserInfo={props.WrapUserInfo}/>}
             
+            <div className="top-line">
+                <LangBar/> 
+                {HasCookies()
+                    ? <LogOut
+                            userInfo={props.userInfo}
+                            changeUserInfo={props.WrapUserInfo}
+                            h1style={{/*
+                            position: 'fixed',
+                            top: '4.35%',
+                            right: '7.75%',
+                            fontSize: '1.3vw',
+                            textShadow: "0vw 0.05vw 0vw"*/
+                        }}
+                            btnstyle={{/*
+                            position: 'fixed',
+                            top: '13%',
+                            right: '8.825%'*/
+                        }}
+                            imgstyle={{/*
+                            position: 'fixed',
+                            top: '6.5%',
+                            left: '92%'*/
+                        }}/>
+                    : <LoginSignUpBar
+                        changeUserInfo={props.WrapUserInfo}/>}
+            </div>
             {/*showSignUp && <SignUp showSignUp={showSignUp} onMovingToSignUp={SetShowSignUp}/>*/}
-            <LangBar/> 
-            {Games.map(CreateGame)}
-            <img className="left-photo" src={Messi} alt="Messi"/>
+            <div className="main-logo">
+                <img src={Logo}/>
+            </div>
+            <div className="grid-games">
+                {Games.map(CreateGame)}
+            </div>
+            
+           
+            <img className="left-photo"  src={Messi} alt="Messi"/>
             <img className="right-photo" src={Ronaldo} alt="Ronaldo"/>
+            
+           
         </div>
     )
 

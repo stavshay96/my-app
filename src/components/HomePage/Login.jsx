@@ -51,7 +51,7 @@ const Login = (props) =>
 
         if(location.pathname === "/"){
             return (
-            <Button className="btnLogin" style={{position:'fixed', top:'5%', right:'3%'}}>
+            <Button className="btnLogin" style={{/*position:'fixed', top:'5%', right:'3%'*/}}>
                         התחברות {/*console.log("login")*/}
                     </Button>
             )
@@ -84,11 +84,11 @@ const Login = (props) =>
 
             if (res.data.Status === "Login succseeded")
             {
-                
+                const maxAge = 10 * 365 * 24 * 60 * 60; // 10 years in seconds
                 setOpen(false);
-                document.cookie = `userID=${res.data.userInfo.userID}; path=/;`;
-                document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/;`;
-                document.cookie = `email= ${res.data.userInfo.email}; path=/;`;
+                document.cookie = `userID=${res.data.userInfo.userID}; path=/; max-age=${maxAge};`;
+                document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/; max-age=${maxAge}`;
+                document.cookie = `email= ${res.data.userInfo.email}; path=/; max-age=${maxAge}`;
                 props.changeUserInfo(res.data.userInfo);
                 if(!isHomePage){
                  window.location.reload(); 
@@ -108,38 +108,40 @@ const Login = (props) =>
        return(
         <Popup trigger={handleTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false} >
             {close =>(<div>
-            <Button className="close-btn" onClick={(isHomePage? close: ()=>navigate("/", { replace: true }))} style={{position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'}}>
+            <Button className="close-btn" onClick={(isHomePage? close: ()=>navigate("/", { replace: true }))} style={{/*position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'*/}}>
             X 
             </Button>
            
-            <Form className="formStyle" style={{ position:'fixed', top:'35%', right:'30%'}}>
-                <Form.Group className="emailStyle" controlId="formBasicEmail">
-                 <Form.Label style={{position:'fixed', top:'42%', right:'33%', fontSize: '1.6vw'}}>:אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'42%', right:'41%', fontSize: '1.25vw'} }value={enteredEmail} onChange={emailHandler}
+            <Form className="formStyle" style={{/* position:'fixed', top:'35%', right:'30%'*/}}>
+                <Form.Group className="itemFormStyle" controlId="formBasicEmail">
+                 <Form.Label  style={{ /*'fixed', top:'42%', right:'33%', fontSize: '1.6vw'*/}}>אימייל</Form.Label>
+                 <Form.Control className="txtBoxStyle" style={{/*position:'fixed', top:'42%', right:'41%', fontSize: '1.25vw'*/} }value={enteredEmail} onChange={emailHandler}
                   type="email" placeholder="Enter email" />
                 </Form.Group>
             
 
-                <Form.Group className="passwordStyle" controlId="formBasicPassword">
-                    <Form.Label style={{position:'fixed', top:'49.5%', right:'32.9%', fontSize: '1.6vw'}}>:סיסמה</Form.Label>
-                    <Form.Control className="txtBoxStyle" style={{position:'fixed', top:'49.5%', right:'41%', fontSize: '1.25vw'}} value={enteredPassword} onChange={passwordHandler} 
+                <Form.Group className="itemFormStyle" controlId="formBasicPassword">
+                    <Form.Label style={{/*position:'fixed', top:'49.5%', right:'32.9%', fontSize: '1.6vw'*/}}><span dir="rtl">סיסמה </span></Form.Label>
+                    <Form.Control className="txtBoxStyle" style={{/*position:'fixed', top:'49.5%', right:'41%', fontSize: '1.25vw'*/}} value={enteredPassword} onChange={passwordHandler} 
                     type="password" placeholder="Enter Password" />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicCheckbox" >
-                    <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{position:'fixed', top:'55%', right:'47%', fontSize: '1.25vw'}}/>
+                <Form.Group className="checkboxFormStyle" controlId="formBasicCheckbox" >
+                    <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{/*position:'fixed', top:'55%', right:'47%', fontSize: '1.25vw'*/}}/>
                 </Form.Group>
 
-                <Button className="btnLogin" variant="primary" type="submit" style={{position:'fixed', top:'61%', right:'45%'}}
+                <Button className="btnLogin" variant="primary" type="submit" style={{/*position:'fixed', top:'61%', right:'45%'*/}}
                 onClick={LoginHandler} >
                   התחבר
                 </Button>
 
-                <Button style={{position:'fixed', top:'70%', right:'42%', fontSize:'50%'}} onClick={()=> toSignUp(close)}>
+                <Button className="moveToSignUp" style={{/*position:'fixed', top:'70%', right:'42%', fontSize:'50%'*/}} onClick={()=> toSignUp(close)}>
                     עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
                 {showSignUp && <SignUp isFromHomePage={isFromHomePage} showSignUp={showSignUp} handleShowSignUp={handleShowSignUp}/>}
-                <FontAwesomeIcon icon={faFacebook} style={{position:'fixed', top:'76%', right:'46.5%', fontSize: '3vw', color: "#2154ab"}}/>
-                <FontAwesomeIcon icon={faGoogle} style={{position:'fixed', top:'76%', right:'50.5%', fontSize: '3vw'}}/>
+                <div className="icons-social">
+                    <FontAwesomeIcon icon={faFacebook} style={{/*position:'fixed', top:'76%', right:'46.5%', fontSize: '3vw', color: "#2154ab"*/}}/>
+                    <FontAwesomeIcon icon={faGoogle} style={{/*position:'fixed', top:'76%', right:'50.5%', fontSize: '3vw'*/}}/>
+                </div>
 
             </Form>
             </div>

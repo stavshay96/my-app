@@ -1,60 +1,121 @@
 .btnLogin {
     text-align: center;
-    background-color: #eeeeef;
-    border-radius: 2vw;
-    border: 0.25vw solid #b6d7a8;
+    background-color: rgba(238, 238, 239, 0.9);
+    border-radius: 20px;
+    border: 2px solid #b6d7a8;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.3vw;
-    padding: 0.5% 1%;
-    text-shadow: 0vw 0.1vw 0vw #2f6627;
-    width: 10%;
-    position: 'fixed';
+    font-size: 20px;
+    padding: 5px 20px;
+    /*text-shadow: 0vw 0.1vw 0vw #2f6627;*/
+    /*width: 10%;*/
+    /* position: 'fixed';*/
     /*text-decoration: none;*/
 }
 
 .btnLogin:hover {
     background-color: #b6d7a8;
+    transform: scale(0.95);
 }
 
 .formStyle {
-    background-color: #eeeeef;
-    border-radius: 2vw;
-    border: 0.3vw solid #b6d7a8;
+    background-color: rgba(238, 238, 239, 0.95);
+    border-radius: 40px;
+    border: 3px solid #b6d7a8;
     cursor: default !important;
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.25vw;
-    padding: 10% 20%;
-    /* width: 50%;*/
+    padding: 40px 120px;
+    direction: rtl;
+    font-size: 20px;
+    unicode-bidi: plaintext;
+}
+
+.itemFormStyle {
+    margin: 10px;
+}
+
+.labelStyle {
+    /*width: 30%;*/
+    /*unicode-bidi: plaintext;*/
+    direction: rtl;
+}
+
+.txtBoxStyle {
+    border: 0;
+    border-bottom: 1px solid #000000;
+    background-color: rgba(238, 238, 239, 0.95);
+    width: 100%;
+    font-size: 20px;
+    direction: ltr;
+}
+
+.checkboxFormStyle {
+    display: flex;
+    justify-content: center;
+    /* Center checkbox horizontally */
+    width: 100%;
+    /* Ensure full width for centering */
+    margin: 10px 0;
 }
 
 .checkbox {
-    position: fixed;
-    top: 60%;
-    right: 47%;
-    font-size: 1.5vw;
+    font-size: 20px;
+}
+
+.moveToSignUp {
+    border-radius: 20px;
+    border: 1px solid #000000;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.moveToSignUp:hover {
+    transform: scale(1.05);
+}
+
+.icons-social {
+    display: flex;
+    justify-content: center;
+    /* Center icons horizontally */
+    width: 100%;
+    /* Ensure full width for centering */
+    margin-top: 20px;
+}
+
+.icons-social .fa-facebook {
+    color: #2154ab;
+}
+
+.icons-social .fa-facebook,
+.icons-social .fa-google {
+    margin: 0 10px;
+    font-size: 40px;
+    /* Add some space between the icons */
 }
 
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     /* set the overlay color and opacity */
-    z-index: 1;
+    /*z-index: 1;
     /* set the overlay above the popup */
 }
 
 .popup-content {
-    position: fixed;
+    /*position: fixed;
     top: 35%;
     right: 30%;
     z-index: 2;
     /* set the popup above the overlay */
+}
+
+@media (max-width: 730px) {
+    .btnLogin {
+        padding: 5px 10px;
+    }
 }

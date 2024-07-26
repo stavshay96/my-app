@@ -20,16 +20,17 @@ function Login_SignUpBar(props) {
       const isFromHomePage=true;
 
     return (
-        <div>
+        <div className="login-signup-btns">
             <Login
                 showSignUp={showSignUp}
                 handleShowSignUp={handleShowSignUp}
                 changeUserInfo={props.changeUserInfo}/>
-            <SignUp
+                 <SignUp
                 isFromHomePage={isFromHomePage}
                 showSignUp={showSignUp}
                 handleShowSignUp={handleShowSignUp}
                 changeUserInfo={props.changeUserInfo}/>
+          
         </div>
     )
 }

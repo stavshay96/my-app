@@ -1,16 +1,16 @@
 .btnNotCurrLang {
     text-align: center;
     background-color: #eeeeef;
-    border-radius: 0.3vw;
-    border: 0.15vw solid #131313;
+    border-radius: 6px;
+    border: 2px solid #131313;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1vw;
-    padding: 0.5% 1%;
+    font-size: 20px;
+    padding: 5px 10px;
     /*text-decoration: none;*/
-    width: 7%;
+    /*width: 7%;*/
 }
 
 .btnNotCurrLang:hover {
@@ -20,16 +20,16 @@
 .btnCurrLang {
     text-align: center;
     background-color: #bae9a6;
-    border-radius: 0.3vw;
-    border: 0.15vw solid #131313;
+    border-radius: 6px;
+    border: 2px solid #131313;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1vw;
-    padding: 0.5% 1%;
+    font-size: 20px;
+    padding: 5px 10px;
     /*text-decoration: none;*/
-    width: 7%;
+    /*width: 7%;*/
 }
 
 .btnCurrLang:hover {
@@ -46,7 +46,7 @@
     color: #000000;
     font-family: 'Alef', sans-serif;
     font-size: 1vw;
-    padding: 0.5% 1%;
+    /* padding: 0.5% 1%;*/
     /*text-decoration: none;*/
     width: 7%;
 }
@@ -54,4 +54,17 @@
 .btnCurrLangPred:hover {
     background-color: #fab990;
     ;
+}
+
+.lang-btns {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 35px;
+}
+
+@media (max-width: 730px) {
+    .lang-btns {
+        flex-direction: column-reverse;
+        margin-left: 20px;
+    }
 }

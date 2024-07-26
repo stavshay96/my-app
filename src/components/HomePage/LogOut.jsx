@@ -26,15 +26,15 @@ var LogOut = (props) => {
   
 
     return (
-        <div>
+        <div className="logout-container">
             <img
                 className="user"
                 src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                style={props.imgstyle}
-                alt="UserIcon"/> {locatedAtHomePage && <h1 className="btnNamePresent" style={props.h1style}>
-                !{`${props.userInfo["fullName"]}`} שלום
+                style={{/*props.imgstyle*/}}
+                alt="UserIcon"/> {locatedAtHomePage && <h1 className="btnNamePresent" style={{/*props.h1style*/}}>
+                {`${props.userInfo["fullName"]}`}
                </h1>}
-            <Button className={buttonClass} style={props.btnstyle} onClick={LogOutHandler}>
+            <Button className={buttonClass} style={{/*props.btnstyle*/}} onClick={LogOutHandler}>
                 התנתק
             </Button>
         </div>
