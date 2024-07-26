@@ -1,4 +1,4 @@
-.btnLSBar {
+/*.btnLSBar {
     text-align: center;
     background-color: #eeeeef;
     border-radius: 2vw;
@@ -9,10 +9,26 @@
     font-family: 'Alef', sans-serif;
     font-size: 1.5vw;
     padding: 0.5% 1%;
-    /*text-decoration: none;*/
+    text-decoration: none;
     width: 10%;
 }
 
 .btnLSBar:hover {
     background-color: #b6d7a8;
+}*/
+
+.login-signup-btns {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 30px;
+    margin-right: 30px;
+    gap: 10px;
+}
+
+@media (max-width: 730px) {
+    .login-signup-btns {
+        flex-direction: column;
+        margin-top: 30px;
+        margin-right: 15px;
+    }
 }

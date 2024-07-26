@@ -14,7 +14,7 @@ function TopBar(props) {
     const determineMaxSubs = () => {
         return props.fantasyUser.startFromGameweek? 
         props.fantasyUser.startFromGameweek === props.currentGameweek? 80: 
-            props.fantasyUser.lineupsArr[props.fantasyUser.startFromGameweek-1].length === 0 ? 80:
+            props.fantasyUser.lineupsArr[props.fantasyUser.startFromGameweek-1].length === 0 ? 80: //bug: need to change startFromGameweek to currentGameweek
                 props.fantasyUser.wildCardUsedInGameweek === props.currentGameweek? props.fantasyType: props.subsLimit
                     :props.subsLimit;
     }

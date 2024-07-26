@@ -87,11 +87,11 @@ function Game(props) {
     return (
         <Popup trigger={handleTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false} >
             {close =>(<div>
-            <Button className="close-btn" onClick={ close} style={{position:'fixed', top:'21%', right:'37%', fontSize: '1.25vw'}}>
+            <Button className="close-btn" onClick={ close} style={{/*position:'fixed', top:'21%', right:'37%', fontSize: '1.25vw'*/}}>
             X 
             </Button>
             
-            <table className="leaguesList" style={{ position:'fixed', top:'26%', right:'37%'}}>
+            <table className="leaguesList" style={{/* position:'fixed', top:'26%', right:'37%'*/}}>
                 <tbody>
                 {props.gameID === 1? FantasyLeagues.map(createButtonLeague):
                  (props.gameID === 2? PredictionsLeagues.map(createButtonLeague): AdditionalGames.map(createButtonLeague))}

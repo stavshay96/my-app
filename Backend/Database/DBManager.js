@@ -99,6 +99,8 @@ async function UpdateFantasyUsersPointsInDB(i_englishLeagueName, fantasyLeagueDa
     console.log(fantasyUsers11);
     console.log(fantasyUsers15);
 
+    // get fantasy league settings for checking the same team limit and pass to calculate..
+
     CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyUsers11);
     CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyUsers15);
 
@@ -129,6 +131,10 @@ function CalculateFantasyUserPoints(fantasyLeagueData, currentGameweek, fantasyU
                 let playerFound = teamFound.players.find(player => player.playerID === playerInLineup.id)
                     //console.log(`found player in calculation ${playerFound.englishName}`)
                 if (playerFound) {
+                    ////// need to add another condition that check the number of players from the same team
+                    ////// if it's over the limit - playerInLinup.currentPoints = 0
+                    ////// else - line below stays 
+                    ////// (needs to get fantasy data setting for checking this)
                     playerInLineup.currentPoints = playerFound.pointsPerWeek[currentGameweek - 1];
                     playerInLineup.totalPoints = playerFound.totalPoints; //total points may not necessary in this case
                 }

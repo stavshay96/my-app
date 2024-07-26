@@ -3,6 +3,9 @@ import Button from "react-bootstrap/esm/Button";
 import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./css/SignUp.css";
+/**************************************************/
+/* signup form using the CSS of login form (same classes) from login.css */
+/**************************************************/
 import axios from "axios";
 import { useNavigate, useLocation} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -80,10 +83,10 @@ const SignUp = (props) => {
                 {/*props.showSignUp && <div>setOpen(true)</div>*/}
                 <Button
                     className="btnSignUp"
-                    style={{
+                    style={{/*
                     position: 'fixed',
                     top: '5%',
-                    right: '13.5%'
+                    right: '13.5%'*/
                 }}>
                     הרשמה {/*console.log("SignUp")*/}
                 </Button>
@@ -107,11 +110,11 @@ const SignUp = (props) => {
             .then((res) => {
                 if (res.data.Status === "Sign Up succseeded")
                 {
-                    
+                    const maxAge = 10 * 365 * 24 * 60 * 60; // 10 years in seconds
                     setOpen(false);
-                    document.cookie = `userID=${res.data.userInfo.userID}; path=/;`;
-                    document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/;`;
-                    document.cookie = `email= ${res.data.userInfo.email}; path=/;`;
+                    document.cookie = `userID=${res.data.userInfo.userID}; path=/; max-age=${maxAge};`;
+                    document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/; max-age=${maxAge};`;
+                    document.cookie = `email= ${res.data.userInfo.email}; path=/; max-age=${maxAge};`;
                     if(!isHomePage){
                         navigate("/", {
                             replace: true,
@@ -151,37 +154,37 @@ const SignUp = (props) => {
                     <Button
                         className="close-btn"
                         onClick={()=> {window.location.reload();}}
-                        style={{
+                        style={{/*
                         position: 'fixed',
                         top: '30%',
                         right: '30%',
-                        fontSize: '1.25vw'
+                        fontSize: '1.25vw'*/
                     }}>
                         X
                     </Button>
 
                     <Form
                         className="formStyle"
-                        style={{
+                        style={{/*
                         position: 'fixed',
                         top: '35%',
-                        right: '30%'
+                        right: '30%'*/
                     }}>
-                        <Form.Group className="emailStyle" controlId="formBasicEmail">
+                        <Form.Group className="itemFormStyle" controlId="formBasicEmail">
                             <Form.Label
-                                style={{
+                                style={{/*
                                 position: 'fixed',
                                 top: '41.75%',
                                 right: '33%',
-                                fontSize: '1.6vw'
-                            }}>:אימייל</Form.Label>
+                                fontSize: '1.6vw'*/
+                            }}>אימייל</Form.Label>
                             <Form.Control
                                 className="txtBoxStyle"
-                                style={{
+                                style={{/*
                                 position: 'fixed',
                                 top: '41.8%',
                                 right: '41%',
-                                fontSize: '1.25vw'
+                                fontSize: '1.25vw'*/
                             }}
                                 onChange={emailHandler}
                                 type="email"
@@ -190,22 +193,22 @@ const SignUp = (props) => {
 
                         </Form.Group>
 
-                        <Form.Group className="nameStyle" controlId="formBasicName">
+                        <Form.Group className="itemFormStyle" controlId="formBasicName">
                             <Form.Label
-                                style={{
+                                style={{/*
                                 position: 'fixed',
                                 top: '49.75%',
                                 right: '32.85%',
-                                fontSize: '1.6vw'
-                            }}>:שם מלא</Form.Label>
+                                fontSize: '1.6vw'*/
+                            }}>שם מלא</Form.Label>
                             <Form.Control
                                 className="txtBoxStyle"
-                                style={{
+                                style={{/*
                                 position: 'fixed',
                                 top: '49.8%',
                                 right: '41%',
                                 unicodeBidi: 'plaintext',
-                                fontSize: '1.25vw'
+                                fontSize: '1.25vw'*/
                             }}
                                 onChange={nameHandler}
                                 type="name"
@@ -214,21 +217,21 @@ const SignUp = (props) => {
 
                         </Form.Group>
 
-                        <Form.Group className="passwordStyle" controlId="formBasicPassword">
+                        <Form.Group className="itemFormStyle" controlId="formBasicPassword">
                             <Form.Label
-                                style={{
+                                style={{/*
                                 position: 'fixed',
                                 top: '57.5%',
                                 right: '32.85%',
-                                fontSize: '1.6vw'
-                            }}>:סיסמה</Form.Label>
+                                fontSize: '1.6vw'*/
+                            }}>סיסמה</Form.Label>
                             <Form.Control
                                 className="txtBoxStyle"
-                                style={{
+                                style={{/*
                                 position: 'fixed',
                                 top: '57.5%',
                                 right: '41%',
-                                fontSize: '1.25vw'
+                                fontSize: '1.25vw'*/
                             }}
                                 value={enteredPassword}
                                 onChange={passwordHandler}
@@ -240,33 +243,34 @@ const SignUp = (props) => {
                             className="btnSignUp"
                             variant="primary"
                             type="submit"
-                            style={{
+                            style={{/*
                             position: 'fixed',
                             top: '65%',
                             right: '45%',
-                            fontSize: '1.6vw'
+                            fontSize: '1.6vw'*/
                         }}
                             onClick={SignUpHandler}>
                             הירשם
                         </Button>
-
-                        <FontAwesomeIcon
-                            icon={faFacebook}
-                            style={{
-                            position: 'fixed',
-                            top: '75%',
-                            right: '46.5%',
-                            fontSize: '3vw',
-                            color: "#2154ab"
-                        }}/>
-                        <FontAwesomeIcon
-                            icon={faGoogle}
-                            style={{
-                            position: 'fixed',
-                            top: '75%',
-                            right: '50.5%',
-                            fontSize: '3vw'
-                        }}/>
+                        <div className="icons-social">
+                            <FontAwesomeIcon
+                                icon={faFacebook}
+                                style={{/*
+                                position: 'fixed',
+                                top: '75%',
+                                right: '46.5%',
+                                fontSize: '3vw',
+                                color: "#2154ab"*/
+                            }}/>
+                            <FontAwesomeIcon
+                                icon={faGoogle}
+                                style={{/*
+                                position: 'fixed',
+                                top: '75%',
+                                right: '50.5%',
+                                fontSize: '3vw'*/
+                            }}/>
+                        </div>
                     </Form>
                 </div>
             )}

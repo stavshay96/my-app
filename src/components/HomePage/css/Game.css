@@ -1,95 +1,127 @@
-.btnGame {
-    background-color: rgba(238, 238, 239, 0.9);
-    border-radius: 2vw;
-    border: 0.25vw solid #b6d7a8;
-    cursor: pointer;
-}
-
-.btnGame:hover {
-    background-color: #b6d7a8;
-}
-
-.leaguesList {
-    background-color: #eeeeef;
-    border-radius: 2vw;
-    border: 0.3vw solid #b6d7a8;
-    cursor: default !important;
-    display: block;
-    color: #000000;
-    font-family: 'Alef', sans-serif;
-    font-size: 1.25vw;
-    /*padding: 3% 6%;*/
-    /* width: 25%;*/
-    justify-content: space-between;
-    align-items: center;
-    display: block;
-}
-
-.tdleagues {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.btnleagues {
-    margin: 2%;
-    text-align: center;
-    background-color: #eeeeef;
-    border-radius: 1vw;
-    border: 0.25vw solid #b6d7a8;
-    display: inline-block;
-    cursor: pointer;
-    color: #000000;
-    font-family: 'Alef', sans-serif;
-    font-size: 1.5vw;
-    text-shadow: 0vw 0.1vw 0vw #2f6627;
-    width: 350px;
-    /* Set the width */
-    height: 50px;
-    /* Set the height */
-    white-space: nowrap;
-    /* Prevent the text from wrapping */
-    overflow: hidden;
-    /* Hide the text that doesn't fit */
-    text-overflow: ellipsis;
-    /* Add ellipsis (...) for overflow text */
-    background-size: cover;
-    /* This will ensure the flag image fits the button */
-    background-repeat: no-repeat;
-    background-position: center -2.5px;
-    transition: background 0.3s;
-}
-
-.btnleagues:hover {
-    background-color: #ffffff;
-}
-
-.disabledBtnleagues {
-    margin: 2%;
-    text-align: center;
-    background-color: #eeeeef;
-    border-radius: 1vw;
-    border: 0.25vw solid #b6d7a8;
-    display: inline-block;
-    cursor: pointer;
-    color: #000000;
-    font-family: 'Alef', sans-serif;
-    font-size: 1.5vw;
-    text-shadow: 0vw 0.1vw 0vw #2f6627;
-    width: 350px;
-    /* Set the width */
-    height: 50px;
-    /* Set the height */
-    white-space: nowrap;
-    /* Prevent the text from wrapping */
-    overflow: hidden;
-    /* Hide the text that doesn't fit */
-    text-overflow: ellipsis;
-    /* Add ellipsis (...) for overflow text */
-    background-size: cover;
-    /* This will ensure the flag image fits the button */
-    background-repeat: no-repeat;
-    background-position: center -2.5px;
-    transition: background 0.3s;
-}
+    .btnGame {
+        background-color: rgba(238, 238, 239, 0.9);
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        cursor: pointer;
+        padding: 240px 40px;
+        font-size: 30px;
+        padding-top: 30px;
+        background-position: -55px 45px;
+        white-space: nowrap;
+        text-align: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .btnGame:hover {
+        background-color: #b6d7a8;
+        transform: scale(0.95);
+    }
+    
+    .leaguesList {
+        background-color: rgba(238, 238, 239, 0.9);
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        cursor: default !important;
+        display: block;
+        color: #000000;
+        font-family: 'Alef', sans-serif;
+        font-size: 30px;
+        /*padding: 3% 6%;*/
+        /* width: 25%;*/
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .tdleagues {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .btnleagues {
+        margin: 2%;
+        text-align: center;
+        /* background-color: #eeeeef;*/
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        display: inline-block;
+        cursor: pointer;
+        color: #000000;
+        font-family: 'Alef', sans-serif;
+        font-size: 25px;
+        /*text-shadow: 0vw 0.1vw 0vw #2f6627;*/
+        width: 350px;
+        /* Set the width */
+        height: 50px;
+        /* Set the height */
+        white-space: nowrap;
+        /* Prevent the text from wrapping */
+        overflow: hidden;
+        /* Hide the text that doesn't fit */
+        text-overflow: ellipsis;
+        /* Add ellipsis (...) for overflow text */
+        background-size: cover;
+        /* This will ensure the flag image fits the button */
+        background-repeat: no-repeat;
+        background-position: center -2.5px;
+        transition: background 0.3s;
+    }
+    
+    .btnleagues:hover {
+        background-color: #ffffff;
+        transform: scale(0.95);
+    }
+    
+    .disabledBtnleagues {
+        margin: 2%;
+        text-align: center;
+        /*background-color: #eeeeef;*/
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        display: inline-block;
+        cursor: pointer;
+        color: #000000;
+        font-family: 'Alef', sans-serif;
+        font-size: 25px;
+        /* text-shadow: 0vw 0.1vw 0vw #2f6627;*/
+        width: 350px;
+        /* Set the width */
+        height: 50px;
+        /* Set the height */
+        white-space: nowrap;
+        /* Prevent the text from wrapping */
+        overflow: hidden;
+        /* Hide the text that doesn't fit */
+        text-overflow: ellipsis;
+        /* Add ellipsis (...) for overflow text */
+        background-size: cover;
+        /* This will ensure the flag image fits the button */
+        background-repeat: no-repeat;
+        background-position: center -2.5px;
+        transition: background 0.3s;
+    }
+    
+    @media (max-width: 1200px) {
+        .btnGame {
+            padding: 20px 100px;
+            text-indent: -60px;
+            text-align: right;
+            background-position: left;
+            background-size: 29% 100%;
+            background-repeat: no-repeat;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .btnGame {
+            padding: 10px 60px;
+            text-indent: -30px;
+            text-align: right;
+            background-position: left;
+            background-size: 29% 100%;
+            background-repeat: no-repeat;
+            font-size: 25px;
+        }
+    }
