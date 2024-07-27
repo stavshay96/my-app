@@ -91,13 +91,15 @@ function Game(props) {
             X 
             </Button>
             
-            <table className="leaguesList" style={{/* position:'fixed', top:'26%', right:'37%'*/}}>
-                <tbody>
-                {props.gameID === 1? FantasyLeagues.map(createButtonLeague):
-                 (props.gameID === 2? PredictionsLeagues.map(createButtonLeague): AdditionalGames.map(createButtonLeague))}
-                   
-                </tbody>
-            </table>
+            <div className="table-container">
+                <table className="leaguesList" style={{/* position:'fixed', top:'26%', right:'37%'*/}}>
+                    <tbody>
+                    {props.gameID === 1? FantasyLeagues.map(createButtonLeague):
+                    (props.gameID === 2? PredictionsLeagues.map(createButtonLeague): AdditionalGames.map(createButtonLeague))}
+                    
+                    </tbody>
+                </table>
+            </div>
            
            
             </div>
