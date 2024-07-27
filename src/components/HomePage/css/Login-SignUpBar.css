@@ -19,16 +19,28 @@
 
 .login-signup-btns {
     display: flex;
+    position: fixed;
+    top: 65%;
+    right: 22%;
+    gap: 50px;
     flex-direction: row-reverse;
-    margin-top: 30px;
-    margin-right: 30px;
-    gap: 10px;
 }
 
 @media (max-width: 730px) {
     .login-signup-btns {
-        flex-direction: column;
-        margin-top: 30px;
+        margin-top: 0px;
         margin-right: 15px;
+        flex-direction: column;
+        position: unset;
+        gap: 10px;
+    }
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .login-signup-btns {
+        margin-top: 30px;
+        margin-right: 30px;
+        position: unset;
+        gap: 10px;
     }
 }

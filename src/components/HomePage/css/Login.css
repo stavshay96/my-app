@@ -1,14 +1,14 @@
 .btnLogin {
     text-align: center;
     background-color: rgba(238, 238, 239, 0.9);
-    border-radius: 20px;
-    border: 2px solid #b6d7a8;
+    border-radius: 40px;
+    border: 6px solid #b6d7a8;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 20px;
-    padding: 5px 20px;
+    font-size: 50px;
+    padding: 5px 30px;
     /*text-shadow: 0vw 0.1vw 0vw #2f6627;*/
     /*width: 10%;*/
     /* position: 'fixed';*/
@@ -31,8 +31,9 @@
     font-family: 'Alef', sans-serif;
     padding: 40px 120px;
     direction: rtl;
-    font-size: 20px;
+    font-size: 50px;
     unicode-bidi: plaintext;
+    gap: 50px;
 }
 
 .itemFormStyle {
@@ -50,7 +51,7 @@
     border-bottom: 1px solid #000000;
     background-color: rgba(238, 238, 239, 0.95);
     width: 100%;
-    font-size: 20px;
+    font-size: 40px;
     direction: ltr;
 }
 
@@ -60,19 +61,21 @@
     /* Center checkbox horizontally */
     width: 100%;
     /* Ensure full width for centering */
-    margin: 10px 0;
+    margin: 10px 0px;
 }
 
 .checkbox {
     font-size: 20px;
+    transform: scale(2);
 }
 
 .moveToSignUp {
-    border-radius: 20px;
-    border: 1px solid #000000;
-    font-size: 15px;
+    background-color: transparent;
+    border: 0;
+    font-size: 30px;
     cursor: pointer;
     margin-top: 5px;
+    text-decoration: underline;
 }
 
 .moveToSignUp:hover {
@@ -95,8 +98,13 @@
 .icons-social .fa-facebook,
 .icons-social .fa-google {
     margin: 0 10px;
-    font-size: 40px;
+    font-size: 80px;
     /* Add some space between the icons */
+}
+
+.close-btn {
+    padding: 5px 5px;
+    font-size: 30px;
 }
 
 .popup-overlay {
@@ -117,5 +125,47 @@
 @media (max-width: 730px) {
     .btnLogin {
         padding: 5px 10px;
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .btnLogin {
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        font-size: 20px;
+        padding: 5px 20px;
+    }
+    .formStyle,
+    .txtBoxStyle,
+    .moveToSignUp {
+        /* background-color: rgba(238, 238, 239, 0.95);
+        border-radius: 40px;
+        border: 3px solid #b6d7a8;
+        cursor: default !important;
+        display: flex;
+        flex-direction: column;
+        color: #000000;
+        font-family: 'Alef', sans-serif;
+        padding: 40px 120px;
+        direction: rtl;
+        unicode-bidi: plaintext;*/
+        font-size: 20px;
+        gap: 0px;
+    }
+    .icons-social .fa-facebook,
+    .icons-social .fa-google {
+        margin: 0 10px;
+        font-size: 40px;
+        /* Add some space between the icons */
+    }
+    .checkbox {
+        transform: scale(1);
+    }
+    .close-btn {
+        padding: 2px 2px;
+        font-size: 15px;
     }
 }

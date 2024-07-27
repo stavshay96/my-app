@@ -1,14 +1,14 @@
 .btnSignUp {
     text-align: center;
     background-color: rgba(238, 238, 239, 0.9);
-    border-radius: 20px;
-    border: 2px solid #b6d7a8;
+    border-radius: 40px;
+    border: 6px solid #b6d7a8;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 20px;
-    padding: 5px 30px;
+    font-size: 50px;
+    padding: 5px 40px;
     /*text-shadow: 0vw 0.1vw 0vw #2f6627;*/
     /*width: 10%;*/
     /*position: 'fixed';*/
@@ -45,5 +45,17 @@
 @media (max-width: 730px) {
     .btnSignUp {
         padding: 5px 20px;
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .btnSignUp {
+        border-radius: 20px;
+        border: 2px solid #b6d7a8;
+        font-size: 20px;
+        padding: 5px 30px;
     }
 }

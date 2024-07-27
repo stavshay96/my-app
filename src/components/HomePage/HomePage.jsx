@@ -123,9 +123,15 @@ const HomePage = (props) => {
                         changeUserInfo={props.WrapUserInfo}/>}
             </div>
             {/*showSignUp && <SignUp showSignUp={showSignUp} onMovingToSignUp={SetShowSignUp}/>*/}
+          
             <div className="main-logo">
                 <img src={Logo}/>
             </div>
+           {/* <div className="space">
+                <h1> space </h1>
+            </div>
+                    */}
+                    
             <div className="grid-games">
                 {Games.map(CreateGame)}
             </div>
