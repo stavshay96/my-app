@@ -76,9 +76,6 @@
         margin-bottom: 10px;
     }
     .main-logo {
-        z-index: 1;
-        display: flex;
-        justify-content: center;
         margin-top: 0px;
         margin-left: 40px;
         block-size: 80px;
@@ -92,9 +89,6 @@
         margin-bottom: 20px;
     }
     .main-logo {
-        z-index: 1;
-        display: flex;
-        justify-content: center;
         margin-top: 40px;
         margin-left: 40px;
         block-size: 110px;
@@ -104,6 +98,23 @@
         margin: 70px 20px;
         margin-left: 300px;
         margin-right: 300px;
+    }
+}
+
+@media only screen and (min-width: 1400px) and (orientation: landscape) {
+    .main-logo {
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 1601px) and (orientation: landscape) {
+    .main-logo {
+        margin-top: 120px;
+    }
+    .left-photo,
+    .right-photo {
+        block-size: 450px;
+        margin-bottom: 30px;
     }
 }
 

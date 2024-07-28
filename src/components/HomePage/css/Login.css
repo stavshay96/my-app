@@ -8,7 +8,7 @@
     color: #000000;
     font-family: 'Alef', sans-serif;
     font-size: 50px;
-    padding: 5px 30px;
+    padding: 5px 20px;
     /*text-shadow: 0vw 0.1vw 0vw #2f6627;*/
     /*width: 10%;*/
     /* position: 'fixed';*/
@@ -105,6 +105,7 @@
 .close-btn {
     padding: 5px 5px;
     font-size: 30px;
+    color: #000000;
 }
 
 .popup-overlay {
