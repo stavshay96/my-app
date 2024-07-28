@@ -87,3 +87,10 @@
         font-size: 20px;
     }
 }
+
+@media only screen and (min-width: 1600px) and (orientation: landscape) {
+    .lang-btns {
+        margin-top: 40px;
+        margin-left: 50px;
+    }
+}

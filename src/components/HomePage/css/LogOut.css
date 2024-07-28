@@ -85,6 +85,9 @@
     .btnNamePresent {
         font-size: 17px;
     }
+    .user {
+        block-size: 50px;
+    }
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
