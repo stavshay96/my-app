@@ -21,3 +21,7 @@ Pendel is built using the MERN stack, a combination of technologies that provide
 - **Express.js:** Express.js enables us to build robust APIs for handling HTTP requests and connecting our frontend with the backend.
 - **React:** A JavaScript library for building user interfaces. React helps us create a dynamic and responsive user interface, ensuring a smooth user experience across different devices.
 - **Node.js:** A JavaScript runtime built on Chrome's V8 engine. Node.js allows us to execute server-side code and handle concurrent requests, making our application fast and scalable.
+
+<img src="https://github.com/user-attachments/assets/3ec037b3-db35-4479-bb1b-90debd075563" width="550">
+<img src="https://github.com/user-attachments/assets/52e42e2a-c4cb-4f94-8973-b89a2f489e30" width="550">
+
