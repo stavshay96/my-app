@@ -6,9 +6,11 @@ import "./css/BackToHomePage.css";
 function BackToHomePage(props)
 {
     return (
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <Button className="btnBackToHomePage" style={props.style} />
-         </Link>
+        <div className="homepage-img-container">
+            <Link to="/" style={{ textDecoration: "none" }}>
+            <Button className="btnBackToHomePage" style={props.style} />
+            </Link>
+         </div>
     )
 }
 

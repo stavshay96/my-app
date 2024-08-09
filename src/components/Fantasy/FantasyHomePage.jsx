@@ -17,6 +17,9 @@ import MyLeagues from "./MyLeagues";
 import LogOut from "../HomePage/LogOut";
 import Login from "../HomePage/Login";
 import FantasyTeamNamePopup from "./FantasyTeamNamePopup";
+import FantasyHeader from "./FantasyHeader";
+
+const Logo = require("../../images/PendelLogo-removebg.png");
 
 const FantasyHomePage = (props) => {
     const [isThisGameweek,SetisThisGameweek] = useState(true);
@@ -25,8 +28,14 @@ const FantasyHomePage = (props) => {
     console.log(`${props.leagueChoice} fantasyhomepage`);
 
     return(
-        <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
-            <LangBar/> 
+        <div style={{display: 'flex', flexDirection: 'column', minHeight: '210vh'}}>
+            {/*<LangBar/> */}
+            <FantasyHeader 
+                userInfo={props.userInfo} 
+                WrapUserInfo={props.WrapUserInfo} 
+            />
+            <InfoAndFantasyOptions
+                leagueChoice={props.leagueChoice}/>
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate} 
                 handleIsDeadLineDatePass={props.handleIsDeadLineDatePass} 
@@ -54,11 +63,10 @@ const FantasyHomePage = (props) => {
                 fantasyUser={props.fantasyUser}
                 currentGameweek={props.currentGameweek}
                 gameweekNumber={props.gameweekNumber}/>
-            <InfoAndFantasyOptions
-             leagueChoice={props.leagueChoice}/>
-            <MatchesList 
-                currentGameweek={props.currentGameweek} 
-                numOfGames={props.numOfGames}/>
+            <MovingToSubsButton 
+                isDeadLineDatePass={props.isDeadLineDatePass} 
+                leagueChoice={props.leagueChoice} 
+                isThisGameweek={isThisGameweek}/>
             <LineupByFixture 
                 currentGameweek={props.currentGameweek} 
                 numOfGames={props.numOfGames} 
@@ -69,24 +77,18 @@ const FantasyHomePage = (props) => {
                 SetisThisGameweek={SetisThisGameweek}
                 gameweekNumber={props.gameweekNumber} 
                 SetGameweekNumber={props.SetGameweekNumber}/>
-            <MovingToSubsButton 
-                isDeadLineDatePass={props.isDeadLineDatePass} 
-                leagueChoice={props.leagueChoice} 
-                isThisGameweek={isThisGameweek}/>
+            <MatchesList 
+                currentGameweek={props.currentGameweek} 
+                numOfGames={props.numOfGames}/>
+            <Rules/>
             <MyLeagues
              leagueChoice={props.leagueChoice}/>
-            <Rules/>
-            <BackToHomePage 
-                style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  
-                        backgroundSize: "cover", zIndex: '1',
-                        backgroundPosition: '0vw 0.1vw', }}/>
-            <img 
+           
+          
+            {/*<img 
                 className= "fantasy-logo" 
-                src={require('../../images/FantasyLogo.png')}/>
-            {user? <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}
-                                  h1style={{position:'absolute', top:'4.35%', right:'7.75%' ,fontSize:'1.3vw', textShadow: "0vw 0.05vw 0vw"}}
-                                  btnstyle={{position:'absolute', top:'11%',left:'69%'}}
-                                  imgstyle={{position:'absolute', top:'4.5%', left:'70.5%' }}/> : <Login changeUserInfo={props.WrapUserInfo}/>}
+    src={require('../../images/FantasyLogo.png')}/>*/}
+          
 
             {user && <FantasyTeamNamePopup userInfo={props.userInfo} fantasyUser={props.fantasyUser} SetFantasyUser={props.SetFantasyUser}
                          numOfGames={props.numOfGames} currentGameweek={props.currentGameweek} leagueID= {props.leagueID}
@@ -96,3 +98,17 @@ const FantasyHomePage = (props) => {
 }
 
 export default FantasyHomePage;
+
+
+
+/*****************************************************  (if fantastHeader component doesnt work well - use this) ***************
+ *  <div className="fantasy-header">
+                {user? <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}
+                                 /> : <Login changeUserInfo={props.WrapUserInfo}/>}
+                <div  className="fantasy-logo" >
+                    <img src={Logo}/>
+                </div>
+                <BackToHomePage />
+            </div>
+
+       ****************************************************************************************************/

@@ -7,7 +7,7 @@
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 35px;
+    font-size: 50px;
     padding: 5px 25px;
     margin-top: -10px;
 }
@@ -15,6 +15,12 @@
 .btnLogOut:hover {
     background-color: #b6d7a8;
     transform: scale(0.95);
+}
+
+.fantasy-header .btnLogOut {
+    margin-top: 0px;
+    font-size: 30px;
+    margin-left: 15px;
 }
 
 .btnLogOutPred {
@@ -52,7 +58,7 @@
 
 .user {
     block-size: 100px;
-    margin-bottom: -20px;
+    /*margin-bottom: -20px;*/
 }
 
 .logout-container {
@@ -61,11 +67,19 @@
     align-items: center;
     justify-content: space-evenly;
     margin-right: 20px;
-    /*margin-top: 30px;*/
+    margin-top: 50px;
     /* or space-between or flex-start, depending on your layout */
     block-size: 1px;
     /*background-color: #f9f9f9;*/
     /* Optional: for better visibility */
+}
+
+.fantasy-header .user {
+    block-size: 80px;
+}
+
+.fantasy-header .logout-container {
+    margin-top: 10px;
 }
 
 @media (max-width: 1100px) {
@@ -91,6 +105,7 @@
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
+    .fantasy-header .user,
     .user {
         block-size: 50px;
     }
@@ -116,5 +131,17 @@
         block-size: 1px;
         /*background-color: #f9f9f9;*/
         /* Optional: for better visibility */
+    }
+    .fantasy-header .logout-container {
+        margin-top: 0px;
+    }
+    .fantasy-header .btnLogOut {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1601px) and (orientation: landscape) {
+    .fantasy-header .logout-container {
+        margin-top: 0px;
     }
 }

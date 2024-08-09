@@ -9,20 +9,20 @@ let afterSubmit = false;
 const buttons = [
     {
         buttonID: 1,
-        name: 'הגש הרכב',
-        style: {
+        name: 'שמור הרכב',
+        style: {/*
             position: 'fixed',
             bottom: '4%',
-            right: '37%'
+            right: '37%'*/
         }
     }, {
         buttonID: 2,
         name: 'נקה הרכב',
-        style: {
+        style: {/*
             position: 'fixed',
             bottom: '4%',
             right: '51.5%',
-            unicodeBidi: 'plaintext'
+            unicodeBidi: 'plaintext'*/
         }
     }
 ]
@@ -109,7 +109,7 @@ function SubmitAndReset(props) {
     }
 
     return (
-        <div>
+        <div className="submit-reset-container">
             {buttons.map(CreateSubmitAndResetButtons)}
         </div>
     )

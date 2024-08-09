@@ -11,23 +11,23 @@ function SpecialChips(props) {
         {
             chipID: 1,
             name: 'טריפל קפטן',
-            style: {
+            style: {/*
                 position: 'fixed',
                 top: '17%',
                 right: '52%',
-                width: '9.5%'
+                width: '9.5%'*/
             },
             isButtonDisabled: props.fantasyUser.tripleUsedInGameweek
     
         }, {
             chipID: 2,
             name: '11 חילופים',
-            style: {
+            style: {/*
                 position: 'fixed',
                 top: '17%',
                 right: '37.5%',
                 width: '9.5%',
-                unicodeBidi: 'plaintext'
+                unicodeBidi: 'plaintext'*/
             },
             isButtonDisabled: props.fantasyUser.wildCardUsedInGameweek
         }
@@ -72,7 +72,7 @@ function SpecialChips(props) {
     }
 
     return (
-        <div>
+        <div className="chips-container" >
             {chips.map(CreateChip)}
         </div>
     )

@@ -14,7 +14,7 @@ function TopBar(props) {
     const determineMaxSubs = () => {
         return props.fantasyUser.startFromGameweek? 
         props.fantasyUser.startFromGameweek === props.currentGameweek? 80: 
-            props.fantasyUser.lineupsArr[props.fantasyUser.startFromGameweek-1].length === 0 ? 80: //bug: need to change startFromGameweek to currentGameweek
+            props.fantasyUser.lineupsArr[props.currentGameweek-1].length === 0 ? 80: //bug: need to change startFromGameweek to currentGameweek - done 31.7.24
                 props.fantasyUser.wildCardUsedInGameweek === props.currentGameweek? props.fantasyType: props.subsLimit
                     :props.subsLimit;
     }
@@ -50,45 +50,45 @@ function TopBar(props) {
         <div>
             <ButtonGroup
                 className="btnTopBar"
-                style={{
+                style={{/*
                 position: 'fixed',
                 top: '3.75%',
                 right: '31.7%',
                 width: '29%',
                 height: '8%',
                 backgroundImage: `url(https://img.freepik.com/free-vector/green-curve-frame-template_53876-99025.jpg?w=900&t=st=1693520574~exp=1693521174~hmac=31612521b16feec03c061c9f10c87d1c819cb5e958fb984c702d1e23fac40d2a)`, // Use the background image URL
-                backgroundSize: 'cover', // Adjust the background size as needed
+                backgroundSize: 'cover', // Adjust the background size as needed*/
             }}>
                 {showButton && <Button
                     className="btnItems"
-                    style={{
+                    style={{/*
                     height: '130%',
-                    unicodeBidi: 'plaintext'
-                }}>{budget}<hr className="seperator" style={{width: '75%'}}/>{props.currentBudget}M/{maxBudget}M</Button>}
+                    unicodeBidi: 'plaintext'*/
+                }}>{budget}<hr className="seperator" style={{/*width: '75%'*/}}/>{props.currentBudget}M/{maxBudget}M</Button>}
                 {showButton && <Button
                     className="btnItems"
-                    style={{
+                    style={{/*
                     height: '130%',
-                    unicodeBidi: 'plaintext'
-                }}>{subs}<hr className="seperator" style={{width: '75%'}}/>{props.currentSubs}/{maxSubs}</Button>}
+                    unicodeBidi: 'plaintext'*/
+                }}>{subs}<hr className="seperator" style={{/*width: '75%'*/}}/>{props.currentSubs}/{maxSubs}</Button>}
                 <Button
                     className="btnItems"
-                    style={{
+                    style={{/*
                     height: '130%',
-                    unicodeBidi: 'plaintext'
-                }}>{teamName}<hr className="seperator" style={{width: '75%'}}/>{teamGivenName}</Button>
+                    unicodeBidi: 'plaintext'*/
+                }}>{teamName}<hr className="seperator" style={{/*width: '75%'*/}}/>{teamGivenName}</Button>
                 {!showButton && <Button
                     className="btnItems"
-                    style={{
+                    style={{/*
                     height: '150%',
                     fontSize: '1.2vw',
-                    unicodeBidi: 'plaintext'
-                }}>{points}<hr className="seperator" style={{width: '75%'}}/>{weeklyPoints}</Button>}
+                    unicodeBidi: 'plaintext'*/
+                }}>{points}<hr className="seperator" style={{/*width: '75%'*/}}/>{weeklyPoints}</Button>}
                 <Button
                     className="btnItems"
-                    style={{
+                    style={{/*
                     height: '130%',
-                    unicodeBidi: 'plaintext'
+                    unicodeBidi: 'plaintext'*/
                 }}>{fantasy}<hr className="seperator" style={{width: '75%'}}/>{fantasyName}</Button>
             </ButtonGroup>
         </div>

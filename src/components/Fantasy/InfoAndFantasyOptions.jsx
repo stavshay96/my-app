@@ -25,14 +25,14 @@ function InfoAndFantasyOptions(props) {
 
     return (
         <div>
-            <ButtonGroup
-                style={{
+            <ButtonGroup className="btnGroupOptions"
+                style={{/*
                 position: 'absolute',
                 top: '18%',
                 right: '1.5%',
                 unicodeBidi: 'plaintext',
                 width: '25%',
-                zIndex: '2'
+                zIndex: '2'*/
             }}>
                 <Button className="btnInfoAndOptions1">
                     {squad15}
@@ -40,7 +40,7 @@ function InfoAndFantasyOptions(props) {
                 <Button
                     className="btnInfoAndOptions1"
                     style={{
-                    backgroundColor: '#bae9a6'
+                    backgroundColor: '#e1f9d7'
                 }}>
                     {lineup11}
                 </Button>
@@ -52,19 +52,19 @@ function InfoAndFantasyOptions(props) {
                 </Button>
             </ButtonGroup>
 
-            <ButtonGroup
-                style={{
+            <ButtonGroup className="btnGroupOptions"
+                style={{/*
                 position: 'absolute',
                 top: '27%',
                 right: '0.6%',
                 unicodeBidi: 'plaintext',
                 width: '27%',
-                zIndex: '2'
+                zIndex: '2'*/
             }}>
                 <Button
                     className="btnInfoAndOptions2"
-                    style={{
-                    backgroundColor: '#bae9a6'
+                    style={{/*
+                    backgroundColor: '#bae9a6'*/
                 }}
                 onClick={handleMyLeaguesButton}>
                     {myLeagues}
@@ -72,9 +72,19 @@ function InfoAndFantasyOptions(props) {
                 <Button className="btnInfoAndOptions2">
                     {statistics}
                 </Button>
+                <Button
+                    className="btnInfoAndOptions2"
+                    style={{
+                    /*backgroundColor: '#bae9a6'*/
+                }}>
+                    {drafts}
+                </Button>
+                <Button className="btnInfoAndOptions2">
+                    {expectedLineups}
+                </Button>
             </ButtonGroup>
 
-            <ButtonGroup
+            {/*<ButtonGroup className="btnGroupOptions"
                 style={{
                 position: 'absolute',
                 top: '33%',
@@ -93,7 +103,7 @@ function InfoAndFantasyOptions(props) {
                 <Button className="btnInfoAndOptions2">
                     {expectedLineups}
                 </Button>
-            </ButtonGroup>
+            </ButtonGroup>*/}
         </div>
     )
 }

@@ -1,3 +1,95 @@
+.players-list-root {
+    /*position: absolute;
+    top: 39.75%;
+    right: 66.95%;
+    z-index: 2;
+    width: 30.75%;
+    height: 97%;
+    background-color: #8e2c2c !important;*/
+    grid-template-rows: 1000px;
+    display: grid;
+    /*flex-direction: column;*/
+    align-items: center;
+    margin: 50px auto;
+    /* min-height: 200px;*/
+    width: 100%;
+    height: auto;
+    z-index: 3;
+    flex-grow: 1;
+    background-image: url('https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.custom-checkbox-column-header {
+    display: none;
+}
+
+.custom-data-grid {
+    background-color: #f0f0f0;
+}
+
+.custom-toolbar-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.grid-header-cell {
+    white-space: normal;
+    line-height: 1;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.grid-cell-text {
+    white-space: normal;
+    line-height: 1;
+    font-size: 25px;
+}
+
+.grid-cell-position {
+    white-space: normal;
+    line-height: 1;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.grid-cell-player-name {
+    white-space: normal;
+    line-height: 1;
+    font-size: 30px;
+    /*font-weight: bold;*/
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .players-list-root {
+        position: absolute;
+        top: 75%;
+        left: 0%;
+        width: 32%;
+        height: 97%;
+        z-index: 3;
+        grid-template-rows: auto;
+    }
+    .grid-cell-player-name,
+    .grid-cell-position,
+    .grid-cell-text {
+        font-size: 18px;
+    }
+    .grid-header-cell {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1600px) and (orientation: landscape) {
+    .players-list-root {
+        top: 70%;
+        width: 30%;
+        left: 2%;
+    }
+}
+
+
 /*.DataGrid {
     text-align: center;
     background-color: #65f0a1;
@@ -14,9 +106,9 @@
 
 div[role="tooltip"] {
     top: -21% !important;
-    left: -2% !important; 
+    left: -2% !important;
     font-size: 2em !important;
-  }
+}
 
 .btnDropdownPos {
     text-align: center;

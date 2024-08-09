@@ -1,16 +1,26 @@
+.chips-container {
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
 .btnChips {
     text-align: center;
     background-color: #f4fdf0;
-    border-radius: 0.5vw;
-    border: 0.15vw solid #131313;
+    border-radius: 10px;
+    border: 2px solid #131313;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.1vw;
-    padding: 0.25% 0.5%;
-    text-shadow: 0vw 0.075vw 0vw #2f6627;
-    width: 11%;
+    font-size: 35px;
+    padding: 20px 40px;
+    /*word-break: keep-all;*/
+    unicode-bidi: plaintext;
+    width: 100%;
+    white-space: nowrap;
+    /*text-shadow: 0vw 0.075vw 0vw #2f6627;*/
+    /*width: 11%;*/
 }
 
 .btnChips:hover {
@@ -20,14 +30,38 @@
 .disabledBtnChips {
     text-align: center;
     background-color: #f4fdf0;
-    border-radius: 0.5vw;
-    border: 0.15vw solid #b6d7a8;
+    border-radius: 10px;
+    border: 2px solid #b6d7a8;
     display: inline-block;
     cursor: default;
     color: grey;
     font-family: 'Alef', sans-serif;
-    font-size: 1.1vw;
-    padding: 0.25% 0.5%;
-    text-shadow: 0vw 0.075vw 0vw #2f6627;
-    width: 11%;
+    font-size: 35px;
+    padding: 20px 40px;
+    /*word-break: keep-all;*/
+    width: 100%;
+    unicode-bidi: plaintext;
+    white-space: nowrap;
+    /* text-shadow: 0vw 0.075vw 0vw #2f6627;
+    width: 11%;*/
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .chips-container {
+        margin: 0 auto;
+        gap: 10px;
+    }
+    .btnChips,
+    .disabledBtnChips {
+        font-size: 20px;
+        padding: 10px 80px;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1600px) and (orientation: landscape) {
+    .btnChips,
+    .disabledBtnChips {
+        padding: 5px 100px;
+    }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import "./css/Field.css"
 import {Button, ButtonGroup} from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
+import LineupCounter from "./LineupCounter";
 //import manCityKit from "../../images/city_1.png"
 //import Arsenal from "../../images/kits/Arsenal.png"
 
@@ -86,37 +87,38 @@ function Field(props) {
         .filter((player) => player.position === 'FW');
 
     return (
-        <div>
+        <div className="field-container">
             <img className="field-img" src={require('../../images/field5.png')}/>
-            <ButtonGroup style={getButtonStyle(top)}>
+            {showButton && <LineupCounter lineup={props.lineup}/>}
+            <div className="goalkeepers-group">
                 {goalkeepers.map(createPlayerButton)}
-            </ButtonGroup>
+            </div>
 
-            <ButtonGroup style={getButtonStyle(top + 15)}>
+            <div className="defenders-group">
                 {defenders.map(createPlayerButton)}
-            </ButtonGroup>
+            </div>
 
-            <ButtonGroup style={getButtonStyle(top + 31)}>
+            <div className="midfielders-group">
                 {midfielders.map(createPlayerButton)}
-            </ButtonGroup>
+            </div>
 
-            <ButtonGroup style={getButtonStyle(top + 47)}>
+            <div className="forwards-group">
                 {forwards.map(createPlayerButton)}
-            </ButtonGroup>
+            </div>
         </div>
     )
 }
 
 const getButtonStyle = (topAdjustment) => {
     return {
-        display: 'flex',
+        /*display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'flex-start',
         position: 'fixed',
         top: `${topAdjustment}%`,
         left: `${left}%`,
-        width: '40%'
+        width: '40%'*/
     };
 }
 

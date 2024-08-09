@@ -1,18 +1,46 @@
+.submit-reset-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    z-index: 2;
+    gap: 20px;
+    margin: 20px;
+}
+
 .btnSubmitAndReset {
     text-align: center;
-    background-color: #cdf3bd;
-    border-radius: 0.5vw;
-    border: 0.15vw solid #131313;
+    background-color: #e1f9d7;
+    border-radius: 10px;
+    /*border: 2px solid #131313;*/
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: background-color 0.3s, border-bottom 0.3s;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.2vw;
-    padding: 0.25% 0.5%;
-    text-shadow: 0vw 0.075vw 0vw #2f6627;
-    width: 10%;
+    font-size: 35px;
+    padding: 20px 40px;
+    /*text-shadow: 0vw 0.075vw 0vw #2f6627;*/
+    /*width: 10%;*/
+    unicode-bidi: plaintext;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .btnSubmitAndReset:hover {
     background-color: #b6d7a8;
+    border-bottom: 2px solid #131313;
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .submit-reset-container {
+        margin: 0 auto;
+        gap: 10px;
+    }
+    .btnSubmitAndReset {
+        font-size: 20px;
+        padding: 10px 80px;
+        width: 100%;
+    }
 }

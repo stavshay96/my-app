@@ -2,8 +2,10 @@ import {React, useEffect, useState } from "react";
 import "./css/FantasyRoomPage.css"
 //import FantasyUsers from "./data/FantasyUsers.jsx";
 import BackToHomePage from "../General/BackToHomePage.jsx";
+import FantasyHeader from "./FantasyHeader.jsx";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+
 
 
 function FantasyRoomPage(props){
@@ -72,6 +74,10 @@ function FantasyRoomPage(props){
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
+             <FantasyHeader 
+                userInfo={props.userInfo} 
+                WrapUserInfo={props.WrapUserInfo} 
+            />
              {!isLoading && (
                 <div className="form">
                     <table className="fantasyUsers-table">
@@ -102,11 +108,11 @@ function FantasyRoomPage(props){
 
                 </div>
              )}
-              <img 
+             {/*<img 
                 className= "fantasy-logo" 
                 src={require('../../images/FantasyLogo.png')}/>
                  <BackToHomePage style={{position:'absolute', top:'5.5%', right:'3%', width:'4.5%',  
-                        backgroundSize: "cover", backgroundPosition: '0vw 0.1vw', }}/> 
+            backgroundSize: "cover", backgroundPosition: '0vw 0.1vw', }}/> */}
         </div>
     )
 }
