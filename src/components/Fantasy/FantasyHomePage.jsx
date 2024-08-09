@@ -26,6 +26,7 @@ const FantasyHomePage = (props) => {
     const user = document.cookie;
     console.log(`${user} user info`);
     console.log(`${props.leagueChoice} fantasyhomepage`);
+    console.log(props.gameweeksList);
 
     return(
         <div style={{display: 'flex', flexDirection: 'column', minHeight: '210vh'}}>
@@ -79,7 +80,9 @@ const FantasyHomePage = (props) => {
                 SetGameweekNumber={props.SetGameweekNumber}/>
             <MatchesList 
                 currentGameweek={props.currentGameweek} 
-                numOfGames={props.numOfGames}/>
+                numOfGames={props.numOfGames}
+                leagueChoice={props.leagueChoice}
+                gameweeksList={props.gameweeksList}/>
             <Rules/>
             <MyLeagues
              leagueChoice={props.leagueChoice}/>

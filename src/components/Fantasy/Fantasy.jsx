@@ -68,6 +68,7 @@ const Fantasy = (props) => {
         console.log(leaguedata);
         console.log(leaguedata.teamsList);
         console.log(leaguedata.numOfGames); 
+        console.log(leaguedata.gameweeksList);
         const extractedPlayers = getPlayersList(leaguedata.teamsList);
 
       
