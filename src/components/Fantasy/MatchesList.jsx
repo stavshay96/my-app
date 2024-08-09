@@ -6,13 +6,18 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import "./css/MatchesList.css"
 import Matches from "./data/Matches.jsx";
 import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
+import axios from "axios";
 
-const rows = Matches.map(createRowMatch);
+// const rows = Matches.map(createRowMatch);
 
 
-
-function createRowMatch(match) {
-    return {id: match.id, HomeTeam: match.HomeTeam, Score: `${match.ScoreAwayTeam}:${match.ScoreHomeTeam}`, AwayTeam: match.AwayTeam}
+function createRowMatch(match, index) {
+    return {
+        id: index, // If `id` does not exist, you should either remove this or provide an appropriate unique value
+        HomeTeam: match.hebHomeTeamName, // Change to match actual property name
+        Score: `${match.awayScore === '@' ? '-' : match.awayScore}:${match.homeScore === '@' ? '-' : match.homeScore}`, // Adjust the format to match your data
+        AwayTeam: match.hebAwayTeamName // Change to match actual property name
+    };
 }
 
 function wrapCellTeamNameText(params) {
@@ -87,31 +92,50 @@ function MatchesList(props) {
             renderHeader: wrapHeaderText
         }
     ])
-    
-    const [gameweekNumber,
-        SetGameweekNumber] = useState(1);
+
+    const [rows, setRows] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [gameweekNumber, setGameweekNumber] = useState(1);
+    const limitGameWeek = props.numOfGames;
+
+    // Fetch data whenever gameweekNumber changes
+    useEffect(() => {
+        axios.get(`https://pendel-server.onrender.com/Fantasy/FantasyLeagueData?leagueChoice=${props.leagueChoice}`)
+            .then((res) => {
+                const leaguedata = res.data;
+                const currentGameweek = leaguedata.gameweeksList?.[gameweekNumber - 1] || [];
+                setRows(currentGameweek.map(createRowMatch));
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error(error);
+                setRows([]);
+                setLoading(false);
+            });
+    }, [gameweekNumber, props.leagueChoice]);
+
     const leftArrow = "<";
     const rightArrow = ">";
     const gameweek = "מחזור ";
-    const limitGameWeek = props.numOfGames;
 
     const location = useLocation();
 
     useEffect(() => {
-        SetGameweekNumber(props.currentGameweek);
+        setGameweekNumber(1);
+        // SetGameweekNumber(props.currentGameweek);
      }, [props.currentGameweek]);
      
 
     const increaseGameweek = () =>{
         if (gameweekNumber < limitGameWeek) {
             //gameweekNumber1++;
-            SetGameweekNumber(gameweekNumber+1);
+            setGameweekNumber(gameweekNumber+1);
         }
     }
     const decreaseGameweek = () =>{
         if (gameweekNumber > 1) {
             //gameweekNumber1++;
-            SetGameweekNumber(gameweekNumber-1);
+            setGameweekNumber(gameweekNumber-1);
         }
     }
 

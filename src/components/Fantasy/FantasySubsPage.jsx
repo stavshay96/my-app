@@ -134,8 +134,10 @@ const FantasySubsPage = (props) => {
                 playersFromSameTeamLimit={props.playersFromSameTeamLimit}
                 />
             <MatchesList
-                currentGameweek={props.currentGameweek}
+                currentGameweek={props.currentGameweek} 
                 numOfGames={props.numOfGames}
+                leagueChoice={props.leagueChoice}
+                gameweeksList={props.gameweeksList}
                 />
             <Rules/>
            {/* <img className="fantasy-logo" src={require('../../images/FantasyLogo.png')}/>*/}
