@@ -132,8 +132,8 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
     }
 }
 
-const filePath = "../../files/PremierLeague/transfersInsidePremierLeague.txt"
-transferPlayersBetweenTeamsFromFileHebrew(filePath, "PremierLeague");
+// const filePath = "../../files/PremierLeague/transfersInsidePremierLeague.txt"
+// transferPlayersBetweenTeamsFromFileHebrew(filePath, "PremierLeague");
 
 
 async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {
@@ -191,3 +191,22 @@ async function insertPlayersToDBFromFileManyTeams(filePath, englishLeagueName) {
 }
 //const filePath = "../../files/LigaLeumit/namesPlayersLeumit2.txt"
 //insertPlayersToDBFromFileManyTeams(filePath, "LigaLeumit");
+
+async function insertGameweeksToDBFromFile(filePath, englishLeagueName) {
+    try {
+        const data = await fs.readFile(filePath, 'utf8');
+        const lines = data.split('\n');
+        const nonEmptyLines = lines.filter(line => line.trim() !== '');
+        //console.log(nonEmptyLines);
+
+        const insertStatus = await DBManager.InsertGameweeksToList(nonEmptyLines, englishLeagueName);
+        //console.log(insertStatus);
+        process.exit(0);
+    } catch (error) {
+        console.error("Error reading file:", error);
+        process.exit(1);
+    }
+}
+
+//const filePathGameweek = "../../files/LigaLeumit/gameweeksLeumit.txt";
+//insertGameweeksToDBFromFile(filePathGameweek, "LigaLeumit");

@@ -428,6 +428,73 @@ async function InsertNewPlayersToLeague(i_lines, i_englishLeagueName) {
     }
 }
 
+async function InsertGameweeksToList(i_lines, i_englishLeagueName) {
+    const query = { englishleagueName: i_englishLeagueName };
+    const league = await client.db("LeaguesInfo").collection("Info").findOne(query);
+    let i = 0;
+    let line = i_lines[i];
+
+    if (!league)
+    {
+            return "League not found";
+    }
+    
+    while (i < i_lines.length) {
+        if (line.trim() === "&") {
+            i++;
+            if (i < i_lines.length) {
+                line = i_lines[i];
+            }
+            continue;
+        }
+
+        const gameweekNumber = line.trim();
+        //console.log(`gameweekNumber: ${gameweekNumber}`);
+        let matches = [];
+
+        i++;
+        line = i_lines[i];
+        
+        while (line.trim() !== "&" && i < i_lines.length) {
+            const parts = line.split('@-@');
+            const homeTeamParts = parts[0].split(',');
+            const awayTeamParts = parts[1].split(',');
+            
+            const match = {
+                hebHomeTeamName: homeTeamParts[0].trim(),
+                engHomeTeamName: homeTeamParts[1].trim(),
+                homeScore: '@',
+                awayScore: '@',
+                hebAwayTeamName: awayTeamParts[0].trim(),
+                engAwayTeamName: awayTeamParts[1].trim()
+            };
+            //console.log(match);
+            
+            matches.push(match);
+
+            i++;
+            if (i < i_lines.length) {
+                line = i_lines[i];
+            } 
+        }
+
+        league.gameweeksList[parseInt(gameweekNumber) - 1] = matches;
+        i++;
+        if (i < i_lines.length) {
+            line = i_lines[i];
+        }
+    }
+
+    //console.log(league);
+    console.log(league.gameweeksList);
+    console.log(league.gameweeksList[0]);
+    console.log(league.gameweeksList[0][0])
+
+    // Update the league document in the database
+    await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
+    return `the new matches added to the gameweeks successfully`;
+}
+
 function translatePosition(position) {
     if (position.toLowerCase() === "gk" || position === "שוער" || position.toLowerCase() === "goalkeeper") {
         return "Goalkeeper";
@@ -688,6 +755,7 @@ module.exports = {
     InsertNewPlayersToLeague: InsertNewPlayersToLeague,
     transfersPlayersBetweenTeamsHebrew: transfersPlayersBetweenTeamsHebrew,
     InsertPlayersInfoManyTeams: InsertPlayersInfoManyTeams,
+    InsertGameweeksToList,
 
 
 };
