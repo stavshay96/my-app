@@ -14,19 +14,33 @@ import BackToHomePage from "../General/BackToHomePage";
 import Captain from "./Captain";
 import LineupCounter from "./LineupCounter";
 import Rules from "./Rules";
+import FantasyHeader from "./FantasyHeader";
 import players from "./data/Players";
 
 const FantasySubsPage = (props) => {
     let navigate = useNavigate();
+   
     const location = useLocation();
+    const user = document.cookie;
     const [initialSelectedRows,
         SetInitialSelectedRows] = useState(props.lineup.map((player) => player.id));
 
     useEffect(() => {
+        
+        const fromPath = location.state?.from;
+        const requiredPreviousPath = `/Fantasy/${props.leagueChoice}`;
+          // Check if the navigation came from the required previous path
+          if (fromPath !== requiredPreviousPath) {
+            navigate("/", { replace: true });
+        }
+        
+
+       
         if (location.pathname === `/Fantasy/${props.leagueChoice}/subs`) {
             console.log('FantasySubsPage is rendering');
             console.log(`isDeadLineDatePass: ${props.isDeadLineDatePass}`);
-            if (!props.userInfo.fullName) {
+           
+            if (!user) {
                 navigate(`/Fantasy/${props.leagueChoice}`, {replace: true});
                 }
             if (props.isDeadLineDatePass === true) {
@@ -37,26 +51,20 @@ const FantasySubsPage = (props) => {
     }, [location.pathname, props.isDeadLineDatePass]);
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
-            <LangBar/>
+        <div style={{display: 'flex', flexDirection: 'column', minHeight: '210vh'}}>
+            {/*<LangBar/>*/}
+            <FantasyHeader 
+                userInfo={props.userInfo} 
+                WrapUserInfo={props.WrapUserInfo} 
+                />
+            <InfoAndFantasyOptions
+             leagueChoice={props.leagueChoice}
+                />
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate}
                 handleIsDeadLineDatePass={props.handleIsDeadLineDatePass}
                 fantasyUser={props.fantasyUser}/>
-            <PlayersList
-                lineup={props.lineup}
-                initialSelectedRows={initialSelectedRows}
-                onCheckBoxChange={props.handleLineup}
-                captain={props.captain} 
-                handleCaptain={props.handleCaptain}
-                playersList= {props.playersList}
-                budgetLimit={props.budgetLimit} 
-                currentSubs={props.currentSubs}
-                onCountingSubs={props.handleSubs}
-                subsLimit={props.subsLimit}
-                fantasyUser={props.fantasyUser}
-                currentGameweek={props.currentGameweek}
-                playersFromSameTeamLimit={props.playersFromSameTeamLimit}/>
+            
             <TopBar
                 currentBudget={props.currentBudget}
                 onCalcBudget={props.handleBudget}
@@ -71,9 +79,16 @@ const FantasySubsPage = (props) => {
                 currentGameweek={props.currentGameweek}
                 SetSubsLimit={props.SetSubsLimit}
                 fantasyType={props.fantasyType}
-                gameweekNumber={props.gameweekNumber}/>
-                
-            <LineupCounter lineup={props.lineup}/>
+                gameweekNumber={props.gameweekNumber}
+                />
+            <SpecialChips
+                fantasyUser={props.fantasyUser}
+                SetFantasyUser={props.SetFantasyUser}
+                SetSubsLimit={props.SetSubsLimit}
+                currentGameweek={props.currentGameweek}
+                fantasyType={props.fantasyType}
+                /> 
+           
             <Field
                 lineup={props.lineup}
                 onRemoveButton={props.handleLineup}
@@ -83,13 +98,7 @@ const FantasySubsPage = (props) => {
                 onChangeSelectedRows={SetInitialSelectedRows}
                 fantasyUser={props.fantasyUser}
                 currentGameweek={props.currentGameweek}
-                gameweekNumber={props.gameweekNumber}/>
-            <SpecialChips
-                fantasyUser={props.fantasyUser}
-                SetFantasyUser={props.SetFantasyUser}
-                SetSubsLimit={props.SetSubsLimit}
-                currentGameweek={props.currentGameweek}
-                fantasyType={props.fantasyType}
+                gameweekNumber={props.gameweekNumber}
                 />
             <SubmitAndReset
                 lineup={props.lineup}
@@ -102,28 +111,34 @@ const FantasySubsPage = (props) => {
                 captain={props.captain}
                 handleCaptain={props.handleCaptain}
                 fantasyType={props.fantasyType}
-                leagueChoice={props.leagueChoice}/>
-            <InfoAndFantasyOptions
-             leagueChoice={props.leagueChoice}/>
-            <MatchesList
-                currentGameweek={props.currentGameweek}
-                numOfGames={props.numOfGames}/>
+                leagueChoice={props.leagueChoice}
+                />
             <Captain
                 lineup={props.lineup}
                 captain={props.captain}
-                onChangeCaptain={props.handleCaptain}/>
+                onChangeCaptain={props.handleCaptain}
+                />
+            <PlayersList
+                lineup={props.lineup}
+                initialSelectedRows={initialSelectedRows}
+                onCheckBoxChange={props.handleLineup}
+                captain={props.captain} 
+                handleCaptain={props.handleCaptain}
+                playersList= {props.playersList}
+                budgetLimit={props.budgetLimit} 
+                currentSubs={props.currentSubs}
+                onCountingSubs={props.handleSubs}
+                subsLimit={props.subsLimit}
+                fantasyUser={props.fantasyUser}
+                currentGameweek={props.currentGameweek}
+                playersFromSameTeamLimit={props.playersFromSameTeamLimit}
+                />
+            <MatchesList
+                currentGameweek={props.currentGameweek}
+                numOfGames={props.numOfGames}
+                />
             <Rules/>
-            <BackToHomePage
-                style={{
-                position: 'absolute',
-                top: '5.5%',
-                right: '3%',
-                width: '4.5%',
-                backgroundSize: "cover",
-                backgroundPosition: '0vw 0.1vw',
-                zIndex: '1',
-            }}/>
-            <img className="fantasy-logo" src={require('../../images/FantasyLogo.png')}/>
+           {/* <img className="fantasy-logo" src={require('../../images/FantasyLogo.png')}/>*/}
 
         </div>
     )

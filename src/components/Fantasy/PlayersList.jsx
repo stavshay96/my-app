@@ -4,6 +4,7 @@ import { DataGrid, GridToolbarContainer, GridToolbarFilterButton } from "@materi
 import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles";
 import "./css/PlayersList.css";
+import { height } from "@fortawesome/free-brands-svg-icons/fa42Group";
 //import players from "./data/Players.jsx";
 //import Arsenal from "../../images/kits/Arsenal.png";
 
@@ -11,14 +12,6 @@ import "./css/PlayersList.css";
 const positions = ['הכל','שוער' ,'הגנה', 'קישור', 'התקפה'];
 
 
-const columns = [
-  { field: "totalPoints", headerName: "'נק", headerAlign: 'right', type: "number", flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
-  { field: "price", headerName: "מחיר", headerAlign: 'right', type: "number", flex: 1.1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
-  { field: "playerName", headerName: "שם שחקן", headerAlign: 'right', flex: 1.3, filterable: true, 
-  align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
-  {field: "position", headerName: "עמדה", headerAlign: 'center', flex: 0.75, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
-  renderHeader: wrapPositionHeader },
-];
 
 function createRow(player){
 
@@ -28,7 +21,7 @@ function createRow(player){
 
 function wrapHeaderText(params) {
   return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.5vw' }}>
+      <div className="grid-header-cell" style={{ /*whiteSpace: 'normal', lineHeight:'1.5vw' */}}>
           {params.colDef.headerName}
       </div>
   );
@@ -36,7 +29,7 @@ function wrapHeaderText(params) {
 
 function wrapPositionHeader(params) {
   return (
-      <div style={{ fontSize: '0.001vw', whiteSpace: 'normal', lineHeight:'1.5vw' }}>
+      <div className="" style={{ fontSize: '0.001vw', whiteSpace: 'normal', lineHeight:'1.5vw' }}>
           {params.colDef.headerName}
       </div>
   );
@@ -44,7 +37,7 @@ function wrapPositionHeader(params) {
 
 function wrapNumberTypeText(params) {
   return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw'}}>
+      <div className="grid-cell-text" style={{ /*whiteSpace: 'normal', lineHeight:'1.5', fontSize:'0.9vw'*/}}>
           {params.value}
       </div>
   );
@@ -53,7 +46,7 @@ function wrapNumberTypeText(params) {
 //not working yet
 function wrapCellPositionColor(params) {
   return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.5vw', fontSize:'0.9vw', fontWeight: 'bold', }}>
+      <div className="grid-cell-position" style={{ /*whiteSpace: 'normal', lineHeight:'1.5vw', fontSize:'0.9vw', fontWeight: 'bold',*/ }}>
           {params.value}
       </div>
   );
@@ -61,7 +54,7 @@ function wrapCellPositionColor(params) {
 
 function wrapCellPlayerNameText(params) {
   return (
-      <div style={{ whiteSpace: 'normal', lineHeight:'1.2vw', fontSize:'0.9vw', fontWeight: 'bold',}}>
+      <div className="grid-cell-player-name" style={{ /*whiteSpace: 'normal', lineHeight:'1.2vw', fontSize:'0.9vw', fontWeight: 'bold',*/}}>
           {params.value}
       </div>
   );
@@ -73,11 +66,71 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiDataGrid-columnHeaderCheckbox .MuiDataGrid-columnHeaderTitleContainer": {
       display: "none"
-    }
+    },
+    "& .MuiDataGrid-toolbarContainer": {
+      height:'60px',
+      
+    },
+    
+    "& .MuiDataGrid-footerContainer": {
+      fontSize: "24px",
+      
+    },
+    "& .MuiTablePagination-root": {
+      fontSize: "24px",
+      
+    },
+    "& .MuiIconButton-root svg": {
+      width: '50px',   // Adjust size
+      height: '50px',  // Adjust size
+    },
+    "& .MuiTablePagination-caption": {
+      display: 'none',
+    },
+   
   }
 }));
 
 function PlayersList(props) {
+  const [cols, setCols] = useState([
+    { field: "totalPoints", headerName: "נקודות", headerAlign: 'right', type: "number",minWidth:50, flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
+    { field: "price", headerName: "מחיר", headerAlign: 'center', type: "number",minWidth:50, flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
+    { field: "playerName", headerName: "שם שחקן", headerAlign: 'center', minWidth: 150, flex: 4, filterable: true, 
+    align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
+    {field: "position", headerName: "עמדה", headerAlign: 'center',minWidth:50, flex: 1, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
+    renderHeader: wrapPositionHeader },
+  ]);
+
+  useEffect(() => {
+    function handleResize() {
+        const screenWidth = window.innerWidth;
+        const updatedCols = [...cols];
+        const minWidthPlayerName = 200;
+        const minWidthShortCols = 70;
+
+          if(screenWidth>=1600){
+            updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols*1.05;
+            updatedCols[2].minWidth = minWidthPlayerName+80;
+          } else if (screenWidth >= 1200) {
+              // Apply desktop minWidth
+              updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols-10;
+              updatedCols[2].minWidth = minWidthPlayerName+30;
+          } else {
+              // Apply default or mobile minWidth
+              updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols*2;
+              updatedCols[2].minWidth = minWidthPlayerName + 270;
+          }
+
+        setCols(updatedCols);
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call it initially to set the size
+
+    return () => window.removeEventListener('resize', handleResize);
+}, []);
+  
+
  const players = props.playersList;
 const rows = props.playersList.map(createRow);
  //const rows = players.map(createRow);
@@ -312,18 +365,24 @@ const rows = props.playersList.map(createRow);
   ]);
 
   return (
-    <div>
-      <DataGrid className={classes.root} style={{position:'absolute', top:'39.75%', right:'66.95%', zindex:'2',
-        width:'30.75%', height: '97%', backgroundColor: '#e0f9d5',  backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`  }}
+    <div className="players-list-root">
+      <DataGrid className={classes.root} /*style={{position:'absolute', top:'39.75%', right:'66.95%', zindex:'2',
+        width:'30.75%', height: '97%', backgroundColor: '#e0f9d5',  backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`  }}*/
        // filterModel={filterModel}
        // onFilterModelChange={handleFilterChange}
+       /*className="custom-data-grid"
+       classes={{
+         columnHeaderCheckbox: 'custom-checkbox-column-header',
+         // Add more classes if needed
+       }}*/
         rows={rows}
-        columns={columns}
+        columns={cols}
         disableColumnMenu
         checkboxSelection
         disableSelectionOnClick
         //hideFooter
-       // hideFooterPagination
+        //hideFooterPagination
+        //pagination
         selectionModel={selectedRows}
         onSelectionModelChange={handleCheckBox}
         pageSize={100}
@@ -341,7 +400,9 @@ const rows = props.playersList.map(createRow);
             setFilterButtonEl,
           },
         }}
-        
+
+    
+ 
        // onRowClick={handleCheckBox}
        // onRowSelectionModelChange={handleCheckBox}
       //  filterMode="header"

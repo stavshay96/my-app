@@ -5,6 +5,8 @@ import "./css/LineupByFixture.css"
 function LineupByFixture(props) {
 
     //const [gameweekNumber, SetGameweekNumber] = useState(1);
+    const leftArrow = "<";
+    const rightArrow = ">";
     const gameweek = "מחזור ";
     const limitMaxGameWeek = props.currentGameweek;
     let   limitMinGameWeek = props.fantasyUser? props.fantasyUser.startFromGameweek: 1;
@@ -31,26 +33,19 @@ function LineupByFixture(props) {
     }
 
     return (
-        <div>
-            <ButtonGroup
-                style={{
-                position: 'fixed',
-                bottom: '3%',
-                right: '23.6%',
-                unicodeBidi: 'plaintext',
-                width: '35%'
-            }}>
+        <div className="lineupByFixture-container">
+           
                 <Button className="btnLeftArrowFixture" onClick={increaseGameweek}>
-                    <span>&#9664;</span>
+                    <span> {leftArrow} {/*&#9664;*/}</span>
                 </Button>
                 <Button className="btnGameweekFixture">
                     {gameweek} 
                     {props.gameweekNumber}
                 </Button>
                 <Button className="btnRightArrowFixture" onClick={decreaseGameweek}>
-                    <span>&#9654;</span>
+                    <span>{rightArrow} {/*&#9654;*/}</span>
                 </Button>
-            </ButtonGroup>
+        
         </div>
     )
 }

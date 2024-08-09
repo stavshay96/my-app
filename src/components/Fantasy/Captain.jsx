@@ -24,14 +24,14 @@ const Captain = (props) => {
     };
   
     return (
-      <div className="form-group">
-       
+      <div className="captain-container">
+        <div className="captain-label"> קפטן </div>
         <select
           className="minimal"
           name="selectedCaptain"
           value={props.captain? props.captain.playerName: ''}
           onChange={handleCaptainChoice}
-          style={{
+          style={{/*
             fontSize: "1vw",
             unicodeBidi: "plaintext",
             width: "14%",
@@ -39,7 +39,7 @@ const Captain = (props) => {
             position: "absolute",
             left: "19%",
             top: "40%",
-            textAlign: "center",
+            textAlign: "center",*/
           }}
         >
           <option value="">בחר קפטן</option>

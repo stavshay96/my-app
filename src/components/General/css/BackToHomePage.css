@@ -1,20 +1,42 @@
+.homepage-img-container {
+    display: flex;
+    /*justify-content: flex-end;*/
+}
+
 .btnBackToHomePage {
     text-align: center;
     background-image: url('../../../images/HomePageImage.png');
     min-height: 8%;
-    padding: 0.1% 0.1%;
+    padding: 41px 82px;
     /* background-attachment: cover;*/
-    background-repeat: no-repeat;
-    background-color: #ffffff;
+    background-size: cover;
+    background-repeat: repeat;
+    background-color: transparent;
     border-radius: 2vw;
-    border: 0.25vw solid #ffffff;
+    border: 0.25vw solid transparent;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    text-shadow: 0vw 0.1vw 0vw #2f6627;
-    position: 'fixed';
-    top: '5%';
-    right: '10%';
+    /* backgroundPosition: '0vw 0.1vw',*/
     /*text-decoration: none;*/
+    margin: 50px auto;
+}
+
+.fantasy-header .btnBackToHomePage {
+    margin-top: 10px;
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .btnBackToHomePage {
+        position: absolute;
+        top: 5.5%;
+        right: 3%;
+        width: 4.5%;
+        padding: 30px 60px;
+        margin: 0 auto;
+    }
+    .fantasy-header .btnBackToHomePage {
+        margin-top: 10px;
+    }
 }

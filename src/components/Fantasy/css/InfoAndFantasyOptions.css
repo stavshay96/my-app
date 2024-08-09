@@ -1,39 +1,143 @@
+.btnGroupOptions {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: #ffffff;
+    /* Add some gap between buttons */
+}
+
+.btnInfoAndOptions1,
+.btnInfoAndOptions2 {
+    text-align: center;
+    background-color: #f3faf6;
+    border: none;
+    /* Remove all borders */
+    border-bottom: 2px solid transparent;
+    /* Border-bottom transparent by default */
+    border-radius: 10px;
+    cursor: pointer;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-size: 35px;
+    transition: background-color 0.3s, border-bottom 0.3s;
+    /* Smooth transition */
+    padding: 10px 15px;
+    /*white-space: nowrap;*/
+    margin: 3px;
+}
+
+.btnInfoAndOptions1:hover,
+.btnInfoAndOptions2:hover {
+    background-color: #b6d7a8;
+    border-bottom: 2px solid #131313;
+    /* Border-bottom on hover */
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .btnGroupOptions {
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+        background-color: transparent;
+        /* Add some gap between buttons */
+    }
+    .btnInfoAndOptions1 {
+        font-size: 21px;
+        margin-top: 20px;
+        margin: 1px;
+    }
+    .btnInfoAndOptions2 {
+        font-size: 18.1px;
+        word-break: break-word;
+        margin: 1px;
+    }
+}
+
+
+/*/.btnGroupOptions {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .btnInfoAndOptions1 {
     text-align: center;
     background-color: #f3faf6;
-    border-radius: 0.5vw 0.5vw 0 0;
-    border: 0.15vw solid #131313;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #131313;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: sans-serif;
-    font-size: 1.4vw;
-    padding: 1% 2%;
-    box-shadow: 0.1vw 0.3vw 0.9vw rgb(0, 0, 0);
-    /*text-decoration: none;*/
-}
+    font-size: 30px;
+    /*padding: 1% 2%;*/
+
+
+/*box-shadow: 0.1vw 0.3vw 0.9vw rgb(0, 0, 0);*/
+
+
+/*text-decoration: none;*/
+
+
+/*}
 
 .btnInfoAndOptions1:hover {
     background-color: #b6d7a8;
 }
 
 .btnInfoAndOptions2 {
-    margin: 1.5%;
-    text-align: center;
+    /*margin: 1.5%;*/
+
+
+/*text-align: center;
     background-color: #f3faf6;
-    border-radius: 0.5vw;
-    border: 0.15vw solid #131313;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #131313;
     display: inline-block;
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
-    font-size: 1.2vw;
-    padding: 1% 8%;
-    font-weight: bold;
-    box-shadow: 0.4vw 0.3vw rgb(0, 0, 0);
-    /*text-decoration: none;*/
-}
+    font-size: 30px;
+    /*padding: 1% 8%;*/
+
+
+/*font-weight: bold;*/
+
+
+/*box-shadow: 0.4vw 0.3vw rgb(0, 0, 0);*/
+
+
+/*text-decoration: none;*/
+
+
+/*}
 
 .btnInfoAndOptions2:hover {
     background-color: #b6d7a8;
 }
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .btnGroupOptions {
+        /*position: absolute;
+        top: 18%;
+        right: 50%;
+        unicode-bidi: 'plaintext';
+        width: 25%;*/
+
+
+/*display: flex;
+        justify-content: flex-end;
+        margin-right: 25px;
+    }
+    .btnInfoAndOptions1 {
+        margin-top: 50px;
+    }
+    .btnInfoAndOptions2 {
+        /* padding: 0 5px;*/
+
+
+/*font-size: 18.1px;
+        word-break: break-word;
+    }
+}*/

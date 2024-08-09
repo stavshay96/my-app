@@ -17,12 +17,9 @@ function LineupCounter(props){
     const forwards = props.lineup.filter((player) => player.position === 'FW');
 
     return (
-        <div>
-            <ButtonGroup style={{position:'fixed', top:'14%', right:'8.5%', width:'30%', }}>
-                <ul>
-                <li>  <Button className="btnItems2" style={{unicodeBidi:'plaintext'}}> {lineup} {props.lineup.length}/{maxPlayersInTeam}</Button></li>
-                </ul>
-            </ButtonGroup>
+        <div className="lineup-counter-container"> 
+        <Button className="lineup-counter" style={{/*unicodeBidi:'plaintext'*/}}> {lineup} {props.lineup.length}/{maxPlayersInTeam}</Button>
+                
         </div>
     )
 }

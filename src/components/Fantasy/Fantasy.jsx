@@ -238,7 +238,10 @@ const Fantasy = (props) => {
         element={<FantasyRoomPage
                      leagueChoice = {props.leagueChoice}
                      currentGameweek = {currentGameweek}
-                     fantasyType={fantasyType}/>}/>
+                     fantasyType={fantasyType}
+                     userInfo={props.userInfo} 
+                     WrapUserInfo={props.WrapUserInfo}/>
+                     }/>
       </>)}
     </Routes>
   )

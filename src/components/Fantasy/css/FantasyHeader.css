@@ -1,0 +1,48 @@
+.fantasy-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 10px;
+    block-size: 82px;
+    /*max-width: 260px;*/
+    /* Set the width you want */
+    /*height: auto;*/
+    /* Maintain aspect ratio */
+    /*margin: 0 auto;*/
+    /* Center the logo horizontally */
+    /* display: block;*/
+    /* Ensure the logo is displayed as a block element */
+}
+
+.fantasy-header {
+    display: flex;
+    justify-content: space-around;
+    gap: 150px;
+    background-color: #e1f9d7;
+    z-index: 5;
+    border-bottom: 4px solid #131313;
+    padding: 30px 0;
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .fantasy-header {
+        background-color: transparent;
+        margin-left: 0px;
+        margin-top: 30px;
+        border-bottom: 0;
+        gap: 0px;
+    }
+    .fantasy-logo {
+        margin-right: 150px;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (orientation: landscape) {}
+
+@media only screen and (min-width: 1400px) and (orientation: landscape) {
+    .fantasy-header {
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 1601px) and (orientation: landscape) {}

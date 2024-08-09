@@ -17,7 +17,8 @@
     align-content: flex-end;
 }
 
-.fantasy-logo {
+
+/*.fantasy-logo {
     position: absolute;
     z-index: -1;
     left: 80%;
@@ -25,3 +26,4 @@
     height: 8%;
     width: 12%;
 }
+*/

@@ -25,7 +25,7 @@ function MyLeagues(props)
 const cols = [
     /*{ field: "Position", headerName: "מיקום", headerAlign: 'center',  type:"number", flex: 0.8, filterable: false, sortable: false, align: 'center',
     renderCell: wrapPositionText, renderHeader: wrapHeaderText},*/
-    { field: "LeagueName", headerName: "שם הליגה", headerAlign: 'center', flex: 1.4, filterable: false, sortable: false, align: 'center', 
+    { field: "LeagueName", headerName: "שם הליגה", headerAlign: 'center', flex: 1.7, filterable: false, sortable: false, align: 'center', 
     renderCell: wrapCellTeamNameText ,  renderHeader: wrapHeaderText},
 ]
 
@@ -35,7 +35,8 @@ function createRowLeague(league) {
 
 function wrapHeaderText(params) {
     return (
-        <div style={{ whiteSpace: 'normal',lineHeight:'1.5', fontSize:'1.3vw', textDecoration:'underline' }}>
+        <div className="header-myLeagues-grid" 
+        style={{ /*whiteSpace: 'normal',lineHeight:'1.5', fontSize:'1.3vw', textDecoration:'underline'*/ }}>
             {params.colDef.headerName}
         </div>
     );
@@ -55,7 +56,8 @@ function wrapPositionText(params) {
     function wrapCellTeamNameText(params) {
        
         return (
-            <div style={{ whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw', fontWeight: 'bold'}}  >
+            <div className="cells-myLeagues-grid"  
+            style={{ /*whiteSpace: 'normal', lineHeight:'1.5', fontSize:'1.1vw', fontWeight: 'bold'*/}}  >
                 {params.value}
             </div>
         );
@@ -68,12 +70,12 @@ function wrapPositionText(params) {
 
 
     return(
-        <div>
-    <DataGrid
-    style={{position:'absolute', top:'45.8%', left:'5%',
+        <div className="myLeagues-container">
+    <DataGrid className="myLeagues-grid"
+    style={{/*position:'absolute', top:'45.8%', left:'5%',
         width:'25%', height: '47%', backgroundColor: '#e0f9d5',
         backgroundImage: `url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740)`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover'*/
     }}
     rows={rows}
     columns={cols}
@@ -81,6 +83,7 @@ function wrapPositionText(params) {
     disableColumnSort
     hideFooter
     onRowClick={handleRowClick} 
+    autoHeight
     />
     </div>)
 }
