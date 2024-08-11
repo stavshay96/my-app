@@ -73,7 +73,7 @@ function FantasyRoomPage(props){
 
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', minHeight: '150vh'}}>
+        <div className="room-page-container " style={{display: 'flex', flexDirection: 'column', /*minHeight: '150vh'*/}}>
              <FantasyHeader 
                 userInfo={props.userInfo} 
                 WrapUserInfo={props.WrapUserInfo} 

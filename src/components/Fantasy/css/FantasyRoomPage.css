@@ -1,3 +1,8 @@
+.room-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .form {
     background-color: rgba(197, 255, 182, 1);
     /*background-image: url(https://img.freepik.com/premium-photo/green-purple-abstract-watercolor-painting-textured-white-paper-background_7190-1251.jpg?w=740);*/
@@ -20,8 +25,8 @@
     /* Adjust flex direction and alignment */
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
-    max-height: 150vh;
+    margin-top: 0px;
+    max-height: 100%;
     margin: 0 auto;
     /* Adjust this value to your desired maximum height */
     overflow-y: auto;
@@ -62,9 +67,12 @@
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
+    .room-page-container {
+        min-height: 150vh;
+    }
     .form {
         font-size: 30px;
-        margin-top: 100px;
+        margin-top: 50px;
     }
     .fantasyUsers-table td {
         font-size: 25px;
