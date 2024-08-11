@@ -17,6 +17,19 @@
     align-content: flex-end;
 }
 
+.fantasy-page-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .fantasy-page-container {
+        min-height: 210vh;
+        background-color: transparent;
+    }
+}
+
 
 /*.fantasy-logo {
     position: absolute;

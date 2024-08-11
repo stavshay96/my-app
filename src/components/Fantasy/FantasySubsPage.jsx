@@ -51,7 +51,7 @@ const FantasySubsPage = (props) => {
     }, [location.pathname, props.isDeadLineDatePass]);
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', minHeight: '210vh'}}>
+        <div className="fantasy-page-container" style={{/*display: 'flex', flexDirection: 'column', minHeight: '210vh'*/}}>
             {/*<LangBar/>*/}
             <FantasyHeader 
                 userInfo={props.userInfo} 
