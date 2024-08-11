@@ -40,7 +40,7 @@
     display: grid;
     /*place-items: center;*/
     grid-template-columns: 1fr;
-    margin-top: 200px;
+    margin-top: 180px;
     margin-left: 200px;
     margin-right: 200px;
     justify-content: center;
