@@ -25,6 +25,7 @@ select {
     background-color: #f7fff4;
     font-size: 30px;
     border: thin solid #b6d7a8;
+    color: #000000;
     border-radius: 10px;
     display: inline-block;
     font: inherit;

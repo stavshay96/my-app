@@ -2,7 +2,7 @@
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    /*gap: 10px;*/
     background-color: #ffffff;
     /* Add some gap between buttons */
 }
@@ -39,6 +39,7 @@
         display: flex;
         justify-content: center;
         margin-right: 0px;
+        gap: 10px;
         background-color: transparent;
         /* Add some gap between buttons */
     }
