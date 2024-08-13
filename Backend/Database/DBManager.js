@@ -167,6 +167,8 @@ async function GetFantasySettingsFromDatabase(i_leagueChoice) {
 }
 
 
+////--------------------------------- leaguesInfo functions ------------------------////////
+
 
 //if teams are in league object in Info collection
 async function GetLeagueDataFromDatabase(i_leagueChoice) {
@@ -194,11 +196,16 @@ async function CreateNewLeagueInDataBase(NewLeague) {
         .findOne(query);
 
     if (league) {
+        for (let i = 0; i < league.teamsList.length; i++) {
+            league.teamsList[i] = NewLeague.teamsList[i];
+        }
+        console.log(league);
+        await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         //await client.db("LeaguesInfo").collection("Info").deleteOne(league);
         //await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
-        return "this league is already exist in db";
+        return `this league ${league.englishleagueName} is updated in db`;
     } else {
-        await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        //await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
         return `the league ${NewLeague.englishleagueName} inserted to db`;
     }
 }
@@ -325,6 +332,7 @@ async function InsertHebrewNamesManyTeams(i_lines, i_englishLeagueName) {
 
 
         }
+        //console.log(league.teamsList[0].players);
         // Update the league document in the database
         await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         return `the players hebrew names in  the teams added  successfully`;
@@ -434,11 +442,10 @@ async function InsertGameweeksToList(i_lines, i_englishLeagueName) {
     let i = 0;
     let line = i_lines[i];
 
-    if (!league)
-    {
-            return "League not found";
+    if (!league) {
+        return "League not found";
     }
-    
+
     while (i < i_lines.length) {
         if (line.trim() === "&") {
             i++;
@@ -454,12 +461,12 @@ async function InsertGameweeksToList(i_lines, i_englishLeagueName) {
 
         i++;
         line = i_lines[i];
-        
+
         while (line.trim() !== "&" && i < i_lines.length) {
             const parts = line.split('@-@');
             const homeTeamParts = parts[0].split(',');
             const awayTeamParts = parts[1].split(',');
-            
+
             const match = {
                 hebHomeTeamName: homeTeamParts[0].trim(),
                 engHomeTeamName: homeTeamParts[1].trim(),
@@ -469,13 +476,13 @@ async function InsertGameweeksToList(i_lines, i_englishLeagueName) {
                 engAwayTeamName: awayTeamParts[1].trim()
             };
             //console.log(match);
-            
+
             matches.push(match);
 
             i++;
             if (i < i_lines.length) {
                 line = i_lines[i];
-            } 
+            }
         }
 
         league.gameweeksList[parseInt(gameweekNumber) - 1] = matches;
@@ -486,11 +493,26 @@ async function InsertGameweeksToList(i_lines, i_englishLeagueName) {
     }
 
     //console.log(league);
-    console.log(league.gameweeksList);
-    console.log(league.gameweeksList[0]);
-    console.log(league.gameweeksList[0][0])
+    //console.log(league.gameweeksList);
+    //console.log(league.gameweeksList[0]);
+    //console.log(league.gameweeksList[0][0])
 
     // Update the league document in the database
+    await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
+    return `the new matches added to the gameweeks successfully`;
+}
+
+async function InsertGameweeksToListFromAPI(i_englishLeagueName, i_gameweeksList) {
+    const query = { englishleagueName: i_englishLeagueName };
+    const league = await client.db("LeaguesInfo").collection("Info").findOne(query);
+
+    if (!league) {
+        return "League not found";
+    }
+
+    league.gameweeksList = i_gameweeksList;
+    console.log(league);
+    console.log(league.gameweeksList[0]);
     await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
     return `the new matches added to the gameweeks successfully`;
 }
@@ -756,6 +778,7 @@ module.exports = {
     transfersPlayersBetweenTeamsHebrew: transfersPlayersBetweenTeamsHebrew,
     InsertPlayersInfoManyTeams: InsertPlayersInfoManyTeams,
     InsertGameweeksToList,
+    InsertGameweeksToListFromAPI,
 
 
 };
