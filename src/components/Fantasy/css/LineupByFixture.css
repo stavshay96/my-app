@@ -23,12 +23,12 @@
 .btnLeftArrowFixture,
 .btnRightArrowFixture {
     background-color: #e1f9d7;
-    border: 2px solid #131313;
+    border-bottom: 2px solid #131313;
     cursor: pointer;
     color: #000000;
     font-family: sans-serif;
     font-size: 50px;
-    padding: 0 20px;
+    padding: 0 50px;
     /* Adjust padding for better spacing */
     margin: 0 5px;
     /* Add margin for spacing between buttons */
@@ -63,5 +63,9 @@
     .btnGameweekFixture,
     .btnRightArrowFixture {
         font-size: 30px;
+    }
+    .btnLeftArrowFixture,
+    .btnRightArrowFixture {
+        padding: 0 30px;
     }
 }

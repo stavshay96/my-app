@@ -69,7 +69,7 @@ const FantasyTeamNamePopup = (props) => {
       closeOnDocumentClick={false}
     >
       {(close) => (
-        <div className="popup-container">
+        <div >
           <Button
             className="close-btn-teamname"
             onClick={() => navigate("/", { replace: true })}
@@ -80,6 +80,7 @@ const FantasyTeamNamePopup = (props) => {
           <form className="fantasyTeamNameForm">
             <h1 className="welcome-header"> ברוך הבא!</h1>
             <div>
+            <label className="labelStyle"> שם הקבוצה:</label>
               <input
                 name="fantasyTeamName"
                 value={fantasyTeamName}
@@ -89,7 +90,7 @@ const FantasyTeamNamePopup = (props) => {
                 className="input-style"
                 dir="auto" // Automatically detect text direction
               />
-              <label className="labelStyle"> שם הקבוצה:</label>
+             
             </div>
             <div>
               <Button onClick={handleSubmit} className="submit-btn">

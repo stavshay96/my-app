@@ -93,6 +93,7 @@ function MatchesList(props) {
     const [rows, setRows] = useState([]);
     const [loading, setLoading] = useState(true);
     const [gameweekNumber, setGameweekNumber] = useState(1);
+    const [limitGameweek, setLimitGameweek] = useState(30);
 
     // get the gameweeks list from the db as a const
     useEffect(() => {
@@ -101,6 +102,11 @@ function MatchesList(props) {
                 const leaguedata = res.data;
                 const extractedGameweeks = getGameweeksList(leaguedata.gameweeksList);
                 setGameweeksList(extractedGameweeks);
+                //setLimitGameweek(leaguedata.numOfGames);
+                setLimitGameweek(FindLimitGameweek(leaguedata.gameweeksList));
+                   
+                    
+                
                 setLoading(false);
             })
             .catch(error => {
@@ -113,14 +119,19 @@ function MatchesList(props) {
     const rightArrow = ">";
     const gameweek = "מחזור ";
     const location = useLocation();
-    let limitGameweek = 0;
+    //let limitGameweek = 0;
 
     // find the limit gameweek
-    for (let index = 0; index < gameweeksList.length; index++) {
-        if (gameweeksList[index].length === 0) {
-            limitGameweek = index;
-            break;
-        }
+    function FindLimitGameweek(i_gameweeksList){
+        let index;
+        for (index = 0; index < i_gameweeksList.length; index++) {
+            if (i_gameweeksList[index].length === 0) {
+                //return index+1;
+                
+                break;
+                }
+            }
+        return index;
     }
 
     // change the gameweek games everytime the gameweek number change
@@ -130,8 +141,9 @@ function MatchesList(props) {
     }, [gameweekNumber, props.leagueChoice, gameweeksList]);
 
     useEffect(() => {
-        setGameweekNumber(1);
-        // SetGameweekNumber(props.currentGameweek);
+        //setGameweekNumber(1);
+        setGameweekNumber(props.currentGameweek);
+        
      }, [props.currentGameweek]);
      
 
