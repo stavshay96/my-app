@@ -72,15 +72,15 @@ const useStyles = makeStyles((theme) => ({
       
     },
     "& .MuiDataGrid-renderingZone": {
-      overflow: 'scroll'
+      overflow: 'auto'
     },
     "& .MuiDataGrid-row": {
-      padding: '50px 0',
+      /*padding: '50px 0',*/
       lineHeight: '1.5',
-     /*margin: '40px auto',*/
+     margin: '30px auto',
 
      [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
-      padding: '20px 0',
+      margin: '0px auto',
     },
       
     },
@@ -142,7 +142,6 @@ const useStyles = makeStyles((theme) => ({
      left: '100px !important',
      backgroundColor: 'red',
     },*/
-    
   
    
   }
@@ -162,20 +161,17 @@ function PlayersList(props) {
     function handleResize() {
         const screenWidth = window.innerWidth;
         const updatedCols = [...cols];
-        const minWidthPlayerName = 200;
-        const minWidthShortCols = 70;
+        const minWidthCol = 100;
 
-          if(screenWidth>=1600){
-            updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols*1.05;
-            updatedCols[2].minWidth = minWidthPlayerName+80;
-          } else if (screenWidth >= 1200) {
-              // Apply desktop minWidth
-              updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols-10;
-              updatedCols[2].minWidth = minWidthPlayerName+30;
+          if(screenWidth>=1200){
+            updatedCols[0].minWidth = updatedCols[1].minWidth = minWidthCol*0.6;
+            updatedCols[2].minWidth = minWidthCol*3;
+            updatedCols[3].minWidth = minWidthCol;
           } else {
               // Apply default or mobile minWidth
-              updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols*2-10;
-              updatedCols[2].minWidth = minWidthPlayerName + 250;
+              updatedCols[0].minWidth = updatedCols[1].minWidth =  minWidthCol*1.25;
+              updatedCols[2].minWidth = minWidthCol *5;
+              updatedCols[3].minWidth = minWidthCol*1.2;
           }
 
         setCols(updatedCols);
@@ -405,8 +401,8 @@ const rows = props.playersList.map(createRow);
 
   function CustomToolbar({ setFilterButtonEl }) {
     return (
-      <GridToolbarContainer>
-        <GridToolbarFilterButton ref={setFilterButtonEl} />
+      <GridToolbarContainer /*style={{position:'absolute', top:'50%', left:'80%'}}*/>
+        <GridToolbarFilterButton  ref={setFilterButtonEl} />
       </GridToolbarContainer>
     );
   }
