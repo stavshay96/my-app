@@ -124,12 +124,12 @@ const useStyles = makeStyles((theme) => ({
       width: '70px',   // Adjust size
       height: '70px',  // Adjust size
       /*padding: '0 50px',*/
-      margin: 'auto 50px',
+     /* margin: '0 5px',*/
 
       [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
         width: '35px', // Icon size for screens wider than 1280px
         height: '35px',
-        margin: 'auto 0px',
+       /* margin: 'auto 0px',*/
       },
     },
     "& .MuiTablePagination-caption": {
@@ -162,7 +162,7 @@ function PlayersList(props) {
     function handleResize() {
         const screenWidth = window.innerWidth;
         const updatedCols = [...cols];
-        const minWidthPlayerName = 170;
+        const minWidthPlayerName = 200;
         const minWidthShortCols = 70;
 
           if(screenWidth>=1600){
