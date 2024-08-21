@@ -180,13 +180,14 @@
     .btnPlayerButton h2 {
         font-size: 15px;
         z-index: 3;
-        bottom: -23%;
+        bottom: -19.5%;
     }
     .btnPlayerButton h3 {
         font-size: 15px;
         z-index: 3;
-        bottom: -26%;
+        bottom: -22%;
         width: 15%;
+        text-indent: -5px;
     }
     .btnPlayerButton h4 {
         font-size: 18px;
