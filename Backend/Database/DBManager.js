@@ -332,7 +332,8 @@ async function InsertHebrewNamesManyTeams(i_lines, i_englishLeagueName) {
 
 
         }
-        //console.log(league.teamsList[0].players);
+        console.log(league.teamsList[0].players);
+        //console.log(league.teamsList[11].players);
         // Update the league document in the database
         await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         return `the players hebrew names in  the teams added  successfully`;
@@ -346,6 +347,12 @@ async function InsertPlayersInfoManyTeams(i_lines, i_englishLeagueName) {
     const query = { englishleagueName: i_englishLeagueName };
     const league = await client.db("LeaguesInfo").collection("Info").findOne(query);
     if (league) {
+        for (let index = 0; index < league.teamsList.length; index++) {
+            //console.log(league.teamsList[index].players);
+            league.teamsList[index].players = [];
+            console.log(league.teamsList[index].players);
+        }
+
         let i = 0
         let line = i_lines[i];
         while (line.trim() !== "END") {
@@ -356,14 +363,14 @@ async function InsertPlayersInfoManyTeams(i_lines, i_englishLeagueName) {
             i++;
             if (teamIndex !== -1) {
                 while (i_lines[i].length !== 1) {
-                    console.log(i_lines[i]);
+                    //console.log(i_lines[i]);
                     const playerInfo = i_lines[i].split(',');
                     const hebPlayerName = playerInfo[0].trim();
                     const engPlayerName = playerInfo[1].trim();
-                    console.log(engPlayerName);
+                    //console.log(engPlayerName);
                     const position = translatePosition(playerInfo[2].trim());
                     const playerID = findPlayerID(league);
-                    console.log(`playerID found ${playerID}`);
+                    // console.log(`playerID found ${playerID}`);
                     // Create the player object
                     const player = new Player(playerID, engPlayerName, hebPlayerName, team.englishName, team.hebrewName, position,
                         Array.from({ length: league.numOfGames }, () => 0), 0, 0, []);
@@ -380,9 +387,11 @@ async function InsertPlayersInfoManyTeams(i_lines, i_englishLeagueName) {
             line = i_lines[i];
 
 
+
         }
         // Update the league document in the database
         //console.log(league);
+        console.log(league.teamsList[0]);
         await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         return `the players info  added  successfully`;
     } else {

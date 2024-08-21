@@ -74,8 +74,8 @@ async function insertHebrewPlayersNameFromFileManyTeams(filePath, englishLeagueN
     }
 
 }
-const filePath = "../../files/PremierLeague/namesPlayersPremierLeagueHebrew2024-2025.txt"
-insertHebrewPlayersNameFromFileManyTeams(filePath, "PremierLeague");
+//const filePath = "../../files/LigaLeumit/namesPricePlayersLeumit2024-2025.txt"
+//insertHebrewPlayersNameFromFileManyTeams(filePath, "LigaLeumit");
 
 async function insertNewPlayersToLeagueFromFile(filePath, englishLeagueName) {
     /* format file:
@@ -108,8 +108,8 @@ async function insertNewPlayersToLeagueFromFile(filePath, englishLeagueName) {
     }
 }
 
-//const filePath = "../../files/PremierLeague/newPlayersPremierLeague2.txt"
-//insertNewPlayersToLeagueFromFile(filePath, "PremierLeague");
+const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit.txt"
+insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
 
 async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeagueName) {
     /* format file:
@@ -132,8 +132,8 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
     }
 }
 
-// const filePath = "../../files/PremierLeague/transfersInsidePremierLeague.txt"
-// transferPlayersBetweenTeamsFromFileHebrew(filePath, "PremierLeague");
+//const filePath = "../../files/PremierLeague/transfersInsidePremierLeague2.txt"
+//transferPlayersBetweenTeamsFromFileHebrew(filePath, "PremierLeague");
 
 
 async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {
@@ -189,7 +189,7 @@ async function insertPlayersToDBFromFileManyTeams(filePath, englishLeagueName) {
     }
 
 }
-//const filePath = "../../files/LigaLeumit/namesPlayersLeumit2.txt"
+//const filePath = "../../files/LigaLeumit/playersLeumit2024-2025.txt"
 //insertPlayersToDBFromFileManyTeams(filePath, "LigaLeumit");
 
 async function insertGameweeksToDBFromFile(filePath, englishLeagueName) {
