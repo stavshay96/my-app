@@ -90,10 +90,11 @@
     border-radius: 25px;
     margin: 0 5px;
     /* Add margin for spacing between buttons */
+    padding: 0 30px;
 }
 
 .gameweekFantasyRow {
-    margin-left: 35%;
+    margin-left: 30%;
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {

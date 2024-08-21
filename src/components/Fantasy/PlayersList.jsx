@@ -71,7 +71,47 @@ const useStyles = makeStyles((theme) => ({
       height:'60px',
       
     },
-    
+    "& .MuiDataGrid-renderingZone": {
+      overflow: 'scroll'
+    },
+    "& .MuiDataGrid-row": {
+      padding: '50px 0',
+      lineHeight: '1.5',
+     /*margin: '40px auto',*/
+
+     [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
+      padding: '20px 0',
+    },
+      
+    },
+    "& .MuiDataGrid-cell": {
+      whiteSpace: 'normal', // Allow text to wrap to the next line
+      overflow: 'visible',  // Ensure the wrapped text is visible
+      wordWrap: 'break-word', // Ensure long words break correctly to the next line
+      lineHeight: '1.5', // Adjust line height to add space between lines of text
+    },
+
+    //******* Filters Button *************/
+    "& .MuiButton-root": {
+      padding: '12px 24px', // Adjust padding to make the button bigger
+      fontSize: '30px', // Adjust font size for the button text
+     /* minWidth: '150px', // Adjust width of the button*/
+
+     [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
+      fontSize: '20px',
+    },
+    },
+    "& .MuiSvgIcon-root": {
+      width: '35px', // Adjust icon size
+      height: '35px', // Adjust icon size
+
+      [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
+        width: '25px', // Icon size for screens wider than 1280px
+        height: '25px',
+      },
+    },
+
+    ///*********************** footer ***********************/
     "& .MuiDataGrid-footerContainer": {
       fontSize: "24px",
       
@@ -81,12 +121,29 @@ const useStyles = makeStyles((theme) => ({
       
     },
     "& .MuiIconButton-root svg": {
-      width: '50px',   // Adjust size
-      height: '50px',  // Adjust size
+      width: '70px',   // Adjust size
+      height: '70px',  // Adjust size
+      /*padding: '0 50px',*/
+      margin: 'auto 50px',
+
+      [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
+        width: '35px', // Icon size for screens wider than 1280px
+        height: '35px',
+        margin: 'auto 0px',
+      },
     },
     "& .MuiTablePagination-caption": {
       display: 'none',
     },
+    // Tooltip styles
+    /*"& .MuiDataGrid-root .MuiGridPanel-root": {
+     position: 'absolute !important',
+     top: '200px !important',
+     left: '100px !important',
+     backgroundColor: 'red',
+    },*/
+    
+  
    
   }
 }));
@@ -95,7 +152,7 @@ function PlayersList(props) {
   const [cols, setCols] = useState([
     { field: "totalPoints", headerName: "נקודות", headerAlign: 'right', type: "number",minWidth:50, flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
     { field: "price", headerName: "מחיר", headerAlign: 'center', type: "number",minWidth:50, flex: 1, filterable: true, align: 'center', renderCell: wrapNumberTypeText, renderHeader: wrapHeaderText },
-    { field: "playerName", headerName: "שם שחקן", headerAlign: 'center', minWidth: 150, flex: 4, filterable: true, 
+    { field: "playerName", headerName: " שם שחקן ", headerAlign: 'center', minWidth: 150, flex: 4, filterable: true, 
     align: 'center',   renderCell: wrapCellPlayerNameText , renderHeader: wrapHeaderText },
     {field: "position", headerName: "עמדה", headerAlign: 'center',minWidth:50, flex: 1, filterable: true, align: 'center', renderCell: wrapCellPositionColor,
     renderHeader: wrapPositionHeader },
@@ -105,7 +162,7 @@ function PlayersList(props) {
     function handleResize() {
         const screenWidth = window.innerWidth;
         const updatedCols = [...cols];
-        const minWidthPlayerName = 200;
+        const minWidthPlayerName = 170;
         const minWidthShortCols = 70;
 
           if(screenWidth>=1600){
@@ -117,8 +174,8 @@ function PlayersList(props) {
               updatedCols[2].minWidth = minWidthPlayerName+30;
           } else {
               // Apply default or mobile minWidth
-              updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols*2;
-              updatedCols[2].minWidth = minWidthPlayerName + 270;
+              updatedCols[0].minWidth = updatedCols[1].minWidth = updatedCols[3].minWidth = minWidthShortCols*2-10;
+              updatedCols[2].minWidth = minWidthPlayerName + 250;
           }
 
         setCols(updatedCols);
@@ -129,6 +186,8 @@ function PlayersList(props) {
 
     return () => window.removeEventListener('resize', handleResize);
 }, []);
+
+
   
 
  const players = props.playersList;
@@ -385,7 +444,8 @@ const rows = props.playersList.map(createRow);
         //pagination
         selectionModel={selectedRows}
         onSelectionModelChange={handleCheckBox}
-        pageSize={100}
+        pageSize={20 }
+        autoHeight
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
 
