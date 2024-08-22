@@ -51,14 +51,14 @@
 .grid-cell-position {
     white-space: normal;
     line-height: 1;
-    font-size: 35px;
+    font-size: 32px;
     font-weight: bold;
 }
 
 .grid-cell-player-name {
     white-space: normal;
     line-height: 1;
-    font-size: 40px;
+    font-size: 37px;
     /*font-weight: bold;*/
 }
 
@@ -71,15 +71,15 @@
         /*height: 50% ;*/
         z-index: 3;
         /* grid-template-rows: auto;*/
-        margin: 20px auto;
+        margin: 30px auto;
     }
     .grid-cell-player-name,
     .grid-cell-position,
     .grid-cell-text {
-        font-size: 18px;
+        font-size: 22px;
     }
     .grid-header-cell {
-        font-size: 18px;
+        font-size: 22px;
     }
 }
 
@@ -107,9 +107,8 @@
 } */
 
 div[role="tooltip"] {
-    top: -21% !important;
-    left: -2% !important;
-    font-size: 2em !important;
+    top: -11.5% !important;
+    left: 2% !important;
 }
 
 .btnDropdownPos {

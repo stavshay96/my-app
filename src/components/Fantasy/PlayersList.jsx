@@ -72,12 +72,13 @@ const useStyles = makeStyles((theme) => ({
       
     },
     "& .MuiDataGrid-renderingZone": {
-      overflow: 'auto'
+      overflowX: 'hidden',
+      overflowY: 'auto', 
     },
     "& .MuiDataGrid-row": {
       /*padding: '50px 0',*/
       lineHeight: '1.5',
-     margin: '30px auto',
+    /* margin: '30px auto',*/
 
      [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
       margin: '0px auto',
@@ -164,9 +165,9 @@ function PlayersList(props) {
         const minWidthCol = 100;
 
           if(screenWidth>=1200){
-            updatedCols[0].minWidth = updatedCols[1].minWidth = minWidthCol*0.6;
-            updatedCols[2].minWidth = minWidthCol*3;
-            updatedCols[3].minWidth = minWidthCol;
+            updatedCols[0].minWidth = updatedCols[1].minWidth = minWidthCol*0.3;
+            updatedCols[2].minWidth = minWidthCol*2.5;
+            updatedCols[3].minWidth = minWidthCol *0.5;
           } else {
               // Apply default or mobile minWidth
               updatedCols[0].minWidth = updatedCols[1].minWidth =  minWidthCol*1.25;
@@ -182,6 +183,8 @@ function PlayersList(props) {
 
     return () => window.removeEventListener('resize', handleResize);
 }, []);
+
+
 
 
   
@@ -440,7 +443,8 @@ const rows = props.playersList.map(createRow);
         //pagination
         selectionModel={selectedRows}
         onSelectionModelChange={handleCheckBox}
-        pageSize={20 }
+        pageSize={15}
+        rowHeight ={70}
         autoHeight
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
