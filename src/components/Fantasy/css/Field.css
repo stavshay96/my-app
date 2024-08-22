@@ -140,11 +140,12 @@
 }
 
 .Xbtn {
-    font-size: 25px;
+    font-size: 27px;
     color: white;
-    border-radius: 0.5rem;
+    border-radius: 16px;
+    border: 1px solid white;
     background-color: rgba(255, 31, 31, 0.9);
-    padding: 5px 20px;
+    padding: 5px 15px;
     bottom: 80%;
     margin-left: 15%;
     position: absolute;
@@ -180,12 +181,12 @@
     .btnPlayerButton h2 {
         font-size: 15px;
         z-index: 3;
-        bottom: -19.5%;
+        bottom: -19%;
     }
     .btnPlayerButton h3 {
         font-size: 15px;
         z-index: 3;
-        bottom: -22%;
+        bottom: -21.5%;
         width: 15%;
         text-indent: -5px;
     }
@@ -197,5 +198,6 @@
     .Xbtn {
         font-size: 15px;
         padding: 3px 9px;
+        border-radius: 10px;
     }
 }
