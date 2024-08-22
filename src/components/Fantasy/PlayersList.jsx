@@ -71,20 +71,20 @@ const useStyles = makeStyles((theme) => ({
       height:'60px',
       
     },
-    "& .MuiDataGrid-renderingZone": {
+    /*"& .MuiDataGrid-renderingZone": {
       overflowX: 'hidden',
       overflowY: 'auto', 
-    },
-    "& .MuiDataGrid-row": {
+    },*/
+  /*  "& .MuiDataGrid-row": {
       /*padding: '50px 0',*/
-      lineHeight: '1.5',
+   /*   lineHeight: '1.5',
     /* margin: '30px auto',*/
-
+/*
      [theme.breakpoints.up('lg')]: { // lg corresponds to >=1280px by default
       margin: '0px auto',
     },
       
-    },
+    },*/
     "& .MuiDataGrid-cell": {
       whiteSpace: 'normal', // Allow text to wrap to the next line
       overflow: 'visible',  // Ensure the wrapped text is visible
@@ -444,7 +444,7 @@ const rows = props.playersList.map(createRow);
         selectionModel={selectedRows}
         onSelectionModelChange={handleCheckBox}
         pageSize={15}
-        rowHeight ={70}
+        rowHeight ={72}
         autoHeight
         sortModel={sortModel}
         onSortModelChange={(model) => setSortModel(model)}
