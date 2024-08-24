@@ -164,7 +164,11 @@ function PlayersList(props) {
         const updatedCols = [...cols];
         const minWidthCol = 100;
 
-          if(screenWidth>=1200){
+          if (screenWidth>=1800){
+            updatedCols[0].minWidth = updatedCols[1].minWidth = minWidthCol*0.7;
+            updatedCols[2].minWidth = minWidthCol*2.8;
+            updatedCols[3].minWidth = minWidthCol *0.7;
+          } else if (screenWidth>=1200){
             updatedCols[0].minWidth = updatedCols[1].minWidth = minWidthCol*0.3;
             updatedCols[2].minWidth = minWidthCol*2.5;
             updatedCols[3].minWidth = minWidthCol *0.5;

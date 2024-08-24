@@ -74,10 +74,12 @@
 
 .defenders-group {
     top: 29%;
+    gap: 10px;
 }
 
 .midfielders-group {
     top: 48%;
+    gap: 10px;
 }
 
 .forwards-group {
@@ -167,11 +169,17 @@
         width: 110px;
         height: 110px;
     }
-    .goalkeepers-group,
-    .defenders-group,
-    .midfielders-group,
+    .goalkeepers-group {
+        gap: 10px;
+    }
+    .defenders-group {
+        gap: 10px;
+    }
+    .midfielders-group {
+        gap: 10px;
+    }
     .forwards-group {
-        gap: 15px;
+        gap: 10px;
     }
     .btnPlayerButton h1 {
         font-size: 15px;

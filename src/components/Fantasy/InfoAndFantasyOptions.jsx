@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 function InfoAndFantasyOptions(props) {
     const lineup11 = "הרכב 11";
     const squad15 = "סגל 15";
+    const rules = "חוקים";
     const news = "חדשות";
     const forum = "פורום";
 
@@ -24,7 +25,7 @@ function InfoAndFantasyOptions(props) {
     }
 
     return (
-        <div>
+        <div className="info-container">
             <ButtonGroup className="btnGroupOptions"
                 style={{/*
                 position: 'absolute',
@@ -34,7 +35,7 @@ function InfoAndFantasyOptions(props) {
                 width: '25%',
                 zIndex: '2'*/
             }}>
-                <Button className="btnInfoAndOptions1">
+                {/* <Button className="btnInfoAndOptions1">
                     {squad15}
                 </Button>
                 <Button
@@ -50,6 +51,9 @@ function InfoAndFantasyOptions(props) {
                 <Button className="btnInfoAndOptions1">
                     {forum}
                 </Button>
+                <Button className="btnInfoAndOptions1">
+                    {rules}
+                </Button> */}
             </ButtonGroup>
 
             <ButtonGroup className="btnGroupOptions"
@@ -72,15 +76,8 @@ function InfoAndFantasyOptions(props) {
                 <Button className="btnInfoAndOptions2">
                     {statistics}
                 </Button>
-                <Button
-                    className="btnInfoAndOptions2"
-                    style={{
-                    /*backgroundColor: '#bae9a6'*/
-                }}>
-                    {drafts}
-                </Button>
                 <Button className="btnInfoAndOptions2">
-                    {expectedLineups}
+                    {rules}
                 </Button>
             </ButtonGroup>
 
@@ -103,7 +100,11 @@ function InfoAndFantasyOptions(props) {
                 <Button className="btnInfoAndOptions2">
                     {expectedLineups}
                 </Button>
-            </ButtonGroup>*/}
+                <Button className="btnInfoAndOptions2">
+                    {expectedLineups}
+                </Button>
+            </ButtonGroup>*/
+            }
         </div>
     )
 }

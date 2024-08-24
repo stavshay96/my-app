@@ -97,7 +97,7 @@ const HomePage = (props) => {
         <div>
             
             <div className="top-line">
-                <LangBar/> 
+                {/*<LangBar/> */}
                 {HasCookies()
                     ? <LogOut
                             userInfo={props.userInfo}

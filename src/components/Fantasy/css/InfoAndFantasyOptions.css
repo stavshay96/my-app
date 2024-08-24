@@ -1,16 +1,16 @@
 .btnGroupOptions {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     /*gap: 10px;*/
-    background-color: #ffffff;
+    background-color: transparent;
     /* Add some gap between buttons */
 }
 
 .btnInfoAndOptions1,
 .btnInfoAndOptions2 {
     text-align: center;
-    background-color: #f3faf6;
+    background-color: transparent;
     border: none;
     /* Remove all borders */
     border-bottom: 2px solid transparent;
@@ -22,9 +22,10 @@
     font-size: 35px;
     transition: background-color 0.3s, border-bottom 0.3s;
     /* Smooth transition */
-    padding: 10px 15px;
-    /*white-space: nowrap;*/
-    margin: 3px;
+    padding: 15px 25px;
+    white-space: nowrap;
+    margin-top: 23px;
+    font-weight: bold;
 }
 
 .btnInfoAndOptions1:hover,
@@ -35,23 +36,35 @@
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
+    .info-container {
+        margin-top: 20px;
+        margin-left: 550px;
+    }
     .btnGroupOptions {
         display: flex;
         justify-content: center;
-        margin-right: 0px;
-        gap: 10px;
+        margin-left: 70%;
+        gap: 30px;
         background-color: transparent;
+        font-weight: bold;
         /* Add some gap between buttons */
     }
     .btnInfoAndOptions1 {
         font-size: 21px;
         margin-top: 20px;
         margin: 1px;
+        background-color: transparent;
+        font-weight: bold;
+        border-bottom: 2px solid transparent;
     }
     .btnInfoAndOptions2 {
         font-size: 18.1px;
         word-break: break-word;
         margin: 1px;
+        font-weight: bold;
+        background-color: transparent;
+        border-bottom: 2px solid #131313;
+        margin-top: -13px;
     }
 }
 

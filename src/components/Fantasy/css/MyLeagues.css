@@ -22,17 +22,21 @@
     white-space: normal;
     line-height: 1.5;
     font-size: 30px;
-    text-decoration: underline;
+    font-weight: bold;
 }
 
 .cells-myLeagues-grid {
     white-space: normal;
     line-height: 2;
     font-size: 30px;
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
+    .header-myLeagues-grid {
+        font-size: 20px;
+    }
+    
     .myLeagues-grid {
         position: absolute;
         bottom: 200%;
@@ -40,6 +44,10 @@
         width: 25%;
         height: 47%;
         z-index: 3;
+    }
+
+    .cells-myLeagues-grid {
+        font-size: 20px;
     }
 }
 

@@ -3,7 +3,7 @@
     justify-content: center;
     margin-top: 30px;
     /*margin-left: 10px;*/
-    block-size: 82px;
+    block-size: 72px;
     /*max-width: 260px;*/
     /* Set the width you want */
     /*height: auto;*/
@@ -16,7 +16,7 @@
 
 .fantasy-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     /*gap: 150px;*/
     background-color: #e1f9d7;
     z-index: 5;
@@ -25,16 +25,19 @@
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
-    .fantasy-header {
-        background-color: transparent;
-        margin-left: 0px;
-        margin-top: 0;
-        margin-top: 30px;
-        border-bottom: 0;
-        gap: 0px;
-    }
     .fantasy-logo {
-        margin-right: 150px;
+        margin-top: 0;
+        margin-right: 0;
+    }
+    .fantasy-header {
+        justify-content: space-between;
+        padding: 0 0;
+        /*background-color: transparent;
+        margin-top: 40px;*/
+        /*border-bottom: 0;*/
+        gap: 0px;
+        border-bottom: 2px solid #adadad;
+        padding: 15px 0;
     }
 }
 

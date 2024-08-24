@@ -25,7 +25,6 @@ const Captain = (props) => {
   
     return (
       <div className="captain-container">
-        <div className="captain-label"> קפטן </div>
         <select
           className="minimal"
           name="selectedCaptain"

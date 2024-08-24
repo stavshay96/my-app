@@ -65,21 +65,21 @@
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .players-list-root {
         position: absolute;
-        top: 85%;
-        left: 0%;
+        /* top: 50%;
+        left: 0%; */
         width: 32%;
         /*height: 50% ;*/
         z-index: 3;
         /* grid-template-rows: auto;*/
-        margin: 30px auto;
+        margin: -200px auto;
     }
     .grid-cell-player-name,
     .grid-cell-position,
     .grid-cell-text {
-        font-size: 22px;
+        font-size: 18px;
     }
     .grid-header-cell {
-        font-size: 22px;
+        font-size: 18px;
     }
 }
 

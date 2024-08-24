@@ -3,6 +3,7 @@ import "./css/Field.css"
 import {Button, ButtonGroup} from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import LineupCounter from "./LineupCounter";
+import Captain from "./Captain";
 //import manCityKit from "../../images/city_1.png"
 //import Arsenal from "../../images/kits/Arsenal.png"
 
@@ -105,6 +106,11 @@ function Field(props) {
             <div className="forwards-group">
                 {forwards.map(createPlayerButton)}
             </div>
+            {showButton && <Captain
+                lineup={props.lineup}
+                captain={props.captain}
+                onChangeCaptain={props.onChangeCaptain}
+                />}
         </div>
     )
 }

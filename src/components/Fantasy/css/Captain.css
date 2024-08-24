@@ -1,7 +1,13 @@
 .captain-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    top: 93%;
+    
     font-size: 35px;
     unicode-bidi: plaintext;
     text-align: center;
+    justify-content: center;
     /* padding: 0 200px;*/
     /*width: 100%;*/
     /*width: "14%",
@@ -13,6 +19,7 @@
 }
 
 .captain-label {
+    color: white;
     text-align: center;
     font-size: 40px;
     font-family: 'Alef', sans-serif;
@@ -34,7 +41,7 @@ select {
     /*padding: 1em 15em 1em 1em;*/
     /* reset */
     margin: 0;
-    width: 80%;
+    width: 100%;
     text-align: center;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -72,10 +79,9 @@ select:-moz-focusring {
         font-size: 20px;
         unicode-bidi: plaintext;
         text-align: center;
-        width: 25%;
+        width: 20%;
         position: absolute;
-        top: 58%;
-        left: 5%;
+        left: 40%;
         /* padding: 0 200px;*/
         /*width: 100%;*/
         /*width: "14%",
@@ -86,7 +92,6 @@ select:-moz-focusring {
         textAlign: "center",*/
     }
     .captain-label {
-        margin: 5px;
         font-size: 25px;
     }
 }

@@ -29,12 +29,7 @@
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .btnBackToHomePage {
-        position: absolute;
-        top: 5.5%;
-        right: 3%;
-        width: 4.5%;
-        padding: 30px 60px;
-        margin: 0 auto;
+        padding: 20px 40px;
     }
     .fantasy-header .btnBackToHomePage {
         margin-top: 10px;
