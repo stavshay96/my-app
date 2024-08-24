@@ -56,9 +56,7 @@ const FantasySubsPage = (props) => {
             <FantasyHeader 
                 userInfo={props.userInfo} 
                 WrapUserInfo={props.WrapUserInfo} 
-                />
-            <InfoAndFantasyOptions
-             leagueChoice={props.leagueChoice}
+                leagueChoice={props.leagueChoice}
                 />
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate}
@@ -113,11 +111,6 @@ const FantasySubsPage = (props) => {
                 fantasyType={props.fantasyType}
                 leagueChoice={props.leagueChoice}
                 />
-            <Captain
-                lineup={props.lineup}
-                captain={props.captain}
-                onChangeCaptain={props.handleCaptain}
-                />
             <PlayersList
                 lineup={props.lineup}
                 initialSelectedRows={initialSelectedRows}
@@ -139,7 +132,7 @@ const FantasySubsPage = (props) => {
                 leagueChoice={props.leagueChoice}
                 gameweeksList={props.gameweeksList}
                 />
-            <Rules/>
+            {/*<Rules/>*/}
            {/* <img className="fantasy-logo" src={require('../../images/FantasyLogo.png')}/>*/}
 
         </div>

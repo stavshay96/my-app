@@ -116,15 +116,16 @@
         text-align: center;
         border-radius: 20px;
         border: 2px solid #b6d7a8;
-        font-size: 20px;
-        padding: 5px 30px;
+        font-size: 16px;
+        padding: 0 30px;
+        margin-right: 0px;
     }
     .btnNamePresent {
         white-space: nowrap;
         text-align: center;
         border-radius: 20px;
         display: inline-block;
-        font-size: 20px;
+        font-size: 18px;
         padding: 5px 30px;
     }
     .logout-container {
@@ -136,7 +137,8 @@
         /* Optional: for better visibility */
     }
     .fantasy-header .logout-container {
-        margin-top: 0px;
+        margin-top: 38px;
+        margin-left: 10px;
     }
     .fantasy-header .btnLogOut {
         font-size: 20px;

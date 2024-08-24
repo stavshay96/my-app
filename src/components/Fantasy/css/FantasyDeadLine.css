@@ -1,6 +1,6 @@
 .btnDeadLine {
     text-align: center;
-    background-color: #e1f9d7;
+    background-color: #ecfce6;
     /*border-radius: 10px;*/
     border: 0;
     border-top: 1px solid #131313;
@@ -26,26 +26,24 @@ hr {
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .btnDeadLine {
-        position: absolute;
+        /* position: absolute;
         top: 25%;
-        left: 4.5%;
+        left: 4.5%; */
+        color: rgb(78, 78, 78);
+        background-color: #ecfce6;
         border-radius: 10px;
         border: none;
         /* Remove all borders */
         border-bottom: 2px solid transparent;
         /* Border-bottom transparent by default */
         transition: background-color 0.3s, border-bottom 0.3s;
-        font-size: 30px;
-        padding: 10px 20px;
+        font-size: 20px;
+        padding: 2px 20px;
         /*margin-top: 100px;
         margin-left: 100px;
         margin-right: 1100px;
         padding: 10px 20px;
         border-radius: 10px;
         border: 2px solid #131313;*/
-    }
-    .btnDeadLine:hover {
-        border-top: 2px solid #131313;
-        border-bottom: 2px solid #131313;
     }
 }

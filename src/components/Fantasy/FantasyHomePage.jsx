@@ -34,9 +34,8 @@ const FantasyHomePage = (props) => {
             <FantasyHeader 
                 userInfo={props.userInfo} 
                 WrapUserInfo={props.WrapUserInfo} 
+                leagueChoice={props.leagueChoice}
             />
-            <InfoAndFantasyOptions
-                leagueChoice={props.leagueChoice}/>
             <FantasyDeadLine
                 deadLineDate={props.deadLineDate} 
                 handleIsDeadLineDatePass={props.handleIsDeadLineDatePass} 
@@ -83,7 +82,7 @@ const FantasyHomePage = (props) => {
                 numOfGames={props.numOfGames}
                 leagueChoice={props.leagueChoice}
                 gameweeksList={props.gameweeksList}/>
-            <Rules/>
+            {/*<Rules/>*/}
             <MyLeagues
              leagueChoice={props.leagueChoice}/>
            
