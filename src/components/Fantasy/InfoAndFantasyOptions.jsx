@@ -26,7 +26,7 @@ function InfoAndFantasyOptions(props) {
 
     return (
         <div className="info-container">
-            <ButtonGroup className="btnGroupOptions"
+          {/*  <ButtonGroup className="btnGroupOptions"
                 style={{/*
                 position: 'absolute',
                 top: '18%',
@@ -34,7 +34,7 @@ function InfoAndFantasyOptions(props) {
                 unicodeBidi: 'plaintext',
                 width: '25%',
                 zIndex: '2'*/
-            }}>
+          /*}}>
                 {/* <Button className="btnInfoAndOptions1">
                     {squad15}
                 </Button>
@@ -54,7 +54,7 @@ function InfoAndFantasyOptions(props) {
                 <Button className="btnInfoAndOptions1">
                     {rules}
                 </Button> */}
-            </ButtonGroup>
+           {/*</div> </ButtonGroup>*/}
 
             <ButtonGroup className="btnGroupOptions"
                 style={{/*
@@ -73,9 +73,9 @@ function InfoAndFantasyOptions(props) {
                 onClick={handleMyLeaguesButton}>
                     {myLeagues}
                 </Button>
-                <Button className="btnInfoAndOptions2">
+                {/*<Button className="btnInfoAndOptions2">
                     {statistics}
-                </Button>
+                </Button>*/}
                 <Button className="btnInfoAndOptions2">
                     {rules}
                 </Button>

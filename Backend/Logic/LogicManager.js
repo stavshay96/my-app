@@ -108,8 +108,8 @@ async function insertNewPlayersToLeagueFromFile(filePath, englishLeagueName) {
     }
 }
 
-const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit.txt"
-insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
+//const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit.txt"
+//insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
 
 async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeagueName) {
     /* format file:
@@ -132,8 +132,8 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
     }
 }
 
-//const filePath = "../../files/PremierLeague/transfersInsidePremierLeague2.txt"
-//transferPlayersBetweenTeamsFromFileHebrew(filePath, "PremierLeague");
+const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
+transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
 
 
 async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {

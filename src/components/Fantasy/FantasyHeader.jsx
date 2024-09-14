@@ -5,6 +5,7 @@ import LogOut from "../HomePage/LogOut";
 import Login from "../HomePage/Login";
 import BackToHomePage from "../General/BackToHomePage";
 import InfoAndFantasyOptions from "./InfoAndFantasyOptions";
+import { Link } from "react-router-dom";
 
 const Logo = require("../../images/PendelLogo-removebg.png");
 
@@ -17,9 +18,13 @@ function FantasyHeader(props) {
         {user? <LogOut userInfo={props.userInfo} changeUserInfo={props.WrapUserInfo}/> 
                 : <Login changeUserInfo={props.WrapUserInfo}/>}
         <InfoAndFantasyOptions leagueChoice={props.leagueChoice}/>
-        <div className="fantasy-logo" >
+       
+        <Link to="/" >
+        <div className="fantasy-logo">
             <img src={Logo}/>
         </div>
+        </Link>
+      
         {/*<BackToHomePage />*/}
     </div>
     )

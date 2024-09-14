@@ -17,7 +17,7 @@
 .fantasy-header {
     display: flex;
     justify-content: center;
-    /*gap: 150px;*/
+    gap: 15%;
     background-color: #e1f9d7;
     z-index: 5;
     border-bottom: 4px solid #131313;
