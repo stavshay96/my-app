@@ -1,6 +1,7 @@
 .room-page-container {
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 .form {
@@ -27,14 +28,18 @@
     align-items: center;
     margin-top: 0px;
     max-height: 100%;
+    max-width: 100%;
     margin: 0 auto;
     /* Adjust this value to your desired maximum height */
-    overflow-y: auto;
+    overflow-y: scroll;
     /* Enable vertical scrolling when content overflows */
 }
 
 .fantasyUsers-table {
     text-align: center;
+    /* max-height: 50px;*/
+    /*max-height: 50%;*/
+    overflow: scroll;
 }
 
 .fantasyUsers-table th {
@@ -43,13 +48,13 @@
     border: 0.1vw solid #000000;
     /* Blue color */
     color: #fff;
-    font-size: 45px;
+    font-size: 40px;
     padding: 0 20px;
     /* White text color */
 }
 
 .fantasyUsers-table td {
-    font-size: 40px;
+    font-size: 35px;
     padding: 15px;
 }
 
@@ -68,11 +73,13 @@
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .room-page-container {
-        min-height: 150vh;
+        /* min-height: 150vh;*/
+        background-color: transparent;
     }
     .form {
         font-size: 30px;
         margin-top: 50px;
+        margin-bottom: 35px;
     }
     .fantasyUsers-table td {
         font-size: 25px;
