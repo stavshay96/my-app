@@ -31,13 +31,13 @@
     }
     .fantasy-header {
         justify-content: space-between;
-        padding: 0 0;
+        /* padding: 0 0;*/
         /*background-color: transparent;
         margin-top: 40px;*/
         /*border-bottom: 0;*/
         gap: 0px;
         border-bottom: 2px solid #adadad;
-        padding: 15px 0;
+        padding: 15px 30px;
     }
 }
 
