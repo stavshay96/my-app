@@ -73,7 +73,7 @@
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .room-page-container {
-        /* min-height: 150vh;*/
+        min-height: 150vh;
         background-color: transparent;
     }
     .form {

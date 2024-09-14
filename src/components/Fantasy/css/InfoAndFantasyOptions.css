@@ -41,13 +41,13 @@
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .info-container {
         margin-top: 20px;
-        margin-left: 60%;
+        margin-left: 40%;
     }
     .btnGroupOptions {
         display: flex;
         justify-content: center;
         margin-left: 0%;
-        gap: 30px;
+        gap: 10%;
         background-color: transparent;
         font-weight: bold;
         /* Add some gap between buttons */
@@ -70,6 +70,13 @@
         border-bottom: 2px solid #131313;
         margin-top: -13px;
         padding: 15px 25px;
+    }
+}
+
+@media only screen and (min-width: 1601px) and (orientation: landscape) {
+    .info-container {
+        margin-top: 20px;
+        margin-left: 60%;
     }
 }
 
