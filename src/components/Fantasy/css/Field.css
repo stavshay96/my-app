@@ -94,7 +94,8 @@
     bottom: 8%;
     margin: 0;
     position: absolute;
-    min-width: 140px;
+    min-width: 80%;
+    max-width: 80%;
     padding: 0 15px;
     /*width: 11%;*/
 }
@@ -104,13 +105,14 @@
     color: white;
     background-color: rgb(255, 73, 73);
     /*padding: 0.2em 0.5em;*/
-    bottom: -20%;
+    bottom: -19.5%;
     /*margin-left: -6.5%;*/
     position: absolute;
     /*width: 4.5%;*/
     /*min-width: 50px;*/
     /*padding: 0 15px;*/
-    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
 }
 
 .btnPlayerButton h3 {
@@ -124,7 +126,8 @@
     /*width: 4.5%;*/
     /*min-width: 50px;*/
     padding: 0 15px;
-    width: 30%;
+    min-width: 30%;
+    max-width: 30%;
 }
 
 .btnPlayerButton h4 {
@@ -183,20 +186,25 @@
     }
     .btnPlayerButton h1 {
         font-size: 15px;
-        min-width: 60px;
+        min-width: 60%;
+        max-width: 60%;
         padding: 0 15px;
     }
     .btnPlayerButton h2 {
         font-size: 15px;
         z-index: 3;
         bottom: -19%;
+        min-width: 50%;
+        max-width: 50%;
     }
     .btnPlayerButton h3 {
         font-size: 15px;
         z-index: 3;
         bottom: -21.5%;
-        width: 15%;
-        text-indent: -5px;
+        /* width: 15%;*/
+        text-indent: -60%;
+        min-width: 10%;
+        max-width: 10%;
     }
     .btnPlayerButton h4 {
         font-size: 18px;
