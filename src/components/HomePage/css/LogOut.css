@@ -46,14 +46,14 @@
 
 .btnNamePresent {
     white-space: nowrap;
-    /*background-color: #ffffff;*/
     border-radius: 20px;
-    /*border: 0.25vw solid #ffffff;*/
-    /*display: inline-block;*/
     color: #000000;
     font-family: 'Alef', sans-serif;
     font-size: 30px;
     padding: 5px 30px;
+    /*background-color: #ffffff;*/
+    /*border: 0.25vw solid #ffffff;*/
+    /*display: inline-block;*/
     /*text-shadow: 0vw 0.1vw 0vw #2f6627;*/
     /*text-decoration: none;*/
 }
@@ -68,12 +68,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*margin-right: 20px;*/
     margin-top: 120px;
-    /* or space-between or flex-start, depending on your layout */
     block-size: 1px;
+    /*margin-right: 20px;*/
     /*background-color: #f9f9f9;*/
-    /* Optional: for better visibility */
 }
 
 .fantasy-header .user {
@@ -83,12 +81,6 @@
 .fantasy-header .logout-container {
     margin-right: 0px;
     margin-top: 70px;
-}
-
-@media (max-width: 1100px) {
-    .logout-container {
-        /*margin-right: 50px;*/
-    }
 }
 
 @media (max-width: 768px) {
@@ -131,10 +123,8 @@
     .logout-container {
         margin-right: 50px;
         margin-top: 80px;
-        /* or space-between or flex-start, depending on your layout */
         block-size: 1px;
         /*background-color: #f9f9f9;*/
-        /* Optional: for better visibility */
     }
     .fantasy-header .logout-container {
         margin-top: 38px;

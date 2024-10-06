@@ -46,9 +46,9 @@
     color: #000000;
     font-family: 'Alef', sans-serif;
     font-size: 1vw;
+    width: 7%;
     /* padding: 0.5% 1%;*/
     /*text-decoration: none;*/
-    width: 7%;
 }
 
 .btnCurrLangPred:hover {
@@ -76,9 +76,9 @@
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {
     .lang-btns {
-        /* margin-left: 20px;*/
         flex-direction: row;
         margin-top: 25px;
+        /* margin-left: 20px;*/
     }
     .btnCurrLang,
     .btnNotCurrLang {

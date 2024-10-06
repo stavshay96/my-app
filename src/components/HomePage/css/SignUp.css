@@ -1,3 +1,7 @@
+/**************************************************/
+/* signup form using the CSS of login form (same classes) */
+/**************************************************/
+
 .btnSignUp {
     text-align: center;
     background-color: rgba(238, 238, 239, 0.9);
@@ -20,27 +24,6 @@
     background-color: #b6d7a8;
     transform: scale(0.95);
 }
-
-
-/**************************************************/
-
-
-/* signup form using the CSS of login form (same classes) */
-
-
-/**************************************************/
-
-.formStyle {}
-
-.txtBoxStyle {}
-
-.checkBoxStyle {}
-
-.passwordStyle {}
-
-.popup-overlay {}
-
-.popup-content {}
 
 @media (max-width: 730px) {
     .btnSignUp {

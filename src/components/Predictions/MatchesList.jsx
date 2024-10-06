@@ -17,7 +17,7 @@ const cols = [
       sortable: false,
       align: 'center',
       headerClassName: 'CustomHeader',
-      cellClassName: 'DataRow', // Add this line
+      cellClassName: 'DataRow',
       renderCell: wrapCellTeamNameText,
       renderHeader: wrapHeaderText
     },
@@ -30,8 +30,8 @@ const cols = [
       filterable: false,
       sortable: false,
       align: 'center',
-      headerClassName: 'CustomHeader', // Apply the same class
-      cellClassName: 'DataRow', // Add this line
+      headerClassName: 'CustomHeader',
+      cellClassName: 'DataRow',
       renderCell: wrapCellTeamNameText,
       renderHeader: wrapHeaderText,
     },
@@ -43,8 +43,8 @@ const cols = [
       filterable: false,
       sortable: false,
       align: 'center',
-      headerClassName: 'CustomHeader', // Apply the same class
-      cellClassName: 'DataRow', // Add this line
+      headerClassName: 'CustomHeader',
+      cellClassName: 'DataRow',
       renderCell: wrapCellTeamNameText,
       renderHeader: wrapHeaderText,
     }
@@ -55,6 +55,7 @@ function CustomDropdown(match) {
     const options = [];
     const start = 0;
     const end = 30;
+
     const [homeTeamScore, setHomeTeamScore] = useState(0);
     const [awayTeamScore, setAwayTeamScore] = useState(0);
 
@@ -64,25 +65,23 @@ function CustomDropdown(match) {
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        if (name === "awayScore")
-        {
+        if (name === "awayScore") {
             setAwayTeamScore(value);
         }
-        else if (name === "homeScore")
-        {
+        else if (name === "homeScore") {
             setHomeTeamScore(value);
         }
     }
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', fontSize: '1vw', marginLeft: "0.2rem"}}>
+      <div style={{ display: 'flex', alignItems: 'center', fontSize: '1vw', marginLeft: "0.2rem"}}>
         <input
           name="awayScore"
           type="number"
           style={{
             fontSize: '1vw',
             width: "2.1rem",
-            appearance: 'textfield', // Show arrows in all browsers
+            appearance: 'textfield',
           }}
           value={awayTeamScore}
           onChange={handleInputChange}
@@ -122,8 +121,8 @@ function createRowMatch(match) {
       HomeTeam: match.HomeTeam,
       Score: match.ScoreHomeTeam !== '-' ? (
         <p style={textStyle}>
-          ({match.GuessScoreAwayTeam}) &nbsp; {/* Add non-breaking space for extra spacing */}
-          {match.ScoreAwayTeam} : {match.ScoreHomeTeam} &nbsp; {/* Add non-breaking space for extra spacing */}
+          ({match.GuessScoreAwayTeam}) &nbsp;
+          {match.ScoreAwayTeam} : {match.ScoreHomeTeam} &nbsp;
           ({match.GuessScoreHomeTeam})
         </p>
       ) : (
@@ -208,7 +207,7 @@ function MatchesList() {
                 height: '75%',
                 backgroundColor: '#ffdec9',
                 backgroundImage: `url(https://img.freepik.com/free-vector/yellow-orange-gradient-abstract-background_53876-60243.jpg?w=740&t=st=1693524857~exp=1693525457~hmac=3be0050042821c39d05c028b710da828ca2700c3e549914f54c82de025cbfb2a)`, // Use the background image URL
-                backgroundSize: 'cover', // Adjust the background size as needed
+                backgroundSize: 'cover',
             }}
                 rows={rows}
                 columns={cols}

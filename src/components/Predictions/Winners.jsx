@@ -7,10 +7,6 @@ import assistPlayers from "./data/TopAssistPlayer";
 import Champions from "./data/Champions";
 
 function Winners(props) {
-    var weeklyPoints = 27;
-    var totalPoints = 524;
-    const user = document.cookie;
-
     return (
         <div>
             <Button
@@ -22,7 +18,7 @@ function Winners(props) {
                 width: '15%',
                 unicodeBidi: 'plaintext',
                 backgroundImage: `url(https://img.freepik.com/premium-photo/colorful-defocus-motions-lights-bokeh-lights-blurred-background-effect_87555-1288.jpg?w=900)`,
-                backgroundSize: 'cover', // Adjust the background size as needed
+                backgroundSize: 'cover',
             }}>
                 <Badge>
                     אלופה:

@@ -1,0 +1,218 @@
+.field-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.field-img {
+    height: auto;
+    width: 100%;
+    display: block;
+    /* position: fixed;
+    border-radius: 2vw;
+    border: 0.25vw solid #d9f7cc;
+    z-index: -2;
+    /left: 33%;
+    bottom: 2.5%;
+    height: 85%;
+    width: 35%*/
+}
+
+.btnPlayerButton {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-weight: bold;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    z-index: 2;
+    /*margin: 2%;
+    text-align: center;
+    /*background-color: #bae9a6;*/
+    /*background-color: rgba(255, 255, 255, 0);
+    /*border-radius: 0.5vw;*/
+    /*border: 0.15vw solid #131313;*/
+    /* border: 0cm;
+    color: #000000;
+    font-family: 'Alef', sans-serif;
+    font-weight: bold;
+    /*box-shadow: 0.4vw 0.3vw 0.9vw rgb(0, 0, 0);*/
+    /*width: 100px;
+    height: 100px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* background-image: url('../../../images/city_1.png');
+    background-size: cover;*/
+    /*z-index: 2;*/
+    /*margin: 2%;*/
+}
+
+.goalkeepers-group,
+.defenders-group,
+.midfielders-group,
+.forwards-group {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    gap: 35px;
+}
+
+.goalkeepers-group {
+    top: 10%;
+}
+
+.defenders-group {
+    top: 29%;
+    gap: 10px;
+}
+
+.midfielders-group {
+    top: 48%;
+    gap: 10px;
+}
+
+.forwards-group {
+    top: 67%;
+}
+
+.btnPlayerButton h1 {
+    font-size: 25px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.85);
+    bottom: 8%;
+    margin: 0;
+    position: absolute;
+    min-width: 80%;
+    max-width: 80%;
+    padding: 0 15px;
+    /*padding: 0.2em 0.5em;*/
+    /*width: 11%;*/
+}
+
+.btnPlayerButton h2 {
+    font-size: 25px;
+    color: white;
+    background-color: rgb(255, 73, 73);
+    min-width: 50%;
+    max-width: 50%;
+    position: absolute;
+    bottom: -19.5%;
+    /*padding: 0.2em 0.5em;*/
+    /*margin-left: -6.5%;*/
+    /*width: 4.5%;*/
+    /*min-width: 50px;*/
+    /*padding: 0 15px;*/
+}
+
+.btnPlayerButton h3 {
+    font-size: 25px;
+    color: white;
+    background-color: rgb(27, 118, 255);
+    padding: 0.2em 0.5em;
+    bottom: -22%;
+    margin-left: 50%;
+    position: absolute;
+    padding: 0 15px;
+    min-width: 30%;
+    max-width: 30%;
+    /*min-width: 50px;*/
+    /*width: 4.5%;*/
+}
+
+.btnPlayerButton h4 {
+    font-size: 25px;
+    color: white;
+    border-radius: 58px;
+    border: 0.05rem solid #131313;
+    background-color: rgba(255, 169, 31, 0.9);
+    padding: 0 15px;
+    bottom: 60%;
+    position: absolute;
+    text-align: left;
+    /*width: 2.5%;*/
+    /*margin-left: -8.5%;*/
+}
+
+.Xbtn {
+    font-size: 27px;
+    color: white;
+    border-radius: 16px;
+    border: 1px solid white;
+    background-color: rgba(255, 31, 31, 0.9);
+    padding: 5px 15px;
+    bottom: 80%;
+    margin-left: 15%;
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    /*text-indent: -0.15rem;*/
+    /*width: 2.5%;*/
+}
+
+@media only screen and (min-width: 731px) and (orientation: landscape) {
+    .field-img {
+        width: 35%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btnPlayerButton {
+        width: 110px;
+        height: 110px;
+    }
+    .goalkeepers-group {
+        gap: 10px;
+    }
+    .defenders-group {
+        gap: 10px;
+    }
+    .midfielders-group {
+        gap: 10px;
+    }
+    .forwards-group {
+        gap: 10px;
+    }
+    .btnPlayerButton h1 {
+        font-size: 15px;
+        min-width: 60%;
+        max-width: 60%;
+        padding: 0 15px;
+    }
+    .btnPlayerButton h2 {
+        font-size: 15px;
+        z-index: 3;
+        bottom: -19%;
+        min-width: 50%;
+        max-width: 50%;
+    }
+    .btnPlayerButton h3 {
+        font-size: 15px;
+        z-index: 3;
+        bottom: -21.5%;
+        text-indent: -60%;
+        min-width: 10%;
+        max-width: 10%;
+        /* width: 15%;*/
+    }
+    .btnPlayerButton h4 {
+        font-size: 18px;
+        padding: 0 6px;
+        bottom: 50%;
+    }
+    .Xbtn {
+        font-size: 15px;
+        padding: 3px 9px;
+        border-radius: 10px;
+    }
+}
