@@ -1,60 +1,31 @@
+/* eslint-disable no-unused-vars */
+/**************************************************/
+/* signup form using the CSS of login form (same classes) from login.css */
+/**************************************************/
+
 import {React, useState} from "react";
 import Button from "react-bootstrap/esm/Button";
 import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./css/SignUp.css";
-/**************************************************/
-/* signup form using the CSS of login form (same classes) from login.css */
-/**************************************************/
 import axios from "axios";
 import { useNavigate, useLocation} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons';
 
-function SignUpClick() {
-    alert("navigate to sign up page")
-}
-
-const styleSignUp = {
-    backgroundColor: '#eeeeef',
-    borderRadius: '2vw',
-    border: '0.3vw solid #b6d7a8',
-    display: 'inline-block',
-    cursor: 'pointer',
-    color: '#000000',
-    position: 'fixed',
-    top: '5%',
-    right: '10%',
-    fontFamily: 'sans-serif',
-    fontSize: '1.5vw',
-    padding: '0.5% 1%',
-    textShadow: '0vw 0.1vw 0vw #2f6627',
-    width: '10%',
-    '&hover': {
-        backgroundColor: '#b6d7a8'
-    }
-}
 
 const SignUp = (props) => {
     let navigate = useNavigate();
     const location = useLocation();
     const isHomePage = location.pathname === '/';
-    const [open,
-        setOpen] = useState(false);
-    const [isValidName,
-        setIsValidName] = useState(true);
-    const [isValidEmail,
-        setIsValidEmail] = useState(true);
-    const [isValidPassword,
-        setIsValidPassword] = useState(true);
-    const [enteredName,
-        setEnteredName] = useState("");
-    const [enteredEmail,
-        setEnteredEmail] = useState("");
-    const [enteredPassword,
-        setEnteredPassword] = useState("");
-
-    // let navigate =useNavigate();
+    
+    const [open, setOpen] = useState(false);
+    const [isValidName, setIsValidName] = useState(true);
+    const [isValidEmail, setIsValidEmail] = useState(true);
+    const [isValidPassword, setIsValidPassword] = useState(true);
+    const [enteredName, setEnteredName] = useState("");
+    const [enteredEmail, setEnteredEmail] = useState("");
+    const [enteredPassword, setEnteredPassword] = useState("");
 
     const nameHandler = (event) => {
         setIsValidName(true);
@@ -71,71 +42,51 @@ const SignUp = (props) => {
         setEnteredPassword(event.target.value);
     }
 
-    const openPopup = () => {
-        setOpen(true);
-    }
-
     const handleSignUpTrigger = () => {
-        if(props.isFromHomePage===true)
-        {
-        return (
-            <div>
-                {/*props.showSignUp && <div>setOpen(true)</div>*/}
-                <Button
-                    className="btnSignUp"
-                    style={{/*
-                    position: 'fixed',
-                    top: '5%',
-                    right: '13.5%'*/
-                }}>
-                    הרשמה {/*console.log("SignUp")*/}
-                </Button>
-            </div>
-        )}
-        else{
+        if (props.isFromHomePage === true) {
+            return (
+                <div>
+                    {/*props.showSignUp && <div>setOpen(true)</div>*/}
+                    <Button
+                        className="btnSignUp">
+                        הרשמה
+                    </Button>
+                </div>
+        )} else {
             return(  <div>{setOpen(true)}</div>)
         }
-
     }
 
     const SignUpHandler = (event) => {
         event.preventDefault();
         console.log("enteredEmail");
-        axios
-            .post(`https://pendel-server.onrender.com/User/SignUp`, {
+
+        axios.post(`https://pendel-server.onrender.com/User/SignUp`, {
             fullName: enteredName,
             email: enteredEmail,
             password: enteredPassword
-        })
-            .then((res) => {
+        }).then((res) => {
                 if (res.data.Status === "Sign Up succseeded")
                 {
                     const maxAge = 10 * 365 * 24 * 60 * 60; // 10 years in seconds
                     setOpen(false);
+
                     document.cookie = `userID=${res.data.userInfo.userID}; path=/; max-age=${maxAge};`;
                     document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/; max-age=${maxAge};`;
                     document.cookie = `email= ${res.data.userInfo.email}; path=/; max-age=${maxAge};`;
-                    if(!isHomePage){
+
+                    if (!isHomePage) {
                         navigate("/", {
                             replace: true,
                         });
-                       }
-                       else{
-                            window.location.reload(); 
-                          
-                       }
-                    //props.changeUserInfo(res.data.userInfo);
-                    //window.location.reload(); 
-                    
-    
+                    } else {
+                        window.location.reload(); 
+                    }
                 }     
-                else{
+                else {
                     alert(res.data.Reason);
                 }
                 console.log(res.data);
-                /* navigate("/userHomePage", {
-                        replace: true,
-                    });*/
             })
             .catch(error => {
                 console.error(error);
@@ -151,41 +102,16 @@ const SignUp = (props) => {
             closeOnDocumentClick={false}>
             {close => (
                 <div>
-                    <Button
-                        className="close-btn"
-                        onClick={()=> {window.location.reload();}}
-                        style={{/*
-                        position: 'fixed',
-                        top: '30%',
-                        right: '30%',
-                        fontSize: '1.25vw'*/
-                    }}>
+                    <Button className="close-btn"
+                        onClick={()=> {window.location.reload();}}>
                         X
                     </Button>
 
-                    <Form
-                        className="formStyle"
-                        style={{/*
-                        position: 'fixed',
-                        top: '35%',
-                        right: '30%'*/
-                    }}>
+                    <Form className="formStyle">
                         <Form.Group className="itemFormStyle" controlId="formBasicEmail">
-                            <Form.Label
-                                style={{/*
-                                position: 'fixed',
-                                top: '41.75%',
-                                right: '33%',
-                                fontSize: '1.6vw'*/
-                            }}>אימייל</Form.Label>
+                            <Form.Label>אימייל</Form.Label>
                             <Form.Control
                                 className="txtBoxStyle"
-                                style={{/*
-                                position: 'fixed',
-                                top: '41.8%',
-                                right: '41%',
-                                fontSize: '1.25vw'*/
-                            }}
                                 onChange={emailHandler}
                                 type="email"
                                 placeholder="Enter email"
@@ -194,22 +120,9 @@ const SignUp = (props) => {
                         </Form.Group>
 
                         <Form.Group className="itemFormStyle" controlId="formBasicName">
-                            <Form.Label
-                                style={{/*
-                                position: 'fixed',
-                                top: '49.75%',
-                                right: '32.85%',
-                                fontSize: '1.6vw'*/
-                            }}>שם מלא</Form.Label>
+                            <Form.Label>שם מלא</Form.Label>
                             <Form.Control
                                 className="txtBoxStyle"
-                                style={{/*
-                                position: 'fixed',
-                                top: '49.8%',
-                                right: '41%',
-                                unicodeBidi: 'plaintext',
-                                fontSize: '1.25vw'*/
-                            }}
                                 onChange={nameHandler}
                                 type="name"
                                 placeholder="Enter name"
@@ -218,21 +131,9 @@ const SignUp = (props) => {
                         </Form.Group>
 
                         <Form.Group className="itemFormStyle" controlId="formBasicPassword">
-                            <Form.Label
-                                style={{/*
-                                position: 'fixed',
-                                top: '57.5%',
-                                right: '32.85%',
-                                fontSize: '1.6vw'*/
-                            }}>סיסמה</Form.Label>
+                            <Form.Label>סיסמה</Form.Label>
                             <Form.Control
                                 className="txtBoxStyle"
-                                style={{/*
-                                position: 'fixed',
-                                top: '57.5%',
-                                right: '41%',
-                                fontSize: '1.25vw'*/
-                            }}
                                 value={enteredPassword}
                                 onChange={passwordHandler}
                                 type="password"
@@ -243,33 +144,12 @@ const SignUp = (props) => {
                             className="btnSignUp"
                             variant="primary"
                             type="submit"
-                            style={{/*
-                            position: 'fixed',
-                            top: '65%',
-                            right: '45%',
-                            fontSize: '1.6vw'*/
-                        }}
                             onClick={SignUpHandler}>
                             הירשם
                         </Button>
                         <div className="icons-social">
-                            <FontAwesomeIcon
-                                icon={faFacebook}
-                                style={{/*
-                                position: 'fixed',
-                                top: '75%',
-                                right: '46.5%',
-                                fontSize: '3vw',
-                                color: "#2154ab"*/
-                            }}/>
-                            <FontAwesomeIcon
-                                icon={faGoogle}
-                                style={{/*
-                                position: 'fixed',
-                                top: '75%',
-                                right: '50.5%',
-                                fontSize: '3vw'*/
-                            }}/>
+                            <FontAwesomeIcon icon={faFacebook}/>
+                            <FontAwesomeIcon icon={faGoogle}/>
                         </div>
                     </Form>
                 </div>

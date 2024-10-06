@@ -1,29 +1,21 @@
-import {React, useState,  useRef} from "react";
+/* eslint-disable no-unused-vars */
+import {React, useState, useEffect} from "react";
 import Button from "react-bootstrap/esm/Button";
 import Popup from 'reactjs-popup';
 import Form from 'react-bootstrap/Form';
 import "./css/Login.css";
 import axios from "axios";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook , faGoogle } from '@fortawesome/free-brands-svg-icons';
+import {useNavigate, useLocation} from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faFacebook, faGoogle} from '@fortawesome/free-brands-svg-icons';
 import SignUp from "./SignUp";
 
 
-const styleLogin = {
-    backgroundColor: '#eeeeef', borderRadius: '2vw', border: '0.3vw solid #b6d7a8',
-    display: 'inline-block', cursor: 'pointer',color: '#000000',
-    position:'fixed', top:'5%', right:'10%',fontFamily: 'sans-serif', 
-    fontSize: '1.5vw', padding: '0.5% 1%', textShadow: '0vw 0.1vw 0vw #2f6627', width: '10%',
-    '&hover': {  backgroundColor: '#b6d7a8'}
-}
-
-
-const Login = (props) => 
-{
+const Login = (props) => {
     let navigate = useNavigate();
     const location = useLocation();
     const isHomePage = location.pathname === '/';
+    
     const [open, setOpen] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [isValidPassword, setIsValidPassword] = useState(true);
@@ -31,120 +23,153 @@ const Login = (props) =>
     const [enteredPassword, setEnteredPassword] = useState("");
     const [showSignUp, setSignUpPopup] = useState(false);
 
-   const emailHandler=(event) =>
-    {
+    // Automatically open the popup when not on the home page
+    useEffect(() => {
+        if (location.pathname !== "/") {
+            setOpen(true);
+        }
+    }, [location.pathname]);
+
+    const emailHandler = (event) => {
         setIsValidEmail(true);
         setEnteredEmail(event.target.value)
     }
 
-    const handleShowSignUp=() =>{
+    const handleShowSignUp = () => {
         setSignUpPopup(true)
     }
 
-    const passwordHandler=(event) =>
-    {
+    const passwordHandler = (event) => {
         setIsValidPassword(true);
         setEnteredPassword(event.target.value);
     }
 
     const handleTrigger = () => {
-
-        if(location.pathname === "/"){
+        if (location.pathname === "/") {
             return (
-            <Button className="btnLogin" style={{/*position:'fixed', top:'5%', right:'3%'*/}}>
-                        התחברות {/*console.log("login")*/}
+                <Button className="btnLogin">
+                    התחברות
+                </Button>
+            );
+        } else {
+            return (
+                <div>
+                    <Button onClick={() => setOpen(true)}>
+                        Open Login
                     </Button>
-            )
-        } 
-        else
-        {
-          return(  <div>{setOpen(true)}</div>)
+                </div>
+            );
         }
-            
+    };
+    
+
+    const toSignUp = (close) => {
+        setSignUpPopup(true)
+
     }
 
-    const toSignUp = (close) =>{
-       setSignUpPopup(true)
-       //return close;
-       
-    }
+    const isFromHomePage = false;
 
-    const isFromHomePage=false;
-
-    const LoginHandler = (event) =>
-    {
+    const LoginHandler = (event) => {
         event.preventDefault();
         console.log("enteredEmail");
         axios.post(`https://pendel-server.onrender.com/User/Login`, {
             email: enteredEmail,
             password: enteredPassword
-        }).then((res) =>{
-            console.log(res.data);
-            console.log(res.data.userInfo);
+        })
+            .then((res) => {
+                console.log(res.data);
+                console.log(res.data.userInfo);
 
-            if (res.data.Status === "Login succseeded")
-            {
-                const maxAge = 10 * 365 * 24 * 60 * 60; // 10 years in seconds
-                setOpen(false);
-                document.cookie = `userID=${res.data.userInfo.userID}; path=/; max-age=${maxAge};`;
-                document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/; max-age=${maxAge}`;
-                document.cookie = `email= ${res.data.userInfo.email}; path=/; max-age=${maxAge}`;
-                props.changeUserInfo(res.data.userInfo);
-                if(!isHomePage){
-                 window.location.reload(); 
+                if (res.data.Status === "Login succseeded") {
+                    const maxAge = 10 * 365 * 24 * 60 * 60; // 10 years in seconds
+                    setOpen(false);
+                    document.cookie = `userID=${res.data.userInfo.userID}; path=/; max-age=${maxAge};`;
+                    document.cookie = `fullName= ${res.data.userInfo.fullName}; path=/; max-age=${maxAge}`;
+                    document.cookie = `email= ${res.data.userInfo.email}; path=/; max-age=${maxAge}`;
+                    props.changeUserInfo(res.data.userInfo);
+                    
+                    if (!isHomePage) {
+                        window.location.reload();
+                    }
+
+                } else {
+                    alert(res.data.Reason);
                 }
+            })
+            .catch(error => {
+                alert(error);
+                console.error(error);
+                setOpen(false);
+            });
+    }
 
-            }     
-            else{
-                alert(res.data.Reason);
-            }
-        }).catch(error => {
-        alert(error);
-        console.error(error);
-        setOpen(false);
-        });
-        }
+    return (
+        <Popup
+            trigger={handleTrigger}
+            modal
+            open={open}
+            onClick={() => setOpen(true)}
+            closeOnDocumentClick={false}>
+            {close => (
+                <div>
+                    <Button
+                        className="close-btn"
+                        onClick={(isHomePage
+                        ? close
+                        : () => navigate("/", {replace: true}))}>
+                        X
+                    </Button>
 
-       return(
-        <Popup trigger={handleTrigger}  modal open={open} onClick={()=>setOpen(true)} closeOnDocumentClick={false} >
-            {close =>(<div>
-            <Button className="close-btn" onClick={(isHomePage? close: ()=>navigate("/", { replace: true }))} style={{/*position:'fixed', top:'30%', right:'30%', fontSize: '1.25vw'*/}}>
-            X 
-            </Button>
-           
-            <Form className="formStyle" style={{/* position:'fixed', top:'35%', right:'30%'*/}}>
-                <Form.Group className="itemFormStyle" controlId="formBasicEmail">
-                 <Form.Label  style={{ /*'fixed', top:'42%', right:'33%', fontSize: '1.6vw'*/}}>אימייל</Form.Label>
-                 <Form.Control className="txtBoxStyle" style={{/*position:'fixed', top:'42%', right:'41%', fontSize: '1.25vw'*/} }value={enteredEmail} onChange={emailHandler}
-                  type="email" placeholder="Enter email" />
-                </Form.Group>
-            
+                    <Form className="formStyle">
+                        <Form.Group className="itemFormStyle" controlId="formBasicEmail">
+                            <Form.Label>אימייל</Form.Label>
+                            <Form.Control
+                                className="txtBoxStyle"
+                                value={enteredEmail}
+                                onChange={emailHandler}
+                                type="email"
+                                placeholder="Enter email"/>
+                        </Form.Group>
 
-                <Form.Group className="itemFormStyle" controlId="formBasicPassword">
-                    <Form.Label style={{/*position:'fixed', top:'49.5%', right:'32.9%', fontSize: '1.6vw'*/}}><span dir="rtl">סיסמה </span></Form.Label>
-                    <Form.Control className="txtBoxStyle" style={{/*position:'fixed', top:'49.5%', right:'41%', fontSize: '1.25vw'*/}} value={enteredPassword} onChange={passwordHandler} 
-                    type="password" placeholder="Enter Password" />
-                </Form.Group>
+                        <Form.Group className="itemFormStyle" controlId="formBasicPassword">
+                            <Form.Label>
+                                <span dir="rtl">סיסמה
+                                </span>
+                            </Form.Label>
+                            <Form.Control
+                                className="txtBoxStyle"
+                                value={enteredPassword}
+                                onChange={passwordHandler}
+                                type="password"
+                                placeholder="Enter Password"/>
+                        </Form.Group>
 
-                <Form.Group className="checkboxFormStyle" controlId="formBasicCheckbox" >
-                    <Form.Check className="checkbox" type="checkbox" label="זכור אותי" style={{/*position:'fixed', top:'55%', right:'47%', fontSize: '1.25vw'*/}}/>
-                </Form.Group>
+                        <Form.Group className="checkboxFormStyle" controlId="formBasicCheckbox">
+                            <Form.Check className="checkbox" type="checkbox" label="זכור אותי"/>
+                        </Form.Group>
 
-                <Button className="btnLogin" variant="primary" type="submit" style={{/*position:'fixed', top:'61%', right:'45%'*/}}
-                onClick={LoginHandler} >
-                  התחבר
-                </Button>
+                        <Button
+                            className="btnLogin"
+                            variant="primary"
+                            type="submit"
+                            onClick={LoginHandler}>
+                            התחבר
+                        </Button>
 
-                <Button className="moveToSignUp" style={{/*position:'fixed', top:'70%', right:'42%', fontSize:'50%'*/}} onClick={()=> toSignUp(close)}>
-                    עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
-                {showSignUp && <SignUp isFromHomePage={isFromHomePage} showSignUp={showSignUp} handleShowSignUp={handleShowSignUp}/>}
-                <div className="icons-social">
-                    <FontAwesomeIcon icon={faFacebook} style={{/*position:'fixed', top:'76%', right:'46.5%', fontSize: '3vw', color: "#2154ab"*/}}/>
-                    <FontAwesomeIcon icon={faGoogle} style={{/*position:'fixed', top:'76%', right:'50.5%', fontSize: '3vw'*/}}/>
+                        <Button className="moveToSignUp" onClick={() => toSignUp(close)}>
+                            עדיין אין לך משתמש? לחץ כאן להרשמה</Button>
+                        {showSignUp && <SignUp
+                            isFromHomePage={isFromHomePage}
+                            showSignUp={showSignUp}
+                            handleShowSignUp={handleShowSignUp}/>}
+                        <div className="icons-social">
+                            <FontAwesomeIcon icon={faFacebook}/>
+                            <FontAwesomeIcon icon={faGoogle}/>
+                        </div>
+
+                    </Form>
                 </div>
-
-            </Form>
-            </div>
             )}
         </Popup>
     )

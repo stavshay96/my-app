@@ -1,15 +1,12 @@
 .lineupByFixture-container {
     display: flex;
     justify-content: center;
-    /*flex-direction: column;*/
-    /* Center the content horizontally */
     align-items: center;
-    /* Center the content vertically if needed */
     margin: -150px auto;
     padding: 0 20px;
     z-index: 10;
     /*width: 100%;*/
-    /* Ensure it takes full width for proper centering */
+    /*flex-direction: column;*/
 }
 
 .btnLeftArrowFixture,
@@ -29,9 +26,7 @@
     font-family: sans-serif;
     font-size: 50px;
     padding: 0 50px;
-    /* Adjust padding for better spacing */
     margin: 0 5px;
-    /* Add margin for spacing between buttons */
     border-radius: 25px;
 }
 
@@ -48,11 +43,9 @@
     font-size: 50px;
     font-weight: bold;
     padding: 0 50px;
-    /* Adjust padding for better spacing */
-    /*box-shadow: 0.1vw 0.3vw 0.9vw rgb(0, 0, 0);*/
     margin: 0 5px;
-    /* Add margin for spacing between buttons */
     border-radius: 25px;
+    /*box-shadow: 0.1vw 0.3vw 0.9vw rgb(0, 0, 0);*/
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {

@@ -5,7 +5,6 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 function InfoAndPredictionsOptions() {
     const news = "חדשות";
     const forum = "פורום";
-
     const statistics = "סטטיסטיקות";
     const myLeagues = "הליגות שלי";
     const expectedLineups = "הרכבים משוערים";
