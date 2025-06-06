@@ -33,7 +33,6 @@ const Predictions = (props) => {
 
     return (
         <div className="predictionsDiv">
-            <LangBar/>
             <UserPoints/>
             <MatchesList/>
             <MyLeagues/>
@@ -51,7 +50,7 @@ const Predictions = (props) => {
                 className="Predictions-logo"
                 src={require('../../images/PredictionsLogo.jpg')}
                 style={{
-                marginLeft: '80%',
+                marginLeft: '81%',
                 marginTop: '2.5%',
                 height: '1vw%'
             }}
