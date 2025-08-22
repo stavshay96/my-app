@@ -18,7 +18,7 @@ function UserPoints() {
                 left: '7%',
                 unicodeBidi: 'plaintext',
                 backgroundImage: `url(https://img.freepik.com/premium-photo/colorful-defocus-motions-lights-bokeh-lights-blurred-background-effect_87555-1288.jpg?w=900)`,
-                backgroundSize: 'cover', // Adjust the background size as needed
+                backgroundSize: 'cover',
             }}>
                 <Badge>
                     סך נקודות שבועי:

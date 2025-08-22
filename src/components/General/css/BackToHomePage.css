@@ -8,7 +8,6 @@
     background-image: url('../../../images/HomePageImage.png');
     min-height: 8%;
     padding: 41px 82px;
-    /* background-attachment: cover;*/
     background-size: cover;
     background-repeat: repeat;
     background-color: transparent;
@@ -18,9 +17,10 @@
     cursor: pointer;
     color: #000000;
     font-family: 'Alef', sans-serif;
+    margin: 0px auto;
     /* backgroundPosition: '0vw 0.1vw',*/
     /*text-decoration: none;*/
-    margin: 0px auto;
+    /* background-attachment: cover;*/
 }
 
 .fantasy-header .btnBackToHomePage {

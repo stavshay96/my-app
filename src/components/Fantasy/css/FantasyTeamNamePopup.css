@@ -3,14 +3,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Center vertically and horizontally */
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Semi-transparent background overlay */
 }
 
 .close-btn-teamname {
@@ -20,7 +18,6 @@
 }
 
 .fantasyTeamNameForm {
-    /* Add margin at the top */
     background-color: rgba(238, 238, 239, 0.95);
     border-radius: 40px;
     border: 3px solid #b6d7a8;
@@ -46,9 +43,7 @@
 
 .fantasyTeamNameForm>div {
     display: flex;
-    /* Display label and input in a row */
     align-items: center;
-    /* Center vertically */
     margin-top: 1rem;
 }
 
@@ -59,10 +54,9 @@
     border-bottom: 1px solid #000000;
     font-family: 'Alef', sans-serif;
     width: 100%;
-    /*padding: 0.5rem;*/
     width: auto;
     font-size: 40px;
-    /* Add margin between the input and labels */
+    /*padding: 0.5rem;*/
 }
 
 .input-style::placeholder {
@@ -83,7 +77,6 @@
 
 
 /* Style for the English label */
-
 .submit-btn {
     unicode-bidi: plaintext;
     font-family: 'Alef', sans-serif;
@@ -94,17 +87,13 @@
     padding: 10px 20px;
     border-radius: 20px;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
-    /* Add a subtle shadow */
     transition: background-color 0.3s, transform 0.2s;
-    /* Add smooth hover effect */
     cursor: pointer;
 }
 
 .submit-btn:hover {
     background-color: #b6d7a8;
-    /* Change background color on hover */
     transform: translateY(-0.1rem);
-    /* Add a slight lift on hover */
 }
 
 .error-label {
@@ -112,9 +101,7 @@
     font-family: 'Alef', sans-serif;
     font-size: 40px;
     margin-top: 10px;
-    /* Add margin at the top */
     color: red;
-    /* Red color for error message */
 }
 
 @media only screen and (min-width: 731px) and (orientation: landscape) {

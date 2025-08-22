@@ -1,23 +1,15 @@
-import {React,useState} from "react";
+import {React, useState} from "react";
 import "./css/Login-SignUpBar.css";
 import Login from "./Login";
 import SignUp from "./SignUp";
 
-function SignUpClick() {
-    alert("navigate to sign up page")
-}
-
 function Login_SignUpBar(props) {
-
-    const [showSignUp,
-        SetShowSignUp] = useState(false);
-    //window.location.reload();
-
+    const isFromHomePage = true;
+    const [showSignUp, SetShowSignUp] = useState(false);
     const handleShowSignUp = (showSignUp) => {
         SetShowSignUp(showSignUp);
-      };
+    };
 
-      const isFromHomePage=true;
 
     return (
         <div className="login-signup-btns">
@@ -25,12 +17,12 @@ function Login_SignUpBar(props) {
                 showSignUp={showSignUp}
                 handleShowSignUp={handleShowSignUp}
                 changeUserInfo={props.changeUserInfo}/>
-                 <SignUp
+            <SignUp
                 isFromHomePage={isFromHomePage}
                 showSignUp={showSignUp}
                 handleShowSignUp={handleShowSignUp}
                 changeUserInfo={props.changeUserInfo}/>
-          
+
         </div>
     )
 }

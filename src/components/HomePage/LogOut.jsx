@@ -22,19 +22,17 @@ var LogOut = (props) => {
 
     }
 
-    const buttonClass =  (location.pathname.includes("/Predictions/"))? "btnLogOutPred": "btnLogOut";
-  
+    const buttonClass = (location.pathname.includes("/Predictions/")) ? "btnLogOutPred" : "btnLogOut";
 
     return (
         <div className="logout-container">
             <img
                 className="user"
                 src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-                style={{/*props.imgstyle*/}}
-                alt="UserIcon"/> {locatedAtHomePage && <h1 className="btnNamePresent" style={{/*props.h1style*/}}>
+                alt="UserIcon"/> {locatedAtHomePage && <h1 className="btnNamePresent">
                 {`${props.userInfo["fullName"]}`}
-               </h1>}
-            <Button className={buttonClass} style={{/*props.btnstyle*/}} onClick={LogOutHandler}>
+            </h1>}
+            <Button className={buttonClass} onClick={LogOutHandler}>
                 התנתק
             </Button>
         </div>

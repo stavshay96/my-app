@@ -11,7 +11,7 @@ const PredictionsLeagues = [
         name: "פרמייר ליג",
         pathName:"PremierLeague",
         flag: EnglandFlag,
-        isButtonDisabled: true},
+        isButtonDisabled: false},
     {leagueID:2,
         name:"ליגת העל",
         pathName:"LigatHa'al",
