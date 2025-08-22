@@ -123,3 +123,17 @@ async function SignUp(fullName, email, password) {
 
     // return to http response
 }
+
+
+//----------------------------------- CurrentTime ----------------------------------------//
+UserRouter.get("/GetCurrentTime", async(req, res) => {
+    try {
+        const currentTime = new Date();
+        console.log(`Get current time: ${currentTime}`);
+        // Send the fetched settings as the response
+        res.json(currentTime);
+    } catch (error) {
+        console.error("Error fetching Fantasy settings:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});

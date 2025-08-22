@@ -205,7 +205,7 @@ async function CreateNewLeagueInDataBase(NewLeague) {
         //await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
         return `this league ${league.englishleagueName} is updated in db`;
     } else {
-        //await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
+        await client.db("LeaguesInfo").collection("Info").insertOne(NewLeague);
         return `the league ${NewLeague.englishleagueName} inserted to db`;
     }
 }
@@ -369,11 +369,12 @@ async function InsertPlayersInfoManyTeams(i_lines, i_englishLeagueName) {
                     const engPlayerName = playerInfo[1].trim();
                     //console.log(engPlayerName);
                     const position = translatePosition(playerInfo[2].trim());
+                    const price = parseInt(playerInfo[3])
                     const playerID = findPlayerID(league);
                     // console.log(`playerID found ${playerID}`);
                     // Create the player object
                     const player = new Player(playerID, engPlayerName, hebPlayerName, team.englishName, team.hebrewName, position,
-                        Array.from({ length: league.numOfGames }, () => 0), 0, 0, []);
+                        Array.from({ length: league.numOfGames }, () => 0), 0, price, []);
 
                     // Add the player to the team's playersList (assuming you have a playersList array in your team object)
                     league.teamsList[teamIndex].players.push(player);
@@ -390,7 +391,7 @@ async function InsertPlayersInfoManyTeams(i_lines, i_englishLeagueName) {
 
         }
         // Update the league document in the database
-        //console.log(league);
+        console.log(league);
         console.log(league.teamsList[0]);
         await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         return `the players info  added  successfully`;
@@ -501,10 +502,10 @@ async function InsertGameweeksToList(i_lines, i_englishLeagueName) {
         }
     }
 
-    //console.log(league);
-    //console.log(league.gameweeksList);
-    //console.log(league.gameweeksList[0]);
-    //console.log(league.gameweeksList[0][0])
+    console.log(league);
+    console.log(league.gameweeksList);
+    console.log(league.gameweeksList[0]);
+    console.log(league.gameweeksList[0][0])
 
     // Update the league document in the database
     await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });

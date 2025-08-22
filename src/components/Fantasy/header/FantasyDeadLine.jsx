@@ -14,6 +14,8 @@ function FantasyDeadLine(props) {
         const endDate = new Date(props.deadLineDate);
 
         const updateCountdown = () => {
+            // after updating server - need to use this get func, do currentTime = res.data and in 'then' block insert the rest of thhe code
+            // axios.get(`https://pendel-server.onrender.com/User/GetCurrentTime`).then((res) => {})
             const currentTime = new Date();
             const timeDifference = endDate - currentTime;
 
