@@ -108,7 +108,7 @@ async function insertNewPlayersToLeagueFromFile(filePath, englishLeagueName) {
     }
 }
 
-//const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit.txt"
+//const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit2.txt"
 //insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
 
 async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeagueName) {
@@ -132,8 +132,8 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
     }
 }
 
-const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
-transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
+//const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
+//transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
 
 
 async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {
@@ -149,7 +149,7 @@ async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagu
             if (TeamData.length === 2) {
                 const hebName = TeamData[0].trim();
                 const engName = TeamData[1].trim();
-                //console.log(`the team name is  ${engName} and in hebrew ${hebName} `)
+                console.log(`the team name is  ${engName} and in hebrew ${hebName} `)
                 const team = new Team(countTeamID, engName, hebName, []);
                 league.TeamsList.push(team);
                 countTeamID++;
@@ -165,13 +165,13 @@ async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagu
 
 }
 
-//const filePath = "../../files/LigaLeumit/namesTeamsLeumit.txt"
-//insertLeagueAndTeamsToDBFromFile(filePath, 3, "LigaLeumit", "ליגה לאומית", 37);
+// const filePath = "../../files/LigaLeumit/namesTeamsLeumit.txt"
+// insertLeagueAndTeamsToDBFromFile(filePath, 3, "LigaLeumit", "ליגה לאומית", 37);
 
 async function insertPlayersToDBFromFileManyTeams(filePath, englishLeagueName) {
     /* format file:
      ** hebrew team name
-     ** each line - hebrew player name , english player name, position
+     ** each line - hebrew player name , english player name, position, *price*
      ** blank line
      ** "END" in last line (after blank line)
      */
@@ -189,8 +189,8 @@ async function insertPlayersToDBFromFileManyTeams(filePath, englishLeagueName) {
     }
 
 }
-//const filePath = "../../files/LigaLeumit/playersLeumit2024-2025.txt"
-//insertPlayersToDBFromFileManyTeams(filePath, "LigaLeumit");
+// const filePath = "../../files/LigaLeumit/playersLeumit2025-2026.txt"
+// insertPlayersToDBFromFileManyTeams(filePath, "LigaLeumit");
 
 async function insertGameweeksToDBFromFile(filePath, englishLeagueName) {
     try {
@@ -208,5 +208,5 @@ async function insertGameweeksToDBFromFile(filePath, englishLeagueName) {
     }
 }
 
-//const filePathGameweek = "../../files/LigaLeumit/gameweeksLeumitFix.txt";
-//insertGameweeksToDBFromFile(filePathGameweek, "LigaLeumit");
+const filePathGameweek = "../../files/LigaLeumit/matches_full_30.txt";
+insertGameweeksToDBFromFile(filePathGameweek, "LigaLeumit");

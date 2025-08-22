@@ -1,0 +1,300 @@
+1
+עירוני מודיעין, Ironi Modi'in @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל רעננה, Hapoel Ra’anana
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל עפולה, Hapoel Afula
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ בני יהודה, Bnei Yehuda
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל כפ"ס, Hapoel Kfar Saba @-@ מכבי יפו, Maccabi Jaffa
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפועל עכו, Hapoel Acre
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפ' חדרה, Hapoel Hadera
+&
+2
+הפ' חדרה, Hapoel Hadera @-@ עירוני מודיעין, Ironi Modi'in
+הפועל עכו, Hapoel Acre @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+מכבי יפו, Maccabi Jaffa @-@ הפועל ר"ג, Hapoel Ramat Gan
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל כפ"ס, Hapoel Kfar Saba
+בני יהודה, Bnei Yehuda @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפועל עפולה, Hapoel Afula @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפועל רעננה, Hapoel Ra’anana @-@ מכבי הרצליה, Maccabi Herzliya
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ מ.ס. קרית ים, MS Kiryat Yam
+&
+3
+מ.ס. קרית ים, MS Kiryat Yam @-@ עירוני מודיעין, Ironi Modi'in
+מכבי הרצליה, Maccabi Herzliya @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפועל רעננה, Hapoel Ra’anana
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפועל עפולה, Hapoel Afula
+הפועל כפ"ס, Hapoel Kfar Saba @-@ בני יהודה, Bnei Yehuda
+הפועל ר"ג, Hapoel Ramat Gan @-@ מכבי פ"ת, Maccabi Petah Tikva
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ מכבי יפו, Maccabi Jaffa
+הפ' חדרה, Hapoel Hadera @-@ הפועל עכו, Hapoel Acre
+&
+4
+עירוני מודיעין, Ironi Modi'in @-@ הפועל עכו, Hapoel Acre
+מכבי יפו, Maccabi Jaffa @-@ הפ' חדרה, Hapoel Hadera
+מכבי פ"ת, Maccabi Petah Tikva @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+בני יהודה, Bnei Yehuda @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפועל עפולה, Hapoel Afula @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפועל רעננה, Hapoel Ra’anana @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+מ.ס. קרית ים, MS Kiryat Yam @-@ מכבי הרצליה, Maccabi Herzliya
+&
+5
+מכבי הרצליה, Maccabi Herzliya @-@ עירוני מודיעין, Ironi Modi'in
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפועל רעננה, Hapoel Ra’anana
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפועל עפולה, Hapoel Afula
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ בני יהודה, Bnei Yehuda
+הפ' חדרה, Hapoel Hadera @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל עכו, Hapoel Acre @-@ מכבי יפו, Maccabi Jaffa
+&
+6
+מכבי יפו, Maccabi Jaffa @-@ עירוני מודיעין, Ironi Modi'in
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל עכו, Hapoel Acre
+בני יהודה, Bnei Yehuda @-@ הפ' חדרה, Hapoel Hadera
+הפועל עפולה, Hapoel Afula @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל רעננה, Hapoel Ra’anana @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל כפ"ס, Hapoel Kfar Saba
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+&
+7
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ עירוני מודיעין, Ironi Modi'in
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ מכבי הרצליה, Maccabi Herzliya
+הפועל כפ"ס, Hapoel Kfar Saba @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל רעננה, Hapoel Ra’anana
+הפ' חדרה, Hapoel Hadera @-@ הפועל עפולה, Hapoel Afula
+הפועל עכו, Hapoel Acre @-@ בני יהודה, Bnei Yehuda
+מכבי יפו, Maccabi Jaffa @-@ מכבי פ"ת, Maccabi Petah Tikva
+&
+8
+מכבי פ"ת, Maccabi Petah Tikva @-@ עירוני מודיעין, Ironi Modi'in
+בני יהודה, Bnei Yehuda @-@ מכבי יפו, Maccabi Jaffa
+הפועל עפולה, Hapoel Afula @-@ הפועל עכו, Hapoel Acre
+הפועל רעננה, Hapoel Ra’anana @-@ הפ' חדרה, Hapoel Hadera
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל ר"ג, Hapoel Ramat Gan
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+&
+9
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ עירוני מודיעין, Ironi Modi'in
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפועל ר"ג, Hapoel Ramat Gan @-@ מכבי הרצליה, Maccabi Herzliya
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפ' חדרה, Hapoel Hadera @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפועל עכו, Hapoel Acre @-@ הפועל רעננה, Hapoel Ra’anana
+מכבי יפו, Maccabi Jaffa @-@ הפועל עפולה, Hapoel Afula
+מכבי פ"ת, Maccabi Petah Tikva @-@ בני יהודה, Bnei Yehuda
+&
+10
+בני יהודה, Bnei Yehuda @-@ עירוני מודיעין, Ironi Modi'in
+הפועל עפולה, Hapoel Afula @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל רעננה, Hapoel Ra’anana @-@ מכבי יפו, Maccabi Jaffa
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל עכו, Hapoel Acre
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפ' חדרה, Hapoel Hadera
+מכבי הרצליה, Maccabi Herzliya @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפועל כפ"ס, Hapoel Kfar Saba
+&
+11
+הפועל כפ"ס, Hapoel Kfar Saba @-@ עירוני מודיעין, Ironi Modi'in
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפ' חדרה, Hapoel Hadera @-@ מכבי הרצליה, Maccabi Herzliya
+הפועל עכו, Hapoel Acre @-@ מ.ס. קרית ים, MS Kiryat Yam
+מכבי יפו, Maccabi Jaffa @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל רעננה, Hapoel Ra’anana
+בני יהודה, Bnei Yehuda @-@ הפועל עפולה, Hapoel Afula
+&
+12
+הפועל עפולה, Hapoel Afula @-@ עירוני מודיעין, Ironi Modi'in
+הפועל רעננה, Hapoel Ra’anana @-@ בני יהודה, Bnei Yehuda
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ מכבי פ"ת, Maccabi Petah Tikva
+מ.ס. קרית ים, MS Kiryat Yam @-@ מכבי יפו, Maccabi Jaffa
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל עכו, Hapoel Acre
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפ' חדרה, Hapoel Hadera
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפועל ר"ג, Hapoel Ramat Gan
+&
+13
+הפועל ר"ג, Hapoel Ramat Gan @-@ עירוני מודיעין, Ironi Modi'in
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפ' חדרה, Hapoel Hadera @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפועל עכו, Hapoel Acre @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+מכבי יפו, Maccabi Jaffa @-@ מכבי הרצליה, Maccabi Herzliya
+מכבי פ"ת, Maccabi Petah Tikva @-@ מ.ס. קרית ים, MS Kiryat Yam
+בני יהודה, Bnei Yehuda @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפועל עפולה, Hapoel Afula @-@ הפועל רעננה, Hapoel Ra’anana
+&
+14
+הפועל רעננה, Hapoel Ra’anana @-@ עירוני מודיעין, Ironi Modi'in
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל עפולה, Hapoel Afula
+מ.ס. קרית ים, MS Kiryat Yam @-@ בני יהודה, Bnei Yehuda
+מכבי הרצליה, Maccabi Herzliya @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ מכבי יפו, Maccabi Jaffa
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפועל עכו, Hapoel Acre
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפ' חדרה, Hapoel Hadera
+הפועל ר"ג, Hapoel Ramat Gan @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+&
+15
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ עירוני מודיעין, Ironi Modi'in
+הפ' חדרה, Hapoel Hadera @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפועל עכו, Hapoel Acre @-@ הפועל כפ"ס, Hapoel Kfar Saba
+מכבי יפו, Maccabi Jaffa @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+בני יהודה, Bnei Yehuda @-@ מכבי הרצליה, Maccabi Herzliya
+הפועל עפולה, Hapoel Afula @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל רעננה, Hapoel Ra’anana @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+&
+16
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ עירוני מודיעין, Ironi Modi'in
+הפועל רעננה, Hapoel Ra’anana @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל עפולה, Hapoel Afula @-@ מכבי הרצליה, Maccabi Herzliya
+בני יהודה, Bnei Yehuda @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+מכבי יפו, Maccabi Jaffa @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפועל עכו, Hapoel Acre @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפ' חדרה, Hapoel Hadera @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+&
+17
+עירוני מודיעין, Ironi Modi'in @-@ הפ' חדרה, Hapoel Hadera
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל עכו, Hapoel Acre
+הפועל ר"ג, Hapoel Ramat Gan @-@ מכבי יפו, Maccabi Jaffa
+הפועל כפ"ס, Hapoel Kfar Saba @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ בני יהודה, Bnei Yehuda
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפועל עפולה, Hapoel Afula
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל רעננה, Hapoel Ra’anana
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+&
+18
+עירוני מודיעין, Ironi Modi'in @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ מכבי הרצליה, Maccabi Herzliya
+הפועל רעננה, Hapoel Ra’anana @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפועל עפולה, Hapoel Afula @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+בני יהודה, Bnei Yehuda @-@ הפועל כפ"ס, Hapoel Kfar Saba
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל ר"ג, Hapoel Ramat Gan
+מכבי יפו, Maccabi Jaffa @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל עכו, Hapoel Acre @-@ הפ' חדרה, Hapoel Hadera
+&
+19
+הפועל עכו, Hapoel Acre @-@ עירוני מודיעין, Ironi Modi'in
+הפ' חדרה, Hapoel Hadera @-@ מכבי יפו, Maccabi Jaffa
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל ר"ג, Hapoel Ramat Gan @-@ בני יהודה, Bnei Yehuda
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפועל עפולה, Hapoel Afula
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפועל רעננה, Hapoel Ra’anana
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+מכבי הרצליה, Maccabi Herzliya @-@ מ.ס. קרית ים, MS Kiryat Yam
+&
+20
+עירוני מודיעין, Ironi Modi'in @-@ מכבי הרצליה, Maccabi Herzliya
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפועל רעננה, Hapoel Ra’anana @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפועל עפולה, Hapoel Afula @-@ הפועל ר"ג, Hapoel Ramat Gan
+בני יהודה, Bnei Yehuda @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפ' חדרה, Hapoel Hadera
+מכבי יפו, Maccabi Jaffa @-@ הפועל עכו, Hapoel Acre
+&
+21
+עירוני מודיעין, Ironi Modi'in @-@ מכבי יפו, Maccabi Jaffa
+הפועל עכו, Hapoel Acre @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפ' חדרה, Hapoel Hadera @-@ בני יהודה, Bnei Yehuda
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל עפולה, Hapoel Afula
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפועל רעננה, Hapoel Ra’anana
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ מכבי הרצליה, Maccabi Herzliya
+&
+22
+עירוני מודיעין, Ironi Modi'in @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפועל רעננה, Hapoel Ra’anana @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל עפולה, Hapoel Afula @-@ הפ' חדרה, Hapoel Hadera
+בני יהודה, Bnei Yehuda @-@ הפועל עכו, Hapoel Acre
+מכבי פ"ת, Maccabi Petah Tikva @-@ מכבי יפו, Maccabi Jaffa
+&
+23
+עירוני מודיעין, Ironi Modi'in @-@ מכבי פ"ת, Maccabi Petah Tikva
+מכבי יפו, Maccabi Jaffa @-@ בני יהודה, Bnei Yehuda
+הפועל עכו, Hapoel Acre @-@ הפועל עפולה, Hapoel Afula
+הפ' חדרה, Hapoel Hadera @-@ הפועל רעננה, Hapoel Ra’anana
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפועל ר"ג, Hapoel Ramat Gan @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל כפ"ס, Hapoel Kfar Saba @-@ מכבי הרצליה, Maccabi Herzliya
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+&
+24
+עירוני מודיעין, Ironi Modi'in @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפועל כפ"ס, Hapoel Kfar Saba
+מכבי הרצליה, Maccabi Herzliya @-@ הפועל ר"ג, Hapoel Ramat Gan
+מ.ס. קרית ים, MS Kiryat Yam @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפ' חדרה, Hapoel Hadera
+הפועל רעננה, Hapoel Ra’anana @-@ הפועל עכו, Hapoel Acre
+הפועל עפולה, Hapoel Afula @-@ מכבי יפו, Maccabi Jaffa
+בני יהודה, Bnei Yehuda @-@ מכבי פ"ת, Maccabi Petah Tikva
+&
+25
+עירוני מודיעין, Ironi Modi'in @-@ בני יהודה, Bnei Yehuda
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפועל עפולה, Hapoel Afula
+מכבי יפו, Maccabi Jaffa @-@ הפועל רעננה, Hapoel Ra’anana
+הפועל עכו, Hapoel Acre @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+הפ' חדרה, Hapoel Hadera @-@ מ.ס. קרית ים, MS Kiryat Yam
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ מכבי הרצליה, Maccabi Herzliya
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+&
+26
+עירוני מודיעין, Ironi Modi'in @-@ הפועל כפ"ס, Hapoel Kfar Saba
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+מכבי הרצליה, Maccabi Herzliya @-@ הפ' חדרה, Hapoel Hadera
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל עכו, Hapoel Acre
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ מכבי יפו, Maccabi Jaffa
+הפועל רעננה, Hapoel Ra’anana @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפועל עפולה, Hapoel Afula @-@ בני יהודה, Bnei Yehuda
+&
+27
+עירוני מודיעין, Ironi Modi'in @-@ הפועל עפולה, Hapoel Afula
+בני יהודה, Bnei Yehuda @-@ הפועל רעננה, Hapoel Ra’anana
+מכבי פ"ת, Maccabi Petah Tikva @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+מכבי יפו, Maccabi Jaffa @-@ מ.ס. קרית ים, MS Kiryat Yam
+הפועל עכו, Hapoel Acre @-@ מכבי הרצליה, Maccabi Herzliya
+הפ' חדרה, Hapoel Hadera @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפועל כפ"ס, Hapoel Kfar Saba
+&
+28
+עירוני מודיעין, Ironi Modi'in @-@ הפועל ר"ג, Hapoel Ramat Gan
+הפועל כפ"ס, Hapoel Kfar Saba @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ הפ' חדרה, Hapoel Hadera
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ הפועל עכו, Hapoel Acre
+מכבי הרצליה, Maccabi Herzliya @-@ מכבי יפו, Maccabi Jaffa
+מ.ס. קרית ים, MS Kiryat Yam @-@ מכבי פ"ת, Maccabi Petah Tikva
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ בני יהודה, Bnei Yehuda
+הפועל רעננה, Hapoel Ra’anana @-@ הפועל עפולה, Hapoel Afula
+&
+29
+עירוני מודיעין, Ironi Modi'in @-@ הפועל רעננה, Hapoel Ra’anana
+הפועל עפולה, Hapoel Afula @-@ הפ' נוף הגליל, Hapoel Nof HaGalil
+בני יהודה, Bnei Yehuda @-@ מ.ס. קרית ים, MS Kiryat Yam
+מכבי פ"ת, Maccabi Petah Tikva @-@ מכבי הרצליה, Maccabi Herzliya
+מכבי יפו, Maccabi Jaffa @-@ הפועל ראשל"צ, Hapoel Rishon LeZion
+הפועל עכו, Hapoel Acre @-@ הפועל כפר שלם, Hapoel Kfar Shalem
+הפ' חדרה, Hapoel Hadera @-@ הפועל כפ"ס, Hapoel Kfar Saba
+מ.ס. כפר קאסם, MS Kafr Qasem @-@ הפועל ר"ג, Hapoel Ramat Gan
+&
+30
+עירוני מודיעין, Ironi Modi'in @-@ מ.ס. כפר קאסם, MS Kafr Qasem
+הפועל ר"ג, Hapoel Ramat Gan @-@ הפ' חדרה, Hapoel Hadera
+הפועל כפ"ס, Hapoel Kfar Saba @-@ הפועל עכו, Hapoel Acre
+הפועל כפר שלם, Hapoel Kfar Shalem @-@ מכבי יפו, Maccabi Jaffa
+הפועל ראשל"צ, Hapoel Rishon LeZion @-@ מכבי פ"ת, Maccabi Petah Tikva
+מכבי הרצליה, Maccabi Herzliya @-@ בני יהודה, Bnei Yehuda
+מ.ס. קרית ים, MS Kiryat Yam @-@ הפועל עפולה, Hapoel Afula
+הפ' נוף הגליל, Hapoel Nof HaGalil @-@ הפועל רעננה, Hapoel Ra’anana
+&

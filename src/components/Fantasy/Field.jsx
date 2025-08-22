@@ -28,7 +28,7 @@ function Field(props) {
     const showButton = location.pathname === `/Fantasy/${props.leagueChoice}/subs`;
 
     function createPlayerButton(player) {
-       //console.log(`team ${player.kit}`);
+       console.log(`team ${player.kit}`);
        // const urlback = `url(../../images/kits/${player.kit}.png)`;
         //const urlback1 = "../../images/kits/Arsenal.png"
       //  console.log(urlback);
