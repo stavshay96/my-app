@@ -108,8 +108,8 @@ async function insertNewPlayersToLeagueFromFile(filePath, englishLeagueName) {
     }
 }
 
-//const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit2.txt"
-//insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
+// const filePath = "../../files/LigaLeumit/newPlayersLigaLeumit2.txt"
+// insertNewPlayersToLeagueFromFile(filePath, "LigaLeumit");
 
 async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeagueName) {
     /* format file:
@@ -132,8 +132,8 @@ async function transferPlayersBetweenTeamsFromFileHebrew(filePath, englishLeague
     }
 }
 
-//const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
-//transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
+const filePath = "../../files/LigaLeumit/transfersInsideLigaLeumit.txt"
+transferPlayersBetweenTeamsFromFileHebrew(filePath, "LigaLeumit");
 
 
 async function insertLeagueAndTeamsToDBFromFile(filePath, leagueID, englishLeagueName, hebrewLeagueName, numOfGames) {
@@ -208,5 +208,5 @@ async function insertGameweeksToDBFromFile(filePath, englishLeagueName) {
     }
 }
 
-const filePathGameweek = "../../files/LigaLeumit/matches_full_30.txt";
-insertGameweeksToDBFromFile(filePathGameweek, "LigaLeumit");
+// const filePathGameweek = "../../files/LigaLeumit/matches_full_30.txt";
+// insertGameweeksToDBFromFile(filePathGameweek, "LigaLeumit");

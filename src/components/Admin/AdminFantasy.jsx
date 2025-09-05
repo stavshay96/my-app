@@ -6,6 +6,8 @@ import {Button} from "react-bootstrap";
 import BackToHomePage from "../General/BackToHomePage"
 import {useNavigate, useLocation} from "react-router-dom";
 
+const positionOrder = ["Goalkeeper", "Defence", "Midfield", "Offence"];
+
 const AdminFantasy = (props) => {
 
     /* admin pass to fantasy:
@@ -15,6 +17,7 @@ const AdminFantasy = (props) => {
     4. subs limit per gameweek
     5. set points to players each gameweek
 */
+
 
     let navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +31,35 @@ const AdminFantasy = (props) => {
         selectedTeam: '',
         selectedPlayer: ''
     });
+    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+    const handleSort = (key) => {
+        setSortConfig((prev) => {
+            if (prev.key === key) {
+                // אם לוחצים שוב על אותה עמודה -> להפוך כיוון
+                return { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' };
+            }
+            return { key, direction: 'asc' };
+        });
+
+        // formData.teamsData.forEach( team => {
+        //     team.players.sort((a, b) => {
+        //         if (sortConfig.key === 'price') {
+        //             return sortConfig.direction === 'asc'
+        //                 ? a.price - b.price
+        //                 : b.price - a.price;
+        //         }
+        //         if (sortConfig.key === 'position') {
+        //             const aIndex = positionOrder.indexOf(a.position);
+        //             const bIndex = positionOrder.indexOf(b.position);
+        //             return sortConfig.direction === 'asc'
+        //                 ? aIndex - bIndex
+        //                 : bIndex - aIndex;
+        //         }
+        //         return 0;
+        //     });
+        // })
+        
+    };
 
     const location = useLocation();
 
@@ -194,6 +226,8 @@ const AdminFantasy = (props) => {
 
     }
 
+    
+
     return (
         <div
             style={{
@@ -286,7 +320,12 @@ const AdminFantasy = (props) => {
                                     <tr>
                                         <th>Player Name Eng</th>
                                         <th>Player Name Heb</th>
-                                        <th>Position</th>
+                                        <th onClick={() => handleSort('price')} style={{cursor: 'pointer'}}>
+                                             Price {sortConfig.key === 'price' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : ''}
+                                         </th>
+                                        <th onClick={() => handleSort('position')} style={{cursor: 'pointer'}}>
+                                            Position {sortConfig.key === 'position' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : ''}
+                                        </th>
                                         <th>Points</th>
                                     </tr>
                                 </thead>
@@ -302,6 +341,9 @@ const AdminFantasy = (props) => {
                                                 </td>
                                                 <td className="player-name">
                                                     {player.hebrewName}
+                                                </td>
+                                                <td className="player-position">
+                                                    {player.price}
                                                 </td>
                                                 <td className="player-position">
                                                     {player.position}
