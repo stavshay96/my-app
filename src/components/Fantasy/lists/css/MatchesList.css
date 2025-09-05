@@ -43,7 +43,7 @@
 
 .cells-grid {
     white-space: normal;
-    line-height: 2;
+    line-height: 4;
     font-size: 30px;
     font-weight: bold;
 }
@@ -120,6 +120,9 @@
     .gameweeks-table-label {
         display: none;
     }
+    .data-grid-matches {
+        display: inline-block;
+    }
 }
 
 @media only screen and (min-width: 1200px) and (orientation: landscape) {
@@ -158,9 +161,12 @@
     padding: 1% 3%;
     /*  box-shadow: 0.1vw 0.3vw 0.9vw rgb(0, 0, 0);*/
 
+
 /*text-decoration: none;*/
 
+
 /*}*/
+
 
 /*.btnGameweekFantasy {
     text-align: center;
@@ -178,9 +184,12 @@
 
 /*text-decoration: none;*/
 
+
 /*width: 7%;*/
 
+
 /*}*/
+
 
 /*.btnRightArrowFantasy {
     text-align: center;
@@ -196,5 +205,6 @@
 
 
 /*text-decoration: none;*/
+
 
 /*}*/
