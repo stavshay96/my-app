@@ -67,7 +67,7 @@ function MatchesList(props) {
     const [limitGameweek, setLimitGameweek] = useState(30);
 
     const [cols, setCols] = useState([{
-            field: "AwayTeam", headerName: "חוץ", headerAlign: 'center', minWidth:150, /*width:150,*/ flex:1, /*width: 350,*/
+            field: "AwayTeam", headerName: "חוץ", headerAlign: 'center', minWidth:150 , /*width:150,*/ flex:1, /*width: 350,*/
             filterable: false, sortable: false, align: 'center', renderCell: wrapCellTeamNameText, renderHeader: wrapHeaderText,
             cellClassName: "away-team-cell"
         }, {
@@ -160,6 +160,12 @@ function MatchesList(props) {
 
         return () => window.removeEventListener('resize', handleResize);
     }, [cols]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            window.dispatchEvent(new Event('resize'));
+        }, 200);
+    }, []);
 
     return (
         <div className="matches-list-container">
