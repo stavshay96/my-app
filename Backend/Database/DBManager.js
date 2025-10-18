@@ -1,6 +1,7 @@
 'use strict';
 const { MongoClient } = require("mongodb");
-const uriDB = "mongodb+srv://Pendel:Pendel@pendel.2h5nfcp.mongodb.net/?retryWrites=true&w=majority";
+//const uriDB = "mongodb+srv://Pendel:Pendel@pendel.2h5nfcp.mongodb.net/?retryWrites=true&w=majority";
+const uriDB = "mongodb+srv://Pendel:Pendel@pendelnew.ksfeemg.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uriDB);
 
 ///--------------------------------- main connecting ------------------------------/////
@@ -439,7 +440,7 @@ async function InsertNewPlayersToLeague(i_lines, i_englishLeagueName) {
 
         }
         // Update the league document in the database
-        await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
+        //await client.db("LeaguesInfo").collection("Info").updateOne(query, { $set: league });
         return `the new players added to  the teams   successfully`;
     } else {
         return "League not found";
